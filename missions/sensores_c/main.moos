@@ -37,7 +37,7 @@ ProcessConfig = ANTLER
   Run = ./pTrajectPID.py @ NewConsole = false
  //Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
-  Run = ./pSimGPS.py    @ NewConsole = false
+  Run = pSimGPS    @ NewConsole = false
   Run = ./pSimDVL.py    @ NewConsole = false
 
 

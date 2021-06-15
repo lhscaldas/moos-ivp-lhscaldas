@@ -162,6 +162,19 @@ pSimIMU/fast:
 	$(MAKE) -f src/pSimIMU/CMakeFiles/pSimIMU.dir/build.make src/pSimIMU/CMakeFiles/pSimIMU.dir/build
 .PHONY : pSimIMU/fast
 
+#=============================================================================
+# Target rules for targets named pSimGPS
+
+# Build rule for target.
+pSimGPS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pSimGPS
+.PHONY : pSimGPS
+
+# fast build rule for target.
+pSimGPS/fast:
+	$(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/build
+.PHONY : pSimGPS/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -174,6 +187,7 @@ help:
 	@echo "... pExampleApp"
 	@echo "... pXRelayTest"
 	@echo "... pSimIMU"
+	@echo "... pSimGPS"
 .PHONY : help
 
 

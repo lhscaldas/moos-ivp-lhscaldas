@@ -19,6 +19,7 @@ ADD_SUBDIRECTORY(lib_behaviors-test)
 ADD_SUBDIRECTORY(pExampleApp)
 ADD_SUBDIRECTORY(pXRelayTest)
 ADD_SUBDIRECTORY(pSimIMU)
+ADD_SUBDIRECTORY(pSimGPS)
 
 ##############################################################################
 #                           END of CMakeLists.txt

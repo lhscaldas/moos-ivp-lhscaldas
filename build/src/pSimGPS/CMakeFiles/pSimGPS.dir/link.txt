@@ -1,0 +1,1 @@
+/usr/bin/c++   -fPIC -g -Wdeprecated-declarations  -rdynamic CMakeFiles/pSimGPS.dir/SimGPS.cpp.o CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.o CMakeFiles/pSimGPS.dir/main.cpp.o  -o ../../../bin/pSimGPS   -L/home/lhscaldas/moos-ivp/lib  -Wl,-rpath,/home/lhscaldas/moos-ivp/lib /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a -lapputil -lmbutil -lm -lpthread -pthread 

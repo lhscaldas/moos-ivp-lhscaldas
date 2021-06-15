@@ -75,6 +75,7 @@ src/all: src/lib_behaviors-test/all
 src/all: src/pExampleApp/all
 src/all: src/pXRelayTest/all
 src/all: src/pSimIMU/all
+src/all: src/pSimGPS/all
 
 .PHONY : src/all
 
@@ -83,6 +84,7 @@ src/preinstall: src/lib_behaviors-test/preinstall
 src/preinstall: src/pExampleApp/preinstall
 src/preinstall: src/pXRelayTest/preinstall
 src/preinstall: src/pSimIMU/preinstall
+src/preinstall: src/pSimGPS/preinstall
 
 .PHONY : src/preinstall
 
@@ -91,6 +93,7 @@ src/clean: src/lib_behaviors-test/clean
 src/clean: src/pExampleApp/clean
 src/clean: src/pXRelayTest/clean
 src/clean: src/pSimIMU/clean
+src/clean: src/pSimGPS/clean
 
 .PHONY : src/clean
 
@@ -129,6 +132,24 @@ src/pExampleApp/preinstall:
 src/pExampleApp/clean: src/pExampleApp/CMakeFiles/pExampleApp.dir/clean
 
 .PHONY : src/pExampleApp/clean
+
+#=============================================================================
+# Directory level rules for directory src/pSimGPS
+
+# Recursive "all" directory target.
+src/pSimGPS/all: src/pSimGPS/CMakeFiles/pSimGPS.dir/all
+
+.PHONY : src/pSimGPS/all
+
+# Recursive "preinstall" directory target.
+src/pSimGPS/preinstall:
+
+.PHONY : src/pSimGPS/preinstall
+
+# Recursive "clean" directory target.
+src/pSimGPS/clean: src/pSimGPS/CMakeFiles/pSimGPS.dir/clean
+
+.PHONY : src/pSimGPS/clean
 
 #=============================================================================
 # Directory level rules for directory src/pSimIMU
@@ -227,7 +248,7 @@ src/pExampleApp/CMakeFiles/pExampleApp.dir/clean:
 src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all:
 	$(MAKE) -f src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build.make src/pXRelayTest/CMakeFiles/pXRelayTest.dir/depend
 	$(MAKE) -f src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build.make src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=10,11,12,13 "Built target pXRelayTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=14,15,16,17 "Built target pXRelayTest"
 .PHONY : src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -254,7 +275,7 @@ src/pXRelayTest/CMakeFiles/pXRelayTest.dir/clean:
 src/pSimIMU/CMakeFiles/pSimIMU.dir/all:
 	$(MAKE) -f src/pSimIMU/CMakeFiles/pSimIMU.dir/build.make src/pSimIMU/CMakeFiles/pSimIMU.dir/depend
 	$(MAKE) -f src/pSimIMU/CMakeFiles/pSimIMU.dir/build.make src/pSimIMU/CMakeFiles/pSimIMU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=6,7,8,9 "Built target pSimIMU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=10,11,12,13 "Built target pSimIMU"
 .PHONY : src/pSimIMU/CMakeFiles/pSimIMU.dir/all
 
 # Build rule for subdir invocation for target.
@@ -273,6 +294,33 @@ pSimIMU: src/pSimIMU/CMakeFiles/pSimIMU.dir/rule
 src/pSimIMU/CMakeFiles/pSimIMU.dir/clean:
 	$(MAKE) -f src/pSimIMU/CMakeFiles/pSimIMU.dir/build.make src/pSimIMU/CMakeFiles/pSimIMU.dir/clean
 .PHONY : src/pSimIMU/CMakeFiles/pSimIMU.dir/clean
+
+#=============================================================================
+# Target rules for target src/pSimGPS/CMakeFiles/pSimGPS.dir
+
+# All Build rule for target.
+src/pSimGPS/CMakeFiles/pSimGPS.dir/all:
+	$(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/depend
+	$(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=6,7,8,9 "Built target pSimGPS"
+.PHONY : src/pSimGPS/CMakeFiles/pSimGPS.dir/all
+
+# Build rule for subdir invocation for target.
+src/pSimGPS/CMakeFiles/pSimGPS.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 src/pSimGPS/CMakeFiles/pSimGPS.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
+.PHONY : src/pSimGPS/CMakeFiles/pSimGPS.dir/rule
+
+# Convenience name for target.
+pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/rule
+
+.PHONY : pSimGPS
+
+# clean rule for target.
+src/pSimGPS/CMakeFiles/pSimGPS.dir/clean:
+	$(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/clean
+.PHONY : src/pSimGPS/CMakeFiles/pSimGPS.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
