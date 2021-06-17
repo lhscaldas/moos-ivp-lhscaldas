@@ -17,6 +17,29 @@ using namespace std;
 
 TrajectPID::TrajectPID()
 {
+  m_desired_speed=0;
+  m_desired_heading=0;
+  m_nav_speed=0;
+  m_nav_heading=0;
+  m_desired_rudder=0;
+  m_desired_rotation=0;
+  m_speed_kp=4.944*2;
+  m_speed_ki=0.1629*5;
+  m_speed_kd=0;
+  m_course_kp=3.97;
+  m_course_ki=0.269;
+  m_course_kd=3.95;
+  m_dt=0.1/3;
+  m_speed_int_err=0;
+  m_speed_prev_err=0;
+  m_speed_setpoint=0;
+  m_speed_maxout=17.5;
+  m_speed_saturated=0;
+  m_course_int_err=0;
+  m_course_prev_err=0;
+  m_course_setpoint=0;
+  m_course_maxout=35;
+  m_course_saturated=0;
 }
 
 //---------------------------------------------------------
@@ -36,7 +59,16 @@ bool TrajectPID::OnNewMail(MOOSMSG_LIST &NewMail)
   MOOSMSG_LIST::iterator p;
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
-    string key    = msg.GetKey();
+    if (msg.GetKey() == "DESIRED_HEADING" && msg.IsDouble()) {
+      m_desired_heading = msg.GetDouble();
+    } else if (msg.GetKey() == "NAV_HEADING" && msg.IsDouble()) {
+      m_nav_heading = msg.GetDouble();
+    } else if (msg.GetKey() == "DESIRED_SPEED" && msg.IsDouble()) {
+      m_desired_speed = msg.GetDouble();
+    }else if (msg.GetKey() == "NAV_SPEED" && msg.IsDouble()) {
+      m_nav_speed = msg.GetDouble();
+    }
+  }
 
 #if 0 // Keep these around just for template
     string comm  = msg.GetCommunity();
@@ -48,13 +80,6 @@ bool TrajectPID::OnNewMail(MOOSMSG_LIST &NewMail)
     bool   mstr  = msg.IsString();
 #endif
 
-     if(key == "FOO") 
-       cout << "great!";
-
-     else if(key != "APPCAST_REQ") // handled by AppCastingMOOSApp
-       reportRunWarning("Unhandled Mail: " + key);
-   }
-	
    return(true);
 }
 
@@ -74,7 +99,12 @@ bool TrajectPID::OnConnectToServer()
 bool TrajectPID::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  // Do your thing here!
+  m_speed_setpoint=m_desired_speed;
+  speedPID(m_nav_speed);
+  m_course_setpoint=m_desired_heading;
+  speedPID(m_nav_heading);
+  m_Comms.Notify("DESIRED_ROTATION", m_desired_rotation);
+  m_Comms.Notify("DESIRED_RUDDER", m_desired_rudder);
   AppCastingMOOSApp::PostReport();
   return(true);
 }
@@ -122,7 +152,10 @@ bool TrajectPID::OnStartUp()
 void TrajectPID::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
-  // Register("FOOBAR", 0);
+  Register("DESIRED_SPEED", 0);
+  Register("NAV_SPEED", 0);
+  Register("DESIRED_HEADING", 0);
+  Register("NAV_HEADING", 0);
 }
 
 
@@ -142,6 +175,42 @@ bool TrajectPID::buildReport()
   m_msgs << actab.getFormattedString();
 
   return(true);
+}
+
+//--------------------------------------------------------
+// PID functions
+void TrajectPID::speedPID(double y)
+{
+  double error = m_speed_setpoint-y;
+  double diff_error = (error-m_speed_prev_err)/m_dt;
+  m_speed_int_err += error*m_dt;
+  double output = m_speed_kp*error + (1-m_speed_saturated)*m_speed_ki*m_speed_int_err + m_speed_kd*diff_error;
+  if(output>m_speed_maxout){
+    output=m_speed_maxout;
+    m_speed_saturated=1;
+    m_speed_int_err=0;
+  }
+  else{
+    m_speed_saturated=0;
+  }
+  m_desired_rotation=output;
+}
+
+void TrajectPID::coursePID(double y)
+{
+  double error = m_course_setpoint-y;
+  double diff_error = (error-m_course_prev_err)/m_dt;
+  m_course_int_err += error*m_dt;
+  double output = m_course_kp*error + (1-m_course_saturated)*m_course_ki*m_course_int_err + m_course_kd*diff_error;
+  if(output>m_course_maxout){
+    output=m_course_maxout;
+    m_course_saturated=1;
+    m_course_int_err=0;
+  }
+  else{
+    m_course_saturated=0;
+  }
+  m_desired_rudder=output;
 }
 
 

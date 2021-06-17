@@ -20,3 +20,6 @@
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/CMakeFiles/rebuild_cache.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/CMakeFiles/edit_cache.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/CMakeFiles/pSimDVL.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/CMakeFiles/rebuild_cache.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/CMakeFiles/edit_cache.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/CMakeFiles/pTrajectPID.dir

@@ -24,8 +24,8 @@ class myPID:
         # diff_error = (y - self.prev_y) / self.dt
         self.int_err += error * self.dt
         output = self.Kp * error + (1-self.saturated) * self.Ki * self.int_err + self.Kd * diff_error
-        if output > self.max_output:
-            output = self.max_output
+        if abs(output) > self.max_output:
+            output = output/abs(output)*self.max_output
             self.saturated = 1
             self.int_err = 0
         else:

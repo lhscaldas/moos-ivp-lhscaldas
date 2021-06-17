@@ -188,6 +188,19 @@ pSimDVL/fast:
 	$(MAKE) -f src/pSimDVL/CMakeFiles/pSimDVL.dir/build.make src/pSimDVL/CMakeFiles/pSimDVL.dir/build
 .PHONY : pSimDVL/fast
 
+#=============================================================================
+# Target rules for targets named pTrajectPID
+
+# Build rule for target.
+pTrajectPID: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pTrajectPID
+.PHONY : pTrajectPID
+
+# fast build rule for target.
+pTrajectPID/fast:
+	$(MAKE) -f src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build
+.PHONY : pTrajectPID/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -202,6 +215,7 @@ help:
 	@echo "... pSimIMU"
 	@echo "... pSimGPS"
 	@echo "... pSimDVL"
+	@echo "... pTrajectPID"
 .PHONY : help
 
 

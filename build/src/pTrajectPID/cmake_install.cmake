@@ -1,4 +1,4 @@
-# Install script for directory: /home/lhscaldas/moos-ivp-lhscaldas/src
+# Install script for directory: /home/lhscaldas/moos-ivp-lhscaldas/src/pTrajectPID
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,17 +35,5 @@ endif()
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/lib_behaviors-test/cmake_install.cmake")
-  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pExampleApp/cmake_install.cmake")
-  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pXRelayTest/cmake_install.cmake")
-  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimIMU/cmake_install.cmake")
-  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS/cmake_install.cmake")
-  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/cmake_install.cmake")
-  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/cmake_install.cmake")
-
 endif()
 

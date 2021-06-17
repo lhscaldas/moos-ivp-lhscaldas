@@ -77,6 +77,7 @@ src/all: src/pXRelayTest/all
 src/all: src/pSimIMU/all
 src/all: src/pSimGPS/all
 src/all: src/pSimDVL/all
+src/all: src/pTrajectPID/all
 
 .PHONY : src/all
 
@@ -87,6 +88,7 @@ src/preinstall: src/pXRelayTest/preinstall
 src/preinstall: src/pSimIMU/preinstall
 src/preinstall: src/pSimGPS/preinstall
 src/preinstall: src/pSimDVL/preinstall
+src/preinstall: src/pTrajectPID/preinstall
 
 .PHONY : src/preinstall
 
@@ -97,6 +99,7 @@ src/clean: src/pXRelayTest/clean
 src/clean: src/pSimIMU/clean
 src/clean: src/pSimGPS/clean
 src/clean: src/pSimDVL/clean
+src/clean: src/pTrajectPID/clean
 
 .PHONY : src/clean
 
@@ -191,6 +194,24 @@ src/pSimIMU/clean: src/pSimIMU/CMakeFiles/pSimIMU.dir/clean
 .PHONY : src/pSimIMU/clean
 
 #=============================================================================
+# Directory level rules for directory src/pTrajectPID
+
+# Recursive "all" directory target.
+src/pTrajectPID/all: src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all
+
+.PHONY : src/pTrajectPID/all
+
+# Recursive "preinstall" directory target.
+src/pTrajectPID/preinstall:
+
+.PHONY : src/pTrajectPID/preinstall
+
+# Recursive "clean" directory target.
+src/pTrajectPID/clean: src/pTrajectPID/CMakeFiles/pTrajectPID.dir/clean
+
+.PHONY : src/pTrajectPID/clean
+
+#=============================================================================
 # Directory level rules for directory src/pXRelayTest
 
 # Recursive "all" directory target.
@@ -269,7 +290,7 @@ src/pExampleApp/CMakeFiles/pExampleApp.dir/clean:
 src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all:
 	$(MAKE) -f src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build.make src/pXRelayTest/CMakeFiles/pXRelayTest.dir/depend
 	$(MAKE) -f src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build.make src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=18,19,20,21 "Built target pXRelayTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=22,23,24,25 "Built target pXRelayTest"
 .PHONY : src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -369,6 +390,33 @@ pSimDVL: src/pSimDVL/CMakeFiles/pSimDVL.dir/rule
 src/pSimDVL/CMakeFiles/pSimDVL.dir/clean:
 	$(MAKE) -f src/pSimDVL/CMakeFiles/pSimDVL.dir/build.make src/pSimDVL/CMakeFiles/pSimDVL.dir/clean
 .PHONY : src/pSimDVL/CMakeFiles/pSimDVL.dir/clean
+
+#=============================================================================
+# Target rules for target src/pTrajectPID/CMakeFiles/pTrajectPID.dir
+
+# All Build rule for target.
+src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all:
+	$(MAKE) -f src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make src/pTrajectPID/CMakeFiles/pTrajectPID.dir/depend
+	$(MAKE) -f src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=18,19,20,21 "Built target pTrajectPID"
+.PHONY : src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all
+
+# Build rule for subdir invocation for target.
+src/pTrajectPID/CMakeFiles/pTrajectPID.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
+.PHONY : src/pTrajectPID/CMakeFiles/pTrajectPID.dir/rule
+
+# Convenience name for target.
+pTrajectPID: src/pTrajectPID/CMakeFiles/pTrajectPID.dir/rule
+
+.PHONY : pTrajectPID
+
+# clean rule for target.
+src/pTrajectPID/CMakeFiles/pTrajectPID.dir/clean:
+	$(MAKE) -f src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make src/pTrajectPID/CMakeFiles/pTrajectPID.dir/clean
+.PHONY : src/pTrajectPID/CMakeFiles/pTrajectPID.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

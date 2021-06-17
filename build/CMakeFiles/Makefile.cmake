@@ -17,6 +17,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../src/pSimDVL/CMakeLists.txt"
   "../src/pSimGPS/CMakeLists.txt"
   "../src/pSimIMU/CMakeLists.txt"
+  "../src/pTrajectPID/CMakeLists.txt"
   "../src/pXRelayTest/CMakeLists.txt"
   "/home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/MOOSConfig.cmake"
   "/home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/MOOSConfigVersion.cmake"
@@ -64,6 +65,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/pSimIMU/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/pSimGPS/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/pSimDVL/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/pTrajectPID/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -74,4 +76,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "src/pSimIMU/CMakeFiles/pSimIMU.dir/DependInfo.cmake"
   "src/pSimGPS/CMakeFiles/pSimGPS.dir/DependInfo.cmake"
   "src/pSimDVL/CMakeFiles/pSimDVL.dir/DependInfo.cmake"
+  "src/pTrajectPID/CMakeFiles/pTrajectPID.dir/DependInfo.cmake"
   )
