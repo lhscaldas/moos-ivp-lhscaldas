@@ -1,20 +1,20 @@
 /************************************************************/
-/*    NAME: lhscaldas                                       */
-/*    ORGN: USP, São Paulo SP                               */
-/*    FILE: SimIMU.h                                        */
-/*    DATE: 14/06/2021                                      */
+/*    NAME: lhscaldas                                              */
+/*    ORGN: MIT, Cambridge MA                               */
+/*    FILE: TrajectPID.h                                          */
+/*    DATE: December 29th, 1963                             */
 /************************************************************/
 
-#ifndef SimIMU_HEADER
-#define SimIMU_HEADER
+#ifndef TrajectPID_HEADER
+#define TrajectPID_HEADER
 
 #include "MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h"
 
-class SimIMU : public AppCastingMOOSApp
+class TrajectPID : public AppCastingMOOSApp
 {
  public:
-   SimIMU();
-   ~SimIMU();
+   TrajectPID();
+   ~TrajectPID();
 
  protected: // Standard MOOSApp functions to overload  
    bool OnNewMail(MOOSMSG_LIST &NewMail);
@@ -27,10 +27,6 @@ class SimIMU : public AppCastingMOOSApp
 
  protected:
    void registerVariables();
-
- protected:
-   double m_real_heading;
-   double m_nav_heading;
 
  private: // Configuration variables
 

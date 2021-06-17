@@ -17,3 +17,6 @@
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS/CMakeFiles/rebuild_cache.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS/CMakeFiles/edit_cache.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS/CMakeFiles/pSimGPS.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/CMakeFiles/rebuild_cache.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/CMakeFiles/edit_cache.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/CMakeFiles/pSimDVL.dir

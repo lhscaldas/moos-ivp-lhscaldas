@@ -2,19 +2,19 @@
 /*    NAME: lhscaldas                                       */
 /*    ORGN: USP, São Paulo SP                               */
 /*    FILE: SimIMU.h                                        */
-/*    DATE: 14/06/2021                                      */
+/*    DATE: 17/06/2021                                      */
 /************************************************************/
 
-#ifndef SimIMU_HEADER
-#define SimIMU_HEADER
+#ifndef SimDVL_HEADER
+#define SimDVL_HEADER
 
 #include "MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h"
 
-class SimIMU : public AppCastingMOOSApp
+class SimDVL : public AppCastingMOOSApp
 {
  public:
-   SimIMU();
-   ~SimIMU();
+   SimDVL();
+   ~SimDVL();
 
  protected: // Standard MOOSApp functions to overload  
    bool OnNewMail(MOOSMSG_LIST &NewMail);
@@ -29,8 +29,8 @@ class SimIMU : public AppCastingMOOSApp
    void registerVariables();
 
  protected:
-   double m_real_heading;
-   double m_nav_heading;
+   double m_real_speed;
+   double m_nav_speed;
 
  private: // Configuration variables
 

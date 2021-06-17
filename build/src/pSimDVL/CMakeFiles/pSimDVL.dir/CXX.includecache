@@ -6,33 +6,45 @@
 
 #IncludeRegexTransform: 
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL.cpp
 iterator
 -
 MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/MBUtils.h
 ACTable.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/ACTable.h
-SimIMU.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/ACTable.h
+SimDVL.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL_Info.cpp
+cstdlib
+-
+iostream
+-
+SimDVL_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL_Info.h
+ColorParse.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/ColorParse.h
+ReleaseInfo.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/ReleaseInfo.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/main.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL_Info.h
+
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/main.cpp
 string
 -
 MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/MBUtils.h
 ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/ColorParse.h
-SimIMU.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU.h
-SimIMU_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/ColorParse.h
+SimDVL.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL.h
+SimDVL_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL_Info.h
 
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/ClientDefines.h
 
@@ -488,5 +500,9 @@ set
 list
 -
 time.h
+-
+
+/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
+string
 -
 

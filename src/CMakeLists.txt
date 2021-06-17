@@ -20,6 +20,8 @@ ADD_SUBDIRECTORY(pExampleApp)
 ADD_SUBDIRECTORY(pXRelayTest)
 ADD_SUBDIRECTORY(pSimIMU)
 ADD_SUBDIRECTORY(pSimGPS)
+ADD_SUBDIRECTORY(pSimDVL)
+ADD_SUBDIRECTORY(pTrajectPID)
 
 ##############################################################################
 #                           END of CMakeLists.txt
