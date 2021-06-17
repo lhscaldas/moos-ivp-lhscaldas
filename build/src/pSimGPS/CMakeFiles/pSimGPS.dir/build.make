@@ -70,9 +70,22 @@ src/pSimGPS/CMakeFiles/pSimGPS.dir/SimGPS.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pSimGPS.dir/SimGPS.cpp.s"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.cpp -o CMakeFiles/pSimGPS.dir/SimGPS.cpp.s
 
+src/pSimGPS/CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.o: src/pSimGPS/CMakeFiles/pSimGPS.dir/flags.make
+src/pSimGPS/CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.o: ../src/pSimGPS/MOOSGeodesy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/pSimGPS/CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.o"
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.o -c /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.cpp
+
+src/pSimGPS/CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.i"
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.cpp > CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.i
+
+src/pSimGPS/CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.s"
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.cpp -o CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.s
+
 src/pSimGPS/CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.o: src/pSimGPS/CMakeFiles/pSimGPS.dir/flags.make
 src/pSimGPS/CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.o: ../src/pSimGPS/SimGPS_Info.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/pSimGPS/CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/pSimGPS/CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.o"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.o -c /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.cpp
 
 src/pSimGPS/CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.i: cmake_force
@@ -85,7 +98,7 @@ src/pSimGPS/CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.s: cmake_force
 
 src/pSimGPS/CMakeFiles/pSimGPS.dir/main.cpp.o: src/pSimGPS/CMakeFiles/pSimGPS.dir/flags.make
 src/pSimGPS/CMakeFiles/pSimGPS.dir/main.cpp.o: ../src/pSimGPS/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/pSimGPS/CMakeFiles/pSimGPS.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/pSimGPS/CMakeFiles/pSimGPS.dir/main.cpp.o"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pSimGPS.dir/main.cpp.o -c /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/main.cpp
 
 src/pSimGPS/CMakeFiles/pSimGPS.dir/main.cpp.i: cmake_force
@@ -99,6 +112,7 @@ src/pSimGPS/CMakeFiles/pSimGPS.dir/main.cpp.s: cmake_force
 # Object files for target pSimGPS
 pSimGPS_OBJECTS = \
 "CMakeFiles/pSimGPS.dir/SimGPS.cpp.o" \
+"CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.o" \
 "CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.o" \
 "CMakeFiles/pSimGPS.dir/main.cpp.o"
 
@@ -106,12 +120,13 @@ pSimGPS_OBJECTS = \
 pSimGPS_EXTERNAL_OBJECTS =
 
 ../bin/pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/SimGPS.cpp.o
+../bin/pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.o
 ../bin/pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/SimGPS_Info.cpp.o
 ../bin/pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/main.cpp.o
 ../bin/pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make
 ../bin/pSimGPS: /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
 ../bin/pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../../bin/pSimGPS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../../../bin/pSimGPS"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pSimGPS.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

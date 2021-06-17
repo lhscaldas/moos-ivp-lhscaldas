@@ -5,6 +5,7 @@
 
 SET(SRC
   SimGPS.cpp
+  MOOSGeodesy.cpp
   SimGPS_Info.cpp
   main.cpp
 )

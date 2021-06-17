@@ -8,6 +8,7 @@
 #include <string>
 #include "MBUtils.h"
 #include "ColorParse.h"
+#include "MOOSGeodesy.h"
 #include "SimGPS.h"
 #include "SimGPS_Info.h"
 

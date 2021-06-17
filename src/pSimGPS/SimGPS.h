@@ -7,9 +7,8 @@
 
 #ifndef SimGPS_HEADER
 #define SimGPS_HEADER
-
 #include "MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h"
-
+#include "MOOSGeodesy.h"
 class SimGPS : public AppCastingMOOSApp
 {
  public:
@@ -29,10 +28,15 @@ class SimGPS : public AppCastingMOOSApp
    void registerVariables();
  
  protected:
+   CMOOSGeodesy m_geodesy;
    double m_real_x;
    double m_nav_x;
    double m_real_y;
    double m_nav_y;
+   double m_Olat;
+   double m_Olon;
+   double m_nav_lat;
+   double m_nav_lon;
 
  private: // Configuration variables
 

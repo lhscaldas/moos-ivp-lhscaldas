@@ -290,7 +290,7 @@ src/pExampleApp/CMakeFiles/pExampleApp.dir/clean:
 src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all:
 	$(MAKE) -f src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build.make src/pXRelayTest/CMakeFiles/pXRelayTest.dir/depend
 	$(MAKE) -f src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build.make src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=22,23,24,25 "Built target pXRelayTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=23,24,25,26 "Built target pXRelayTest"
 .PHONY : src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -317,7 +317,7 @@ src/pXRelayTest/CMakeFiles/pXRelayTest.dir/clean:
 src/pSimIMU/CMakeFiles/pSimIMU.dir/all:
 	$(MAKE) -f src/pSimIMU/CMakeFiles/pSimIMU.dir/build.make src/pSimIMU/CMakeFiles/pSimIMU.dir/depend
 	$(MAKE) -f src/pSimIMU/CMakeFiles/pSimIMU.dir/build.make src/pSimIMU/CMakeFiles/pSimIMU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=14,15,16,17 "Built target pSimIMU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=15,16,17,18 "Built target pSimIMU"
 .PHONY : src/pSimIMU/CMakeFiles/pSimIMU.dir/all
 
 # Build rule for subdir invocation for target.
@@ -344,12 +344,12 @@ src/pSimIMU/CMakeFiles/pSimIMU.dir/clean:
 src/pSimGPS/CMakeFiles/pSimGPS.dir/all:
 	$(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/depend
 	$(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=10,11,12,13 "Built target pSimGPS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=10,11,12,13,14 "Built target pSimGPS"
 .PHONY : src/pSimGPS/CMakeFiles/pSimGPS.dir/all
 
 # Build rule for subdir invocation for target.
 src/pSimGPS/CMakeFiles/pSimGPS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 src/pSimGPS/CMakeFiles/pSimGPS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/pSimGPS/CMakeFiles/pSimGPS.dir/rule
@@ -398,7 +398,7 @@ src/pSimDVL/CMakeFiles/pSimDVL.dir/clean:
 src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all:
 	$(MAKE) -f src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make src/pTrajectPID/CMakeFiles/pTrajectPID.dir/depend
 	$(MAKE) -f src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=18,19,20,21 "Built target pTrajectPID"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=19,20,21,22 "Built target pTrajectPID"
 .PHONY : src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all
 
 # Build rule for subdir invocation for target.

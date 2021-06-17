@@ -125,6 +125,33 @@ pSimGPS/fast:
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/build
 .PHONY : pSimGPS/fast
 
+MOOSGeodesy.o: MOOSGeodesy.cpp.o
+
+.PHONY : MOOSGeodesy.o
+
+# target to build an object file
+MOOSGeodesy.cpp.o:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.o
+.PHONY : MOOSGeodesy.cpp.o
+
+MOOSGeodesy.i: MOOSGeodesy.cpp.i
+
+.PHONY : MOOSGeodesy.i
+
+# target to preprocess a source file
+MOOSGeodesy.cpp.i:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.i
+.PHONY : MOOSGeodesy.cpp.i
+
+MOOSGeodesy.s: MOOSGeodesy.cpp.s
+
+.PHONY : MOOSGeodesy.s
+
+# target to generate assembly for a file
+MOOSGeodesy.cpp.s:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/MOOSGeodesy.cpp.s
+.PHONY : MOOSGeodesy.cpp.s
+
 SimGPS.o: SimGPS.cpp.o
 
 .PHONY : SimGPS.o
@@ -215,6 +242,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... pSimGPS"
+	@echo "... MOOSGeodesy.o"
+	@echo "... MOOSGeodesy.i"
+	@echo "... MOOSGeodesy.s"
 	@echo "... SimGPS.o"
 	@echo "... SimGPS.i"
 	@echo "... SimGPS.s"

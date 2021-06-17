@@ -180,6 +180,6 @@ ProcessConfig = pNodeReporter
   platform_color  = red
   platform_length = 15
 
-  cross_fill_policy=fill-empty
+  //cross_fill_policy=fill-empty
 }
 

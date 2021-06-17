@@ -17,10 +17,15 @@ using namespace std;
 
 SimGPS::SimGPS()
 {
-   double m_real_x=0;
-   double m_nav_x=0;
-   double m_real_y=0;
-   double m_nav_y=0;
+   m_real_x=0;
+   m_nav_x=0;
+   m_real_y=0;
+   m_nav_y=0;
+   m_Olat=-22.933333;
+   m_Olon=-43.833333;
+   m_nav_lat=0;
+   m_nav_lon=0;
+   m_geodesy.Initialise(m_Olat,m_Olon);
 }
 
 //---------------------------------------------------------
@@ -81,6 +86,9 @@ bool SimGPS::Iterate()
   m_nav_y=m_real_y;
   m_Comms.Notify("NAV_X", m_nav_x);
   m_Comms.Notify("NAV_Y", m_nav_y);
+  m_geodesy.LocalGrid2LatLong(m_nav_x, m_nav_y, m_nav_lat, m_nav_lon);
+  m_Comms.Notify("NAV_LAT", m_nav_lat);
+  m_Comms.Notify("NAV_LONG", m_nav_lon);
   AppCastingMOOSApp::PostReport();
   return(true);
 }
