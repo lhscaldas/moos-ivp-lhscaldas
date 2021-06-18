@@ -30,7 +30,7 @@ class SimDVL : public AppCastingMOOSApp
 
  protected:
    double m_real_speed;
-   double m_nav_speed;
+   double m_dvl_speed;
 
  private: // Configuration variables
 

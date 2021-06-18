@@ -25,7 +25,7 @@ SimDVL::SimDVL()
 SimDVL::~SimDVL()
 {
   double m_real_speed=0;
-  double m_nav_speed=0;
+  double m_dvl_speed=0;
 }
 
 //---------------------------------------------------------
@@ -38,7 +38,7 @@ bool SimDVL::OnNewMail(MOOSMSG_LIST &NewMail)
   MOOSMSG_LIST::iterator p;
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
-    if (msg.GetKey() == "REAL_SPEED" && msg.IsDouble()) {
+    if (msg.GetKey() == "NAV_SPEED" && msg.IsDouble()) {
       m_real_speed = msg.GetDouble();
     }
   }
@@ -72,8 +72,8 @@ bool SimDVL::OnConnectToServer()
 bool SimDVL::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  m_nav_speed=m_real_speed;
-  m_Comms.Notify("NAV_SPEED", m_nav_speed);
+  m_dvl_speed=m_real_speed;
+  m_Comms.Notify("DVL_SPEED", m_dvl_speed);
   AppCastingMOOSApp::PostReport();
   return(true);
 }
@@ -121,7 +121,7 @@ bool SimDVL::OnStartUp()
 void SimDVL::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
-  Register("REAL_SPEED", 0);
+  Register("NAV_SPEED", 0);
 }
 
 

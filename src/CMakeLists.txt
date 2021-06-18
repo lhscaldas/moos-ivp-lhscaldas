@@ -22,6 +22,7 @@ ADD_SUBDIRECTORY(pSimIMU)
 ADD_SUBDIRECTORY(pSimGPS)
 ADD_SUBDIRECTORY(pSimDVL)
 ADD_SUBDIRECTORY(pTrajectPID)
+ADD_SUBDIRECTORY(pSensor)
 
 ##############################################################################
 #                           END of CMakeLists.txt

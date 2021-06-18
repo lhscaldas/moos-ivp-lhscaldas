@@ -50,15 +50,15 @@ class pTrajectPID(pymoos.comms):
         self.add_message_route_to_active_queue('desired_queue', 'DESIRED_SPEED')
         self.add_message_route_to_active_queue('desired_queue', 'DESIRED_HEADING')
 
-        self.add_active_queue('nav_queue', self.on_nav_message)
-        self.add_message_route_to_active_queue('nav_queue', 'NAV_SPEED')
-        self.add_message_route_to_active_queue('nav_queue', 'NAV_HEADING')
+        self.add_active_queue('sensor_queue', self.on_sensor_message)
+        self.add_message_route_to_active_queue('sensor_queue', 'SENSOR_SPEED')
+        self.add_message_route_to_active_queue('sensor_queue', 'SENSOR_HEADING')
         
         self.desired_speed = 0
         self.desired_heading = 0
 
-        self.nav_speed = 0
-        self.nav_heading = 0
+        self.sensor_speed = 0
+        self.sensor_heading = 0
 
         self.desired_rudder = 0
         self.desired_rotation = 0
@@ -79,8 +79,8 @@ class pTrajectPID(pymoos.comms):
               "under the name ", self.name)
         return (self.register('DESIRED_SPEED', 0) and
                 self.register('DESIRED_HEADING', 0) and
-                self.register('NAV_SPEED', 0) and
-                self.register('NAV_HEADING', 0))
+                self.register('SENSOR_SPEED', 0) and
+                self.register('SENSOR_HEADING', 0))
 
     def __on_new_mail(self):
         """OnNewMail callback"""
@@ -96,12 +96,12 @@ class pTrajectPID(pymoos.comms):
             self.desired_heading = msg.double() # graus
         return True
 
-    def on_nav_message(self, msg):
+    def on_sensor_message(self, msg):
         """Special callback for Desired"""
-        if msg.key() == 'NAV_SPEED':
-            self.nav_speed = msg.double() # m/s
-        elif msg.key() == 'NAV_HEADING':
-            self.nav_heading = msg.double() # graus
+        if msg.key() == 'SENSOR_SPEED':
+            self.sensor_speed = msg.double() # m/s
+        elif msg.key() == 'SENSOR_HEADING':
+            self.sensor_heading = msg.double() # graus
         return True
 
     def send(self, key, value):
@@ -134,7 +134,7 @@ class pTrajectPID(pymoos.comms):
            
             # Atualiza setpoint
             self.speedPID.setpoint = self.desired_speed
-            heading_diff = self.desired_heading - self.nav_heading
+            heading_diff = self.desired_heading - self.sensor_heading
             if heading_diff >= 180:
                 self.coursePID.setpoint = self.desired_heading - 360
             elif heading_diff <= -180:
@@ -143,8 +143,8 @@ class pTrajectPID(pymoos.comms):
                 self.coursePID.setpoint = self.desired_heading
 
             # Atualiza atuadores
-            self.desired_rotation = self.speedPID.output(self.nav_speed)
-            self.desired_rudder = self.coursePID.output(self.nav_heading)
+            self.desired_rotation = self.speedPID.output(self.sensor_speed)
+            self.desired_rudder = self.coursePID.output(self.sensor_heading)
 
             self.update()
             # self.debug(dt)

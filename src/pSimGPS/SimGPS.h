@@ -30,9 +30,9 @@ class SimGPS : public AppCastingMOOSApp
  protected:
    CMOOSGeodesy m_geodesy;
    double m_real_x;
-   double m_nav_x;
+   double m_gps_x;
    double m_real_y;
-   double m_nav_y;
+   double m_gps_y;
    double m_Olat;
    double m_Olon;
    double m_nav_lat;

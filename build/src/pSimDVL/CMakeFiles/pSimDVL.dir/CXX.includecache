@@ -20,18 +20,6 @@ SimDVL.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL_Info.cpp
-cstdlib
--
-iostream
--
-SimDVL_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL_Info.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/ColorParse.h
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/ReleaseInfo.h
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL_Info.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/main.cpp
@@ -500,9 +488,5 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 

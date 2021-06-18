@@ -18,7 +18,7 @@ using namespace std;
 SimIMU::SimIMU()
 {
   double m_real_heading=0;
-  double m_nav_heading=0;
+  double m_imu_heading=0;
 }
 
 //---------------------------------------------------------
@@ -38,7 +38,7 @@ bool SimIMU::OnNewMail(MOOSMSG_LIST &NewMail)
   MOOSMSG_LIST::iterator p;
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
-    if (msg.GetKey() == "REAL_HEADING" && msg.IsDouble()) {
+    if (msg.GetKey() == "NAV_HEADING" && msg.IsDouble()) {
       m_real_heading = msg.GetDouble();
     }
   }
@@ -72,8 +72,8 @@ bool SimIMU::OnConnectToServer()
 bool SimIMU::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  m_nav_heading=m_real_heading;
-  m_Comms.Notify("NAV_HEADING", m_nav_heading);
+  m_imu_heading=m_real_heading;
+  m_Comms.Notify("IMU_HEADING", m_imu_heading);
   AppCastingMOOSApp::PostReport();
   return(true);
 }
@@ -121,7 +121,7 @@ bool SimIMU::OnStartUp()
 void SimIMU::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
-  Register("REAL_HEADING", 0);
+  Register("NAV_HEADING", 0);
 }
 
 

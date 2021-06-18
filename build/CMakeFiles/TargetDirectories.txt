@@ -23,3 +23,6 @@
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/CMakeFiles/rebuild_cache.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/CMakeFiles/edit_cache.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/CMakeFiles/pTrajectPID.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSensor/CMakeFiles/rebuild_cache.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSensor/CMakeFiles/edit_cache.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSensor/CMakeFiles/pSensor.dir

@@ -201,6 +201,19 @@ pTrajectPID/fast:
 	$(MAKE) -f src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build
 .PHONY : pTrajectPID/fast
 
+#=============================================================================
+# Target rules for targets named pSensor
+
+# Build rule for target.
+pSensor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pSensor
+.PHONY : pSensor
+
+# fast build rule for target.
+pSensor/fast:
+	$(MAKE) -f src/pSensor/CMakeFiles/pSensor.dir/build.make src/pSensor/CMakeFiles/pSensor.dir/build
+.PHONY : pSensor/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -216,6 +229,7 @@ help:
 	@echo "... pSimGPS"
 	@echo "... pSimDVL"
 	@echo "... pTrajectPID"
+	@echo "... pSensor"
 .PHONY : help
 
 

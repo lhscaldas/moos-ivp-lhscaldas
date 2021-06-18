@@ -6,39 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor.cpp
 iterator
 -
 MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/MBUtils.h
 ACTable.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/ACTable.h
-SimGPS.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/ACTable.h
+Sensor.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
-MOOSGeodesy.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/main.cpp
-string
--
-MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MBUtils.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/ColorParse.h
-MOOSGeodesy.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
-SimGPS.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.h
-SimGPS_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/ClientDefines.h
 
@@ -476,12 +456,6 @@ string
 vector
 -
 list
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
-vector
--
-string
 -
 
 /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/MBUtils.h

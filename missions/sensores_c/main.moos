@@ -28,6 +28,7 @@ ProcessConfig = ANTLER
   MSBetweenLaunches = 200
 
   Run = MOOSDB          @ NewConsole = false
+  // Run = uXMS            @ NewConsole = true
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
@@ -40,11 +41,25 @@ ProcessConfig = ANTLER
   Run = pSimIMU   @ NewConsole = false
   Run = pSimGPS    @ NewConsole = false
   Run = pSimDVL    @ NewConsole = false
+  Run = pSensor    @ NewConsole = false
 
 
   one = --size=800x600
 }
 
+//------------------------------------------
+// uXMS config block
+
+ProcessConfig = uXMS
+{
+  AppTick   = 4
+  CommsTick = 4
+  //var    = NAV_X, NAV_Y, NAV_SPEED, NAV_HEADING 
+  //var    = GPS_X, GPS_Y, DVL_SPEED, IMU_HEADING
+  //var    = SENSOR_X, SENSOR_Y, SENSOR_SPEED, SENSOR_HEADING
+  var = NAV_HEADING, IMU_HEADING, SENSOR_HEADING
+
+}
 
 //------------------------------------------
 // pLogger config block

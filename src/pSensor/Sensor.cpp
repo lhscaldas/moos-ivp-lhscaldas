@@ -1,54 +1,60 @@
 /************************************************************/
-/*    NAME: lhscaldas                                       */
-/*    ORGN: USP, São Paulo SP                               */
-/*    FILE: SimGPS.cpp                                      */
-/*    DATE: 14/06/2021                                      */
+/*    NAME: lhscaldas                                              */
+/*    ORGN: MIT, Cambridge MA                               */
+/*    FILE: Sensor.cpp                                        */
+/*    DATE: December 29th, 1963                             */
 /************************************************************/
 
 #include <iterator>
 #include "MBUtils.h"
 #include "ACTable.h"
-#include "SimGPS.h"
+#include "Sensor.h"
 
 using namespace std;
 
 //---------------------------------------------------------
 // Constructor
 
-SimGPS::SimGPS()
+Sensor::Sensor()
 {
-   m_real_x=0;
-   m_gps_x=0;
-   m_real_y=0;
-   m_gps_y=0;
-   m_Olat=-22.933333;
-   m_Olon=-43.833333;
-   m_nav_lat=0;
-   m_nav_lon=0;
-   m_geodesy.Initialise(m_Olat,m_Olon);
+  m_dvl_speed=0;
+  m_gps_x=0;
+  m_gps_y=0;
+  m_imu_heading=0;
+  m_sensor_speed=0;
+  m_sensor_x=0;
+  m_sensor_y=0;
+  m_sensor_heading=0;
 }
 
 //---------------------------------------------------------
 // Destructor
 
-SimGPS::~SimGPS()
+Sensor::~Sensor()
 {
 }
 
 //---------------------------------------------------------
 // Procedure: OnNewMail
 
-bool SimGPS::OnNewMail(MOOSMSG_LIST &NewMail)
+bool Sensor::OnNewMail(MOOSMSG_LIST &NewMail)
 {
   AppCastingMOOSApp::OnNewMail(NewMail);
 
   MOOSMSG_LIST::iterator p;
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
-    if (msg.GetKey() == "NAV_X" && msg.IsDouble()) {
-      m_real_x = msg.GetDouble();
-    } else if (msg.GetKey() == "NAV_Y" && msg.IsDouble()) {
-      m_real_y = msg.GetDouble();
+    if (msg.GetKey() == "DVL_SPEED" && msg.IsDouble()) {
+      m_dvl_speed = msg.GetDouble();
+    }
+    else if (msg.GetKey() == "GPS_X" && msg.IsDouble()) {
+      m_gps_x = msg.GetDouble();
+    }
+    else if (msg.GetKey() == "GPS_Y" && msg.IsDouble()) {
+      m_gps_y = msg.GetDouble();
+    }
+    else if (msg.GetKey() == "IMU_HEADING" && msg.IsDouble()) {
+      m_imu_heading = msg.GetDouble();
     }
   }
 
@@ -61,7 +67,6 @@ bool SimGPS::OnNewMail(MOOSMSG_LIST &NewMail)
     bool   mdbl  = msg.IsDouble();
     bool   mstr  = msg.IsString();
 #endif
-
 	
    return(true);
 }
@@ -69,7 +74,7 @@ bool SimGPS::OnNewMail(MOOSMSG_LIST &NewMail)
 //---------------------------------------------------------
 // Procedure: OnConnectToServer
 
-bool SimGPS::OnConnectToServer()
+bool Sensor::OnConnectToServer()
 {
    registerVariables();
    return(true);
@@ -79,16 +84,17 @@ bool SimGPS::OnConnectToServer()
 // Procedure: Iterate()
 //            happens AppTick times per second
 
-bool SimGPS::Iterate()
+bool Sensor::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  m_gps_x=m_real_x;
-  m_gps_y=m_real_y;
-  m_Comms.Notify("GPS_X", m_gps_x);
-  m_Comms.Notify("GPS_Y", m_gps_y);
-  m_geodesy.LocalGrid2LatLong(m_gps_x, m_gps_y, m_nav_lat, m_nav_lon);
-  m_Comms.Notify("NAV_LAT", m_nav_lat);
-  m_Comms.Notify("NAV_LONG", m_nav_lon);
+  m_sensor_speed=m_dvl_speed;
+  m_sensor_x=m_gps_x;
+  m_sensor_y=m_gps_y;
+  m_sensor_heading=m_imu_heading;
+  m_Comms.Notify("SENSOR_SPEED", m_sensor_speed);
+  m_Comms.Notify("SENSOR_X", m_sensor_x);
+  m_Comms.Notify("SENSOR_Y", m_sensor_y);
+  m_Comms.Notify("SENSOR_HEADING", m_sensor_heading);
   AppCastingMOOSApp::PostReport();
   return(true);
 }
@@ -97,7 +103,7 @@ bool SimGPS::Iterate()
 // Procedure: OnStartUp()
 //            happens before connection is open
 
-bool SimGPS::OnStartUp()
+bool Sensor::OnStartUp()
 {
   AppCastingMOOSApp::OnStartUp();
 
@@ -126,26 +132,27 @@ bool SimGPS::OnStartUp()
 
   }
   
-  registerVariables();
-  Register("NAV_X", 0);
-  Register("NAV_Y", 0);	
+  registerVariables();	
   return(true);
 }
 
 //---------------------------------------------------------
 // Procedure: registerVariables
 
-void SimGPS::registerVariables()
+void Sensor::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
-  // Register("FOOBAR", 0);
+  Register("DVL_SPEED", 0);
+  Register("GPS_X", 0);
+  Register("GPS_Y", 0);
+  Register("IMU_HEADING", 0);
 }
 
 
 //------------------------------------------------------------
 // Procedure: buildReport()
 
-bool SimGPS::buildReport() 
+bool Sensor::buildReport() 
 {
   m_msgs << "============================================" << endl;
   m_msgs << "File:                                       " << endl;
