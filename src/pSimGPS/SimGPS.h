@@ -37,6 +37,16 @@ class SimGPS : public AppCastingMOOSApp
    double m_Olon;
    double m_nav_lat;
    double m_nav_lon;
+   double m_xant;
+   double m_yant;
+   double m_vx;
+   double m_vy;
+   double m_gps_speed;
+   double m_t_now;
+   double m_t_ant;
+   double m_dt;
+   int m_counter;
+
 
  private: // Configuration variables
 

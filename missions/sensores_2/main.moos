@@ -28,7 +28,7 @@ ProcessConfig = ANTLER
   MSBetweenLaunches = 200
 
   Run = MOOSDB          @ NewConsole = false
-  // Run = uXMS            @ NewConsole = true
+  Run = uXMS            @ NewConsole = true
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
@@ -39,10 +39,10 @@ ProcessConfig = ANTLER
   Run = ./pTrajectPID.py @ NewConsole = false
  //Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
-  Run = pSimGPS    @ NewConsole = false
+  Run = pSimGPS    @ NewConsole = true
   Run = pSimDVL    @ NewConsole = false
   Run = pSensor    @ NewConsole = false
-  Run = iRemoteMod    @ NewConsole = true
+  //Run = iRemoteMod    @ NewConsole = true
 
 
   one = --size=800x600
@@ -59,7 +59,8 @@ ProcessConfig = uXMS
   //var    = GPS_X, GPS_Y, DVL_SPEED, IMU_HEADING
   //var    = SENSOR_X, SENSOR_Y, SENSOR_SPEED, SENSOR_HEADING
   //var = NAV_HEADING, IMU_HEADING, SENSOR_HEADING
-  var = IVPHELM_ALLSTOP, MOOS_MANUAL_OVERRIDE, MOOS_MANUAL_OVERIDE, REMOTE_OVERIDE
+  //var = IVPHELM_ALLSTOP, MOOS_MANUAL_OVERRIDE, MOOS_MANUAL_OVERIDE, REMOTE_OVERIDE
+  var = REAL_SPEED, DVL_SPEED, GPS_SPEED, NAV_SPEED
   //display_all = true
 
 }
@@ -85,6 +86,33 @@ ProcessConfig = uSimMarine
   START_HEADING = 90
 
   PREFIX        = NAV
+}
+
+//------------------------------------------------
+// pSimGPS config block
+
+ProcessConfig = pSimGPS
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
+//------------------------------------------------
+// pSimDVL config block
+
+ProcessConfig = pSimDVL
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
+//------------------------------------------------
+// pSimIMU config block
+
+ProcessConfig = pSimIMU
+{
+   AppTick   = 4
+   CommsTick = 4
 }
 
 //------------------------------------------

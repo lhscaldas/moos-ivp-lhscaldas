@@ -9,6 +9,7 @@
 #include "MBUtils.h"
 #include "ACTable.h"
 #include "SimGPS.h"
+#include <math.h>
 
 using namespace std;
 
@@ -26,6 +27,16 @@ SimGPS::SimGPS()
    m_nav_lat=0;
    m_nav_lon=0;
    m_geodesy.Initialise(m_Olat,m_Olon);
+
+   m_xant=0;
+   m_yant=0;
+   m_vx=0;
+   m_vy=0;
+   m_t_now=0;
+   m_t_ant=0;
+   m_dt=0;
+   m_gps_speed=0;
+   m_counter=0;
 }
 
 //---------------------------------------------------------
@@ -49,6 +60,8 @@ bool SimGPS::OnNewMail(MOOSMSG_LIST &NewMail)
       m_real_x = msg.GetDouble();
     } else if (msg.GetKey() == "REAL_Y" && msg.IsDouble()) {
       m_real_y = msg.GetDouble();
+    } else if (msg.GetKey() == "DB_UPTIME" && msg.IsDouble()) {
+      m_t_now = msg.GetDouble();
     }
   }
 
@@ -86,11 +99,26 @@ bool SimGPS::Iterate()
   m_gps_y=m_real_y;
   m_Comms.Notify("GPS_X", m_gps_x);
   m_Comms.Notify("GPS_Y", m_gps_y);
+
   m_geodesy.LocalGrid2LatLong(m_gps_x, m_gps_y, m_nav_lat, m_nav_lon);
   m_Comms.Notify("NAV_LAT", m_nav_lat);
   m_Comms.Notify("NAV_LONG", m_nav_lon);
   m_Comms.Notify("REAL_LAT", m_nav_lat);
   m_Comms.Notify("REAL_LONG", m_nav_lon);
+  
+  m_counter++;
+  if(m_counter==40){
+    m_dt = (m_t_now - m_t_ant);
+    m_vx= (m_gps_x-m_xant)/m_dt;
+    m_vy= (m_gps_y-m_yant)/m_dt;
+    m_gps_speed=sqrt(m_vx*m_vx + m_vy*m_vy);
+    m_Comms.Notify("GPS_SPEED", m_gps_speed);
+    m_xant=m_gps_x;
+    m_yant=m_gps_y;
+    m_t_ant=m_t_now;
+    m_counter=0;
+  }
+
   AppCastingMOOSApp::PostReport();
   return(true);
 }
@@ -129,8 +157,6 @@ bool SimGPS::OnStartUp()
   }
   
   registerVariables();
-  Register("REAL_X", 0);
-  Register("REAL_Y", 0);	
   return(true);
 }
 
@@ -140,7 +166,9 @@ bool SimGPS::OnStartUp()
 void SimGPS::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
-  // Register("FOOBAR", 0);
+  Register("REAL_X", 0);
+  Register("REAL_Y", 0);
+  Register("DB_UPTIME", 0);	
 }
 
 
@@ -153,10 +181,10 @@ bool SimGPS::buildReport()
   m_msgs << "File:                                       " << endl;
   m_msgs << "============================================" << endl;
 
-  ACTable actab(4);
-  actab << "Alpha | Bravo | Charlie | Delta";
+  ACTable actab(6);
+  actab << "t_ant | t_now | dt | vx | vy | gps_speed";
   actab.addHeaderLines();
-  actab << "one" << "two" << "three" << "four";
+  actab << m_t_ant << m_t_now << m_dt << m_vx << m_vy << m_gps_speed;
   m_msgs << actab.getFormattedString();
 
   return(true);

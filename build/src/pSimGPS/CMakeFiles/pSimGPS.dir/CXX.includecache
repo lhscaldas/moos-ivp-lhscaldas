@@ -17,6 +17,8 @@ ACTable.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/ACTable.h
 SimGPS.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.h
+math.h
+-
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
