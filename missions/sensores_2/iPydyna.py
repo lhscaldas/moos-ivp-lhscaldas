@@ -77,11 +77,14 @@ class Ship(pymoos.comms):
         self.notify(key, value, -1)
 
     def update(self):
-        self.send('NAV_SPEED', self.real_speed)
-        self.send('NAV_HEADING', self.real_heading)
-        self.send('NAV_X', self.real_x)
-        self.send('NAV_Y', self.real_y)
-        
+        # self.send('NAV_SPEED', self.real_speed)
+        # self.send('NAV_HEADING', self.real_heading)
+        # self.send('NAV_X', self.real_x)
+        # self.send('NAV_Y', self.real_y)
+        self.send('REAL_SPEED', self.real_speed)
+        self.send('REAL_HEADING', self.real_heading)
+        self.send('REAL_X', self.real_x)
+        self.send('REAL_Y', self.real_y)
 
     def debug(self, dt):
         print(" ")

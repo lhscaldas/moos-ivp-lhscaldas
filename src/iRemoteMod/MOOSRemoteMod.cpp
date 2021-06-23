@@ -276,12 +276,12 @@ bool CMOOSRemoteMod::Run( const char * sName,
             break;
 
         case 'm':
-            m_dfCurrentRudder+=2.0;
+            m_dfCurrentRudder+=0.5;
             MOOSTrace("Setting RudderTo %7.3f\n",m_dfCurrentRudder);
             break;
 
         case 'n':
-            m_dfCurrentRudder-=2.0;
+            m_dfCurrentRudder-=0.5;
             MOOSTrace("Setting RudderTo %7.3f\n",m_dfCurrentRudder);
             break;
 
@@ -322,12 +322,12 @@ bool CMOOSRemoteMod::Run( const char * sName,
 
 
         case 'p':
-            m_dfCurrentElevator += 2.0;
+            m_dfCurrentElevator += 0.5;
             MOOSTrace("Setting Elevator to %7.3f\n",m_dfCurrentElevator);
             break;
 
         case 'l':
-            m_dfCurrentElevator -= 2.0;
+            m_dfCurrentElevator -= 0.5;
             MOOSTrace("Setting Elevator to %7.3f\n",m_dfCurrentElevator);
             break;
 

@@ -38,7 +38,7 @@ bool SimIMU::OnNewMail(MOOSMSG_LIST &NewMail)
   MOOSMSG_LIST::iterator p;
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
-    if (msg.GetKey() == "NAV_HEADING" && msg.IsDouble()) {
+    if (msg.GetKey() == "REAL_HEADING" && msg.IsDouble()) {
       m_real_heading = msg.GetDouble();
     }
   }
@@ -121,7 +121,7 @@ bool SimIMU::OnStartUp()
 void SimIMU::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
-  Register("NAV_HEADING", 0);
+  Register("REAL_HEADING", 0);
 }
 
 

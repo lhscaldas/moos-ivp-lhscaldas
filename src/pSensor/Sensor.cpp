@@ -91,10 +91,10 @@ bool Sensor::Iterate()
   m_sensor_x=m_gps_x;
   m_sensor_y=m_gps_y;
   m_sensor_heading=m_imu_heading;
-  m_Comms.Notify("SENSOR_SPEED", m_sensor_speed);
-  m_Comms.Notify("SENSOR_X", m_sensor_x);
-  m_Comms.Notify("SENSOR_Y", m_sensor_y);
-  m_Comms.Notify("SENSOR_HEADING", m_sensor_heading);
+  m_Comms.Notify("NAV_SPEED", m_sensor_speed);
+  m_Comms.Notify("NAV_X", m_sensor_x);
+  m_Comms.Notify("NAV_Y", m_sensor_y);
+  m_Comms.Notify("NAV_HEADING", m_sensor_heading);
   AppCastingMOOSApp::PostReport();
   return(true);
 }

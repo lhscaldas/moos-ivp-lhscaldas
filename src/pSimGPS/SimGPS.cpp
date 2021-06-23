@@ -45,9 +45,9 @@ bool SimGPS::OnNewMail(MOOSMSG_LIST &NewMail)
   MOOSMSG_LIST::iterator p;
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
-    if (msg.GetKey() == "NAV_X" && msg.IsDouble()) {
+    if (msg.GetKey() == "REAL_X" && msg.IsDouble()) {
       m_real_x = msg.GetDouble();
-    } else if (msg.GetKey() == "NAV_Y" && msg.IsDouble()) {
+    } else if (msg.GetKey() == "REAL_Y" && msg.IsDouble()) {
       m_real_y = msg.GetDouble();
     }
   }
@@ -89,6 +89,8 @@ bool SimGPS::Iterate()
   m_geodesy.LocalGrid2LatLong(m_gps_x, m_gps_y, m_nav_lat, m_nav_lon);
   m_Comms.Notify("NAV_LAT", m_nav_lat);
   m_Comms.Notify("NAV_LONG", m_nav_lon);
+  m_Comms.Notify("REAL_LAT", m_nav_lat);
+  m_Comms.Notify("REAL_LONG", m_nav_lon);
   AppCastingMOOSApp::PostReport();
   return(true);
 }
@@ -127,8 +129,8 @@ bool SimGPS::OnStartUp()
   }
   
   registerVariables();
-  Register("NAV_X", 0);
-  Register("NAV_Y", 0);	
+  Register("REAL_X", 0);
+  Register("REAL_Y", 0);	
   return(true);
 }
 

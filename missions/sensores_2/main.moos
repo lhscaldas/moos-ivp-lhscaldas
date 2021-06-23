@@ -36,7 +36,7 @@ ProcessConfig = ANTLER
   Run = pNodeReporter   @ NewConsole = false
   Run = ./iPydyna.py    @ NewConsole = false
   //Run = pTrajectPID @ NewConsole = false
-  Run = ./pTrajectPID.py @ NewConsole = true
+  Run = ./pTrajectPID.py @ NewConsole = false
  //Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
   Run = pSimGPS    @ NewConsole = false
@@ -190,7 +190,7 @@ ProcessConfig = pMarineViewer
   right_context[return] = RETURN=false
 
 
-  scope  =  NAV_HEADING
+  scope  =  IVPHELM_ALLSTOP
   //scope  =  DB_TIME
   //scope  =  DESIRED_RUDDER
   //scope  =  DESIRED_ROTATION
@@ -220,7 +220,8 @@ ProcessConfig = pNodeReporter
   platform_type   = KAYAK
   platform_color  = red
   platform_length = 15
-
+  //alt_nav_prefix=REAL_
+  //alt_nav_name   = _REAL
   //cross_fill_policy=fill-empty
 }
 
