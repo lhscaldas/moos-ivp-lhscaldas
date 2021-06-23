@@ -298,7 +298,6 @@ bool CMOOSRemoteMod::Run( const char * sName,
             MOOSTrace("Setting all to zero\n");
             SendDesired();
             SetManualOveride(true);
-
             break;
 
         case 'z':

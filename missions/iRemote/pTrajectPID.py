@@ -53,6 +53,10 @@ class pTrajectPID(pymoos.comms):
         self.add_active_queue('sensor_queue', self.on_sensor_message)
         self.add_message_route_to_active_queue('sensor_queue', 'SENSOR_SPEED')
         self.add_message_route_to_active_queue('sensor_queue', 'SENSOR_HEADING')
+
+        self.add_active_queue('ivphelm_queue', self.on_ivphelm_message)
+        self.add_message_route_to_active_queue('ivphelm_queue', 'IVPHELM_ALLSTOP')
+        self.manual="false"
         
         self.desired_speed = 0
         self.desired_heading = 0
@@ -64,7 +68,7 @@ class pTrajectPID(pymoos.comms):
         self.desired_rotation = 0
 
         self.run(self.server, self.port, self.name)
-        pymoos.set_moos_timewarp(20)
+        pymoos.set_moos_timewarp(10)
         self.dt=0.1
 
         dt=self.dt/3
@@ -80,7 +84,8 @@ class pTrajectPID(pymoos.comms):
         return (self.register('DESIRED_SPEED', 0) and
                 self.register('DESIRED_HEADING', 0) and
                 self.register('SENSOR_SPEED', 0) and
-                self.register('SENSOR_HEADING', 0))
+                self.register('SENSOR_HEADING', 0) and
+                self.register('IVPHELM_ALLSTOP', 0))
 
     def __on_new_mail(self):
         """OnNewMail callback"""
@@ -97,12 +102,19 @@ class pTrajectPID(pymoos.comms):
         return True
 
     def on_sensor_message(self, msg):
-        """Special callback for Desired"""
+        """Special callback for Sensor"""
         if msg.key() == 'SENSOR_SPEED':
             self.sensor_speed = msg.double() # m/s
         elif msg.key() == 'SENSOR_HEADING':
             self.sensor_heading = msg.double() # graus
         return True
+
+    def on_ivphelm_message(self, msg):
+        """Special callback for Ivphelm"""
+        if msg.key() == 'IVPHELM_ALLSTOP':
+            self.manual = msg.string()
+        return True
+
 
     def send(self, key, value):
         self.notify(key, value, -1)
@@ -116,14 +128,7 @@ class pTrajectPID(pymoos.comms):
         print(" ")
         print(" ")
         print("pTrajectPID Debug")
-        # print("nav_heading", self.nav_heading)
-        # print("desired_heading", self.desired_heading)
-        # print("SETPOINT", self.coursePID.setpoint)
-        print("desired_rudder", self.desired_rudder)
-        # print("heading_diff", heading_diff)
-        print("dt", dt*pymoos.get_moos_timewarp())
-        print(f"freq_real {1 / dt / pymoos.get_moos_timewarp()}Hz")
-        print(f"freq_fast {1 / dt}Hz")
+        print(f"Manual= {self.manual}")
 
 
     def iterate(self):
@@ -131,23 +136,25 @@ class pTrajectPID(pymoos.comms):
         dt_fast_time = dt/pymoos.get_moos_timewarp()
         while True:
             time.sleep(dt_fast_time)
+            print(f"Manual= {self.manual}")
            
             # Atualiza setpoint
-            self.speedPID.setpoint = self.desired_speed
-            heading_diff = self.desired_heading - self.sensor_heading
-            if heading_diff >= 180:
-                self.coursePID.setpoint = self.desired_heading - 360
-            elif heading_diff <= -180:
-                self.coursePID.setpoint = self.desired_heading + 360
-            else:
-                self.coursePID.setpoint = self.desired_heading
+            if self.manual!="ManualOverride":
+                self.speedPID.setpoint = self.desired_speed
+                heading_diff = self.desired_heading - self.sensor_heading
+                if heading_diff >= 180:
+                    self.coursePID.setpoint = self.desired_heading - 360
+                elif heading_diff <= -180:
+                    self.coursePID.setpoint = self.desired_heading + 360
+                else:
+                    self.coursePID.setpoint = self.desired_heading
 
-            # Atualiza atuadores
-            self.desired_rotation = self.speedPID.output(self.sensor_speed)
-            self.desired_rudder = self.coursePID.output(self.sensor_heading)
+                # Atualiza atuadores
+                self.desired_rotation = self.speedPID.output(self.sensor_speed)
+                self.desired_rudder = self.coursePID.output(self.sensor_heading)
 
-            self.update()
-            # self.debug(dt)
+                self.update()
+            self.debug(dt)
 
 
 def main():

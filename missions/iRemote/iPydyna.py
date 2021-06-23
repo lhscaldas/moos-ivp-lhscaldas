@@ -48,7 +48,7 @@ class Ship(pymoos.comms):
         self.propeller.dem_rotation = self.desired_rotation
 
         self.run(self.server, self.port, self.name)
-        pymoos.set_moos_timewarp(20)
+        pymoos.set_moos_timewarp(10)
 
 
     def __on_connect(self):
