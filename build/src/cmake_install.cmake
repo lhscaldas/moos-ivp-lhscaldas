@@ -47,6 +47,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/cmake_install.cmake")
   include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/cmake_install.cmake")
   include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSensor/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/iRemoteMod/cmake_install.cmake")
 
 endif()
 
