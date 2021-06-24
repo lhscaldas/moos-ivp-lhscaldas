@@ -38,7 +38,7 @@ ProcessConfig = ANTLER
   //Run = pTrajectPID @ NewConsole = false
   Run = ./pTrajectPID.py @ NewConsole = false
  //Run = ./plotter.py    @ NewConsole = false
-  Run = pSimIMU   @ NewConsole = true
+  Run = pSimIMU   @ NewConsole = false
   Run = pSimGPS    @ NewConsole = false
   Run = pSimDVL    @ NewConsole = false
   Run = pSimGyro    @ NewConsole = false
@@ -62,7 +62,7 @@ ProcessConfig = uXMS
   //var = REAL_HEADING, GYRO_HEADING, IMU_HEADING, NAV_HEADING
   //var = IVPHELM_ALLSTOP, MOOS_MANUAL_OVERRIDE, MOOS_MANUAL_OVERIDE, REMOTE_OVERIDE
   // var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
-  var = NAV_X, NAV_Y, IMU_X, IMU_Y
+  // var = NAV_X, NAV_Y, IMU_X, IMU_Y
   //display_all = true
 
 }

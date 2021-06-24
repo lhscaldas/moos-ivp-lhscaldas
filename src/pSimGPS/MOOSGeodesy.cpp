@@ -31,7 +31,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "MOOS/libMOOSGeodesy/MOOSGeodesy.h"
+#include "MOOSGeodesy.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

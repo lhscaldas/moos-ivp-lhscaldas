@@ -22,11 +22,8 @@ SimGPS::SimGPS()
    m_gps_x=0;
    m_real_y=0;
    m_gps_y=0;
-   m_Olat=-22.933333;
-   m_Olon=-43.833333;
    m_nav_lat=0;
    m_nav_lon=0;
-   m_geodesy.Initialise(m_Olat,m_Olon);
 
    m_xant=0;
    m_yant=0;
@@ -153,6 +150,12 @@ bool SimGPS::OnStartUp()
 
     if(!handled)
       reportUnhandledConfigWarning(orig);
+
+    // look for latitude, longitude global variables
+    double latOrigin, longOrigin;
+    m_MissionReader.GetValue("LatOrigin", latOrigin);
+    m_MissionReader.GetValue("LongOrigin", longOrigin);
+    m_geodesy.Initialise(latOrigin, longOrigin);
 
   }
   
