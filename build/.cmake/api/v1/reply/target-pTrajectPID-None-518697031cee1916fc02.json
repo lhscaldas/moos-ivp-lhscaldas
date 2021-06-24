@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSensor"
+			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pTrajectPID"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		],
 		"files" : 
 		[
-			"src/pSensor/CMakeLists.txt",
+			"src/pTrajectPID/CMakeLists.txt",
 			"CMakeLists.txt",
 			"src/CMakeLists.txt"
 		],
@@ -76,7 +76,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations -g  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations  "
 				},
 				{
 					"backtrace" : 4,
@@ -250,13 +250,13 @@
 			]
 		}
 	],
-	"id" : "pSensor::@26df0b8f05989a98d751",
+	"id" : "pTrajectPID::@ff1f245faa2754763242",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fPIC -g -Wdeprecated-declarations -g",
+				"fragment" : "-fPIC -g -Wdeprecated-declarations",
 				"role" : "flags"
 			},
 			{
@@ -300,12 +300,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "pSensor",
-	"nameOnDisk" : "pSensor",
+	"name" : "pTrajectPID",
+	"nameOnDisk" : "pTrajectPID",
 	"paths" : 
 	{
-		"build" : "src/pSensor",
-		"source" : "src/pSensor"
+		"build" : "src/pTrajectPID",
+		"source" : "src/pTrajectPID"
 	},
 	"sourceGroups" : 
 	[
@@ -324,19 +324,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSensor/Sensor.cpp",
+			"path" : "src/pTrajectPID/TrajectPID.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSensor/Sensor_Info.cpp",
+			"path" : "src/pTrajectPID/TrajectPID_Info.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSensor/main.cpp",
+			"path" : "src/pTrajectPID/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

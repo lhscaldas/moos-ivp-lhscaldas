@@ -20,7 +20,7 @@ ProcessConfig = ANTLER
   MSBetweenLaunches = 200
 
   Run = MOOSDB          @ NewConsole = false
-  Run = uXMS            @ NewConsole = true
+  // Run = uXMS            @ NewConsole = true
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
@@ -34,7 +34,7 @@ ProcessConfig = ANTLER
   Run = pSimGPS    @ NewConsole = false
   Run = pSimDVL    @ NewConsole = false
   Run = pSimGyro    @ NewConsole = false
-  Run = pSensor    @ NewConsole = false
+  Run = pSensor    @ NewConsole = true
   //Run = iRemoteMod    @ NewConsole = true
 
 
@@ -50,12 +50,15 @@ ProcessConfig = uXMS
   CommsTick = 4
   //var    = NAV_X, NAV_Y, NAV_SPEED, NAV_HEADING 
   //var    = GPS_X, GPS_Y, DVL_SPEED, IMU_HEADING
-  //var    = SENSOR_X, SENSOR_Y, SENSOR_SPEED, SENSOR_HEADING
   //var = REAL_HEADING, GYRO_HEADING, IMU_HEADING, NAV_HEADING
   //var = IVPHELM_ALLSTOP, MOOS_MANUAL_OVERRIDE, MOOS_MANUAL_OVERIDE, REMOTE_OVERIDE
   // var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
   // var = NAV_X, NAV_Y, IMU_X, IMU_Y
-  var = IMU_HEADING, IMU_X, IMU_Y, IMU_SPEED
+  // var = IMU_HEADING, IMU_X, IMU_Y, IMU_SPEED
+  var = REAL_HEADING, GYRO_HEADING, IMU_HEADING, NAV_HEADING
+  var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
+  var = REAL_X, GPS_X, IMU_X, NAV_X
+  var = REAL_Y, GPS_Y, IMU_Y, NAV_Y
   //display_all = true
 
 }
@@ -96,13 +99,13 @@ ProcessConfig = pSensor
 {
    AppTick   = 4
    CommsTick = 4
-   w_dvl_speed = 0.7
-   w_imu_speed = 0.1
-   w_gps_speed = 0.2
-   w_imu_pos = 0.2
-   w_gps_pos = 0.8
-   w_imu_hdg = 0.2
-   w_gyro_hdg = 0.8
+   w_dvl_speed = 1
+   w_imu_speed = 0
+   w_gps_speed = 0
+   w_imu_pos = 0
+   w_gps_pos = 1
+   w_imu_hdg = 0
+   w_gyro_hdg = 1
 }
 
 //------------------------------------------------

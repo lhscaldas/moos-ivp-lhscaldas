@@ -30,13 +30,28 @@ class Sensor : public AppCastingMOOSApp
 
  protected:
    double m_dvl_speed;
+   double m_imu_x;
+   double m_imu_y;
+   double m_imu_speed;
+   double m_imu_heading;
    double m_gps_x;
    double m_gps_y;
+   double m_gps_speed;
    double m_gyro_heading;
+
+
    double m_sensor_speed;
    double m_sensor_x;
    double m_sensor_y;
    double m_sensor_heading;
+
+   double m_w_dvl_speed;
+   double m_w_imu_speed;
+   double m_w_gps_speed;
+   double m_w_imu_pos;
+   double m_w_gps_pos;
+   double m_w_imu_hdg;
+   double m_w_gyro_hdg;
 
  private: // Configuration variables
 

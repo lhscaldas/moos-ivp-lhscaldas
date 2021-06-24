@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pExampleApp"
+			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSimGyro"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		],
 		"files" : 
 		[
-			"src/pExampleApp/CMakeLists.txt",
+			"src/pSimGyro/CMakeLists.txt",
 			"CMakeLists.txt",
 			"src/CMakeLists.txt"
 		],
@@ -29,7 +29,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 23,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
@@ -44,7 +44,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 25,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
@@ -76,7 +76,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations -g  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations  "
 				},
 				{
 					"backtrace" : 4,
@@ -244,17 +244,19 @@
 			"language" : "CXX",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1,
+				2
 			]
 		}
 	],
-	"id" : "pExampleApp::@e5cf5f4f18b468902831",
+	"id" : "pSimGyro::@5c2f56628101ece25e78",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fPIC -g -Wdeprecated-declarations -g",
+				"fragment" : "-fPIC -g -Wdeprecated-declarations",
 				"role" : "flags"
 			},
 			{
@@ -276,6 +278,14 @@
 				"role" : "libraries"
 			},
 			{
+				"fragment" : "-lapputil",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lmbutil",
+				"role" : "libraries"
+			},
+			{
 				"fragment" : "-lm",
 				"role" : "libraries"
 			},
@@ -290,12 +300,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "pExampleApp",
-	"nameOnDisk" : "pExampleApp",
+	"name" : "pSimGyro",
+	"nameOnDisk" : "pSimGyro",
 	"paths" : 
 	{
-		"build" : "src/pExampleApp",
-		"source" : "src/pExampleApp"
+		"build" : "src/pSimGyro",
+		"source" : "src/pSimGyro"
 	},
 	"sourceGroups" : 
 	[
@@ -303,7 +313,9 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1,
+				2
 			]
 		}
 	],
@@ -312,7 +324,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pExampleApp/main.cpp",
+			"path" : "src/pSimGyro/SimGyro.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/pSimGyro/SimGyro_Info.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/pSimGyro/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
