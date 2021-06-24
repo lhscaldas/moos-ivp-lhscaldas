@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSimIMU"
+			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSimGPS"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		],
 		"files" : 
 		[
-			"src/pSimIMU/CMakeLists.txt",
+			"src/pSimGPS/CMakeLists.txt",
 			"CMakeLists.txt",
 			"src/CMakeLists.txt"
 		],
@@ -29,7 +29,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 12,
+				"line" : 13,
 				"parent" : 0
 			},
 			{
@@ -44,7 +44,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 14,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
@@ -76,7 +76,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations -g  "
 				},
 				{
 					"backtrace" : 4,
@@ -246,17 +246,18 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3
 			]
 		}
 	],
-	"id" : "pSimIMU::@d3f01005184cca5b455a",
+	"id" : "pSimGPS::@c01ec32dfb5f1423f3c0",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fPIC -g -Wdeprecated-declarations",
+				"fragment" : "-fPIC -g -Wdeprecated-declarations -g",
 				"role" : "flags"
 			},
 			{
@@ -300,12 +301,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "pSimIMU",
-	"nameOnDisk" : "pSimIMU",
+	"name" : "pSimGPS",
+	"nameOnDisk" : "pSimGPS",
 	"paths" : 
 	{
-		"build" : "src/pSimIMU",
-		"source" : "src/pSimIMU"
+		"build" : "src/pSimGPS",
+		"source" : "src/pSimGPS"
 	},
 	"sourceGroups" : 
 	[
@@ -315,7 +316,8 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3
 			]
 		}
 	],
@@ -324,19 +326,25 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSimIMU/SimIMU.cpp",
+			"path" : "src/pSimGPS/SimGPS.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSimIMU/SimIMU_Info.cpp",
+			"path" : "src/pSimGPS/MOOSGeodesy.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSimIMU/main.cpp",
+			"path" : "src/pSimGPS/SimGPS_Info.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/pSimGPS/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

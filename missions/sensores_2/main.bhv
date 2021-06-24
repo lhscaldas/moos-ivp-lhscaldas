@@ -1,4 +1,4 @@
-//--------    FILE: echo.bhv   -------------
+//--------    FILE: main.bhv   -------------
 
 initialize   DEPLOY = false
 initialize   RETURN = false
