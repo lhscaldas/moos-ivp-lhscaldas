@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSensor"
+			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSimIMU"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		],
 		"files" : 
 		[
-			"src/pSensor/CMakeLists.txt",
+			"src/pSimIMU/CMakeLists.txt",
 			"CMakeLists.txt",
 			"src/CMakeLists.txt"
 		],
@@ -76,7 +76,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations -g  "
 				},
 				{
 					"backtrace" : 4,
@@ -250,13 +250,13 @@
 			]
 		}
 	],
-	"id" : "pSensor::@26df0b8f05989a98d751",
+	"id" : "pSimIMU::@d3f01005184cca5b455a",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fPIC -g -Wdeprecated-declarations",
+				"fragment" : "-fPIC -g -Wdeprecated-declarations -g",
 				"role" : "flags"
 			},
 			{
@@ -300,12 +300,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "pSensor",
-	"nameOnDisk" : "pSensor",
+	"name" : "pSimIMU",
+	"nameOnDisk" : "pSimIMU",
 	"paths" : 
 	{
-		"build" : "src/pSensor",
-		"source" : "src/pSensor"
+		"build" : "src/pSimIMU",
+		"source" : "src/pSimIMU"
 	},
 	"sourceGroups" : 
 	[
@@ -324,19 +324,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSensor/Sensor.cpp",
+			"path" : "src/pSimIMU/SimIMU.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSensor/Sensor_Info.cpp",
+			"path" : "src/pSimIMU/SimIMU_Info.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSensor/main.cpp",
+			"path" : "src/pSimIMU/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -89,7 +89,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations -g  "
 				},
 				{
 					"backtrace" : 5,
@@ -286,7 +286,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fPIC -g -Wdeprecated-declarations",
+				"fragment" : "-fPIC -g -Wdeprecated-declarations -g",
 				"role" : "flags"
 			},
 			{

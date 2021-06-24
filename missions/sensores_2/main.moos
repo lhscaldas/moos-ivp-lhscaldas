@@ -20,7 +20,7 @@ ProcessConfig = ANTLER
   MSBetweenLaunches = 200
 
   Run = MOOSDB          @ NewConsole = false
-  // Run = uXMS            @ NewConsole = true
+  Run = uXMS            @ NewConsole = true
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
@@ -55,7 +55,7 @@ ProcessConfig = uXMS
   //var = IVPHELM_ALLSTOP, MOOS_MANUAL_OVERRIDE, MOOS_MANUAL_OVERIDE, REMOTE_OVERIDE
   // var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
   // var = NAV_X, NAV_Y, IMU_X, IMU_Y
-  // var = IMU_HEADING, IMU_X, IMU_Y
+  var = IMU_HEADING, IMU_X, IMU_Y, IMU_SPEED
   //display_all = true
 
 }
@@ -69,7 +69,7 @@ ProcessConfig = iPydyna
    CommsTick = 4
    START_X = 200
    START_Y = -1900
-   START_HEADING = 90
+   START_HEADING = 85
 }
 
 //------------------------------------------------
@@ -90,6 +90,22 @@ ProcessConfig = pTrajectPID
 }
 
 //------------------------------------------------
+// pSensor config block
+
+ProcessConfig = pSensor
+{
+   AppTick   = 4
+   CommsTick = 4
+   w_dvl_speed = 0.7
+   w_imu_speed = 0.1
+   w_gps_speed = 0.2
+   w_imu_pos = 0.2
+   w_gps_pos = 0.8
+   w_imu_hdg = 0.2
+   w_gyro_hdg = 0.8
+}
+
+//------------------------------------------------
 // pSimIMU config block
 
 ProcessConfig = pSimIMU
@@ -97,7 +113,6 @@ ProcessConfig = pSimIMU
    AppTick   = 4
    CommsTick = 4
 }
-
 
 
 //------------------------------------------------
