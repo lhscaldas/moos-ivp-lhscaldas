@@ -38,8 +38,8 @@ ProcessConfig = ANTLER
   //Run = pTrajectPID @ NewConsole = false
   Run = ./pTrajectPID.py @ NewConsole = false
  //Run = ./plotter.py    @ NewConsole = false
-  Run = pSimIMU   @ NewConsole = false
-  Run = pSimGPS    @ NewConsole = false
+  Run = pSimIMU   @ NewConsole = true
+  Run = pSimGPS    @ NewConsole = true
   Run = pSimDVL    @ NewConsole = false
   Run = pSimGyro    @ NewConsole = false
   Run = pSensor    @ NewConsole = false
@@ -63,32 +63,36 @@ ProcessConfig = uXMS
   //var = IVPHELM_ALLSTOP, MOOS_MANUAL_OVERRIDE, MOOS_MANUAL_OVERIDE, REMOTE_OVERIDE
   // var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
   // var = NAV_X, NAV_Y, IMU_X, IMU_Y
+  var = IMU_HEADING, IMU_X, IMU_Y
   //display_all = true
 
 }
 
- //-----------------------------------------------------------------
-// iRemote config block
+//------------------------------------------------
+// iPydyna config block
 
-ProcessConfig = iRemote
+ProcessConfig = iPydyna
 {
-  CustomJournal = Name = DESIRED_RUDDER,Key =6, History = 10,Period = 0
-  CustomSummary = DESIRED_THRUST
-  CustomKey = 2 : JANITOR_SWITCH @ "ACTUATION:OFF"
+   AppTick   = 4
+   CommsTick = 4
+   START_X = 200
+   START_Y = -1900
+   START_HEADING = 90
 }
 
-ProcessConfig = uSimMarine
+//------------------------------------------------
+// pSimIMU config block
+
+ProcessConfig = pSimIMU
 {
-  AppTick	= 10
-  CommsTick	= 10
-
-  START_X       = 200
-  START_Y       = -1900
-  START_SPEED   = 0
-  START_HEADING = 90
-
-  PREFIX        = NAV
+   AppTick   = 4
+   CommsTick = 4
+   START_X = 200
+   START_Y = -1900
+   START_HEADING = 90
 }
+
+
 
 //------------------------------------------------
 // pSimGPS config block
@@ -117,13 +121,14 @@ ProcessConfig = pSimDVL
    CommsTick = 4
 }
 
-//------------------------------------------------
-// pSimIMU config block
+//-----------------------------------------------------------------
+// iRemote config block
 
-ProcessConfig = pSimIMU
+ProcessConfig = iRemote
 {
-   AppTick   = 4
-   CommsTick = 4
+  CustomJournal = Name = DESIRED_RUDDER,Key =6, History = 10,Period = 0
+  CustomSummary = DESIRED_THRUST
+  CustomKey = 2 : JANITOR_SWITCH @ "ACTUATION:OFF"
 }
 
 //------------------------------------------

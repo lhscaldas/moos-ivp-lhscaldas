@@ -57,8 +57,6 @@ bool SimGPS::OnNewMail(MOOSMSG_LIST &NewMail)
       m_real_x = msg.GetDouble();
     } else if (msg.GetKey() == "REAL_Y" && msg.IsDouble()) {
       m_real_y = msg.GetDouble();
-    } else if (msg.GetKey() == "DB_UPTIME" && msg.IsDouble()) {
-      m_t_now = msg.GetDouble();
     }
   }
 
@@ -92,6 +90,8 @@ bool SimGPS::OnConnectToServer()
 bool SimGPS::Iterate()
 {
   AppCastingMOOSApp::Iterate();
+  m_t_now=MOOSTime();
+
   m_gps_x=m_real_x;
   m_gps_y=m_real_y;
   m_Comms.Notify("GPS_X", m_gps_x);
@@ -158,7 +158,8 @@ bool SimGPS::OnStartUp()
     m_geodesy.Initialise(latOrigin, longOrigin);
 
   }
-  
+  m_t_ant=MOOSTime();
+  m_t_now=MOOSTime();
   registerVariables();
   return(true);
 }
@@ -171,7 +172,6 @@ void SimGPS::registerVariables()
   AppCastingMOOSApp::RegisterVariables();
   Register("REAL_X", 0);
   Register("REAL_Y", 0);
-  Register("DB_UPTIME", 0);	
 }
 
 

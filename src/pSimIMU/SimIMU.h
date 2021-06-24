@@ -41,6 +41,9 @@ class SimIMU : public AppCastingMOOSApp
    double m_imu_speed;
    double m_imu_x;
    double m_imu_y;
+   double m_calib_x;
+   double m_calib_y;
+   double m_calib_heading;
 
  private: // Configuration variables
 

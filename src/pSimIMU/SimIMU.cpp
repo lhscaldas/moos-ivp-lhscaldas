@@ -25,7 +25,7 @@ SimIMU::SimIMU()
    m_t_ant=0;
    m_t_now=0;
 
-   m_imu_heading=90;
+   m_imu_heading=0;
    m_real_rot=0;
 
    m_real_accx=0;
@@ -34,8 +34,8 @@ SimIMU::SimIMU()
    m_imu_vy=0;
    m_imu_speed=0;
 
-   m_imu_x=200;
-   m_imu_y=-1900;
+   m_imu_x=0;
+   m_imu_y=0;
 }
 
 //---------------------------------------------------------
@@ -57,12 +57,16 @@ bool SimIMU::OnNewMail(MOOSMSG_LIST &NewMail)
     CMOOSMsg &msg = *p;
     if (msg.GetKey() == "REAL_ROT" && msg.IsDouble()) {
       m_real_rot = msg.GetDouble();
-    } else if (msg.GetKey() == "DB_UPTIME" && msg.IsDouble()) {
-      m_t_now = msg.GetDouble();
     } else if (msg.GetKey() == "REAL_ACC_X" && msg.IsDouble()) {
       m_real_accx = msg.GetDouble();
     } else if (msg.GetKey() == "REAL_ACC_Y" && msg.IsDouble()) {
       m_real_accy = msg.GetDouble();
+    } else if (msg.GetKey() == "GPS_X" && msg.IsDouble()) {
+      m_calib_x = msg.GetDouble();
+    } else if (msg.GetKey() == "GPS_Y" && msg.IsDouble()) {
+      m_calib_y = msg.GetDouble();
+    } else if (msg.GetKey() == "GYRO_HEADING" && msg.IsDouble()) {
+      m_calib_heading = msg.GetDouble();
     }
   }
 
@@ -95,6 +99,7 @@ bool SimIMU::OnConnectToServer()
 bool SimIMU::Iterate()
 {
   AppCastingMOOSApp::Iterate();
+  m_t_now = MOOSTime();
   m_dt = m_t_now - m_t_ant;
 
   m_imu_heading-= RAD2DEG*m_real_rot*m_dt;
@@ -143,12 +148,19 @@ bool SimIMU::OnStartUp()
     string line  = *p;
     string param = tolower(biteStringX(line, '='));
     string value = line;
+    //double dval  = atof(value.c_str());
 
     bool handled = false;
-    if(param == "foo") {
+    if(param == "START_X") {
+      m_imu_x=atof(value.c_str());
       handled = true;
     }
-    else if(param == "bar") {
+    else if(param == "START_Y") {
+      m_imu_y=atof(value.c_str());
+      handled = true;
+    }
+    else if(param == "START_HEADING") {
+      m_imu_heading=atof(value.c_str());
       handled = true;
     }
 
@@ -156,8 +168,47 @@ bool SimIMU::OnStartUp()
       reportUnhandledConfigWarning(orig);
 
   }
+
+  // m_MissionReader.EnableVerbatimQuoting(false);
+  // if(!m_MissionReader.GetConfiguration("iPydyna", sParams))
+  //   reportConfigWarning("No config block found for iPydyna");
   
-  registerVariables();	
+  // m_MissionReader.GetConfigurationParam("START_X", m_imu_x);
+  // m_MissionReader.GetConfigurationParam("START_Y", m_imu_y);
+  // m_MissionReader.GetConfigurationParam("START_HEADING", m_imu_heading);
+  // for(p=sParams.begin(); p!=sParams.end(); p++) {
+  //   string orig  = *p;
+  //   string line  = *p;
+  //   string param = tolower(biteStringX(line, '='));
+  //   string value = line;
+  //   double dval  = atof(value.c_str());
+
+  //   bool handled = false;
+  //   if(param == "START_X") {
+  //     m_imu_x=dval;
+  //     handled = true;
+  //   }
+  //   else if(param == "START_Y") {
+  //     m_imu_y=dval;
+  //     handled = true;
+  //   }
+  //   else if(param == "START_HEADING") {
+  //     m_imu_heading=dval;
+  //     handled = true;
+  //   }
+
+  //   if(!handled)
+  //     reportUnhandledConfigWarning(orig);
+
+  // }
+  
+  registerVariables();
+  m_t_ant=MOOSTime();
+  m_t_now=MOOSTime();
+  
+  // m_imu_x=m_calib_x;
+  // m_imu_y=m_calib_y;
+  // m_imu_heading=m_calib_heading;	
   return(true);
 }
 
@@ -168,9 +219,11 @@ void SimIMU::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
   Register("REAL_ROT", 0);
-  Register("DB_UPTIME", 0);
   Register("REAL_ACC_X", 0);
   Register("REAL_ACC_Y", 0);
+  Register("GYRO_HEADING", 0);
+  Register("GPS_X", 0);
+  Register("GPS_Y", 0);
 }
 
 
