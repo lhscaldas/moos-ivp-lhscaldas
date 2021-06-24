@@ -33,8 +33,12 @@ class SimIMU : public AppCastingMOOSApp
    double m_dt;
    double m_t_ant;
    double m_t_now;
-   double m_counter;
    double m_imu_heading;
+   double m_real_accx;
+   double m_real_accy;
+   double m_imu_vx;
+   double m_imu_vy;
+   double m_imu_speed;
 
  private: // Configuration variables
 

@@ -14,18 +14,25 @@
 using namespace std;
 
 #define RAD2DEG 180/M_PI
+#define DEG2RAD M_PI/180
 
 //---------------------------------------------------------
 // Constructor
 
 SimIMU::SimIMU()
 {
-   m_real_rot=0;
    m_dt=0;
    m_t_ant=0;
    m_t_now=0;
-   m_counter=0;
+
    m_imu_heading=90;
+   m_real_rot=0;
+
+   m_real_accx=0;
+   m_real_accy=0;
+   m_imu_vx=0;
+   m_imu_vy=0;
+   m_imu_speed=0;
 }
 
 //---------------------------------------------------------
@@ -49,6 +56,10 @@ bool SimIMU::OnNewMail(MOOSMSG_LIST &NewMail)
       m_real_rot = msg.GetDouble();
     } else if (msg.GetKey() == "DB_UPTIME" && msg.IsDouble()) {
       m_t_now = msg.GetDouble();
+    } else if (msg.GetKey() == "REAL_ACC_X" && msg.IsDouble()) {
+      m_real_accx = msg.GetDouble();
+    } else if (msg.GetKey() == "REAL_ACC_Y" && msg.IsDouble()) {
+      m_real_accy = msg.GetDouble();
     }
   }
 
@@ -81,9 +92,8 @@ bool SimIMU::OnConnectToServer()
 bool SimIMU::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  // m_counter++;
-  // if(m_counter==10){
   m_dt = m_t_now - m_t_ant;
+
   m_imu_heading-= RAD2DEG*m_real_rot*m_dt;
   if(m_imu_heading>360)
   {
@@ -94,9 +104,14 @@ bool SimIMU::Iterate()
     m_imu_heading=360;
   }
   m_Comms.Notify("IMU_HEADING", m_imu_heading);
+
+  m_imu_vx+= m_real_accx*m_dt;
+  m_imu_vy+= m_real_accy*m_dt;
+  m_imu_speed = sqrt(m_imu_vx*m_imu_vx + m_imu_vy*m_imu_vy);
+  m_Comms.Notify("IMU_SPEED", m_imu_speed);
+
   m_t_ant=m_t_now;
-  m_counter=0;
-  // }
+
   AppCastingMOOSApp::PostReport();
   return(true);
 }
@@ -145,7 +160,9 @@ void SimIMU::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
   Register("REAL_ROT", 0);
-  Register("DB_UPTIME", 0);	
+  Register("DB_UPTIME", 0);
+  Register("REAL_ACC_X", 0);
+  Register("REAL_ACC_Y", 0);
 }
 
 
