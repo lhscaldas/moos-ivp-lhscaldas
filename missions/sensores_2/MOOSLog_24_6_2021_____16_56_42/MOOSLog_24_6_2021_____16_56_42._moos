@@ -1,3 +1,8 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LOG FILE:       ./MOOSLog_24_6_2021_____16_56_42/MOOSLog_24_6_2021_____16_56_42._moos
+%% FILE OPENED ON  Wed Dec 31 21:00:00 1969
+%% LOGSTART                 16245646025
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
 // FILE: main.moos
@@ -21,7 +26,7 @@ ProcessConfig = ANTLER
 
   Run = MOOSDB          @ NewConsole = false
   // Run = uXMS            @ NewConsole = true
-  //Run = pLogger      @ NewConsole = false
+  Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
   Run = uProcessWatch   @ NewConsole = false
@@ -35,7 +40,7 @@ ProcessConfig = ANTLER
   Run = pSimDVL    @ NewConsole = false
   Run = pSimGyro    @ NewConsole = false
   Run = pSensor    @ NewConsole = false
-  Run = iRemoteMod    @ NewConsole = true
+  //Run = iRemoteMod    @ NewConsole = true
 
 
   one = --size=800x600
@@ -295,4 +300,5 @@ ProcessConfig = pNodeReporter
   //alt_nav_name   = _REAL
   //cross_fill_policy=fill-empty
 }
+
 
