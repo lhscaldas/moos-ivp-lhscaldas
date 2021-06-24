@@ -29,7 +29,11 @@ class SimIMU : public AppCastingMOOSApp
    void registerVariables();
 
  protected:
-   double m_real_heading;
+   double m_real_rot;
+   double m_dt;
+   double m_t_ant;
+   double m_t_now;
+   double m_counter;
    double m_imu_heading;
 
  private: // Configuration variables
