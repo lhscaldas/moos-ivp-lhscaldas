@@ -1,60 +1,45 @@
 /************************************************************/
-/*    NAME: lhscaldas                                              */
-/*    ORGN: MIT, Cambridge MA                               */
-/*    FILE: Sensor.cpp                                        */
-/*    DATE: December 29th, 1963                             */
+/*    NAME: lhscaldas                                       */
+/*    ORGN: USP, São Paulo SP                               */
+/*    FILE: SimGyro.cpp                                      */
+/*    DATE: 14/06/2021                                      */
 /************************************************************/
 
 #include <iterator>
 #include "MBUtils.h"
 #include "ACTable.h"
-#include "Sensor.h"
+#include "SimGyro.h"
 
 using namespace std;
 
 //---------------------------------------------------------
 // Constructor
 
-Sensor::Sensor()
+SimGyro::SimGyro()
 {
-  m_dvl_speed=0;
-  m_gps_x=0;
-  m_gps_y=0;
-  m_gyro_heading=0;
-  m_sensor_speed=0;
-  m_sensor_x=0;
-  m_sensor_y=0;
-  m_sensor_heading=0;
+  double m_real_heading=0;
+  double m_gyro_heading=0;
 }
 
 //---------------------------------------------------------
 // Destructor
 
-Sensor::~Sensor()
+SimGyro::~SimGyro()
 {
 }
 
 //---------------------------------------------------------
 // Procedure: OnNewMail
 
-bool Sensor::OnNewMail(MOOSMSG_LIST &NewMail)
+bool SimGyro::OnNewMail(MOOSMSG_LIST &NewMail)
 {
   AppCastingMOOSApp::OnNewMail(NewMail);
 
   MOOSMSG_LIST::iterator p;
   for(p=NewMail.begin(); p!=NewMail.end(); p++) {
     CMOOSMsg &msg = *p;
-    if (msg.GetKey() == "DVL_SPEED" && msg.IsDouble()) {
-      m_dvl_speed = msg.GetDouble();
-    }
-    else if (msg.GetKey() == "GPS_X" && msg.IsDouble()) {
-      m_gps_x = msg.GetDouble();
-    }
-    else if (msg.GetKey() == "GPS_Y" && msg.IsDouble()) {
-      m_gps_y = msg.GetDouble();
-    }
-    else if (msg.GetKey() == "GYRO_HEADING" && msg.IsDouble()) {
-      m_gyro_heading = msg.GetDouble();
+    if (msg.GetKey() == "REAL_HEADING" && msg.IsDouble()) {
+      m_real_heading = msg.GetDouble();
     }
   }
 
@@ -74,7 +59,7 @@ bool Sensor::OnNewMail(MOOSMSG_LIST &NewMail)
 //---------------------------------------------------------
 // Procedure: OnConnectToServer
 
-bool Sensor::OnConnectToServer()
+bool SimGyro::OnConnectToServer()
 {
    registerVariables();
    return(true);
@@ -84,17 +69,11 @@ bool Sensor::OnConnectToServer()
 // Procedure: Iterate()
 //            happens AppTick times per second
 
-bool Sensor::Iterate()
+bool SimGyro::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  m_sensor_speed=m_dvl_speed;
-  m_sensor_x=m_gps_x;
-  m_sensor_y=m_gps_y;
-  m_sensor_heading=m_gyro_heading;
-  m_Comms.Notify("NAV_SPEED", m_sensor_speed);
-  m_Comms.Notify("NAV_X", m_sensor_x);
-  m_Comms.Notify("NAV_Y", m_sensor_y);
-  m_Comms.Notify("NAV_HEADING", m_sensor_heading);
+  m_gyro_heading=m_real_heading;
+  m_Comms.Notify("GYRO_HEADING", m_gyro_heading);
   AppCastingMOOSApp::PostReport();
   return(true);
 }
@@ -103,7 +82,7 @@ bool Sensor::Iterate()
 // Procedure: OnStartUp()
 //            happens before connection is open
 
-bool Sensor::OnStartUp()
+bool SimGyro::OnStartUp()
 {
   AppCastingMOOSApp::OnStartUp();
 
@@ -139,20 +118,17 @@ bool Sensor::OnStartUp()
 //---------------------------------------------------------
 // Procedure: registerVariables
 
-void Sensor::registerVariables()
+void SimGyro::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
-  Register("DVL_SPEED", 0);
-  Register("GPS_X", 0);
-  Register("GPS_Y", 0);
-  Register("GYRO_HEADING", 0);
+  Register("REAL_HEADING", 0);
 }
 
 
 //------------------------------------------------------------
 // Procedure: buildReport()
 
-bool Sensor::buildReport() 
+bool SimGyro::buildReport() 
 {
   m_msgs << "============================================" << endl;
   m_msgs << "File:                                       " << endl;

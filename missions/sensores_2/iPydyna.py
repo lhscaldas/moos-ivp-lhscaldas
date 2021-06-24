@@ -85,6 +85,9 @@ class Ship(pymoos.comms):
         self.send('REAL_HEADING', self.real_heading)
         self.send('REAL_X', self.real_x)
         self.send('REAL_Y', self.real_y)
+        self.send('REAL_ACC_X', self.ship.linear_acceleration[0])
+        self.send('REAL_ACC_Y', self.ship.linear_acceleration[1])
+        self.send('REAL_ROT', self.ship.angular_velocity[2])
 
     def debug(self, dt):
         print(" ")

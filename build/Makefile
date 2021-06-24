@@ -235,6 +235,19 @@ pSimDVL/fast:
 .PHONY : pSimDVL/fast
 
 #=============================================================================
+# Target rules for targets named pSimGyro
+
+# Build rule for target.
+pSimGyro: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pSimGyro
+.PHONY : pSimGyro
+
+# fast build rule for target.
+pSimGyro/fast:
+	$(MAKE) -f src/pSimGyro/CMakeFiles/pSimGyro.dir/build.make src/pSimGyro/CMakeFiles/pSimGyro.dir/build
+.PHONY : pSimGyro/fast
+
+#=============================================================================
 # Target rules for targets named pTrajectPID
 
 # Build rule for target.
@@ -291,6 +304,7 @@ help:
 	@echo "... pSimIMU"
 	@echo "... pSimGPS"
 	@echo "... pSimDVL"
+	@echo "... pSimGyro"
 	@echo "... pTrajectPID"
 	@echo "... pSensor"
 	@echo "... iRemoteMod"

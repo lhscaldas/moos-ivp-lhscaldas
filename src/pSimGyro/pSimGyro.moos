@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pSimGyro config block
+
+ProcessConfig = pSimGyro
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+

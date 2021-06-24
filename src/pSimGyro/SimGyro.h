@@ -1,20 +1,20 @@
 /************************************************************/
-/*    NAME: lhscaldas                                              */
-/*    ORGN: MIT, Cambridge MA                               */
-/*    FILE: Sensor.h                                          */
-/*    DATE: December 29th, 1963                             */
+/*    NAME: lhscaldas                                       */
+/*    ORGN: USP, São Paulo SP                               */
+/*    FILE: SimGyro.h                                        */
+/*    DATE: 14/06/2021                                      */
 /************************************************************/
 
-#ifndef Sensor_HEADER
-#define Sensor_HEADER
+#ifndef SimGyro_HEADER
+#define SimGyro_HEADER
 
 #include "MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h"
 
-class Sensor : public AppCastingMOOSApp
+class SimGyro : public AppCastingMOOSApp
 {
  public:
-   Sensor();
-   ~Sensor();
+   SimGyro();
+   ~SimGyro();
 
  protected: // Standard MOOSApp functions to overload  
    bool OnNewMail(MOOSMSG_LIST &NewMail);
@@ -29,14 +29,8 @@ class Sensor : public AppCastingMOOSApp
    void registerVariables();
 
  protected:
-   double m_dvl_speed;
-   double m_gps_x;
-   double m_gps_y;
+   double m_real_heading;
    double m_gyro_heading;
-   double m_sensor_speed;
-   double m_sensor_x;
-   double m_sensor_y;
-   double m_sensor_heading;
 
  private: // Configuration variables
 

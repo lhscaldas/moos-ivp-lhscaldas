@@ -6,41 +6,45 @@
 
 #IncludeRegexTransform: 
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro.cpp
 iterator
 -
 MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/MBUtils.h
 ACTable.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/ACTable.h
-SimGPS.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.h
-math.h
--
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/ACTable.h
+SimGyro.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
-MOOSGeodesy.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro_Info.cpp
+cstdlib
+-
+iostream
+-
+SimGyro_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro_Info.h
+ColorParse.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/ColorParse.h
+ReleaseInfo.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/ReleaseInfo.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/main.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro_Info.h
+
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/main.cpp
 string
 -
 MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/MBUtils.h
 ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/ColorParse.h
-MOOSGeodesy.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
-SimGPS.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.h
-SimGPS_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/ColorParse.h
+SimGyro.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro.h
+SimGyro_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro_Info.h
 
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/ClientDefines.h
 
@@ -496,5 +500,9 @@ set
 list
 -
 time.h
+-
+
+/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
+string
 -
 

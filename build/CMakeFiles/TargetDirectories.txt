@@ -52,6 +52,13 @@
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/CMakeFiles/rebuild_cache.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/CMakeFiles/edit_cache.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/CMakeFiles/pSimDVL.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGyro/CMakeFiles/install/strip.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGyro/CMakeFiles/install.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGyro/CMakeFiles/list_install_components.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGyro/CMakeFiles/rebuild_cache.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGyro/CMakeFiles/edit_cache.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGyro/CMakeFiles/install/local.dir
+/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGyro/CMakeFiles/pSimGyro.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/CMakeFiles/install/strip.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/CMakeFiles/install.dir
 /home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/CMakeFiles/list_install_components.dir

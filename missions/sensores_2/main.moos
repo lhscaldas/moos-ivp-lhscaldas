@@ -38,9 +38,10 @@ ProcessConfig = ANTLER
   //Run = pTrajectPID @ NewConsole = false
   Run = ./pTrajectPID.py @ NewConsole = false
  //Run = ./plotter.py    @ NewConsole = false
-  Run = pSimIMU   @ NewConsole = false
-  Run = pSimGPS    @ NewConsole = true
+  //Run = pSimIMU   @ NewConsole = false
+  Run = pSimGPS    @ NewConsole = false
   Run = pSimDVL    @ NewConsole = false
+  Run = pSimGyro    @ NewConsole = false
   Run = pSensor    @ NewConsole = false
   //Run = iRemoteMod    @ NewConsole = true
 
@@ -60,8 +61,8 @@ ProcessConfig = uXMS
   //var    = SENSOR_X, SENSOR_Y, SENSOR_SPEED, SENSOR_HEADING
   //var = NAV_HEADING, IMU_HEADING, SENSOR_HEADING
   //var = IVPHELM_ALLSTOP, MOOS_MANUAL_OVERRIDE, MOOS_MANUAL_OVERIDE, REMOTE_OVERIDE
-  var = REAL_SPEED, DVL_SPEED, GPS_SPEED, NAV_SPEED
-  //display_all = true
+  //var = REAL_SPEED, DVL_SPEED, GPS_SPEED, NAV_SPEED
+  display_all = true
 
 }
 
@@ -92,6 +93,15 @@ ProcessConfig = uSimMarine
 // pSimGPS config block
 
 ProcessConfig = pSimGPS
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
+//------------------------------------------------
+// pSimGyro config block
+
+ProcessConfig = pSimGyro
 {
    AppTick   = 4
    CommsTick = 4

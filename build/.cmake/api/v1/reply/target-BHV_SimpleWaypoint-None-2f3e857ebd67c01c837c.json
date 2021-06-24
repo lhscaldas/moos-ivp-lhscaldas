@@ -1,0 +1,330 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/lib/libBHV_SimpleWaypoint.so"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"ADD_LIBRARY",
+			"LINK_DIRECTORIES",
+			"INCLUDE_DIRECTORIES"
+		],
+		"files" : 
+		[
+			"src/lib_behaviors-test/CMakeLists.txt",
+			"CMakeLists.txt",
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 36,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 60,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 32,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 57,
+				"parent" : 2
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 13,
+				"parent" : 6
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -fPIC -g -Wdeprecated-declarations -fPIC  "
+				},
+				{
+					"fragment" : "-std=gnu++11"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "BHV_SimpleWaypoint_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 4,
+					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Comms/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/DB/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Utils/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/PocoBits/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/getpot/include"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/AppCasting/include"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_apputil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_behaviors"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_behaviors-colregs"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_behaviors-marine"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_bhvutil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_contacts"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_encounters"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_evalutil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_genutil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_geometry"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_helmivp"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_henrik_anneal"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ipfview"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ivpbuild"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ivpcore"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ivpsolve"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_logic"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_logutils"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_manifest"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_marineview"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_obstacles"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_realm"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ucommand"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufield"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufld_hazards"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_zaicview"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/lhscaldas/moos-ivp-lhscaldas/src/./lib_behaviors-test"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"id" : "BHV_SimpleWaypoint::@6f5503641cd187e14364",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-L/home/lhscaldas/moos-ivp/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/lhscaldas/moos-ivp/lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lhelmivp",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lbehaviors",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-livpbuild",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-llogic",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-livpcore",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lbhvutil",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lmbutil",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lgeometry",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lm",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "BHV_SimpleWaypoint",
+	"nameOnDisk" : "libBHV_SimpleWaypoint.so",
+	"paths" : 
+	{
+		"build" : "src/lib_behaviors-test",
+		"source" : "src/lib_behaviors-test"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/lib_behaviors-test/BHV_SimpleWaypoint.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/lib_behaviors-test/AOF_SimpleWaypoint.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}
