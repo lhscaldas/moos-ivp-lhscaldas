@@ -73,6 +73,23 @@ ProcessConfig = iPydyna
 }
 
 //------------------------------------------------
+// pTrajectPID config block
+
+ProcessConfig = pTrajectPID
+{
+   AppTick   = 4
+   CommsTick = 4
+   yaw_kp = 3.97
+   yaw_ki = 0.269
+   yaw_kd = 3.95
+   max_rudder = 35
+   spd_kp = 4.944
+   spd_ki = 0.1629
+   spd_kd = 0
+   max_rotation = 17.5
+}
+
+//------------------------------------------------
 // pSimIMU config block
 
 ProcessConfig = pSimIMU

@@ -3,7 +3,7 @@ import pymoos
 import pydyna
 import time
 import numpy as np
-#teste
+from MoosReader import MoosReader
 
 class Ship(pymoos.comms):
 
@@ -23,10 +23,11 @@ class Ship(pymoos.comms):
         
         self.desired_rotation = 0
         self.desired_rudder = 0
-
-        self.real_x = 200
-        self.real_y = -1900
-        self.real_heading = 90
+        
+        params=MoosReader("main.moos","iPydyna")
+        self.real_x = params['START_X']
+        self.real_y = params['START_Y']
+        self.real_heading = params['START_HEADING']
         self.real_speed = 0
 
         self.sim = pydyna.create_simulation("Navio_L15B4_Conv.p3d")
@@ -48,7 +49,7 @@ class Ship(pymoos.comms):
         self.propeller.dem_rotation = self.desired_rotation
 
         self.run(self.server, self.port, self.name)
-        pymoos.set_moos_timewarp(10)
+        pymoos.set_moos_timewarp(params['MOOSTimeWarp'])
 
 
     def __on_connect(self):
@@ -77,10 +78,6 @@ class Ship(pymoos.comms):
         self.notify(key, value, -1)
 
     def update(self):
-        # self.send('NAV_SPEED', self.real_speed)
-        # self.send('NAV_HEADING', self.real_heading)
-        # self.send('NAV_X', self.real_x)
-        # self.send('NAV_Y', self.real_y)
         self.send('REAL_SPEED', self.real_speed)
         self.send('REAL_HEADING', self.real_heading)
         self.send('REAL_X', self.real_x)
@@ -94,12 +91,7 @@ class Ship(pymoos.comms):
         print(" ")
         print(" ")
         print("iPydyna Debug")
-        print("Pydyna Heading", np.rad2deg(self.ship.angular_position[2]))
-        # print("desired_thrust", self.desired_rotation)
-        # print("desired_rudder", self.desired_rudder)
-        print("dt", dt*pymoos.get_moos_timewarp())
-        print(f"freq_real {1 / dt / pymoos.get_moos_timewarp()}Hz")
-        print(f"freq_fast {1 / dt}Hz")
+        print(f"Time Warp = {pymoos.get_moos_timewarp()}")
 
     def calculate_heading(self):
         real_heading = 0

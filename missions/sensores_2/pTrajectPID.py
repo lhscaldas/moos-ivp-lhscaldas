@@ -2,6 +2,7 @@
 import pymoos
 import time
 import numpy as np
+from MoosReader import MoosReader
 
 class myPID:
 
@@ -67,15 +68,17 @@ class pTrajectPID(pymoos.comms):
         self.desired_rudder = 0
         self.desired_rotation = 0
 
+        params=MoosReader("main.moos","pTrajectPID")
+
         self.run(self.server, self.port, self.name)
-        pymoos.set_moos_timewarp(10)
+        pymoos.set_moos_timewarp(params['MOOSTimeWarp'])
         self.dt=0.1
 
         dt=self.dt/3
-        # self.speedPID = myPID(Kp=4.944*4, Ki=0.1629*4, Kd=0, dt=dt, max_output=17.5)
-        self.speedPID = myPID(Kp=4.944*2, Ki=0.1629*5, Kd=0, dt=dt, max_output=17.5)
-        self.coursePID = myPID(Kp=3.97, Ki=0.269, Kd=3.95, dt=dt, max_output=35)
-
+        # self.speedPID = myPID(Kp=4.944*2, Ki=0.1629*5, Kd=0, dt=dt, max_output=17.5)
+        # self.coursePID = myPID(Kp=3.97, Ki=0.269, Kd=3.95, dt=dt, max_output=35)
+        self.coursePID = myPID(Kp=params['yaw_kp'], Ki=params['yaw_ki'], Kd=params['yaw_kd'], dt=dt, max_output=params['max_rudder'])
+        self.speedPID = myPID(Kp=params['spd_kp']*2, Ki=params['spd_ki']*5, Kd=params['spd_kd'], dt=dt, max_output=params['max_rotation'])
 
     def __on_connect(self):
         """OnConnect callback"""
