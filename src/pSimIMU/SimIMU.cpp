@@ -33,6 +33,9 @@ SimIMU::SimIMU()
    m_imu_vx=0;
    m_imu_vy=0;
    m_imu_speed=0;
+
+   m_imu_x=200;
+   m_imu_y=-1900;
 }
 
 //---------------------------------------------------------
@@ -109,6 +112,11 @@ bool SimIMU::Iterate()
   m_imu_vy+= m_real_accy*m_dt;
   m_imu_speed = sqrt(m_imu_vx*m_imu_vx + m_imu_vy*m_imu_vy);
   m_Comms.Notify("IMU_SPEED", m_imu_speed);
+
+  m_imu_x+= m_imu_vx*m_dt*cos(DEG2RAD*(90-m_imu_heading)) + m_imu_vy*m_dt*sin(DEG2RAD*(90-m_imu_heading));
+  m_imu_y+= -m_imu_vx*m_dt*sin(DEG2RAD*(90-m_imu_heading)) + m_imu_vy*m_dt*cos(DEG2RAD*(90-m_imu_heading));
+  m_Comms.Notify("IMU_X", m_imu_x);
+  m_Comms.Notify("IMU_Y", m_imu_y);
 
   m_t_ant=m_t_now;
 
