@@ -9,14 +9,6 @@ Community  = NCC1701
 
 MOOSTimeWarp = 10
 
-// Forest Lake
-// LatOrigin  = 43.825300
-// LongOrigin = -70.330400
-
-// MIT Sailing Pavilion
-//LatOrigin  = 42.358456
-//LongOrigin = -71.087589
-
 // Sepetiba
 LatOrigin  = -22.933333
 LongOrigin = -43.833333
@@ -28,7 +20,7 @@ ProcessConfig = ANTLER
   MSBetweenLaunches = 200
 
   Run = MOOSDB          @ NewConsole = false
-  Run = uXMS            @ NewConsole = true
+  // Run = uXMS            @ NewConsole = true
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
@@ -38,8 +30,8 @@ ProcessConfig = ANTLER
   //Run = pTrajectPID @ NewConsole = false
   Run = ./pTrajectPID.py @ NewConsole = false
  //Run = ./plotter.py    @ NewConsole = false
-  Run = pSimIMU   @ NewConsole = true
-  Run = pSimGPS    @ NewConsole = true
+  Run = pSimIMU   @ NewConsole = false
+  Run = pSimGPS    @ NewConsole = false
   Run = pSimDVL    @ NewConsole = false
   Run = pSimGyro    @ NewConsole = false
   Run = pSensor    @ NewConsole = false
@@ -63,7 +55,7 @@ ProcessConfig = uXMS
   //var = IVPHELM_ALLSTOP, MOOS_MANUAL_OVERRIDE, MOOS_MANUAL_OVERIDE, REMOTE_OVERIDE
   // var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
   // var = NAV_X, NAV_Y, IMU_X, IMU_Y
-  var = IMU_HEADING, IMU_X, IMU_Y
+  // var = IMU_HEADING, IMU_X, IMU_Y
   //display_all = true
 
 }
@@ -87,9 +79,6 @@ ProcessConfig = pSimIMU
 {
    AppTick   = 4
    CommsTick = 4
-   START_X = 200
-   START_Y = -1900
-   START_HEADING = 90
 }
 
 

@@ -139,28 +139,28 @@ bool SimIMU::OnStartUp()
 
   STRING_LIST sParams;
   m_MissionReader.EnableVerbatimQuoting(false);
-  if(!m_MissionReader.GetConfiguration(GetAppName(), sParams))
-    reportConfigWarning("No config block found for " + GetAppName());
+  if(!m_MissionReader.GetConfiguration("iPydyna", sParams))
+    reportConfigWarning("No config block found for iPydyna");
 
   STRING_LIST::iterator p;
   for(p=sParams.begin(); p!=sParams.end(); p++) {
     string orig  = *p;
     string line  = *p;
-    string param = tolower(biteStringX(line, '='));
-    string value = line;
-    //double dval  = atof(value.c_str());
+    string param = toupper(biteStringX(line, '='));
+    string value = tolower(line);
+    double dval  = atof(value.c_str());
 
     bool handled = false;
     if(param == "START_X") {
-      m_imu_x=atof(value.c_str());
+      m_imu_x=dval;
       handled = true;
     }
     else if(param == "START_Y") {
-      m_imu_y=atof(value.c_str());
+      m_imu_y=dval;
       handled = true;
     }
     else if(param == "START_HEADING") {
-      m_imu_heading=atof(value.c_str());
+      m_imu_heading=dval;
       handled = true;
     }
 
@@ -168,47 +168,11 @@ bool SimIMU::OnStartUp()
       reportUnhandledConfigWarning(orig);
 
   }
-
-  // m_MissionReader.EnableVerbatimQuoting(false);
-  // if(!m_MissionReader.GetConfiguration("iPydyna", sParams))
-  //   reportConfigWarning("No config block found for iPydyna");
-  
-  // m_MissionReader.GetConfigurationParam("START_X", m_imu_x);
-  // m_MissionReader.GetConfigurationParam("START_Y", m_imu_y);
-  // m_MissionReader.GetConfigurationParam("START_HEADING", m_imu_heading);
-  // for(p=sParams.begin(); p!=sParams.end(); p++) {
-  //   string orig  = *p;
-  //   string line  = *p;
-  //   string param = tolower(biteStringX(line, '='));
-  //   string value = line;
-  //   double dval  = atof(value.c_str());
-
-  //   bool handled = false;
-  //   if(param == "START_X") {
-  //     m_imu_x=dval;
-  //     handled = true;
-  //   }
-  //   else if(param == "START_Y") {
-  //     m_imu_y=dval;
-  //     handled = true;
-  //   }
-  //   else if(param == "START_HEADING") {
-  //     m_imu_heading=dval;
-  //     handled = true;
-  //   }
-
-  //   if(!handled)
-  //     reportUnhandledConfigWarning(orig);
-
-  // }
-  
-  registerVariables();
   m_t_ant=MOOSTime();
   m_t_now=MOOSTime();
   
-  // m_imu_x=m_calib_x;
-  // m_imu_y=m_calib_y;
-  // m_imu_heading=m_calib_heading;	
+  registerVariables();
+ 
   return(true);
 }
 
@@ -236,10 +200,10 @@ bool SimIMU::buildReport()
   m_msgs << "File:                                       " << endl;
   m_msgs << "============================================" << endl;
 
-  ACTable actab(5);
-  actab << "t_ant | t_now | dt | m_real_rot | m_imu_heading";
+  ACTable actab(6);
+  actab << "t_ant | t_now | dt | m_real_rot | m_imu_heading | app_name";
   actab.addHeaderLines();
-  actab << m_t_ant << m_t_now << m_dt << m_real_rot << m_imu_heading;
+  actab << m_t_ant << m_t_now << m_dt << m_real_rot << m_imu_heading << GetAppName();
   m_msgs << actab.getFormattedString();
 
   return(true);
