@@ -29,21 +29,15 @@ class SimIMU : public AppCastingMOOSApp
    void registerVariables();
 
  protected:
-   double m_real_rot;
-   double m_dt;
-   double m_t_ant;
-   double m_t_now;
    double m_imu_heading;
-   double m_real_accx;
-   double m_real_accy;
-   double m_imu_vx;
-   double m_imu_vy;
    double m_imu_speed;
    double m_imu_x;
    double m_imu_y;
-   double m_calib_x;
-   double m_calib_y;
-   double m_calib_heading;
+
+   double m_real_heading;
+   double m_real_speed;
+   double m_real_x;
+   double m_real_y;
 
  private: // Configuration variables
 

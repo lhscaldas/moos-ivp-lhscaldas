@@ -26,6 +26,22 @@ MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 MOOSGeodesy.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
 
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.h
+
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/main.cpp
+string
+-
+MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MBUtils.h
+ColorParse.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/ColorParse.h
+MOOSGeodesy.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
+SimGPS.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.h
+SimGPS_Info.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.h
+
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/ClientDefines.h
 
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/MOOSApp.h
@@ -462,6 +478,12 @@ string
 vector
 -
 list
+-
+
+/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
+vector
+-
+string
 -
 
 /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/MBUtils.h

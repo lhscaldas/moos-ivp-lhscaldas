@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pXRelayTest"
+			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSimDVL"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		],
 		"files" : 
 		[
-			"src/pXRelayTest/CMakeLists.txt",
+			"src/pSimDVL/CMakeLists.txt",
 			"CMakeLists.txt",
 			"src/CMakeLists.txt"
 		],
@@ -29,7 +29,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 25,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
@@ -44,7 +44,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 27,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
@@ -76,7 +76,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations -g  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations  "
 				},
 				{
 					"backtrace" : 4,
@@ -250,13 +250,13 @@
 			]
 		}
 	],
-	"id" : "pXRelayTest::@c02dfabc4b8e3b7b1d91",
+	"id" : "pSimDVL::@c6848fa7486ee529ee00",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fPIC -g -Wdeprecated-declarations -g",
+				"fragment" : "-fPIC -g -Wdeprecated-declarations",
 				"role" : "flags"
 			},
 			{
@@ -278,6 +278,10 @@
 				"role" : "libraries"
 			},
 			{
+				"fragment" : "-lapputil",
+				"role" : "libraries"
+			},
+			{
 				"fragment" : "-lmbutil",
 				"role" : "libraries"
 			},
@@ -296,12 +300,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "pXRelayTest",
-	"nameOnDisk" : "pXRelayTest",
+	"name" : "pSimDVL",
+	"nameOnDisk" : "pSimDVL",
 	"paths" : 
 	{
-		"build" : "src/pXRelayTest",
-		"source" : "src/pXRelayTest"
+		"build" : "src/pSimDVL",
+		"source" : "src/pSimDVL"
 	},
 	"sourceGroups" : 
 	[
@@ -320,19 +324,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pXRelayTest/Relayer.cpp",
+			"path" : "src/pSimDVL/SimDVL.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pXRelayTest/Relayer_Info.cpp",
+			"path" : "src/pSimDVL/SimDVL_Info.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pXRelayTest/main.cpp",
+			"path" : "src/pSimDVL/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

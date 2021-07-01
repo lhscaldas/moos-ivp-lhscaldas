@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pSimDVL config block
+
+ProcessConfig = pSimDVL
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+

@@ -216,7 +216,7 @@ bool Sensor::buildReport()
   actab.addHeaderLines();
   actab << "x" << m_gps_x << " " << " " << m_imu_x << m_sensor_x;
   actab << "y" << m_gps_y << " " << " " << m_imu_y << m_sensor_y;
-  actab << "speed" << m_gps_speed << m_dvl_speed << " " << m_imu_speed << m_sensor_y;
+  actab << "speed" << m_gps_speed << m_dvl_speed << " " << m_imu_speed << m_sensor_speed;
   actab << "hdg" << " " << m_gyro_heading << " " << m_imu_heading << m_sensor_heading;
   m_msgs << actab.getFormattedString();
 
