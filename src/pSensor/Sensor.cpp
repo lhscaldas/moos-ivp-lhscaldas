@@ -108,14 +108,13 @@ bool Sensor::OnConnectToServer()
 bool Sensor::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  // m_sensor_speed=m_dvl_speed;
-  // m_sensor_x=m_gps_x;
-  // m_sensor_y=m_gps_y;
-  // m_sensor_heading=m_gyro_heading;
-  m_sensor_speed=m_w_dvl_speed*m_dvl_speed+m_w_imu_speed*m_imu_speed+m_w_gps_speed*m_gps_speed;
-  m_sensor_x=m_w_gps_pos*m_gps_x+m_w_imu_pos*m_imu_x;
-  m_sensor_y=m_w_gps_pos*m_gps_y+m_w_imu_pos*m_imu_y;
-  m_sensor_heading=m_w_gyro_hdg*m_gyro_heading+m_w_imu_hdg*m_imu_heading;
+  double w_speed=m_w_dvl_speed+m_w_imu_speed+m_w_gps_speed;
+  double w_pos=m_w_gps_pos+m_w_imu_pos;
+  double w_hdg=m_w_gyro_hdg+m_w_imu_hdg;
+  m_sensor_speed=(m_w_dvl_speed*m_dvl_speed+m_w_imu_speed*m_imu_speed+m_w_gps_speed*m_gps_speed)/w_speed;
+  m_sensor_x=(m_w_gps_pos*m_gps_x+m_w_imu_pos*m_imu_x)/w_pos;
+  m_sensor_y=(m_w_gps_pos*m_gps_y+m_w_imu_pos*m_imu_y)/w_pos;
+  m_sensor_heading=(m_w_gyro_hdg*m_gyro_heading+m_w_imu_hdg*m_imu_heading)/w_hdg;
   m_Comms.Notify("NAV_SPEED", m_sensor_speed);
   m_Comms.Notify("NAV_X", m_sensor_x);
   m_Comms.Notify("NAV_Y", m_sensor_y);

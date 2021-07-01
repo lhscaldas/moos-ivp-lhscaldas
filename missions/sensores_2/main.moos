@@ -99,13 +99,13 @@ ProcessConfig = pSensor
 {
    AppTick   = 4
    CommsTick = 4
-   w_dvl_speed = 0.5
-   w_imu_speed = 0.25
-   w_gps_speed = 0.25
-   w_imu_pos = 0.5
-   w_gps_pos = 0.5
-   w_imu_hdg = 0.5
-   w_gyro_hdg = 0.5
+   w_dvl_speed = 1
+   w_imu_speed = 1
+   w_gps_speed = 1
+   w_imu_pos = 1
+   w_gps_pos = 1
+   w_imu_hdg = 1
+   w_gyro_hdg = 1
 }
 
 //------------------------------------------------
