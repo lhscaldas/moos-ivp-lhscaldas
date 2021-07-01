@@ -1,0 +1,21 @@
+
+# Instalação:
+-> Acrescentar o arquivo MatlabTools.jar ao classpath estático do Matlab:
+
+  - Execute o Matlab com permissão de Administrador;
+  - Digite no prompt do Matlab:
+     >> edit('classpath.txt')
+  - Acrescente ao final do arquivo o path do arquivo MatlabTools.jar. Exemplo (supondo que você tenha feito o clone do repositório git na raiz do C:\):
+     C:\matlab_tools\dist\MatlabTools.jar
+  - Salve o arquivo;
+  - Digite no prompt do Matlab:
+     >> edit('librarypath.txt')
+  - Acrescente ao final do arquivo o path do diretório onde se encontram as dlls do programa (tpn_p3d-java-msvc12-1_2_0.dll e buzz_java.dll).
+    Exemplo (supondo que você tenha feito o clone do repositório git na raiz do C:\):
+     C:\matlab_tools\bin\
+  - Salve o arquivo;
+  - Reinicie o Matlab;
+
+# Checagem da versão do Buzz
+
+  - smh.buzz_java.get_version()
