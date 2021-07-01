@@ -9,6 +9,7 @@
 #include "MBUtils.h"
 #include "ACTable.h"
 #include "TrajectPID.h"
+#include <stdlib.h> 
 
 using namespace std;
 
@@ -168,10 +169,10 @@ bool TrajectPID::buildReport()
   m_msgs << "File:                                       " << endl;
   m_msgs << "============================================" << endl;
 
-  ACTable actab(4);
-  actab << "Alpha | Bravo | Charlie | Delta";
+  ACTable actab(5);
+  actab << "setpoint | speed | error | int_err | output";
   actab.addHeaderLines();
-  actab << "one" << "two" << "three" << "four";
+  actab << m_speed_setpoint << m_nav_speed << (m_speed_setpoint-m_nav_speed) << m_speed_int_err << m_desired_rotation;
   m_msgs << actab.getFormattedString();
 
   return(true);
@@ -184,9 +185,9 @@ void TrajectPID::speedPID(double y)
   double error = m_speed_setpoint-y;
   double diff_error = (error-m_speed_prev_err)/m_dt;
   m_speed_int_err += error*m_dt;
-  double output = m_speed_kp*error + (1-m_speed_saturated)*m_speed_ki*m_speed_int_err + m_speed_kd*diff_error;
-  if(output>m_speed_maxout){
-    output=m_speed_maxout;
+  double output = m_speed_kp*error; //m_speed_kp*error + (1-m_speed_saturated)*m_speed_ki*m_speed_int_err + m_speed_kd*diff_error;
+  if(abs(output)>m_speed_maxout){
+    output = output/abs(output)*m_speed_maxout;
     m_speed_saturated=1;
     m_speed_int_err=0;
   }
@@ -194,6 +195,7 @@ void TrajectPID::speedPID(double y)
     m_speed_saturated=0;
   }
   m_desired_rotation=output;
+  m_speed_prev_err= error;
 }
 
 void TrajectPID::coursePID(double y)
@@ -203,7 +205,11 @@ void TrajectPID::coursePID(double y)
   m_course_int_err += error*m_dt;
   double output = m_course_kp*error + (1-m_course_saturated)*m_course_ki*m_course_int_err + m_course_kd*diff_error;
   if(output>m_course_maxout){
-    output=m_course_maxout;
+    if(output>=0){
+      output=m_course_maxout;
+    } else{
+      output=-m_course_maxout;
+    }
     m_course_saturated=1;
     m_course_int_err=0;
   }
@@ -211,6 +217,7 @@ void TrajectPID::coursePID(double y)
     m_course_saturated=0;
   }
   m_desired_rudder=output;
+  m_course_prev_err= error;
 }
 
 

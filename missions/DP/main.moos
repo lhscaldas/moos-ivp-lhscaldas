@@ -27,14 +27,13 @@ ProcessConfig = ANTLER
   Run = uProcessWatch   @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
   Run = ./iPydyna.py    @ NewConsole = false
-  // Run = pTrajectPID @ NewConsole = true
   Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
   Run = pSimGPS    @ NewConsole = false
   Run = pSimDVL    @ NewConsole = false
   Run = pSimGyro    @ NewConsole = false
-  Run = pSensor    @ NewConsole = false
+  Run = pSensor    @ NewConsole = true
   // Run = iRemoteMod    @ NewConsole = true
 
 
@@ -48,7 +47,17 @@ ProcessConfig = uXMS
 {
   AppTick   = 4
   CommsTick = 4
-  var    =   NAV_SPEED, DESIRED_SPEED, DESIRED_ROTATION
+  //var    = NAV_X, NAV_Y, NAV_SPEED, NAV_HEADING 
+  //var    = GPS_X, GPS_Y, DVL_SPEED, IMU_HEADING
+  //var = REAL_HEADING, GYRO_HEADING, IMU_HEADING, NAV_HEADING
+  //var = IVPHELM_ALLSTOP, MOOS_MANUAL_OVERRIDE, MOOS_MANUAL_OVERIDE, REMOTE_OVERIDE
+  // var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
+  // var = NAV_X, NAV_Y, IMU_X, IMU_Y
+  // var = IMU_HEADING, IMU_X, IMU_Y, IMU_SPEED
+  var = REAL_HEADING, GYRO_HEADING, IMU_HEADING, NAV_HEADING
+  var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
+  var = REAL_X, GPS_X, IMU_X, NAV_X
+  var = REAL_Y, GPS_Y, IMU_Y, NAV_Y
   //display_all = true
 
 }
@@ -70,16 +79,16 @@ ProcessConfig = iPydyna
 
 ProcessConfig = pTrajectPID
 {
-   AppTick   = 1
-   CommsTick = 1
-   //yaw_kp = 3.97
-   //yaw_ki = 0.269
-   //yaw_kd = 3.95
-   //max_rudder = 35
-   //spd_kp = 4.944
-   //spd_ki = 0.1629
-   //spd_kd = 0
-   //max_rotation = 17.5
+   AppTick   = 4
+   CommsTick = 4
+   yaw_kp = 3.97
+   yaw_ki = 0.269
+   yaw_kd = 3.95
+   max_rudder = 35
+   spd_kp = 4.944
+   spd_ki = 0.1629
+   spd_kd = 0
+   max_rotation = 17.5
 }
 
 //------------------------------------------------
