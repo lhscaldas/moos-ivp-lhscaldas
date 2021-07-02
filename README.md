@@ -22,7 +22,7 @@ Executar os comandos no terminal do Linux
   
 Adicionar a pasta MOOS-IvP/bin ao path do Linux, editando o arquivo .bashrc na pasta `/home/<username>` e inserindo as linhas:
   
-   `PATH=$PATH:/home/<username>/moos-ivp/bin/pHelmIvP`
+   `PATH=$PATH:/home/<username>/moos-ivp/bin`
   
    `export PATH`
   
