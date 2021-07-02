@@ -1,84 +1,92 @@
-##############################################################################
-# FILE:        moos-ivp-extend/README
-# DATE:        2014/01/02
-# DESCRIPTION: Contains important information regarding the moos-ivp-extend
-#              repository.
-##############################################################################
+# TCC - Instruções de instalação
+A instalação deverá ser feita em SO Linux, preferencialmente Ubuntu. 
+Também poderá ser realizada em WSL, mas requer o uso de um X Server para a visualização da simulação.
+## MOOS-IvP
+Executar os comandos no terminal do Linux
 
-#=============================================================================
-# Introduction
-#=============================================================================
-The moos-ivp-extend repository contains examples for extending the MOOS-IvP
-Autonomy system. This includes a MOOS application and an IvP behavior.
+  `$ svn co https://oceanai.mit.edu/svn/moos-ivp-aro/trunk/ moos-ivp`
+  
+  `$ cd moos-ivp`
+  
+  `$ svn update`
+  
+  `$ sudo apt-get install  g++  cmake  xterm` 
+  
+  `$ sudo apt-get install  libfltk1.3-dev  freeglut3-dev  libpng-dev  libjpeg-dev` 
+  
+  `$ sudo apt-get install  libxft-dev  libxinerama-dev   libtiff5-dev`
+  
+  `$ ./build-moos.sh`
+  
+  `$ ./build-ivp.sh`
+  
+Adicionar a pasta MOOS-IvP/bin ao path do Linux, editando o arquivo .bashrc na pasta `/home/<username>` e inserindo as linhas:
+  
+   `PATH=$PATH:/home/<username>/moos-ivp/bin/pHelmIvP`
+  
+   `export PATH`
+  
+Testar:
+  
+  `$ cd moos-ivp/ivp/missions/s1_alpha`
+  
+  `$ pAntler --MOOSTimeWarp=10 alpha.moos`
+  
+## Pydyna
+Efetuar o download da versão Linux do arquivo .whl do Pydyna em https://doccode.tpn.usp.br/projetos/tpnship/.
 
+Adicionar o texto abaixo em um arquivo de texto e salvar como requerimentos.txt
 
-#=============================================================================
-# Directory Structure
-#=============================================================================
-The directory structure for the moos-ivp-extend is decribed below:
+  `h5py==2.9.0`
+  
+  `multipledispatch==0.6.0`
+  
+  `numpy==1.16.1`
+  
+  `pymongo==3.7.2`
+  
+  `scipy==1.3.1`
+  
+  `sdist==0.0.0`
+  
+Executar no terminal do Linux os seguintes comandos:
+  
+  `$ python -m pip install -r requerimentos.txt`
+  
+  `$ pip install pydyna-7.2.3-py3-none-linux_x86_64.whl`
+  
+A instalação deve ser feita em um venv com Python 3.6
 
-bin              - Directory for generated executable files
-build            - Directory for build object files
-build.sh         - Script for building moos-ivp-extend
-CMakeLists.txt   - CMake configuration file for the project
-data             - Directory for storing data
-lib              - Directory for generated library files
-missions         - Directory for mission files
-README           - Contains helpful information - (this file).
-scripts          - Directory for script files
-src              - Directory for source code
+## Pymoos
+Executar os comandos no terminal do Linux, no mesmo venv do Pydyna:
 
+  `$ sudo apt-get install libboost-python-dev`
+  
+  `$ git clone https://github.com/msis/python-moos`
+  
+  `$ python3 setup.py build`
+  
+  `$ python3 setup.py install`
+  
+## Testes
+Efetuar o download deste repositório 
 
-#=============================================================================
-# Build Instructions
-#=============================================================================
-#--------------------
-# Linux and Mac Users
-#--------------------
+  `$ git clone https://github.com/lhscaldas/TCC.git`
 
-To build on Linux and Apple platforms, execute the build script within this
-directory:
+Para testar o pymoos, abrir a pasta plotter e dar permissão de execução ao arquivo plotter.py com o comando:
 
-   $ ./build.sh
+  `$ chmod +x plotter.py`
+  
+Executar a missão alpha com o comando:
 
-To build without using the supplied script, execute the following commands
-within this directory:
+  `$ pAntler alpha.moos`
+  
+Para testar a integração entre o MOOS-IvP e o Pydyna, abrir a pasta PID e dar permissão de execução aos arquivos iPydyna.py e pTrajectPID.py com o comando:
 
-   $ mkdir -p build
-   $ cd build
-   $ cmake ../
-   $ make
-   $ cd ..
+  `$ chmod +x iPydyna.py`
+  
+  `$ chmod +x pTrajectPID.py`
+  
+Executar a missão main com o comando:
 
-
-#--------------
-# Windows Users
-#--------------
-To build on Windows platform, open CMake using your favorite shortcut. Then 
-set the source directory to be this directory and set the build directory
-to the "build" directory inside this directory.
-
-The source directory is typically next to the question:
-   "Where is the source code?"
-
-The build directory is typically next to the question:
-   "Where to build the binaries?"
-
-Alternatively, CMake can be invoked via the command line. However, you must
-specify your gernerator. Use "cmake --help" for a list of generators and
-additional help.
-
-#=============================================================================
-# Environment variables
-#=============================================================================
-The moos-ivp-extend binaries files should be added to your path to allow them
-to be launched from pAntler. 
-
-In order for generated IvP Behaviors to be recognized by the IvP Helm, you
-should add the library directory to the "IVP_BEHAVIOR_DIRS" environment 
-variable.
-
-##############################################################################
-#                               END of README
-##############################################################################
-
+  `$ pAntler main.moos`
