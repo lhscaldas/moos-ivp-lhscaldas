@@ -33,21 +33,7 @@ Testar:
   `$ pAntler --MOOSTimeWarp=10 alpha.moos`
   
 ## Pydyna
-Efetuar o download da versão Linux do arquivo .whl do Pydyna em https://doccode.tpn.usp.br/projetos/tpnship/.
-
-Adicionar o texto abaixo em um arquivo de texto e salvar como requerimentos.txt
-
-  `h5py==2.9.0`
-  
-  `multipledispatch==0.6.0`
-  
-  `numpy==1.16.1`
-  
-  `pymongo==3.7.2`
-  
-  `scipy==1.3.1`
-  
-  `sdist==0.0.0`
+Clonar `$ git clone https://github.com/lhscaldas/pydyna.git`
   
 Executar no terminal do Linux os seguintes comandos:
   
