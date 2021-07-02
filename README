@@ -1,4 +1,4 @@
-# TCC - Instruções de instalação
+#TCC - Instruções de instalação
 A instalação deverá ser feita em SO Linux, preferencialmente Ubuntu. 
 Também poderá ser realizada em WSL, mas requer o uso de um X Server para a visualização da simulação.
 ## MOOS-IvP
