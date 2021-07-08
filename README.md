@@ -4,7 +4,7 @@ Também poderá ser realizada em WSL, mas requer o uso de um X Server para a vis
 ## MOOS-IvP
 Executar os comandos no terminal do Linux
 
-  `$ svn co https://oceanai.mit.edu/svn/moos-ivp-aro/trunk/ moos-ivp`
+  $`svn co https://oceanai.mit.edu/svn/moos-ivp-aro/trunk/ moos-ivp`
   
   `$ cd moos-ivp`
   
