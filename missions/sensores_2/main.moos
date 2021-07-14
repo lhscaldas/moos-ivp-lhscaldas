@@ -48,8 +48,8 @@ ProcessConfig = uXMS
 {
   AppTick   = 4
   CommsTick = 4
-  var    =   NAV_SPEED, DESIRED_SPEED, DESIRED_ROTATION
-  //display_all = true
+  //var    =   NAV_SPEED, DESIRED_SPEED, DESIRED_ROTATION
+  display_all = true
 
 }
 
@@ -72,14 +72,14 @@ ProcessConfig = pTrajectPID
 {
    AppTick   = 1
    CommsTick = 1
-   //yaw_kp = 3.97
-   //yaw_ki = 0.269
-   //yaw_kd = 3.95
-   //max_rudder = 35
-   //spd_kp = 4.944
-   //spd_ki = 0.1629
-   //spd_kd = 0
-   //max_rotation = 17.5
+   yaw_kp = 3.97
+   yaw_ki = 0.269
+   yaw_kd = 3.95
+   max_rudder = 35
+   spd_kp = 4.944
+   spd_ki = 0.1629
+   spd_kd = 0
+   max_rotation = 17.5
 }
 
 //------------------------------------------------

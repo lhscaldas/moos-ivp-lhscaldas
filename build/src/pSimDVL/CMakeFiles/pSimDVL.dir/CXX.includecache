@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL.cpp
+iterator
+-
+MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/MBUtils.h
+ACTable.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/ACTable.h
+SimDVL.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL.h
+
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/SimDVL.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimDVL/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
@@ -465,6 +475,14 @@ MOOS/libMOOS/Thirdparty/PocoBits/Event.h
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Utils/include/MOOS/libMOOS/Utils/MOOS/libMOOS/Thirdparty/PocoBits/Event.h
 MOOS/libMOOS/Thirdparty/PocoBits/Mutex.h
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Utils/include/MOOS/libMOOS/Utils/MOOS/libMOOS/Thirdparty/PocoBits/Mutex.h
+
+/home/lhscaldas/moos-ivp/ivp/src/lib_apputil/ACTable.h
+string
+-
+vector
+-
+list
+-
 
 /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
 vector

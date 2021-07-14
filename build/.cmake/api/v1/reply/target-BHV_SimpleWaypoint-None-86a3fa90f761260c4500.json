@@ -12,6 +12,7 @@
 		[
 			"ADD_LIBRARY",
 			"LINK_DIRECTORIES",
+			"TARGET_LINK_LIBRARIES",
 			"INCLUDE_DIRECTORIES"
 		],
 		"files" : 
@@ -42,12 +43,18 @@
 			},
 			{
 				"command" : 2,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
 				"file" : 1,
 				"line" : 32,
 				"parent" : 2
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 1,
 				"line" : 57,
 				"parent" : 2
@@ -56,10 +63,10 @@
 				"file" : 2
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 2,
 				"line" : 13,
-				"parent" : 6
+				"parent" : 7
 			}
 		]
 	},
@@ -69,7 +76,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations -g -fPIC  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations -fPIC"
 				},
 				{
 					"fragment" : "-std=gnu++11"
@@ -84,147 +91,139 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Comms/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/DB/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Utils/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/PocoBits/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/getpot/include"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/AppCasting/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_apputil"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_behaviors"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_behaviors-colregs"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_behaviors-marine"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_bhvutil"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_contacts"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_encounters"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_evalutil"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_genutil"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_geometry"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_helmivp"
 				},
 				{
-					"backtrace" : 5,
-					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_henrik_anneal"
-				},
-				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ipfview"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ivpbuild"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ivpcore"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ivpsolve"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_logic"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_logutils"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_manifest"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_marineview"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_obstacles"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_realm"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ucommand"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufield"
 				},
 				{
-					"backtrace" : 5,
-					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufld_hazards"
-				},
-				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_zaicview"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 8,
 					"path" : "/home/lhscaldas/moos-ivp-lhscaldas/src/./lib_behaviors-test"
 				}
 			],
@@ -255,38 +254,47 @@
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lhelmivp",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lbehaviors",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-livpbuild",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-llogic",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-livpcore",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lbhvutil",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lmbutil",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lgeometry",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lm",
 				"role" : "libraries"
 			}

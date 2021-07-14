@@ -28,6 +28,12 @@ stdio.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/iRemoteMod/MOOSRemoteMod.h
 
+/home/lhscaldas/moos-ivp-lhscaldas/src/iRemoteMod/iRemoteModMain.cpp
+MOOS/libMOOS/MOOSLib.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/iRemoteMod/MOOS/libMOOS/MOOSLib.h
+MOOSRemoteMod.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/iRemoteMod/MOOSRemoteMod.h
+
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/ClientDefines.h
 
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/MOOSApp.h

@@ -184,7 +184,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "None",
 			"projects" : 
 			[
 				{
@@ -224,70 +224,70 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "BHV_SimpleWaypoint::@6f5503641cd187e14364",
-					"jsonFile" : "target-BHV_SimpleWaypoint-Debug-25e7c890dd37a39b5b02.json",
+					"jsonFile" : "target-BHV_SimpleWaypoint-None-86a3fa90f761260c4500.json",
 					"name" : "BHV_SimpleWaypoint",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 11,
 					"id" : "iRemoteMod::@bdb99e091a6082ee383d",
-					"jsonFile" : "target-iRemoteMod-Debug-c8331379803da645e3dc.json",
+					"jsonFile" : "target-iRemoteMod-None-f73135f4e5909dad992d.json",
 					"name" : "iRemoteMod",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "pExampleApp::@e5cf5f4f18b468902831",
-					"jsonFile" : "target-pExampleApp-Debug-d6d06c5ab9ce69383f97.json",
+					"jsonFile" : "target-pExampleApp-None-f94b34164586ca35f732.json",
 					"name" : "pExampleApp",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 10,
 					"id" : "pSensor::@26df0b8f05989a98d751",
-					"jsonFile" : "target-pSensor-Debug-0adadf9bd7689136c41c.json",
+					"jsonFile" : "target-pSensor-None-2edae9180850fbb88135.json",
 					"name" : "pSensor",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 7,
 					"id" : "pSimDVL::@c6848fa7486ee529ee00",
-					"jsonFile" : "target-pSimDVL-Debug-af652c54f0324fb22504.json",
+					"jsonFile" : "target-pSimDVL-None-0b18279b8fe2d5e10728.json",
 					"name" : "pSimDVL",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 6,
 					"id" : "pSimGPS::@c01ec32dfb5f1423f3c0",
-					"jsonFile" : "target-pSimGPS-Debug-42359deebb2dda5eb314.json",
+					"jsonFile" : "target-pSimGPS-None-0c33372ad2bd4e6609f7.json",
 					"name" : "pSimGPS",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 8,
 					"id" : "pSimGyro::@5c2f56628101ece25e78",
-					"jsonFile" : "target-pSimGyro-Debug-eed3e79271807d3f9ebc.json",
+					"jsonFile" : "target-pSimGyro-None-170965e260eee3876f03.json",
 					"name" : "pSimGyro",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 5,
 					"id" : "pSimIMU::@d3f01005184cca5b455a",
-					"jsonFile" : "target-pSimIMU-Debug-7aeb8016578656f44c3e.json",
+					"jsonFile" : "target-pSimIMU-None-b1c61eb3f2b5a83a53e4.json",
 					"name" : "pSimIMU",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 9,
 					"id" : "pTrajectPID::@ff1f245faa2754763242",
-					"jsonFile" : "target-pTrajectPID-Debug-b38e849c2dfb31ff752c.json",
+					"jsonFile" : "target-pTrajectPID-None-3833cc64fa8863326b08.json",
 					"name" : "pTrajectPID",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "pXRelayTest::@c02dfabc4b8e3b7b1d91",
-					"jsonFile" : "target-pXRelayTest-Debug-e44e288565973a3f8416.json",
+					"jsonFile" : "target-pXRelayTest-None-71ac6e64eb67c033b111.json",
 					"name" : "pXRelayTest",
 					"projectIndex" : 0
 				}
@@ -303,6 +303,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 0
+		"minor" : 1
 	}
 }

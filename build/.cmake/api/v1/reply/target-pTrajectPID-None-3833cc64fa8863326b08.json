@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/iRemoteMod"
+			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pTrajectPID"
 		}
 	],
 	"backtrace" : 1,
@@ -11,14 +11,13 @@
 		"commands" : 
 		[
 			"ADD_EXECUTABLE",
-			"INSTALL",
 			"LINK_DIRECTORIES",
 			"TARGET_LINK_LIBRARIES",
 			"INCLUDE_DIRECTORIES"
 		],
 		"files" : 
 		[
-			"src/iRemoteMod/CMakeLists.txt",
+			"src/pTrajectPID/CMakeLists.txt",
 			"CMakeLists.txt",
 			"src/CMakeLists.txt"
 		],
@@ -30,56 +29,44 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 18,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 24,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
 				"file" : 1
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 1,
 				"line" : 60,
-				"parent" : 3
+				"parent" : 2
 			},
 			{
-				"command" : 3,
+				"command" : 2,
 				"file" : 0,
-				"line" : 21,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
-				"command" : 4,
+				"command" : 3,
 				"file" : 1,
 				"line" : 57,
-				"parent" : 3
+				"parent" : 2
 			},
 			{
 				"file" : 2
 			},
 			{
-				"command" : 4,
+				"command" : 3,
 				"file" : 2,
 				"line" : 13,
-				"parent" : 7
+				"parent" : 6
 			},
 			{
-				"command" : 4,
-				"file" : 0,
-				"line" : 15,
-				"parent" : 0
-			},
-			{
-				"command" : 4,
+				"command" : 3,
 				"file" : 1,
 				"line" : 32,
-				"parent" : 3
+				"parent" : 2
 			}
 		]
 	},
@@ -89,10 +76,10 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations -g  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"fragment" : "-pthread"
 				},
 				{
@@ -102,158 +89,146 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_apputil"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_behaviors"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_behaviors-colregs"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_behaviors-marine"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_bhvutil"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_contacts"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_encounters"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_evalutil"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_genutil"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_geometry"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_helmivp"
 				},
 				{
-					"backtrace" : 6,
-					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_henrik_anneal"
-				},
-				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ipfview"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ivpbuild"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ivpcore"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ivpsolve"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_logic"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_logutils"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_manifest"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_marineview"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_obstacles"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_realm"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ucommand"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufield"
 				},
 				{
-					"backtrace" : 6,
-					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufld_hazards"
-				},
-				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_zaicview"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 7,
 					"path" : "/home/lhscaldas/moos-ivp-lhscaldas/src/./lib_behaviors-test"
 				},
 				{
-					"backtrace" : 9,
-					"path" : "/home/lhscaldas/moos-ivp-lhscaldas/src/iRemoteMod/{MOOS_INCLUDE_DIRS}"
-				},
-				{
-					"backtrace" : 10,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/include"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Comms/include"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/DB/include"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Utils/include"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/PocoBits/include"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/getpot/include"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/AppCasting/include"
 				}
@@ -262,31 +237,18 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
-	"id" : "iRemoteMod::@bdb99e091a6082ee383d",
-	"install" : 
-	{
-		"destinations" : 
-		[
-			{
-				"backtrace" : 2,
-				"path" : "bin"
-			}
-		],
-		"prefix" : 
-		{
-			"path" : "/usr/local"
-		}
-	},
+	"id" : "pTrajectPID::@ff1f245faa2754763242",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fPIC -g -Wdeprecated-declarations -g",
+				"fragment" : "-fPIC -g -Wdeprecated-declarations",
 				"role" : "flags"
 			},
 			{
@@ -294,36 +256,52 @@
 				"role" : "flags"
 			},
 			{
-				"backtrace" : 4,
+				"backtrace" : 3,
 				"fragment" : "-L/home/lhscaldas/moos-ivp/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/lhscaldas/moos-ivp/lib:",
+				"fragment" : "-Wl,-rpath,/home/lhscaldas/moos-ivp/lib",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 5,
+				"backtrace" : 4,
 				"fragment" : "/home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lapputil",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lmbutil",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lpthread",
 				"role" : "libraries"
 			},
 			{
 				"fragment" : "-pthread",
 				"role" : "libraries"
-			},
-			{
-				"fragment" : "-lm",
-				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "iRemoteMod",
-	"nameOnDisk" : "iRemoteMod",
+	"name" : "pTrajectPID",
+	"nameOnDisk" : "pTrajectPID",
 	"paths" : 
 	{
-		"build" : "src/iRemoteMod",
-		"source" : "src/iRemoteMod"
+		"build" : "src/pTrajectPID",
+		"source" : "src/pTrajectPID"
 	},
 	"sourceGroups" : 
 	[
@@ -332,7 +310,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -341,13 +320,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/iRemoteMod/MOOSRemoteMod.cpp",
+			"path" : "src/pTrajectPID/TrajectPID.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/iRemoteMod/iRemoteModMain.cpp",
+			"path" : "src/pTrajectPID/TrajectPID_Info.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/pTrajectPID/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

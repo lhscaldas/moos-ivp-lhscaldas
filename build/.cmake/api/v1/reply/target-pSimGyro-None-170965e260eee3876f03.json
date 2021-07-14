@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSimIMU"
+			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSimGyro"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		],
 		"files" : 
 		[
-			"src/pSimIMU/CMakeLists.txt",
+			"src/pSimGyro/CMakeLists.txt",
 			"CMakeLists.txt",
 			"src/CMakeLists.txt"
 		],
@@ -76,7 +76,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations -g  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations"
 				},
 				{
 					"backtrace" : 4,
@@ -134,10 +134,6 @@
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_henrik_anneal"
-				},
-				{
-					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ipfview"
 				},
 				{
@@ -187,10 +183,6 @@
 				{
 					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufield"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufld_hazards"
 				},
 				{
 					"backtrace" : 5,
@@ -250,13 +242,13 @@
 			]
 		}
 	],
-	"id" : "pSimIMU::@d3f01005184cca5b455a",
+	"id" : "pSimGyro::@5c2f56628101ece25e78",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fPIC -g -Wdeprecated-declarations -g",
+				"fragment" : "-fPIC -g -Wdeprecated-declarations",
 				"role" : "flags"
 			},
 			{
@@ -278,18 +270,22 @@
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lapputil",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lmbutil",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lm",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lpthread",
 				"role" : "libraries"
 			},
@@ -300,12 +296,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "pSimIMU",
-	"nameOnDisk" : "pSimIMU",
+	"name" : "pSimGyro",
+	"nameOnDisk" : "pSimGyro",
 	"paths" : 
 	{
-		"build" : "src/pSimIMU",
-		"source" : "src/pSimIMU"
+		"build" : "src/pSimGyro",
+		"source" : "src/pSimGyro"
 	},
 	"sourceGroups" : 
 	[
@@ -324,19 +320,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSimIMU/SimIMU.cpp",
+			"path" : "src/pSimGyro/SimGyro.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSimIMU/SimIMU_Info.cpp",
+			"path" : "src/pSimGyro/SimGyro_Info.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSimIMU/main.cpp",
+			"path" : "src/pSimGyro/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

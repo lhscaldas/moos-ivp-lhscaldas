@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSimGPS"
+			"path" : "/home/lhscaldas/moos-ivp-lhscaldas/bin/pSimDVL"
 		}
 	],
 	"backtrace" : 1,
@@ -17,7 +17,7 @@
 		],
 		"files" : 
 		[
-			"src/pSimGPS/CMakeLists.txt",
+			"src/pSimDVL/CMakeLists.txt",
 			"CMakeLists.txt",
 			"src/CMakeLists.txt"
 		],
@@ -29,7 +29,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 13,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
@@ -44,7 +44,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 15,
+				"line" : 14,
 				"parent" : 0
 			},
 			{
@@ -76,7 +76,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " -fPIC -g -Wdeprecated-declarations -g  "
+					"fragment" : " -fPIC -g -Wdeprecated-declarations"
 				},
 				{
 					"backtrace" : 4,
@@ -134,10 +134,6 @@
 				},
 				{
 					"backtrace" : 5,
-					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_henrik_anneal"
-				},
-				{
-					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ipfview"
 				},
 				{
@@ -187,10 +183,6 @@
 				{
 					"backtrace" : 5,
 					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufield"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/home/lhscaldas/moos-ivp/ivp/src/lib_ufld_hazards"
 				},
 				{
 					"backtrace" : 5,
@@ -246,18 +238,17 @@
 			[
 				0,
 				1,
-				2,
-				3
+				2
 			]
 		}
 	],
-	"id" : "pSimGPS::@c01ec32dfb5f1423f3c0",
+	"id" : "pSimDVL::@c6848fa7486ee529ee00",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-fPIC -g -Wdeprecated-declarations -g",
+				"fragment" : "-fPIC -g -Wdeprecated-declarations",
 				"role" : "flags"
 			},
 			{
@@ -279,18 +270,22 @@
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lapputil",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lmbutil",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lm",
 				"role" : "libraries"
 			},
 			{
+				"backtrace" : 4,
 				"fragment" : "-lpthread",
 				"role" : "libraries"
 			},
@@ -301,12 +296,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "pSimGPS",
-	"nameOnDisk" : "pSimGPS",
+	"name" : "pSimDVL",
+	"nameOnDisk" : "pSimDVL",
 	"paths" : 
 	{
-		"build" : "src/pSimGPS",
-		"source" : "src/pSimGPS"
+		"build" : "src/pSimDVL",
+		"source" : "src/pSimDVL"
 	},
 	"sourceGroups" : 
 	[
@@ -316,8 +311,7 @@
 			[
 				0,
 				1,
-				2,
-				3
+				2
 			]
 		}
 	],
@@ -326,25 +320,19 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSimGPS/SimGPS.cpp",
+			"path" : "src/pSimDVL/SimDVL.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSimGPS/MOOSGeodesy.cpp",
+			"path" : "src/pSimDVL/SimDVL_Info.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/pSimGPS/SimGPS_Info.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/pSimGPS/main.cpp",
+			"path" : "src/pSimDVL/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
