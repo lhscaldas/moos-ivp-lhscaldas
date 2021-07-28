@@ -23,8 +23,9 @@ ProcessConfig = ANTLER
 
   Run = MOOSDB          @ NewConsole = false
   // Run = uXMS            @ NewConsole = true
+  // Run = uHelmScope            @ NewConsole = true
   // Run = pLogger      @ NewConsole = false
-  Run = pHelmIvP        @ NewConsole = false
+  Run = pHelmIvP        @ NewConsole = true
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
   Run = uProcessWatch   @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
@@ -36,7 +37,7 @@ ProcessConfig = ANTLER
   Run = pSimGPS    @ NewConsole = false
   Run = pSimDVL    @ NewConsole = false
   Run = pSimGyro    @ NewConsole = false
-  Run = pSensor    @ NewConsole = true
+  Run = pSensor    @ NewConsole = false
   // Run = iRemoteMod    @ NewConsole = true
 
 
@@ -213,6 +214,8 @@ ProcessConfig = pHelmIvP
   behaviors  = behaviorDP.bhv
   domain     = course:0:359:360
   domain     = speed:0:7:99
+
+  IVP_BEHAVIOR_DIR = ../../lib
 }
 
 //------------------------------------------

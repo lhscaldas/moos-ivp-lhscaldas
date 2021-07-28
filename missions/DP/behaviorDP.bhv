@@ -42,52 +42,16 @@ Behavior = BHV_Waypoint
 }
 
 //----------------------------------------------
- Behavior = BHV_StationKeep
- {
-   // General Behavior Parameters
-   // ---------------------------
-   name         = station-keep          // example
-   pwt          = 100                   // default
-   condition  = RETURN = true
-   condition  = DEPLOY = true
-   inactiveflag = STATIONING = false    // example
-   activeflag   = STATIONING = true     // example
+Behavior = BHV_DP
+{ 
+  name      = Dynamic_Positioning
+  pwt       = 100
+  condition = RETURN = true
+  condition = DEPLOY = true
+  //endflag   = RETURN = true
 
-
-   // Parameters specific to this behavior
-   // ------------------------------------
-      center_activate = false   // default
-   hibernation_radius = -1      // default
-         inner_radius = 15       // default
-         outer_radius = 30      // default
-         outer_speed  = 1     // default
-       transit_speed  = 5    // default
-           station_pt = 200,-1900     // default
-           swing_time = 0       // default
-
-         visual_hints = vertex_size  = 1           // default
-         visual_hints = edge_color   = light_blue  // default
-         visual_hints = edge_size    = 1           // default
-         visual_hints = label_color  = black      
-         visual_hints = vertex_color = blue 
- }
-
-//----------------------------------------------
-Behavior=BHV_ConstantSpeed
-{
-  name       = const_speed
-  pwt        = 200
-  condition  = SPD=true
-  condition  = DEPLOY = true
-  perpetual  = true
-  updates    = SPEED_UPDATE
-  endflag    = SPD = false
-
-     speed = 0.5
-		 duration = 10
-		 duration_reset = CONST_SPD_RESET=true
-	
+  speed      = 4.0   // meters per second
+  radius     = 8.0
+  ptx        = 200
+  pty        = -1900
 }
-
-	// uPokeDB alpha.moos SPEED_UPDATE=speed=0.7#duration=20
-	// uPokeDB alpha.moos RETURN_UPDATE=slip_radius=7

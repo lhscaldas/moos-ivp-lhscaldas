@@ -45,3 +45,16 @@ TARGET_LINK_LIBRARIES(BHV_SimpleWaypoint
    mbutil 
    geometry 
    ${SYSTEM_LIBS} )
+
+ADD_LIBRARY(BHV_DP SHARED 
+   BHV_DP.cpp AOF_DP.cpp)
+TARGET_LINK_LIBRARIES(BHV_DP
+   helmivp
+   behaviors 
+   ivpbuild 
+   logic 
+   ivpcore 
+   bhvutil 
+   mbutil 
+   geometry 
+   ${SYSTEM_LIBS} )

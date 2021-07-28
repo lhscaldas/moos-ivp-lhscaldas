@@ -87,18 +87,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -143,6 +131,18 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles /home/lhscaldas/moos-ivp-lhscaldas/build/src/lib_behaviors-test//CMakeFiles/progress.marks
@@ -176,6 +176,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/rule:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/rule
+.PHONY : src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/rule
+
+# Convenience name for target.
+BHV_DP: src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/rule
+
+.PHONY : BHV_DP
+
+# fast build rule for target.
+BHV_DP/fast:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build
+.PHONY : BHV_DP/fast
+
+# Convenience name for target.
 src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/rule:
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/rule
 .PHONY : src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/rule
@@ -189,6 +204,33 @@ BHV_SimpleWaypoint: src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/rul
 BHV_SimpleWaypoint/fast:
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build
 .PHONY : BHV_SimpleWaypoint/fast
+
+AOF_DP.o: AOF_DP.cpp.o
+
+.PHONY : AOF_DP.o
+
+# target to build an object file
+AOF_DP.cpp.o:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/AOF_DP.cpp.o
+.PHONY : AOF_DP.cpp.o
+
+AOF_DP.i: AOF_DP.cpp.i
+
+.PHONY : AOF_DP.i
+
+# target to preprocess a source file
+AOF_DP.cpp.i:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/AOF_DP.cpp.i
+.PHONY : AOF_DP.cpp.i
+
+AOF_DP.s: AOF_DP.cpp.s
+
+.PHONY : AOF_DP.s
+
+# target to generate assembly for a file
+AOF_DP.cpp.s:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/AOF_DP.cpp.s
+.PHONY : AOF_DP.cpp.s
 
 AOF_SimpleWaypoint.o: AOF_SimpleWaypoint.cpp.o
 
@@ -216,6 +258,33 @@ AOF_SimpleWaypoint.s: AOF_SimpleWaypoint.cpp.s
 AOF_SimpleWaypoint.cpp.s:
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/AOF_SimpleWaypoint.cpp.s
 .PHONY : AOF_SimpleWaypoint.cpp.s
+
+BHV_DP.o: BHV_DP.cpp.o
+
+.PHONY : BHV_DP.o
+
+# target to build an object file
+BHV_DP.cpp.o:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/BHV_DP.cpp.o
+.PHONY : BHV_DP.cpp.o
+
+BHV_DP.i: BHV_DP.cpp.i
+
+.PHONY : BHV_DP.i
+
+# target to preprocess a source file
+BHV_DP.cpp.i:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/BHV_DP.cpp.i
+.PHONY : BHV_DP.cpp.i
+
+BHV_DP.s: BHV_DP.cpp.s
+
+.PHONY : BHV_DP.s
+
+# target to generate assembly for a file
+BHV_DP.cpp.s:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/BHV_DP.cpp.s
+.PHONY : BHV_DP.cpp.s
 
 BHV_SimpleWaypoint.o: BHV_SimpleWaypoint.cpp.o
 
@@ -256,10 +325,17 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... BHV_DP"
 	@echo "... BHV_SimpleWaypoint"
+	@echo "... AOF_DP.o"
+	@echo "... AOF_DP.i"
+	@echo "... AOF_DP.s"
 	@echo "... AOF_SimpleWaypoint.o"
 	@echo "... AOF_SimpleWaypoint.i"
 	@echo "... AOF_SimpleWaypoint.s"
+	@echo "... BHV_DP.o"
+	@echo "... BHV_DP.i"
+	@echo "... BHV_DP.s"
 	@echo "... BHV_SimpleWaypoint.o"
 	@echo "... BHV_SimpleWaypoint.i"
 	@echo "... BHV_SimpleWaypoint.s"

@@ -176,6 +176,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named BHV_DP
+
+# Build rule for target.
+BHV_DP: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BHV_DP
+.PHONY : BHV_DP
+
+# fast build rule for target.
+BHV_DP/fast:
+	$(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build
+.PHONY : BHV_DP/fast
+
+#=============================================================================
 # Target rules for targets named BHV_SimpleWaypoint
 
 # Build rule for target.
@@ -317,6 +330,7 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... BHV_DP"
 	@echo "... BHV_SimpleWaypoint"
 	@echo "... iRemoteMod"
 	@echo "... pExampleApp"
