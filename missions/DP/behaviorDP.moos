@@ -210,7 +210,7 @@ ProcessConfig = pHelmIvP
   bhv_dir_not_found_ok = true
   ok_skew = any
 
-  behaviors  = main.bhv
+  behaviors  = behaviorDP.bhv
   domain     = course:0:359:360
   domain     = speed:0:7:99
 }

@@ -42,11 +42,14 @@ class iDP(pymoos.comms):
         self.dt=0.1
         
         p3d = "Maersk Handler.p3d"
+        num = 42
+        # p3d = "Navio_L15B4_Conv.p3d"
+        # num = 207
         self.my_dyna = pydyna.create_simulation(p3d)
-        self.my_vessel = self.my_dyna.vessels['42']
+        self.my_vessel = self.my_dyna.vessels[str(num)]
         self.my_vessel.linear_position = [self.real_x, self.real_y, -6.6]
         self.my_vessel.angular_position = [0.0, 0.0, (90-self.real_heading)*np.pi/180]
-        self.my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/"+p3d, 42)
+        self.my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/"+p3d, num)
 
         self.run(self.server, self.port, self.name)
         pymoos.set_moos_timewarp(params['MOOSTimeWarp'])
