@@ -12,6 +12,8 @@ MOOSTimeWarp = 10
 // Sepetiba
 LatOrigin  = -22.933333
 LongOrigin = -43.833333
+// LatOrigin  = -22.9487
+// LongOrigin = -43.8399
 
 //------------------------------------------
 // Antler configuration  block
@@ -29,6 +31,7 @@ ProcessConfig = ANTLER
   Run = ./iPydyna.py    @ NewConsole = false
   Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
+  // Run = ./iDP.py    @ NewConsole = true
   Run = pSimIMU   @ NewConsole = false
   Run = pSimGPS    @ NewConsole = false
   Run = pSimDVL    @ NewConsole = false
@@ -54,11 +57,11 @@ ProcessConfig = uXMS
   // var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
   // var = NAV_X, NAV_Y, IMU_X, IMU_Y
   // var = IMU_HEADING, IMU_X, IMU_Y, IMU_SPEED
-  var = REAL_HEADING, GYRO_HEADING, IMU_HEADING, NAV_HEADING
-  var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
-  var = REAL_X, GPS_X, IMU_X, NAV_X
-  var = REAL_Y, GPS_Y, IMU_Y, NAV_Y
-  //display_all = true
+  // var = REAL_HEADING, GYRO_HEADING, IMU_HEADING, NAV_HEADING
+  // var = REAL_SPEED, DVL_SPEED, IMU_SPEED, GPS_SPEED, NAV_SPEED
+  // var = REAL_X, GPS_X, IMU_X, NAV_X
+  // var = REAL_Y, GPS_Y, IMU_Y, NAV_Y
+  display_all = true
 
 }
 
@@ -193,6 +196,7 @@ ProcessConfig = uProcessWatch
   nowatch   = uPokeDB*
   nowatch   = uXMS*
   nowatch   = ./iPydyna.py
+  nowatch   = ./pTrajectPID.py
 }
 
 //------------------------------------------

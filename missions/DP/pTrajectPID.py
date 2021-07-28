@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import pymoos
 import time
+import sys
 import numpy as np
 from MoosReader import MoosReader
 
@@ -68,7 +69,8 @@ class pTrajectPID(pymoos.comms):
         self.desired_rudder = 0
         self.desired_rotation = 0
 
-        params=MoosReader("main.moos","pTrajectPID")
+        file = sys.argv[1]
+        params=MoosReader(file,"pTrajectPID")
 
         self.run(self.server, self.port, self.name)
         pymoos.set_moos_timewarp(params['MOOSTimeWarp'])

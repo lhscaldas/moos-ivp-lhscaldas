@@ -2,6 +2,7 @@
 import pymoos
 import pydyna
 import time
+import sys
 import numpy as np
 from MoosReader import MoosReader
 
@@ -23,8 +24,9 @@ class Ship(pymoos.comms):
         
         self.desired_rotation = 0
         self.desired_rudder = 0
-        
-        params=MoosReader("main.moos","iPydyna")
+
+        file = sys.argv[1] 
+        params=MoosReader(file,"iPydyna")
         self.real_x = params['START_X']
         self.real_y = params['START_Y']
         self.real_heading = params['START_HEADING']
