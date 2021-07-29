@@ -43,6 +43,7 @@ protected:
 protected: // Configuration parameters
   double       m_arrival_radius;
   double       m_desired_speed;
+  double       m_desired_hdg;
   XYPoint      m_nextpt;
   std::string  m_ipf_type;
 

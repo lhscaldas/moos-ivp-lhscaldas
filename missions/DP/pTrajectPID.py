@@ -59,6 +59,10 @@ class pTrajectPID(pymoos.comms):
         self.add_active_queue('ivphelm_queue', self.on_ivphelm_message)
         self.add_message_route_to_active_queue('ivphelm_queue', 'IVPHELM_ALLSTOP')
         self.manual="false"
+
+        self.add_active_queue('dp_queue', self.on_dp_message)
+        self.add_message_route_to_active_queue('dp_queue', 'DP_MODE')
+        self.dp="off"
         
         self.desired_speed = 0
         self.desired_heading = 0
@@ -120,6 +124,12 @@ class pTrajectPID(pymoos.comms):
             self.manual = msg.string()
         return True
 
+    def on_dp_message(self, msg):
+        """Special callback for DP"""
+        if msg.key() == 'DO_MODE':
+            self.dp = msg.string()
+        return True
+
 
     def send(self, key, value):
         self.notify(key, value, -1)
@@ -143,7 +153,7 @@ class pTrajectPID(pymoos.comms):
             time.sleep(dt_fast_time)
            
             # Atualiza setpoint
-            if self.manual!="ManualOverride":
+            if self.manual!="ManualOverride" and self.dp!="on":
                 self.speedPID.setpoint = self.desired_speed
                 heading_diff = self.desired_heading - self.sensor_heading
                 if heading_diff >= 180:

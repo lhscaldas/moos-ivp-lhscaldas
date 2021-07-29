@@ -23,6 +23,7 @@ ProcessConfig = ANTLER
   // Run = uXMS            @ NewConsole = true
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
+  Run = uHelmScope      @ NewConsole = true
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
   Run = uProcessWatch   @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
@@ -158,12 +159,10 @@ ProcessConfig = pMarineViewer
   right_context[return] = MOOS_MANUAL_OVERRIDE=false
   right_context[return] = RETURN=false
 
-
-  scope  =  STATIONING
   scope  =  DP_MODE
   //scope  =  DB_TIME
-  //scope  =  DESIRED_RUDDER
-  //scope  =  DESIRED_ROTATION
+  scope  =  DESIRED_RUDDER
+  scope  =  DESIRED_ROTATION
   //scope  =  IVPHELM_STATE
   //scope  =  IVPHELM_MODE
 
@@ -291,3 +290,22 @@ ProcessConfig = uProcessWatch
   nowatch   = ./pTrajectPID.py
 }
 
+//------------------------------------------
+// uHelmScope  
+
+ProcessConfig = uHelmScope                                      
+   6  {                                                               
+   7    AppTick   = 1    // MOOSApp default is 4                   
+   8    CommsTick = 1    // MOOSApp default is 4                   
+   9                                                                  
+  10    paused   = false   // default                                
+  11                                                                  
+  12    display_moos_scope = true     // default                   
+  13    display_bhv_posts  = true     // default                   
+  14    display_virgins    = true     // default                   
+  15    truncated_output   = false    // default                   
+  16    behaviors_concise  = true     // default                   
+  17                                                                  
+  18    var  = NAV_X, NAV_Y, NAV_SPEED, NAV_DEPTH   // MOOS vars are  
+  19    var  = DESIRED_HEADING, DESIRED_SPEED       // case sensitive 
+  20  }  

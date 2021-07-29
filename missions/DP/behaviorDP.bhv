@@ -48,12 +48,11 @@ Behavior = BHV_DP
   pwt       = 100
   condition  = RETURN = true
   condition  = DEPLOY = true
-  inactiveflag = STATIONING = false    // example
-  activeflag   = STATIONING = true     // example
   
 
   speed      = 4.0   // meters per second
-  radius     = 50.0
+  radius     = 30.0
   ptx        = 200
   pty        = -1900
+  heading    = 180
 }

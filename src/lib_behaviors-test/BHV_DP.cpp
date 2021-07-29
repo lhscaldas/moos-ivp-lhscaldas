@@ -72,6 +72,10 @@ bool BHV_DP::setParam(string param, string val)
     m_nextpt.set_vy(double_val);
     return(true);
   }
+  else if((param == "heading") && (isNumber(val))) {
+    m_desired_hdg = double_val;
+    return(true);
+  }
   else if((param == "speed") && (double_val > 0) && (isNumber(val))) {
     m_desired_speed = double_val;
     return(true);
@@ -130,18 +134,12 @@ IvPFunction *BHV_DP::onRunState()
     return(0);
   }
   
-  // Part 2: Determine if the vehicle has reached the destination 
-  // point and if so, declare completion.
+  // Part 2: Determine if the vehicle has reached the destination point
 #ifdef WIN32
   double dist = _hypot((m_nextpt.x()-m_osx), (m_nextpt.y()-m_osy));
 #else
   double dist = hypot((m_nextpt.x()-m_osx), (m_nextpt.y()-m_osy));
 #endif
-  // if(dist <= m_arrival_radius) {
-  //   setComplete();
-  //   postViewPoint(false);
-  //   return(0);
-  // }
 
   // Part 3: Post the waypoint as a string for consumption by 
   // a viewer application.
@@ -150,16 +148,6 @@ IvPFunction *BHV_DP::onRunState()
 
   // Part 4: Build the IvP function with either the ZAIC tool 
   // or the Reflector tool.
-  // IvPFunction *ipf = 0;
-  // if(m_ipf_type == "zaic")
-  //   ipf = buildFunctionWithZAIC();
-  // else
-  //   ipf = buildFunctionWithReflector();
-  // if(ipf == 0) 
-  //   postWMessage("Problem Creating the IvP Function");
-
-  // if(ipf)
-  //   ipf->setPWT(m_priority_wt);
   double desired_speed = 0;
   if(dist >= m_arrival_radius) {
     desired_speed = m_desired_speed;
@@ -167,6 +155,9 @@ IvPFunction *BHV_DP::onRunState()
   }
   else{
     postMessage("DP_MODE", "ON");
+    postMessage("DP_X", m_nextpt.x());
+    postMessage("DP_Y", m_nextpt.y());
+    postMessage("DP_HEADING", m_desired_hdg);
   }
 
   ZAIC_PEAK spd_zaic(m_domain, "speed");
