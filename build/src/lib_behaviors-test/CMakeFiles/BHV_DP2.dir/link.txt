@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../lib/libBHV_DP2.a CMakeFiles/BHV_DP2.dir/BHV_DP2.cpp.o
+/usr/bin/ranlib ../../../lib/libBHV_DP2.a

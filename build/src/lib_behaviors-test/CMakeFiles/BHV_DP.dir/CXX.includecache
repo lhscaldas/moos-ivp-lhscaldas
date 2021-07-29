@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/lib_behaviors-test/AOF_DP.cpp
-math.h
--
-AOF_DP.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/lib_behaviors-test/AOF_DP.h
-AngleUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/lib_behaviors-test/AngleUtils.h
-GeomUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/lib_behaviors-test/GeomUtils.h
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/lib_behaviors-test/AOF_DP.h
 AOF.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/lib_behaviors-test/AOF.h
@@ -101,14 +91,6 @@ string
 -
 EdgeTag.h
 /home/lhscaldas/moos-ivp/ivp/src/lib_geometry/EdgeTag.h
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_geometry/GeomUtils.h
-vector
--
-XYPoint.h
-/home/lhscaldas/moos-ivp/ivp/src/lib_geometry/XYPoint.h
-XYPolygon.h
-/home/lhscaldas/moos-ivp/ivp/src/lib_geometry/XYPolygon.h
 
 /home/lhscaldas/moos-ivp/ivp/src/lib_geometry/XYObject.h
 string

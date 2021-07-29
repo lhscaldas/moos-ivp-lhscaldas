@@ -46,12 +46,14 @@ Behavior = BHV_DP
 { 
   name      = Dynamic_Positioning
   pwt       = 100
-  condition = RETURN = true
-  condition = DEPLOY = true
-  //endflag   = RETURN = true
+  condition  = RETURN = true
+  condition  = DEPLOY = true
+  inactiveflag = STATIONING = false    // example
+  activeflag   = STATIONING = true     // example
+  
 
   speed      = 4.0   // meters per second
-  radius     = 8.0
+  radius     = 50.0
   ptx        = 200
   pty        = -1900
 }

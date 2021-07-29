@@ -38,8 +38,7 @@ public:
 
 protected:
   void         postViewPoint(bool viewable=true);
-  IvPFunction* buildFunctionWithZAIC();
-  IvPFunction* buildFunctionWithReflector();
+  void         postStationMessage(bool);
 
 protected: // Configuration parameters
   double       m_arrival_radius;

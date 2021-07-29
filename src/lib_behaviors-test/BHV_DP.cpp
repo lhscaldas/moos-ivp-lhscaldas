@@ -96,6 +96,8 @@ bool BHV_DP::setParam(string param, string val)
 void BHV_DP::onIdleState() 
 {
   postViewPoint(false);
+  postMessage("DP_MODE", "OFF");
+  postStationMessage(false);
 }
 
 //-----------------------------------------------------------
@@ -135,25 +137,55 @@ IvPFunction *BHV_DP::onRunState()
 #else
   double dist = hypot((m_nextpt.x()-m_osx), (m_nextpt.y()-m_osy));
 #endif
-  if(dist <= m_arrival_radius) {
-    setComplete();
-    postViewPoint(false);
-    return(0);
-  }
+  // if(dist <= m_arrival_radius) {
+  //   setComplete();
+  //   postViewPoint(false);
+  //   return(0);
+  // }
 
   // Part 3: Post the waypoint as a string for consumption by 
   // a viewer application.
   postViewPoint(true);
+  postStationMessage(true);
 
   // Part 4: Build the IvP function with either the ZAIC tool 
   // or the Reflector tool.
-  IvPFunction *ipf = 0;
-  if(m_ipf_type == "zaic")
-    ipf = buildFunctionWithZAIC();
-  else
-    ipf = buildFunctionWithReflector();
-  if(ipf == 0) 
-    postWMessage("Problem Creating the IvP Function");
+  // IvPFunction *ipf = 0;
+  // if(m_ipf_type == "zaic")
+  //   ipf = buildFunctionWithZAIC();
+  // else
+  //   ipf = buildFunctionWithReflector();
+  // if(ipf == 0) 
+  //   postWMessage("Problem Creating the IvP Function");
+
+  // if(ipf)
+  //   ipf->setPWT(m_priority_wt);
+  double desired_speed = 0;
+  if(dist >= m_arrival_radius) {
+    desired_speed = m_desired_speed;
+    postMessage("DP_MODE", "OFF");
+  }
+  else{
+    postMessage("DP_MODE", "ON");
+  }
+
+  ZAIC_PEAK spd_zaic(m_domain, "speed");
+  spd_zaic.setSummit(desired_speed);
+  spd_zaic.setBaseWidth(0.4);
+  spd_zaic.setPeakWidth(0.0);
+  spd_zaic.setSummitDelta(0.0);
+  spd_zaic.setMinMaxUtil(0, 25);
+  IvPFunction *spd_ipf = spd_zaic.extractIvPFunction();
+  
+  double rel_ang_to_wpt = relAng(m_osx, m_osy, m_nextpt.x(), m_nextpt.y());
+  ZAIC_PEAK crs_zaic(m_domain, "course");
+  crs_zaic.setSummit(rel_ang_to_wpt);
+  crs_zaic.setBaseWidth(180.0);
+  crs_zaic.setValueWrap(true);
+  IvPFunction *crs_ipf = crs_zaic.extractIvPFunction();
+  
+  OF_Coupler coupler;
+  IvPFunction *ipf = coupler.couple(crs_ipf, spd_ipf);
 
   if(ipf)
     ipf->setPWT(m_priority_wt);
@@ -161,64 +193,23 @@ IvPFunction *BHV_DP::onRunState()
   return(ipf);
 }
 
-//-----------------------------------------------------------
-// Procedure: buildFunctionWithZAIC
-
-IvPFunction *BHV_DP::buildFunctionWithZAIC() 
+void BHV_DP::postStationMessage(bool post)
 {
-  ZAIC_PEAK spd_zaic(m_domain, "speed");
-  spd_zaic.setSummit(m_desired_speed);
-  spd_zaic.setPeakWidth(0.5);
-  spd_zaic.setBaseWidth(1.0);
-  spd_zaic.setSummitDelta(0.8);  
-  if(spd_zaic.stateOK() == false) {
-    string warnings = "Speed ZAIC problems " + spd_zaic.getWarnings();
-    postWMessage(warnings);
-    return(0);
-  }
-  
-  double rel_ang_to_wpt = relAng(m_osx, m_osy, m_nextpt.x(), m_nextpt.y());
-  ZAIC_PEAK crs_zaic(m_domain, "course");
-  crs_zaic.setSummit(rel_ang_to_wpt);
-  crs_zaic.setPeakWidth(0);
-  crs_zaic.setBaseWidth(180.0);
-  crs_zaic.setSummitDelta(0);  
-  crs_zaic.setValueWrap(true);
-  if(crs_zaic.stateOK() == false) {
-    string warnings = "Course ZAIC problems " + crs_zaic.getWarnings();
-    postWMessage(warnings);
-    return(0);
+  string str_x = doubleToString(m_nextpt.x(),1);
+  string str_y = doubleToString(m_nextpt.y(),1);
+
+  string poly_str = "radial:: x=" + str_x;
+  poly_str += ",y=" + str_y;
+  poly_str += ",source=DP";
+  poly_str += ",pts=32";
+
+  string poly_str_outer = poly_str;
+  poly_str_outer += ",label= DP:station-keep-out";
+  poly_str_outer += ",radius=" + doubleToString(m_arrival_radius,1);
+
+  if(post==false) {
+    poly_str_outer += ",active=false";
   }
 
-  IvPFunction *spd_ipf = spd_zaic.extractIvPFunction();
-  IvPFunction *crs_ipf = crs_zaic.extractIvPFunction();
-
-  OF_Coupler coupler;
-  IvPFunction *ivp_function = coupler.couple(crs_ipf, spd_ipf, 50, 50);
-
-  return(ivp_function);
-}
-
-//-----------------------------------------------------------
-// Procedure: buildFunctionWithReflector
-
-IvPFunction *BHV_DP::buildFunctionWithReflector() 
-{
-  IvPFunction *ivp_function;
-
-  bool ok = true;
-  AOF_DP aof_wpt(m_domain);
-  ok = ok && aof_wpt.setParam("desired_speed", m_desired_speed);
-  ok = ok && aof_wpt.setParam("osx", m_osx);
-  ok = ok && aof_wpt.setParam("osy", m_osy);
-  ok = ok && aof_wpt.setParam("ptx", m_nextpt.x());
-  ok = ok && aof_wpt.setParam("pty", m_nextpt.y());
-  ok = ok && aof_wpt.initialize();
-  if(ok) {
-    OF_Reflector reflector(&aof_wpt);
-    reflector.create(600, 500);
-    ivp_function = reflector.extractIvPFunction();
-  }
-
-  return(ivp_function);
+  postMessage("VIEW_POLYGON", poly_str_outer, "outer");
 }

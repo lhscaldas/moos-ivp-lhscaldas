@@ -58,3 +58,16 @@ TARGET_LINK_LIBRARIES(BHV_DP
    mbutil 
    geometry 
    ${SYSTEM_LIBS} )
+
+# ADD_LIBRARY(BHV_DP2 STATIC
+#    BHV_DP2.cpp)
+# TARGET_LINK_LIBRARIES(BHV_DP2
+#    helmivp
+#    behaviors 
+#    ivpbuild 
+#    logic 
+#    ivpcore 
+#    bhvutil 
+#    mbutil 
+#    geometry 
+#    ${SYSTEM_LIBS} )
