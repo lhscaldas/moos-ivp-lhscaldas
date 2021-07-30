@@ -19,36 +19,38 @@ class iDP(pymoos.comms):
         self.set_on_connect_callback(self.__on_connect)
         self.set_on_mail_callback(self.__on_new_mail)
 
-        self.add_active_queue('desired_queue', self.on_desired_message)
-        self.add_message_route_to_active_queue('desired_queue', 'DESIRED_SURGE')
-        self.add_message_route_to_active_queue('desired_queue', 'DESIRED_SWAY')
-        self.add_message_route_to_active_queue('desired_queue', 'DESIRED_YAW')
+        self.add_active_queue('dp_queue', self.on_dp_message)
+        self.add_message_route_to_active_queue('dp_queue', 'DP_X')
+        self.add_message_route_to_active_queue('dp_queue', 'DP_Y')
+        self.add_message_route_to_active_queue('dp_queue', 'DP_HEADING')
+        self.add_message_route_to_active_queue('dp_queue', 'DP_MODE')
+        
 
-        # self.add_active_queue('nav_queue', self.on_nav_message)
-        # self.add_message_route_to_active_queue('nav_queue', 'NAV_X')
-        # self.add_message_route_to_active_queue('nav_queue', 'NAV_Y')
-        # self.add_message_route_to_active_queue('nav_queue', 'NAV_HEADING')
+        self.add_active_queue('nav_queue', self.on_nav_message)
+        self.add_message_route_to_active_queue('nav_queue', 'NAV_X')
+        self.add_message_route_to_active_queue('nav_queue', 'NAV_Y')
+        self.add_message_route_to_active_queue('nav_queue', 'NAV_HEADING')
         
         file = sys.argv[1]
         params=MoosReader(file,"iDP")
 
-        self.desired_surge=0
-        self.desired_sway=0
-        self.desired_yaw=0
-        self.real_x=0
-        self.real_y=0
-        self.real_speed=0
-        self.real_heading=0
+        self.dp_x=0
+        self.dp_y=0
+        self.dp_heading=0
+        self.dp_mode="off"
+
+        self.nav_x=0
+        self.nav_y=0
+        self.nav_heading=0
+
+        self.desired_rotation=0
+        self.desired_rudder=0
+
+
         self.dt=0.1
         
-        p3d = "Maersk Handler.p3d"
-        num = 42
-        # p3d = "Navio_L15B4_Conv.p3d"
-        # num = 207
-        self.my_dyna = pydyna.create_simulation(p3d)
-        self.my_vessel = self.my_dyna.vessels[str(num)]
-        self.my_vessel.linear_position = [self.real_x, self.real_y, -6.6]
-        self.my_vessel.angular_position = [0.0, 0.0, (90-self.real_heading)*np.pi/180]
+        p3d = "Navio_L15B4_Conv.p3d"
+        num = 207
         self.my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/"+p3d, num)
 
         self.run(self.server, self.port, self.name)
@@ -60,9 +62,13 @@ class iDP(pymoos.comms):
         print("Connected to", self.server, self.port,
               "under the name ", self.name)
         self.notify('NAV_DEPTH', float(0), -1)
-        return (self.register('DESIRED_SURGE', 0) and
-                self.register('DESIRED_SWAY', 0) and
-                self.register('DESIRED_YAW', 0))
+        return (self.register('DP_X', 0) and
+                self.register('DP_Y', 0) and
+                self.register('DP_HEADING', 0) and
+                self.register('DP_MODE', 0) and
+                self.register('NAV_X', 0) and
+                self.register('NAV_Y', 0) and
+                self.register('NAV_HEADING', 0))
 
     def __on_new_mail(self):
         """OnNewMail callback"""
@@ -70,63 +76,43 @@ class iDP(pymoos.comms):
             pass
         return True
 
-    def on_desired_message(self, msg):
+    def on_dp_message(self, msg):
         """Special callback for Desired"""
-        if msg.key() == 'DESIRED_SURGE':
-            self.desired_surge = msg.double()
-        elif msg.key() == 'DESIRED_SWAY':
-            self.desired_sway = msg.double()
-        elif msg.key() == 'DESIRED_YAW':
-            self.desired_yaw = msg.double()
+        if msg.key() == 'DP_MODE':
+            self.dp_mode= msg.string()
+        elif msg.key() == 'DP_X':
+            self.dp_x = msg.double()
+        elif msg.key() == 'DP_Y':
+            self.dp_y = msg.double()
+        elif msg.key() == 'DP_HEADING':
+            self.dp_heading = msg.double()
         return True
 
-    # def on_nav_message(self, msg):
-    #     """Special callback for Sensor"""
-    #     if msg.key() == 'NAV_SPEED':
-    #         self.sensor_speed = msg.double() # m/s
-    #     elif msg.key() == 'NAV_HEADING':
-    #         self.sensor_heading = msg.double() # graus
-    #     return True
-
-    # def on_ivphelm_message(self, msg):
-    #     """Special callback for Ivphelm"""
-    #     if msg.key() == 'IVPHELM_ALLSTOP':
-    #         self.manual = msg.string()
-    #     return True
+    def on_nav_message(self, msg):
+        """Special callback for Sensor"""
+        if msg.key() == 'NAV_X':
+            self.sensor_speed = msg.double()
+        elif msg.key() == 'NAV_Y':
+            self.sensor_heading = msg.double()
+        elif msg.key() == 'NAV_HEADING':
+            self.sensor_heading = msg.double()
+        return True
 
 
     def send(self, key, value):
         self.notify(key, value, -1)
 
     def update(self):
-        self.send('NAV_SPEED', self.real_speed)
-        self.send('NAV_HEADING', self.real_heading)
-        self.send('NAV_X', self.real_x)
-        self.send('NAV_Y', self.real_y)
+        self.send('DESIRED_RUDDER', self.desired_rudder)
+        self.send('DESIRED_ROTATION', self.desired_rotation)
 
-    def debug(self, my_thrusters):
+    def debug(self):
         print(" ")
         print(" ")
         print(" ")
         print("iDP Debug")
-        for one_thr in my_thrusters:
-            print(self.my_vessel.thrusters[one_thr].dem_rotation)
-            print(self.my_vessel.thrusters[one_thr].dem_pitch*180/np.pi)
-            print(self.my_vessel.thrusters[one_thr].dem_angle*180/np.pi)
-
-    def calculate_heading(self):
-        real_heading = 0
-        i = 0
-        j = 0
-        real_yaw = self.my_vessel.angular_position[2]
-        real_heading = 90 - np.rad2deg(real_yaw)
-        if real_heading < 0:
-            i = abs(real_heading) // 360 + 1
-            real_heading += 360*i
-        if real_heading > 360:
-            j = abs(real_heading) // 360
-            real_heading -= 360*j
-        return real_heading
+        print(f"desired rudder = {self.desired_rudder*180/np.pi}")
+        print(f"desired rotation = {self.desired_rotation}")
 
 
     def iterate(self):
@@ -134,32 +120,28 @@ class iDP(pymoos.comms):
         dt_fast_time = dt/pymoos.get_moos_timewarp()
         while True:
             time.sleep(dt_fast_time)
-           
-            # Atualiza setpoint
-            self.my_dp.setreference([self.desired_surge, self.desired_sway, (90-self.desired_yaw)*np.pi/180])
+            if self.dp_mode=="on":
+                # Atualiza setpoint
+                self.my_dp.setreference([self.dp_x, self.dp_y, (90-self.dp_heading)*np.pi/180])
 
-            # Iteração do inHouseDP
-            my_var = self.my_dp.dostep([self.my_vessel.linear_position[0],
-                                    self.my_vessel.linear_position[1],
-                                    self.my_vessel.angular_position[2]])
+                # Iteração do inHouseDP
+                my_var = self.my_dp.dostep([self.nav_x,
+                                        self.nav_y,
+                                        (90-self.nav_heading)*np.pi/180])
+                print(my_var)
 
-            # Atualiza atuadores
-            my_thrusters = list(self.my_vessel.thrusters)
-            for one_thr in my_thrusters:
-                self.my_vessel.thrusters[one_thr].dem_rotation = my_var[one_thr].getDemandedRps()
-                self.my_vessel.thrusters[one_thr].dem_pitch = my_var[one_thr].getDemandedPod()
-                self.my_vessel.thrusters[one_thr].dem_angle = my_var[one_thr].getDemandedAzimuth()
+                # Atualiza atuadores
+                self.desired_rotation = my_var['0'].getDemandedRps()
+                self.desired_rudder = my_var['0'].getDemandedAzimuth()
+                # for one_thr in my_thrusters:
+                #     self.my_vessel.thrusters[one_thr].dem_rotation = my_var[one_thr].getDemandedRps()
+                #     self.my_vessel.thrusters[one_thr].dem_pitch = my_var[one_thr].getDemandedPod()
+                #     self.my_vessel.thrusters[one_thr].dem_angle = my_var[one_thr].getDemandedAzimuth()
 
-            # Atualiza estado
-            self.real_x=self.my_vessel.linear_position[0]
-            self.real_y=self.my_vessel.linear_position[1]
-            self.real_speed=self.my_vessel.linear_velocity[0]
-            self.real_heading = self.calculate_heading()
-            
-            # Iteração do Pydyna
-            self.my_dyna.step()
-            self.update()
-            self.debug(my_thrusters)
+                
+                # atualiza as variáveis dos atuadores
+                self.update()
+            self.debug()
 
 
 def main():

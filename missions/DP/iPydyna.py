@@ -31,7 +31,7 @@ class Ship(pymoos.comms):
         self.real_y = params['START_Y']
         self.real_heading = params['START_HEADING']
         self.real_speed = 0
-
+        
         self.sim = pydyna.create_simulation("Navio_L15B4_Conv.p3d")
         self.ship = self.sim.vessels['207']
         self.rudder = self.ship.rudders['0']

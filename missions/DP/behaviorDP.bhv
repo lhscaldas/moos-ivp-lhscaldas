@@ -25,8 +25,6 @@ Behavior = BHV_Waypoint
          slip_radius = 30.0
 	efficiency_measure = all
 
-
-
              polygon = 500,-1875 : 1500,-2225 : 1500,-2275 : 500,-1925 : 500,-1975 : 1500,-2325 : 1500,-2375 : 500,-2025
              repeat = 0
 
