@@ -31,8 +31,8 @@ ProcessConfig = ANTLER
   // Run = ./iPydyna.py    @ NewConsole = false
   // Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
-  Run = ./iDP.py    @ NewConsole = true
-  Run = ./inhouse-dp.sh @ NewConsole = true
+  // Run = ./iManualDP.py    @ NewConsole = true
+  // Run = ./inhouse-dp.sh @ NewConsole = true
   // Run = pSimIMU   @ NewConsole = false
   // Run = pSimGPS    @ NewConsole = false
   // Run = pSimDVL    @ NewConsole = false

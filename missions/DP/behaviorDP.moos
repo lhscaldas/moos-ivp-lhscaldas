@@ -5,14 +5,17 @@
 
 ServerHost = localhost
 ServerPort = 9000
-Community  = NCC1701
+Community  = NACMM2021
 
 MOOSTimeWarp = 10
 
 // Sepetiba
-LatOrigin  = -22.933333
-LongOrigin = -43.833333
+// LatOrigin  = -22.933333
+// LongOrigin = -43.833333
 
+// Itaguai
+LatOrigin  = -22.936561
+LongOrigin = -43.831941
 //------------------------------------------
 // Antler configuration  block
 ProcessConfig = ANTLER
@@ -23,7 +26,7 @@ ProcessConfig = ANTLER
   // Run = uXMS            @ NewConsole = true
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
-  Run = uHelmScope      @ NewConsole = true
+  Run = uHelmScope      @ NewConsole = false
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
   Run = uProcessWatch   @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
@@ -61,8 +64,8 @@ ProcessConfig = iPydyna
 {
    AppTick   = 4
    CommsTick = 4
-   START_X = 200
-   START_Y = -1900
+   START_X = -100
+   START_Y = -900
    START_HEADING = 85
 }
 
@@ -119,7 +122,7 @@ ProcessConfig = pMarineViewer
   AppTick    = 4
   CommsTick  = 4
 
-  tiff_file            = sepetiba.tif
+  tiff_file            = itaguai.tif
 
   set_pan_x            = -90
   set_pan_y            = -220
