@@ -1,0 +1,251 @@
+//-------------------------------------------------
+// NAME: L. H. S. Caldas, USP
+// FILE: main.moos
+//-------------------------------------------------
+
+ServerHost = localhost
+ServerPort = 9001
+Community  = alfa
+
+//----  Next Line was commented and replaced with a command line overload ---- //
+//MOOSTimeWarp = 10    (default)
+MOOSTimeWarp = 10
+
+// Sepetiba
+LatOrigin  = -22.93705
+LongOrigin = -43.83953
+
+//------------------------------------------
+// Antler configuration  block
+ProcessConfig = ANTLER
+{
+  MSBetweenLaunches = 200
+
+  Run = MOOSDB          @ NewConsole = false
+  // Run = uXMS            @ NewConsole = true
+  // Run = pLogger      @ NewConsole = false
+  Run = pHelmIvP        @ NewConsole = false
+  Run = pNodeReporter   @ NewConsole = false
+  Run = ./iPydyna.py    @ NewConsole = false
+  Run = ./pTrajectPID.py @ NewConsole = false
+  // Run = ./plotter.py    @ NewConsole = false
+  Run = pSimIMU   @ NewConsole = false
+  Run = pSimGPS    @ NewConsole = false
+  Run = pSimDVL    @ NewConsole = false
+  Run = pSimGyro    @ NewConsole = false
+  Run = pSensor    @ NewConsole = false
+  // Run = iRemoteMod    @ NewConsole = true
+  Run = pShare @ NewConsole = false
+  Run = pHostInfo       @ NewConsole = false
+  Run = uFldNodeBroker  @ NewConsole = false
+  Run = pRealm          @ NewConsole = false
+
+
+  one = --size=800x600
+}
+
+//---------------------------------------------------------
+// pShare Config Block
+
+ProcessConfig = pShare
+{
+  AppTick    = 2
+  CommsTick  = 2
+
+  input = route =  localhost:9201
+}
+
+//--------------------------------------------------
+// pHostInfo configuration block
+
+ProcessConfig = pHostInfo
+{
+  AppTick 	= 1
+  CommsTick 	= 1
+
+   default_hostip_force = localhost
+
+}
+
+//--------------------------------------------------
+// uFldNodeBroker configuration block from plugin
+
+ProcessConfig = uFldNodeBroker
+{
+  AppTick   = 1
+  CommsTick = 1
+
+  try_shore_host = pshare_route=localhost:9200
+
+  bridge = src=VIEW_POLYGON
+  bridge = src=VIEW_POINT
+  bridge = src=VIEW_SEGLIST
+  bridge = src=APPCAST
+  bridge = src=NODE_REPORT_LOCAL,  alias=NODE_REPORT
+  bridge = src=NODE_MESSAGE_LOCAL, alias=NODE_MESSAGE
+}
+
+//------------------------------------------
+// uXMS config block
+
+ProcessConfig = uXMS
+{
+  AppTick   = 4
+  CommsTick = 4
+  var    =   DEPLOY, RETURN, NAV_SPEED, NAV_HEADING
+  //display_all = true
+
+}
+
+//------------------------------------------------
+// iPydyna config block
+
+ProcessConfig = iPydyna
+{
+   AppTick   = 4
+   CommsTick = 4
+START_X = 900.0 
+START_Y = -900.0 
+START_HEADING = 90.0 
+}
+
+//------------------------------------------------
+// pTrajectPID config block
+
+ProcessConfig = pTrajectPID
+{
+   AppTick   = 1
+   CommsTick = 1
+   yaw_kp = 3.97
+   yaw_ki = 0.269
+   yaw_kd = 3.95
+   max_rudder = 35
+   spd_kp = 4.944
+   spd_ki = 0.1629
+   spd_kd = 0
+   max_rotation = 17.5
+}
+
+//------------------------------------------------
+// pSensor config block
+
+ProcessConfig = pSensor
+{
+   AppTick   = 4
+   CommsTick = 4
+   w_dvl_speed = 1
+   w_imu_speed = 1
+   w_gps_speed = 1
+   w_imu_pos = 1
+   w_gps_pos = 1
+   w_imu_hdg = 1
+   w_gyro_hdg = 1
+}
+
+//------------------------------------------------
+// pSimIMU config block
+
+ProcessConfig = pSimIMU
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
+
+//------------------------------------------------
+// pSimGPS config block
+
+ProcessConfig = pSimGPS
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
+//------------------------------------------------
+// pSimGyro config block
+
+ProcessConfig = pSimGyro
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
+//------------------------------------------------
+// pSimDVL config block
+
+ProcessConfig = pSimDVL
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
+//-----------------------------------------------------------------
+// iRemote config block
+
+ProcessConfig = iRemote
+{
+  CustomJournal = Name = DESIRED_RUDDER,Key =6, History = 10,Period = 0
+  CustomSummary = DESIRED_THRUST
+  CustomKey = 2 : JANITOR_SWITCH @ "ACTUATION:OFF"
+}
+
+//------------------------------------------
+// pLogger config block
+
+ProcessConfig = pLogger
+{
+  AppTick   = 8
+  CommsTick = 8
+
+  SyncLog = true
+
+  // For variables that are published in a bundle on their first post,
+  // explicitly declare their logging request
+  
+  Log = DESIRED_HEADING @ 0 NOSYNC
+  Log = REAL_HEADING @ 0 NOSYNC
+  Log = IMU_HEADING @ 0 NOSYNC
+  Log = GYRO_HEADING @ 0 NOSYNC
+  
+  Log = DESIRED_SPEED @ 0 NOSYNC
+  Log = IMU_SPEED @ 0 NOSYNC
+  Log = GPS_SPEED @ 0 NOSYNC
+  Log = REAL_SPEED @ 0 NOSYNC
+  Log = DVL_SPEED @ 0 NOSYNC
+
+
+}
+
+//------------------------------------------
+// pHelmIvP config block
+
+ProcessConfig = pHelmIvP
+{
+  AppTick    = 4
+  CommsTick  = 4
+
+  bhv_dir_not_found_ok = true
+  ok_skew = any
+
+  behaviors  = alfa.bhv
+  domain     = course:0:359:360
+  domain     = speed:0:7:99
+}
+
+//------------------------------------------
+// pNodeReporter config block
+
+ProcessConfig = pNodeReporter
+{
+  AppTick    = 2
+  CommsTick	 = 2
+
+  platform_type   = KAYAK
+  platform_color  = red
+  platform_length = 15
+  //alt_nav_prefix=REAL_
+  //alt_nav_name   = _REAL
+  //cross_fill_policy=fill-empty
+}
+
+
