@@ -24,9 +24,22 @@ ProcessConfig = ANTLER
   Run = pShare        @ NewConsole = false
   Run = pHostInfo       @ NewConsole = false
   Run = uFldShoreBroker @ NewConsole = false
-  Run = pRealm          @ NewConsole = false
+  Run = uFldContactRangeSensor @ NewConsole = false
+  Run = uXMS            @ NewConsole = false
 
   one = --size=800x600
+}
+
+//------------------------------------------
+// uXMS config block
+
+ProcessConfig = uXMS
+{
+  AppTick   = 4
+  CommsTick = 4
+  var    =   CRS_RANGE_REQUEST, CRS_RANGE_REPORT
+  //display_all = true
+
 }
 
 //------------------------------------------
@@ -60,15 +73,13 @@ ProcessConfig = uFldShoreBroker
   AppTick       = 1
   CommsTick     = 1
 
-  qbridge  = DEPLOY, NODE_REPORT
+  qbridge  = DEPLOY, NODE_REPORT, NODE_MESSAGE
   qbridge  = STATION_KEEP, APPCAST_REQ
   qbridge  = MOOS_MANUAL_OVERRIDE
   qbridge  = END
   qbridge  = RETURN
 
-
-  //bridge   = src=RETURN_ALL, alias=RETURN
-  //bridge   = src=RETURN_$V,  alias=RETURN
+  bridge   = src=CRS_RANGE_REPORT_$V, alias=CRS_RANGE_REPORT
 }
 
 //------------------------------------------
@@ -111,14 +122,6 @@ ProcessConfig = pMarineViewer
   //datum_size     = 18
   //gui_size = small
 
-  scope  =  DEPLOY
-  scope  =  RETURN
-  //scope  =  DB_TIME
-  //scope  =  DESIRED_RUDDER
-  //scope  =  DESIRED_ROTATION
-  //scope  =  IVPHELM_STATE
-  //scope  =  IVPHELM_MODE
-
   button_one   = DEPLOY  # DEPLOY_ALL=true 
   button_one   = MOOS_MANUAL_OVERRIDE_ALL=false 
   button_one   = RETURN_ALL=false # STATION_KEEP_ALL=false
@@ -133,6 +136,24 @@ ProcessConfig = pMarineViewer
   button_four = END # END_ALL=true
   button_four  = RETURN_ALL=false # STATION_KEEP_ALL=false
 
-  infocast_viewable=false
+  infocast_viewable=true
+}
+
+//-------------------------------------------- uFldContactRangeSensor
+ProcessConfig = uFldContactRangeSensor
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  push_distance = bravo = 50
+  push_distance = alfa = 50
+  ping_wait     = alfa = 32  
+  ping_color    = white
+  echo_color    = chartreuse
+
+  allow_echo_types = kayak
+
+  //rn_uniform_pct = 0.04
+  rn_gaussian_sigma = 50
 }
 
