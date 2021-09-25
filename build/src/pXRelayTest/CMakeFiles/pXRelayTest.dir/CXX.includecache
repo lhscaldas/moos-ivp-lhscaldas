@@ -18,18 +18,6 @@ MBUtils.h
 MOOS/libMOOS/MOOSLib.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pXRelayTest/MOOS/libMOOS/MOOSLib.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pXRelayTest/Relayer_Info.cpp
-cstdlib
--
-iostream
--
-Relayer_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pXRelayTest/Relayer_Info.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pXRelayTest/ColorParse.h
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pXRelayTest/ReleaseInfo.h
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/pXRelayTest/Relayer_Info.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pXRelayTest/main.cpp
@@ -580,12 +568,6 @@ MOOS/libMOOS/App/MOOSApp.h
 MOOS/libMOOS/App/MOOSInstrument.h
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/include/MOOS/libMOOS/MOOS/libMOOS/App/MOOSInstrument.h
 
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
-vector
--
-string
--
-
 /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/MBUtils.h
 vector
 -
@@ -596,9 +578,5 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 

@@ -85,7 +85,7 @@ polygon = 1100,-950: 2100,-1250: 2100,-1300: 1100,-1000: 1100,-1050: 2100,-1350
          inner_radius = 15       
          outer_radius = 30      
          outer_speed  = 1    
-       transit_speed  = 3    
+       transit_speed  = 5    
 station_pt = 2200.0, -1300.0 
            swing_time = 0       // default
 
@@ -131,7 +131,7 @@ Behavior = BHV_StationKeep
          inner_radius = 15       
          outer_radius = 30      
          outer_speed  = 1    
-       transit_speed  = 3    
+       transit_speed  = 5    
 station_pt = 900.0, -1000.0 
            swing_time = 0       // default
 

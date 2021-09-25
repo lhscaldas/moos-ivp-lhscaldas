@@ -1,14 +1,12 @@
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
-// FILE: main.moos
+// FILE: shoreside.moos
 //-------------------------------------------------
 
 ServerHost = localhost
 ServerPort = 9000
-Community  = shoreside
+Community  = mothership
 
-//----  Next Line was commented and replaced with a command line overload ---- //
-//MOOSTimeWarp = 10    (default)
 MOOSTimeWarp = 10
 
 // Sepetiba
@@ -26,10 +24,43 @@ ProcessConfig = ANTLER
   Run = pShare        @ NewConsole = false
   Run = pHostInfo       @ NewConsole = false
   Run = uFldShoreBroker @ NewConsole = false
-  Run = uFldContactRangeSensor @ NewConsole = false
+  //Run = uSimRadar @ NewConsole = false
   Run = uXMS            @ NewConsole = false
+  Run = uFldNodeComms      @ NewConsole = false
+  Run = pContactMgrV20     @ NewConsole = false
+
+  Run = uSimMarine         @ NewConsole = false
+  Run = pNodeReporter   @ NewConsole = false
 
   one = --size=800x600
+}
+
+//------------------------------------------------------
+// uSimMarine Configuration Block  (Created from plugin)
+
+ProcessConfig = uSimMarine
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  START_POS = 700,-950, 0, 0
+  PREFIX    = NAV
+}
+
+//------------------------------------------
+// pNodeReporter config block
+
+ProcessConfig = pNodeReporter
+{
+  AppTick    = 2
+  CommsTick	 = 2
+
+  platform_type   = KAYAK
+  platform_color  = gray
+  platform_length = 150
+  //alt_nav_prefix=REAL_
+  //alt_nav_name   = _REAL
+  //cross_fill_policy=fill-empty
 }
 
 //------------------------------------------
@@ -39,7 +70,7 @@ ProcessConfig = uXMS
 {
   AppTick   = 4
   CommsTick = 4
-  var    =   CRS_RANGE_REQUEST, CRS_RANGE_REPORT
+  source = pShare, uSimRadar
   //display_all = true
 
 }
@@ -81,7 +112,8 @@ ProcessConfig = uFldShoreBroker
   qbridge  = END
   qbridge  = RETURN
 
-  bridge   = src=CRS_RANGE_REPORT_$V, alias=CRS_RANGE_REPORT
+  bridge   = src=USR_RANGE_REPORT_$V, alias=USR_RANGE_REPORT
+  bridge = src=NODE_REPORT_LOCAL,  alias=NODE_REPORT
 }
 
 //------------------------------------------
@@ -141,22 +173,49 @@ ProcessConfig = pMarineViewer
   infocast_viewable=true
 }
 
-//-------------------------------------------- uFldContactRangeSensor
-ProcessConfig = uFldContactRangeSensor
+//-------------------------------------------- uSimRadar
+ProcessConfig = uSimRadar
 {
   AppTick   = 4
   CommsTick = 4
 
   push_distance = bravo = 50
   push_distance = alfa = 50
+  push_distance = mother = 200
   ping_wait     = alfa = 32  
   ping_color    = white
   echo_color    = chartreuse
 
-  allow_echo_types = kayak
+  report_vars   = both
 
   //rn_uniform_pct = 0.04
   rn_gaussian_sigma = 50
 }
 
+//--------------------------------------------------
+// uFldNodeComms Configuration Block
 
+ProcessConfig = uFldNodeComms
+{
+  AppTick   = 2
+  CommsTick = 2
+
+           comms_range = 2000
+        critical_range = 25
+      min_msg_interval = 20
+        max_msg_length = 1000
+                groups = true
+  view_node_rpt_pulses = true
+}
+
+//--------------------------------------------------------
+// pContactMgrV20 Configuration Block (Created from Plugin)
+
+ProcessConfig = pContactMgrV20
+{
+  AppTick   = 2
+  CommsTick = 2
+
+  contact_max_age = 600
+  display_radii   = false
+}

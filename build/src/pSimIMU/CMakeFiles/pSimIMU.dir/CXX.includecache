@@ -22,18 +22,6 @@ math.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU_Info.cpp
-cstdlib
--
-iostream
--
-SimIMU_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU_Info.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/ColorParse.h
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/ReleaseInfo.h
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU_Info.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/main.cpp
@@ -502,9 +490,5 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 

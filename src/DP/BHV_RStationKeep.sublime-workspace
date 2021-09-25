@@ -7,36 +7,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/lhscaldas/Documentos/50-ds4drv.rules",
-			"settings":
-			{
-				"buffer_size": 397,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "KERNEL==\"uinput\", MODE=\"0666\""
-			},
-			"undo_stack":
-			[
-				[
-					1,
-					1,
-					"paste",
-					{
-						"event":
-						{
-							"modifier_keys":
-							{
-							},
-							"x": 233.324951172,
-							"y": 146.091964722
-						}
-					},
-					"AQAAAAAAAAAAAAAAjQEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/"
-				]
-			]
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -70,6 +40,7 @@
 	},
 	"file_history":
 	[
+		"/home/lhscaldas/Documentos/50-ds4drv.rules",
 		"/home/lhscaldas/Documentos/TCC/Outros/inHouseDP/Teste/teste.py"
 	],
 	"find":
@@ -109,37 +80,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/lhscaldas/Documentos/50-ds4drv.rules",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 397,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								397,
-								397
-							]
-						],
-						"settings":
-						{
-							"auto_name": "KERNEL==\"uinput\", MODE=\"0666\"",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"stack_multiselect": false,
-					"type": "text"
-				}
 			]
 		}
 	],

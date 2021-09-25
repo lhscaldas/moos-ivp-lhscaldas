@@ -80,6 +80,7 @@ ProcessConfig = uFldNodeBroker
   bridge = src=NODE_REPORT_LOCAL,  alias=NODE_REPORT
   bridge = src=NODE_MESSAGE_LOCAL, alias=NODE_MESSAGE
   bridge =  src=CRS_RANGE_REQUEST
+  bridge =  src=USR_RANGE_REQUEST
 }
 
 //------------------------------------------
@@ -89,7 +90,7 @@ ProcessConfig = uXMS
 {
   AppTick   = 4
   CommsTick = 4
-  var    =   CRS_RANGE_REQUEST, CRS_RANGE_REPORT
+  var    =   CRS_RANGE_REQUEST, CRS_RANGE_REPORT, USR_RANGE_REQUEST, USR_RANGE_REPORT
   //display_all = true
 
 }
@@ -258,7 +259,7 @@ ProcessConfig = uTimerScript_PING
   RESET_TIME = end
   CONDITION  = (NAV_SPEED > 0)
 
-  EVENT = var=CRS_RANGE_REQUEST, val="name=bravo", time=27:37
+  EVENT = var=USR_RANGE_REQUEST, val="name=alfa", time=27:37
 }
 
 //--------------------------------------------------------

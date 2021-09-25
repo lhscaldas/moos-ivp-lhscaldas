@@ -1,6 +1,6 @@
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
-// FILE: main.moos
+// FILE: bravo.moos
 //-------------------------------------------------
 
 ServerHost = localhost
@@ -22,7 +22,7 @@ ProcessConfig = ANTLER
   MSBetweenLaunches = 200
 
   Run = MOOSDB          @ NewConsole = false
-  // Run = uXMS            @ NewConsole = true
+  Run = uXMS            @ NewConsole = false
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
@@ -38,6 +38,9 @@ ProcessConfig = ANTLER
   Run = pShare @ NewConsole = false
   Run = pHostInfo       @ NewConsole = false
   Run = uFldNodeBroker  @ NewConsole = false
+  Run = uTimerScript       @ NewConsole = false ~ uTimerScript_PING
+  Run = pContactMgrV20     @ NewConsole = false
+
 }
 
 //---------------------------------------------------------
@@ -79,6 +82,7 @@ ProcessConfig = uFldNodeBroker
   bridge = src=APPCAST
   bridge = src=NODE_REPORT_LOCAL,  alias=NODE_REPORT
   bridge = src=NODE_MESSAGE_LOCAL, alias=NODE_MESSAGE
+  bridge =  src=USR_RANGE_REQUEST
 }
 
 //------------------------------------------
@@ -88,7 +92,7 @@ ProcessConfig = uXMS
 {
   AppTick   = 4
   CommsTick = 4
-  var    =   DEPLOY, RETURN, NAV_SPEED, NAV_HEADING
+  var    =   USR_RANGE_REQUEST, USR_RANGE_REPORT
   //display_all = true
 
 }
@@ -244,4 +248,31 @@ ProcessConfig = pNodeReporter
   //cross_fill_policy=fill-empty
 }
 
+//------------------------------------------
+// uTimerScript config block
+
+ProcessConfig = uTimerScript_PING
+{
+  AppTick	= 4
+  CommsTick	= 4
+
+  PAUSED     = false
+  RESET_MAX  = nolimit
+  RESET_TIME = end
+  CONDITION  = (NAV_SPEED > 0)
+
+  EVENT = var=USR_RANGE_REQUEST, val="name=bravo", time=27:37
+}
+
+//--------------------------------------------------------
+// pContactMgrV20 Configuration Block (Created from Plugin)
+
+ProcessConfig = pContactMgrV20
+{
+  AppTick   = 2
+  CommsTick = 2
+
+  contact_max_age = 600
+  display_radii   = false
+}
 

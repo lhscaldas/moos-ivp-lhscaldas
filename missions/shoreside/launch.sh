@@ -34,7 +34,10 @@ done
 #  Part 3: Launch the processes
 #----------------------------------------------------------
 echo "Launching All MOOS Communities with WARP:" $TIME_WARP
- pAntler shoreside.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
+ source ~/anaconda3/etc/profile.d/conda.sh
+ conda activate tcc
+
+ pAntler mothership.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
 
  pAntler alfa.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
 

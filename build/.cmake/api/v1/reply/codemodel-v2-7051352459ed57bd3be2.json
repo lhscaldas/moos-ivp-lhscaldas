@@ -31,7 +31,8 @@
 						8,
 						9,
 						10,
-						11
+						11,
+						12
 					],
 					"hasInstallRule" : true,
 					"minimumCMakeVersion" : 
@@ -142,6 +143,20 @@
 					]
 				},
 				{
+					"build" : "src/uSimRadar",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/uSimRadar",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
 					"build" : "src/pTrajectPID",
 					"minimumCMakeVersion" : 
 					{
@@ -202,7 +217,8 @@
 						8,
 						9,
 						10,
-						11
+						11,
+						12
 					],
 					"name" : "IVP_EXTEND",
 					"targetIndexes" : 
@@ -217,7 +233,8 @@
 						7,
 						8,
 						9,
-						10
+						10,
+						11
 					]
 				}
 			],
@@ -238,7 +255,7 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 11,
+					"directoryIndex" : 12,
 					"id" : "iRemoteMod::@bdb99e091a6082ee383d",
 					"jsonFile" : "target-iRemoteMod-None-f73135f4e5909dad992d.json",
 					"name" : "iRemoteMod",
@@ -252,7 +269,7 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 10,
+					"directoryIndex" : 11,
 					"id" : "pSensor::@26df0b8f05989a98d751",
 					"jsonFile" : "target-pSensor-None-2edae9180850fbb88135.json",
 					"name" : "pSensor",
@@ -287,7 +304,7 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 9,
+					"directoryIndex" : 10,
 					"id" : "pTrajectPID::@ff1f245faa2754763242",
 					"jsonFile" : "target-pTrajectPID-None-3833cc64fa8863326b08.json",
 					"name" : "pTrajectPID",
@@ -298,6 +315,13 @@
 					"id" : "pXRelayTest::@c02dfabc4b8e3b7b1d91",
 					"jsonFile" : "target-pXRelayTest-None-71ac6e64eb67c033b111.json",
 					"name" : "pXRelayTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "uSimRadar::@dc2d15a0b3bac61d5e48",
+					"jsonFile" : "target-uSimRadar-None-983aeac2b7638e5925a9.json",
+					"name" : "uSimRadar",
 					"projectIndex" : 0
 				}
 			]

@@ -6,20 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.cpp
-MOOSGeodesy.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
-math.h
--
-stdio.h
--
-stdlib.h
--
-cstring
--
-float.h
--
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS.cpp
@@ -39,18 +25,6 @@ MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 MOOSGeodesy.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/MOOSGeodesy.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.cpp
-cstdlib
--
-iostream
--
-SimGPS_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/ColorParse.h
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/ReleaseInfo.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGPS/SimGPS_Info.h
 
@@ -522,9 +496,5 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 
