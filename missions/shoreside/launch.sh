@@ -43,4 +43,6 @@ echo "Launching All MOOS Communities with WARP:" $TIME_WARP
 
  pAntler bravo.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
 
+ pAntler charlie.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
+
  uMAC -t shoreside.moos
