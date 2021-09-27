@@ -270,6 +270,13 @@ ProcessConfig = pContactMgrV20
   AppTick   = 2
   CommsTick = 2
 
-  contact_max_age = 600
+  contact_max_age = 3600
   display_radii   = false
+
+  alert_range     = 200
+  alert_cpa_range = 200
+  alert_cpa_time  = 30
+  verbose         = true
+
+  alert = var=CONTACT_INFO, val="name=avd_$[VNAME] # contact=$[VNAME]"
 }

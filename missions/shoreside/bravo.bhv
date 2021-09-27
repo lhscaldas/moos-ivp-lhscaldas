@@ -5,6 +5,7 @@ initialize   RETURN  = false
 initialize   END  = false
 initialize   STATION_KEEP = false
 initialize   SEARCH  = true
+initialize   AVOID   = true
 
 set MODE = ACTIVE {
   DEPLOY = true
@@ -140,4 +141,26 @@ station_pt = 900.0, -1000.0
          visual_hints = edge_size    = 1           // default
          visual_hints = label_color  = black      
          visual_hints = vertex_color = blue 
+ }
+
+Behavior = BHV_AvoidCollision
+ {
+    name       = avd_collision
+   pwt        = 200
+    condition  = AVOID=true
+    updates    = CONTACT_INFO
+    endflag = CONTACT_RESOLVED = $[CONTACT] 
+    templating = spawn
+
+                contact = to-be-set
+       on_no_contact_ok = true
+            extrapolate = true
+                  decay = 30,60
+   
+        pwt_outer_dist = 50
+         pwt_inner_dist = 20
+              pwt_grade = linear
+      min_util_cpa_dist = 8
+     max_util_cpa_dist = 25
+    bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
  }
