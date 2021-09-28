@@ -47,7 +47,7 @@ Behavior = BHV_Loiter
      clockwise = true
         radius = 8.0
      nm_radius = 15.0
-       polygon = radial::x=1300,y=-975, radius=125, pts=8, snap=1, label=charlie_LOITER
+       polygon = radial::x=1900,y=-1175, radius=125, pts=8, snap=1, label=charlie_LOITER
 
   visual_hints = nextpt_color=white, nextpt_lcolor=khaki
   visual_hints = edge_color=orange, vertex_color=white
@@ -84,7 +84,7 @@ Behavior = BHV_Loiter
          outer_radius = 30      
          outer_speed  = 1    
        transit_speed  = 5    
-station_pt = 1300,-975
+station_pt = 1900,-1175
            swing_time = 0       // default
 
          visual_hints = vertex_size  = 1           // default
@@ -130,7 +130,7 @@ Behavior = BHV_StationKeep
          outer_radius = 30      
          outer_speed  = 1    
        transit_speed  = 5    
-station_pt = 1300,-975
+station_pt = 1900,-1175
            swing_time = 0       // default
 
          visual_hints = vertex_size  = 1           // default

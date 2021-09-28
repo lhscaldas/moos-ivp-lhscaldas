@@ -1,11 +1,11 @@
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
-// FILE: bravo.moos
+// FILE: delta.moos
 //-------------------------------------------------
 
 ServerHost = localhost
-ServerPort = 9003
-Community  = charlie
+ServerPort = 9005
+Community  = echo
 
 //----  Next Line was commented and replaced with a command line overload ---- //
 //MOOSTimeWarp = 10    (default)
@@ -51,7 +51,7 @@ ProcessConfig = pShare
   AppTick    = 2
   CommsTick  = 2
 
-  input = route =  localhost:9203
+  input = route =  localhost:9205
 }
 
 //--------------------------------------------------
@@ -104,8 +104,8 @@ ProcessConfig = iPydyna
 {
    AppTick   = 4
    CommsTick = 4
-START_X = 1300.0
-START_Y = -975.0 
+START_X = 1900.0
+START_Y = -1175.0
 START_HEADING = 45.0 
 }
 
@@ -227,7 +227,7 @@ ProcessConfig = pHelmIvP
   bhv_dir_not_found_ok = true
   ok_skew = any
 
-  behaviors  = charlie.bhv
+  behaviors  = echo.bhv
   domain     = course:0:359:360
   domain     = speed:0:7:99
 }

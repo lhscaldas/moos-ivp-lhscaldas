@@ -102,9 +102,9 @@ ProcessConfig = iPydyna
 {
    AppTick   = 4
    CommsTick = 4
-START_X = 1600.0 
-START_Y = -900.0 
-START_HEADING = 135.0 
+START_X = 1300.0
+START_Y = -975.0 
+START_HEADING = 45.0 
 }
 
 //------------------------------------------------
