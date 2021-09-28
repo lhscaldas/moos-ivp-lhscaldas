@@ -143,24 +143,31 @@ station_pt = 900.0, -1000.0
          visual_hints = vertex_color = blue 
  }
 
+//----------------------------------------------
 Behavior = BHV_AvoidCollision
- {
-    name       = avd_collision
-   pwt        = 200
-    condition  = AVOID=true
-    updates    = CONTACT_INFO
-    endflag = CONTACT_RESOLVED = $[CONTACT] 
-    templating = spawn
+{
+  name         = ac_
+  pwt          = 200
+  condition    = AVOID = true 
+  updates      = CONTACT_INFO
+  idleflag     = AVOIDING = idle
+  activeflag   = AVOIDING = active
+  inactiveflag = AVOIDING = inactive
+  runflag      = AVOIDING = running
+  endflag      = AVOIDING = end
+  endflag      = CONTACT_RESOLVED = $[CONTACT],avd
+  templating   = spawn
 
-                contact = to-be-set
-       on_no_contact_ok = true
-            extrapolate = true
-                  decay = 30,60
-   
-        pwt_outer_dist = 50
-         pwt_inner_dist = 20
-              pwt_grade = linear
-      min_util_cpa_dist = 8
-     max_util_cpa_dist = 25
-    bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
- }
+             contact = to-be-set
+    on_no_contact_ok = true
+         extrapolate = true
+               decay = 30,60
+
+        pwt_outer_dist = 100
+        pwt_inner_dist = 55
+        completed_dist = 200
+     min_util_cpa_dist = 40
+     max_util_cpa_dist = 75
+             pwt_grade = linear
+   bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
+}

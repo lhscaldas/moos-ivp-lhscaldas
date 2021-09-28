@@ -34,7 +34,7 @@ ProcessConfig = ANTLER
   Run = pSimDVL    @ NewConsole = false
   Run = pSimGyro    @ NewConsole = false
   Run = pSensor    @ NewConsole = false
-  // Run = iRemoteMod    @ NewConsole = true
+  //Run = iRemoteMod    @ NewConsole = true
   Run = pShare @ NewConsole = false
   Run = pHostInfo       @ NewConsole = false
   Run = uFldNodeBroker  @ NewConsole = false
@@ -272,14 +272,17 @@ ProcessConfig = pContactMgrV20
   AppTick   = 2
   CommsTick = 2
 
+  decay = 30,60
+
+  alert_verbose = true
+
   contact_max_age = 3600
-  display_radii   = false
+  display_radii   = true
 
-  alert_range     = 200
-  alert_cpa_range = 200
-  alert_cpa_time  = 30
-  verbose         = true
+  alert_range_color = gray70
+  cpa_range_color   = gray30
 
-  alert = var=CONTACT_INFO, val="name=avd_$[VNAME] # contact=$[VNAME]"
+
 }
+
 
