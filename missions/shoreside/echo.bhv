@@ -43,7 +43,7 @@ Behavior = BHV_Loiter
 //  templating = clone
 
                 post_suffix = A
-         speed = 5
+         speed = 6
      clockwise = true
         radius = 8.0
      nm_radius = 15.0
