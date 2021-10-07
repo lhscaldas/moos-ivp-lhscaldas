@@ -1,0 +1,365 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src"
+				},
+				{
+					"build" : "src/lib_behaviors-test",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/lib_behaviors-test",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "src/lib_mbutil",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/lib_mbutil",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "src/pExampleApp",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pExampleApp",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "src/pXRelayTest",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pXRelayTest",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"build" : "src/pSimIMU",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSimIMU",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "src/pSimGPS",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSimGPS",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "src/pSimDVL",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSimDVL",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "src/pSimGyro",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSimGyro",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "src/uSimRadar",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/uSimRadar",
+					"targetIndexes" : 
+					[
+						12
+					]
+				},
+				{
+					"build" : "src/pTrajectPID",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pTrajectPID",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "src/pSensor",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSensor",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "src/iRemoteMod",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/iRemoteMod",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "None",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13
+					],
+					"name" : "IVP_EXTEND",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "BHV_DP::@6f5503641cd187e14364",
+					"jsonFile" : "target-BHV_DP-None-54f2ccb769cc2b532d0d.json",
+					"name" : "BHV_DP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "BHV_SimpleWaypoint::@6f5503641cd187e14364",
+					"jsonFile" : "target-BHV_SimpleWaypoint-None-2c538ad2e651323e9600.json",
+					"name" : "BHV_SimpleWaypoint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "iRemoteMod::@bdb99e091a6082ee383d",
+					"jsonFile" : "target-iRemoteMod-None-578c85895c32843190bd.json",
+					"name" : "iRemoteMod",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mbutil::@083f9b0ccc73bdd19e23",
+					"jsonFile" : "target-mbutil-None-0bf3618c3e1dcf08010e.json",
+					"name" : "mbutil",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "pExampleApp::@e5cf5f4f18b468902831",
+					"jsonFile" : "target-pExampleApp-None-9e48f64bbdd9432bb9d8.json",
+					"name" : "pExampleApp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 12,
+					"id" : "pSensor::@26df0b8f05989a98d751",
+					"jsonFile" : "target-pSensor-None-5a5310c42a4024432a9b.json",
+					"name" : "pSensor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "pSimDVL::@c6848fa7486ee529ee00",
+					"jsonFile" : "target-pSimDVL-None-6f13965fc5aa66dfd437.json",
+					"name" : "pSimDVL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "pSimGPS::@c01ec32dfb5f1423f3c0",
+					"jsonFile" : "target-pSimGPS-None-ef7c9f3bb400abd67583.json",
+					"name" : "pSimGPS",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "pSimGyro::@5c2f56628101ece25e78",
+					"jsonFile" : "target-pSimGyro-None-a5524b97d7708d64f3ca.json",
+					"name" : "pSimGyro",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "pSimIMU::@d3f01005184cca5b455a",
+					"jsonFile" : "target-pSimIMU-None-c0ce946e40440b2b75e0.json",
+					"name" : "pSimIMU",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "pTrajectPID::@ff1f245faa2754763242",
+					"jsonFile" : "target-pTrajectPID-None-26f45afb60bfef2ae08d.json",
+					"name" : "pTrajectPID",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "pXRelayTest::@c02dfabc4b8e3b7b1d91",
+					"jsonFile" : "target-pXRelayTest-None-9b3d8c1e98a3cd4a54a6.json",
+					"name" : "pXRelayTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "uSimRadar::@dc2d15a0b3bac61d5e48",
+					"jsonFile" : "target-uSimRadar-None-b4fc2c5ed6e45d724dab.json",
+					"name" : "uSimRadar",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/lhscaldas/moos-ivp-lhscaldas/build",
+		"source" : "/home/lhscaldas/moos-ivp-lhscaldas"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 1
+	}
+}

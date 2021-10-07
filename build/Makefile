@@ -202,6 +202,19 @@ BHV_SimpleWaypoint/fast:
 .PHONY : BHV_SimpleWaypoint/fast
 
 #=============================================================================
+# Target rules for targets named mbutil
+
+# Build rule for target.
+mbutil: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mbutil
+.PHONY : mbutil
+
+# fast build rule for target.
+mbutil/fast:
+	$(MAKE) $(MAKESILENT) -f src/lib_mbutil/CMakeFiles/mbutil.dir/build.make src/lib_mbutil/CMakeFiles/mbutil.dir/build
+.PHONY : mbutil/fast
+
+#=============================================================================
 # Target rules for targets named pExampleApp
 
 # Build rule for target.
@@ -280,6 +293,19 @@ pSimGyro/fast:
 .PHONY : pSimGyro/fast
 
 #=============================================================================
+# Target rules for targets named uSimRadar
+
+# Build rule for target.
+uSimRadar: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uSimRadar
+.PHONY : uSimRadar
+
+# fast build rule for target.
+uSimRadar/fast:
+	$(MAKE) $(MAKESILENT) -f src/uSimRadar/CMakeFiles/uSimRadar.dir/build.make src/uSimRadar/CMakeFiles/uSimRadar.dir/build
+.PHONY : uSimRadar/fast
+
+#=============================================================================
 # Target rules for targets named pTrajectPID
 
 # Build rule for target.
@@ -333,6 +359,7 @@ help:
 	@echo "... BHV_DP"
 	@echo "... BHV_SimpleWaypoint"
 	@echo "... iRemoteMod"
+	@echo "... mbutil"
 	@echo "... pExampleApp"
 	@echo "... pSensor"
 	@echo "... pSimDVL"
@@ -341,6 +368,7 @@ help:
 	@echo "... pSimIMU"
 	@echo "... pTrajectPID"
 	@echo "... pXRelayTest"
+	@echo "... uSimRadar"
 .PHONY : help
 
 

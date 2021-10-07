@@ -129,6 +129,7 @@ pSensor_EXTERNAL_OBJECTS =
 ../bin/pSensor: src/pSensor/CMakeFiles/pSensor.dir/main.cpp.o
 ../bin/pSensor: src/pSensor/CMakeFiles/pSensor.dir/build.make
 ../bin/pSensor: /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
+../bin/pSensor: /lib/libmbutil.a
 ../bin/pSensor: src/pSensor/CMakeFiles/pSensor.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../../bin/pSensor"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSensor && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pSensor.dir/link.txt --verbose=$(VERBOSE)

@@ -144,6 +144,7 @@ pSimGPS_EXTERNAL_OBJECTS =
 ../bin/pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/main.cpp.o
 ../bin/pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make
 ../bin/pSimGPS: /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
+../bin/pSimGPS: /lib/libmbutil.a
 ../bin/pSimGPS: src/pSimGPS/CMakeFiles/pSimGPS.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../../../bin/pSimGPS"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pSimGPS.dir/link.txt --verbose=$(VERBOSE)

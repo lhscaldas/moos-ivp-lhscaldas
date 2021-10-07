@@ -129,6 +129,7 @@ pSimGyro_EXTERNAL_OBJECTS =
 ../bin/pSimGyro: src/pSimGyro/CMakeFiles/pSimGyro.dir/main.cpp.o
 ../bin/pSimGyro: src/pSimGyro/CMakeFiles/pSimGyro.dir/build.make
 ../bin/pSimGyro: /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
+../bin/pSimGyro: /lib/libmbutil.a
 ../bin/pSimGyro: src/pSimGyro/CMakeFiles/pSimGyro.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../../bin/pSimGyro"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGyro && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pSimGyro.dir/link.txt --verbose=$(VERBOSE)

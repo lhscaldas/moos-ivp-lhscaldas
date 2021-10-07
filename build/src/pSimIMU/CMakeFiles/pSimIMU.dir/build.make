@@ -129,6 +129,7 @@ pSimIMU_EXTERNAL_OBJECTS =
 ../bin/pSimIMU: src/pSimIMU/CMakeFiles/pSimIMU.dir/main.cpp.o
 ../bin/pSimIMU: src/pSimIMU/CMakeFiles/pSimIMU.dir/build.make
 ../bin/pSimIMU: /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
+../bin/pSimIMU: /lib/libmbutil.a
 ../bin/pSimIMU: src/pSimIMU/CMakeFiles/pSimIMU.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../../bin/pSimIMU"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimIMU && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pSimIMU.dir/link.txt --verbose=$(VERBOSE)

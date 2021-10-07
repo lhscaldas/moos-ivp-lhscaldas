@@ -129,6 +129,8 @@ uSimRadar_EXTERNAL_OBJECTS =
 ../bin/uSimRadar: src/uSimRadar/CMakeFiles/uSimRadar.dir/main.cpp.o
 ../bin/uSimRadar: src/uSimRadar/CMakeFiles/uSimRadar.dir/build.make
 ../bin/uSimRadar: /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
+../bin/uSimRadar: /lib/libmbutil.a
+../bin/uSimRadar: /lib/libmbutil.a
 ../bin/uSimRadar: src/uSimRadar/CMakeFiles/uSimRadar.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../../bin/uSimRadar"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/uSimRadar && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/uSimRadar.dir/link.txt --verbose=$(VERBOSE)

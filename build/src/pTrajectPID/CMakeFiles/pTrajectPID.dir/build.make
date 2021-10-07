@@ -129,6 +129,7 @@ pTrajectPID_EXTERNAL_OBJECTS =
 ../bin/pTrajectPID: src/pTrajectPID/CMakeFiles/pTrajectPID.dir/main.cpp.o
 ../bin/pTrajectPID: src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make
 ../bin/pTrajectPID: /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
+../bin/pTrajectPID: /lib/libmbutil.a
 ../bin/pTrajectPID: src/pTrajectPID/CMakeFiles/pTrajectPID.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../../bin/pTrajectPID"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pTrajectPID.dir/link.txt --verbose=$(VERBOSE)

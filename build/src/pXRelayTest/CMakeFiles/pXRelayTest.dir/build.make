@@ -129,6 +129,7 @@ pXRelayTest_EXTERNAL_OBJECTS =
 ../bin/pXRelayTest: src/pXRelayTest/CMakeFiles/pXRelayTest.dir/main.cpp.o
 ../bin/pXRelayTest: src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build.make
 ../bin/pXRelayTest: /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
+../bin/pXRelayTest: /lib/libmbutil.a
 ../bin/pXRelayTest: src/pXRelayTest/CMakeFiles/pXRelayTest.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../../bin/pXRelayTest"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pXRelayTest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pXRelayTest.dir/link.txt --verbose=$(VERBOSE)

@@ -38,7 +38,32 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/lhscaldas/moos-ivp/ivp/src/lib_ucommand"
   "/home/lhscaldas/moos-ivp/ivp/src/lib_ufield"
   "/home/lhscaldas/moos-ivp/ivp/src/lib_zaicview"
+  "../src/./lib_apputil"
+  "../src/./lib_behaviors"
+  "../src/./lib_behaviors-colregs"
+  "../src/./lib_behaviors-marine"
   "../src/./lib_behaviors-test"
+  "../src/./lib_bhvutil"
+  "../src/./lib_contacts"
+  "../src/./lib_encounters"
+  "../src/./lib_evalutil"
+  "../src/./lib_genutil"
+  "../src/./lib_geometry"
+  "../src/./lib_helmivp"
+  "../src/./lib_ipfview"
+  "../src/./lib_ivpbuild"
+  "../src/./lib_ivpcore"
+  "../src/./lib_ivpsolve"
+  "../src/./lib_logic"
+  "../src/./lib_logutils"
+  "../src/./lib_manifest"
+  "../src/./lib_marineview"
+  "../src/./lib_mbutil"
+  "../src/./lib_obstacles"
+  "../src/./lib_realm"
+  "../src/./lib_ucommand"
+  "../src/./lib_ufield"
+  "../src/./lib_zaicview"
   "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/include"
   "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include"
   "/home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Comms/include"
@@ -51,6 +76,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/lhscaldas/moos-ivp-lhscaldas/build/src/lib_mbutil/CMakeFiles/mbutil.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

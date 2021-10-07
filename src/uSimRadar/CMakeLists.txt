@@ -29,4 +29,3 @@ TARGET_LINK_LIBRARIES(uSimRadar
   contacts
   ${SYSTEM_LIBS}
 )
-

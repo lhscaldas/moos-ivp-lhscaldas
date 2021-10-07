@@ -91,12 +91,14 @@ clean: src/clean
 
 # Recursive "all" directory target.
 src/all: src/lib_behaviors-test/all
+src/all: src/lib_mbutil/all
 src/all: src/pExampleApp/all
 src/all: src/pXRelayTest/all
 src/all: src/pSimIMU/all
 src/all: src/pSimGPS/all
 src/all: src/pSimDVL/all
 src/all: src/pSimGyro/all
+src/all: src/uSimRadar/all
 src/all: src/pTrajectPID/all
 src/all: src/pSensor/all
 src/all: src/iRemoteMod/all
@@ -105,12 +107,14 @@ src/all: src/iRemoteMod/all
 
 # Recursive "preinstall" directory target.
 src/preinstall: src/lib_behaviors-test/preinstall
+src/preinstall: src/lib_mbutil/preinstall
 src/preinstall: src/pExampleApp/preinstall
 src/preinstall: src/pXRelayTest/preinstall
 src/preinstall: src/pSimIMU/preinstall
 src/preinstall: src/pSimGPS/preinstall
 src/preinstall: src/pSimDVL/preinstall
 src/preinstall: src/pSimGyro/preinstall
+src/preinstall: src/uSimRadar/preinstall
 src/preinstall: src/pTrajectPID/preinstall
 src/preinstall: src/pSensor/preinstall
 src/preinstall: src/iRemoteMod/preinstall
@@ -119,12 +123,14 @@ src/preinstall: src/iRemoteMod/preinstall
 
 # Recursive "clean" directory target.
 src/clean: src/lib_behaviors-test/clean
+src/clean: src/lib_mbutil/clean
 src/clean: src/pExampleApp/clean
 src/clean: src/pXRelayTest/clean
 src/clean: src/pSimIMU/clean
 src/clean: src/pSimGPS/clean
 src/clean: src/pSimDVL/clean
 src/clean: src/pSimGyro/clean
+src/clean: src/uSimRadar/clean
 src/clean: src/pTrajectPID/clean
 src/clean: src/pSensor/clean
 src/clean: src/iRemoteMod/clean
@@ -168,6 +174,24 @@ src/lib_behaviors-test/clean: src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/clean
 src/lib_behaviors-test/clean: src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/clean
 
 .PHONY : src/lib_behaviors-test/clean
+
+#=============================================================================
+# Directory level rules for directory src/lib_mbutil
+
+# Recursive "all" directory target.
+src/lib_mbutil/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
+
+.PHONY : src/lib_mbutil/all
+
+# Recursive "preinstall" directory target.
+src/lib_mbutil/preinstall:
+
+.PHONY : src/lib_mbutil/preinstall
+
+# Recursive "clean" directory target.
+src/lib_mbutil/clean: src/lib_mbutil/CMakeFiles/mbutil.dir/clean
+
+.PHONY : src/lib_mbutil/clean
 
 #=============================================================================
 # Directory level rules for directory src/pExampleApp
@@ -314,10 +338,28 @@ src/pXRelayTest/clean: src/pXRelayTest/CMakeFiles/pXRelayTest.dir/clean
 .PHONY : src/pXRelayTest/clean
 
 #=============================================================================
+# Directory level rules for directory src/uSimRadar
+
+# Recursive "all" directory target.
+src/uSimRadar/all: src/uSimRadar/CMakeFiles/uSimRadar.dir/all
+
+.PHONY : src/uSimRadar/all
+
+# Recursive "preinstall" directory target.
+src/uSimRadar/preinstall:
+
+.PHONY : src/uSimRadar/preinstall
+
+# Recursive "clean" directory target.
+src/uSimRadar/clean: src/uSimRadar/CMakeFiles/uSimRadar.dir/clean
+
+.PHONY : src/uSimRadar/clean
+
+#=============================================================================
 # Target rules for target src/lib_behaviors-test/CMakeFiles/BHV_DP.dir
 
 # All Build rule for target.
-src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/all:
+src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=1,2,3 "Built target BHV_DP"
@@ -325,7 +367,7 @@ src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/all:
 
 # Build rule for subdir invocation for target.
 src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/rule
@@ -344,7 +386,7 @@ src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/clean:
 # Target rules for target src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir
 
 # All Build rule for target.
-src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/all:
+src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build.make src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=4,5,6 "Built target BHV_SimpleWaypoint"
@@ -352,7 +394,7 @@ src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/all:
 
 # Build rule for subdir invocation for target.
 src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 22
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/rule
@@ -368,13 +410,40 @@ src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/clean:
 .PHONY : src/lib_behaviors-test/CMakeFiles/BHV_SimpleWaypoint.dir/clean
 
 #=============================================================================
+# Target rules for target src/lib_mbutil/CMakeFiles/mbutil.dir
+
+# All Build rule for target.
+src/lib_mbutil/CMakeFiles/mbutil.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/lib_mbutil/CMakeFiles/mbutil.dir/build.make src/lib_mbutil/CMakeFiles/mbutil.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/lib_mbutil/CMakeFiles/mbutil.dir/build.make src/lib_mbutil/CMakeFiles/mbutil.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28 "Built target mbutil"
+.PHONY : src/lib_mbutil/CMakeFiles/mbutil.dir/all
+
+# Build rule for subdir invocation for target.
+src/lib_mbutil/CMakeFiles/mbutil.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 19
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/lib_mbutil/CMakeFiles/mbutil.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
+.PHONY : src/lib_mbutil/CMakeFiles/mbutil.dir/rule
+
+# Convenience name for target.
+mbutil: src/lib_mbutil/CMakeFiles/mbutil.dir/rule
+
+.PHONY : mbutil
+
+# clean rule for target.
+src/lib_mbutil/CMakeFiles/mbutil.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/lib_mbutil/CMakeFiles/mbutil.dir/build.make src/lib_mbutil/CMakeFiles/mbutil.dir/clean
+.PHONY : src/lib_mbutil/CMakeFiles/mbutil.dir/clean
+
+#=============================================================================
 # Target rules for target src/pExampleApp/CMakeFiles/pExampleApp.dir
 
 # All Build rule for target.
 src/pExampleApp/CMakeFiles/pExampleApp.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/pExampleApp/CMakeFiles/pExampleApp.dir/build.make src/pExampleApp/CMakeFiles/pExampleApp.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/pExampleApp/CMakeFiles/pExampleApp.dir/build.make src/pExampleApp/CMakeFiles/pExampleApp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=10,11 "Built target pExampleApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=29,30 "Built target pExampleApp"
 .PHONY : src/pExampleApp/CMakeFiles/pExampleApp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -398,15 +467,15 @@ src/pExampleApp/CMakeFiles/pExampleApp.dir/clean:
 # Target rules for target src/pXRelayTest/CMakeFiles/pXRelayTest.dir
 
 # All Build rule for target.
-src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all:
+src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build.make src/pXRelayTest/CMakeFiles/pXRelayTest.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build.make src/pXRelayTest/CMakeFiles/pXRelayTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=37,38,39,40 "Built target pXRelayTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=56,57,58,59 "Built target pXRelayTest"
 .PHONY : src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all
 
 # Build rule for subdir invocation for target.
 src/pXRelayTest/CMakeFiles/pXRelayTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pXRelayTest/CMakeFiles/pXRelayTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/pXRelayTest/CMakeFiles/pXRelayTest.dir/rule
@@ -425,15 +494,15 @@ src/pXRelayTest/CMakeFiles/pXRelayTest.dir/clean:
 # Target rules for target src/pSimIMU/CMakeFiles/pSimIMU.dir
 
 # All Build rule for target.
-src/pSimIMU/CMakeFiles/pSimIMU.dir/all:
+src/pSimIMU/CMakeFiles/pSimIMU.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/pSimIMU/CMakeFiles/pSimIMU.dir/build.make src/pSimIMU/CMakeFiles/pSimIMU.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/pSimIMU/CMakeFiles/pSimIMU.dir/build.make src/pSimIMU/CMakeFiles/pSimIMU.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=29,30,31,32 "Built target pSimIMU"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=48,49,50,51 "Built target pSimIMU"
 .PHONY : src/pSimIMU/CMakeFiles/pSimIMU.dir/all
 
 # Build rule for subdir invocation for target.
 src/pSimIMU/CMakeFiles/pSimIMU.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pSimIMU/CMakeFiles/pSimIMU.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/pSimIMU/CMakeFiles/pSimIMU.dir/rule
@@ -452,15 +521,15 @@ src/pSimIMU/CMakeFiles/pSimIMU.dir/clean:
 # Target rules for target src/pSimGPS/CMakeFiles/pSimGPS.dir
 
 # All Build rule for target.
-src/pSimGPS/CMakeFiles/pSimGPS.dir/all:
+src/pSimGPS/CMakeFiles/pSimGPS.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/pSimGPS/CMakeFiles/pSimGPS.dir/build.make src/pSimGPS/CMakeFiles/pSimGPS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=20,21,22,23,24 "Built target pSimGPS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=39,40,41,42,43 "Built target pSimGPS"
 .PHONY : src/pSimGPS/CMakeFiles/pSimGPS.dir/all
 
 # Build rule for subdir invocation for target.
 src/pSimGPS/CMakeFiles/pSimGPS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pSimGPS/CMakeFiles/pSimGPS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/pSimGPS/CMakeFiles/pSimGPS.dir/rule
@@ -479,15 +548,15 @@ src/pSimGPS/CMakeFiles/pSimGPS.dir/clean:
 # Target rules for target src/pSimDVL/CMakeFiles/pSimDVL.dir
 
 # All Build rule for target.
-src/pSimDVL/CMakeFiles/pSimDVL.dir/all:
+src/pSimDVL/CMakeFiles/pSimDVL.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/pSimDVL/CMakeFiles/pSimDVL.dir/build.make src/pSimDVL/CMakeFiles/pSimDVL.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/pSimDVL/CMakeFiles/pSimDVL.dir/build.make src/pSimDVL/CMakeFiles/pSimDVL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=16,17,18,19 "Built target pSimDVL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=35,36,37,38 "Built target pSimDVL"
 .PHONY : src/pSimDVL/CMakeFiles/pSimDVL.dir/all
 
 # Build rule for subdir invocation for target.
 src/pSimDVL/CMakeFiles/pSimDVL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pSimDVL/CMakeFiles/pSimDVL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/pSimDVL/CMakeFiles/pSimDVL.dir/rule
@@ -506,15 +575,15 @@ src/pSimDVL/CMakeFiles/pSimDVL.dir/clean:
 # Target rules for target src/pSimGyro/CMakeFiles/pSimGyro.dir
 
 # All Build rule for target.
-src/pSimGyro/CMakeFiles/pSimGyro.dir/all:
+src/pSimGyro/CMakeFiles/pSimGyro.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/pSimGyro/CMakeFiles/pSimGyro.dir/build.make src/pSimGyro/CMakeFiles/pSimGyro.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/pSimGyro/CMakeFiles/pSimGyro.dir/build.make src/pSimGyro/CMakeFiles/pSimGyro.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=25,26,27,28 "Built target pSimGyro"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=44,45,46,47 "Built target pSimGyro"
 .PHONY : src/pSimGyro/CMakeFiles/pSimGyro.dir/all
 
 # Build rule for subdir invocation for target.
 src/pSimGyro/CMakeFiles/pSimGyro.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pSimGyro/CMakeFiles/pSimGyro.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/pSimGyro/CMakeFiles/pSimGyro.dir/rule
@@ -530,18 +599,45 @@ src/pSimGyro/CMakeFiles/pSimGyro.dir/clean:
 .PHONY : src/pSimGyro/CMakeFiles/pSimGyro.dir/clean
 
 #=============================================================================
+# Target rules for target src/uSimRadar/CMakeFiles/uSimRadar.dir
+
+# All Build rule for target.
+src/uSimRadar/CMakeFiles/uSimRadar.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
+	$(MAKE) $(MAKESILENT) -f src/uSimRadar/CMakeFiles/uSimRadar.dir/build.make src/uSimRadar/CMakeFiles/uSimRadar.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/uSimRadar/CMakeFiles/uSimRadar.dir/build.make src/uSimRadar/CMakeFiles/uSimRadar.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=60,61,62,63 "Built target uSimRadar"
+.PHONY : src/uSimRadar/CMakeFiles/uSimRadar.dir/all
+
+# Build rule for subdir invocation for target.
+src/uSimRadar/CMakeFiles/uSimRadar.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/uSimRadar/CMakeFiles/uSimRadar.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
+.PHONY : src/uSimRadar/CMakeFiles/uSimRadar.dir/rule
+
+# Convenience name for target.
+uSimRadar: src/uSimRadar/CMakeFiles/uSimRadar.dir/rule
+
+.PHONY : uSimRadar
+
+# clean rule for target.
+src/uSimRadar/CMakeFiles/uSimRadar.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/uSimRadar/CMakeFiles/uSimRadar.dir/build.make src/uSimRadar/CMakeFiles/uSimRadar.dir/clean
+.PHONY : src/uSimRadar/CMakeFiles/uSimRadar.dir/clean
+
+#=============================================================================
 # Target rules for target src/pTrajectPID/CMakeFiles/pTrajectPID.dir
 
 # All Build rule for target.
-src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all:
+src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make src/pTrajectPID/CMakeFiles/pTrajectPID.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build.make src/pTrajectPID/CMakeFiles/pTrajectPID.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=33,34,35,36 "Built target pTrajectPID"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=52,53,54,55 "Built target pTrajectPID"
 .PHONY : src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all
 
 # Build rule for subdir invocation for target.
 src/pTrajectPID/CMakeFiles/pTrajectPID.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pTrajectPID/CMakeFiles/pTrajectPID.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/pTrajectPID/CMakeFiles/pTrajectPID.dir/rule
@@ -560,15 +656,15 @@ src/pTrajectPID/CMakeFiles/pTrajectPID.dir/clean:
 # Target rules for target src/pSensor/CMakeFiles/pSensor.dir
 
 # All Build rule for target.
-src/pSensor/CMakeFiles/pSensor.dir/all:
+src/pSensor/CMakeFiles/pSensor.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/pSensor/CMakeFiles/pSensor.dir/build.make src/pSensor/CMakeFiles/pSensor.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/pSensor/CMakeFiles/pSensor.dir/build.make src/pSensor/CMakeFiles/pSensor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=12,13,14,15 "Built target pSensor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=31,32,33,34 "Built target pSensor"
 .PHONY : src/pSensor/CMakeFiles/pSensor.dir/all
 
 # Build rule for subdir invocation for target.
 src/pSensor/CMakeFiles/pSensor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/pSensor/CMakeFiles/pSensor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
 .PHONY : src/pSensor/CMakeFiles/pSensor.dir/rule

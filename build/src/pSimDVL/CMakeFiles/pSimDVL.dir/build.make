@@ -129,6 +129,7 @@ pSimDVL_EXTERNAL_OBJECTS =
 ../bin/pSimDVL: src/pSimDVL/CMakeFiles/pSimDVL.dir/main.cpp.o
 ../bin/pSimDVL: src/pSimDVL/CMakeFiles/pSimDVL.dir/build.make
 ../bin/pSimDVL: /home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a
+../bin/pSimDVL: /lib/libmbutil.a
 ../bin/pSimDVL: src/pSimDVL/CMakeFiles/pSimDVL.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ../../../bin/pSimDVL"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pSimDVL.dir/link.txt --verbose=$(VERBOSE)

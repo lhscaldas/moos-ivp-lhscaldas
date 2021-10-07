@@ -113,6 +113,8 @@ BHV_DP_EXTERNAL_OBJECTS =
 /lib/libBHV_DP.so: src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/BHV_DP.cpp.o
 /lib/libBHV_DP.so: src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/AOF_DP.cpp.o
 /lib/libBHV_DP.so: src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/build.make
+/lib/libBHV_DP.so: /lib/libmbutil.a
+/lib/libBHV_DP.so: /lib/libmbutil.a
 /lib/libBHV_DP.so: src/lib_behaviors-test/CMakeFiles/BHV_DP.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library /lib/libBHV_DP.so"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/lib_behaviors-test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BHV_DP.dir/link.txt --verbose=$(VERBOSE)
