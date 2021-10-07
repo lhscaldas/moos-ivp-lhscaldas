@@ -20,18 +20,6 @@ Sensor.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor_Info.cpp
-cstdlib
--
-iostream
--
-Sensor_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor_Info.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/ColorParse.h
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/ReleaseInfo.h
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor_Info.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/main.cpp
@@ -500,9 +488,5 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 

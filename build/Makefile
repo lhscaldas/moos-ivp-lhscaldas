@@ -280,19 +280,6 @@ pSimGyro/fast:
 .PHONY : pSimGyro/fast
 
 #=============================================================================
-# Target rules for targets named uSimRadar
-
-# Build rule for target.
-uSimRadar: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uSimRadar
-.PHONY : uSimRadar
-
-# fast build rule for target.
-uSimRadar/fast:
-	$(MAKE) $(MAKESILENT) -f src/uSimRadar/CMakeFiles/uSimRadar.dir/build.make src/uSimRadar/CMakeFiles/uSimRadar.dir/build
-.PHONY : uSimRadar/fast
-
-#=============================================================================
 # Target rules for targets named pTrajectPID
 
 # Build rule for target.
@@ -354,7 +341,6 @@ help:
 	@echo "... pSimIMU"
 	@echo "... pTrajectPID"
 	@echo "... pXRelayTest"
-	@echo "... uSimRadar"
 .PHONY : help
 
 

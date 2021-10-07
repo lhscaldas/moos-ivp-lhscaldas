@@ -22,18 +22,6 @@ stdlib.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pTrajectPID/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pTrajectPID/TrajectPID_Info.cpp
-cstdlib
--
-iostream
--
-TrajectPID_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pTrajectPID/TrajectPID_Info.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pTrajectPID/ColorParse.h
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pTrajectPID/ReleaseInfo.h
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/pTrajectPID/TrajectPID_Info.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pTrajectPID/main.cpp
@@ -502,9 +490,5 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 

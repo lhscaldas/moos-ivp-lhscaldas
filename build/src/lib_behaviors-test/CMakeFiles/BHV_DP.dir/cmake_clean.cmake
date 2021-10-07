@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "../../../lib/libBHV_DP.pdb"
-  "../../../lib/libBHV_DP.so"
+  "/lib/libBHV_DP.pdb"
+  "/lib/libBHV_DP.so"
   "CMakeFiles/BHV_DP.dir/AOF_DP.cpp.o"
   "CMakeFiles/BHV_DP.dir/BHV_DP.cpp.o"
 )

@@ -918,3 +918,33 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX11 succeeded with the following output:
+Change Dir: /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e916a/fast && /usr/bin/make  -f CMakeFiles/cmTC_e916a.dir/build.make CMakeFiles/cmTC_e916a.dir/build
+make[1]: Entering directory '/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e916a.dir/src.cxx.o
+/usr/bin/c++   -fPIC -g -Wdeprecated-declarations -DCOMPILER_SUPPORTS_CXX11   -std=c++11 -o CMakeFiles/cmTC_e916a.dir/src.cxx.o -c /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_e916a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e916a.dir/link.txt --verbose=1
+/usr/bin/c++  -fPIC -g -Wdeprecated-declarations -DCOMPILER_SUPPORTS_CXX11 -rdynamic CMakeFiles/cmTC_e916a.dir/src.cxx.o -o cmTC_e916a 
+make[1]: Leaving directory '/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORTS_CXX0X succeeded with the following output:
+Change Dir: /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_29085/fast && /usr/bin/make  -f CMakeFiles/cmTC_29085.dir/build.make CMakeFiles/cmTC_29085.dir/build
+make[1]: Entering directory '/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_29085.dir/src.cxx.o
+/usr/bin/c++   -fPIC -g -Wdeprecated-declarations -DCOMPILER_SUPPORTS_CXX0X   -std=c++0x -o CMakeFiles/cmTC_29085.dir/src.cxx.o -c /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_29085
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_29085.dir/link.txt --verbose=1
+/usr/bin/c++  -fPIC -g -Wdeprecated-declarations -DCOMPILER_SUPPORTS_CXX0X -rdynamic CMakeFiles/cmTC_29085.dir/src.cxx.o -o cmTC_29085 
+make[1]: Leaving directory '/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }

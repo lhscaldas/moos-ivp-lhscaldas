@@ -92,7 +92,9 @@ ProcessConfig = uXMS
 {
   AppTick   = 4
   CommsTick = 4
-  var    =   CRS_RANGE_REQUEST, CRS_RANGE_REPORT, USR_RANGE_REQUEST, USR_RANGE_REPORT
+  //var    =   CONTACT_INFO, USR_RANGE_REPORT
+  display_source = true
+  source = pContactMgrV20, iSimRadar
   //display_all = true
 
 }

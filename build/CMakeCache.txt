@@ -243,6 +243,12 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 EXECUTABLE_OUTPUT_PATH:PATH=/home/lhscaldas/moos-ivp-lhscaldas/bin
 
+//Build IvP's minimal set of bot apps.
+IVP_BUILD_BOT_CODE_ONLY:BOOL=OFF
+
+//Build IvP's GUI-related libraries and apps.
+IVP_BUILD_GUI_CODE:BOOL=ON
+
 //Value Computed by CMake
 IVP_EXTEND_BINARY_DIR:STATIC=/home/lhscaldas/moos-ivp-lhscaldas/build
 
@@ -251,7 +257,10 @@ IVP_EXTEND_SOURCE_DIR:STATIC=/home/lhscaldas/moos-ivp-lhscaldas
 
 LIBRARY_OUTPUT_DIRECTORY:PATH=/home/lhscaldas/moos-ivp-lhscaldas/lib
 
-LIBRARY_OUTPUT_PATH:PATH=/home/lhscaldas/moos-ivp-lhscaldas/lib
+LIBRARY_OUTPUT_PATH:PATH=/lib
+
+//The directory containing a CMake configuration file for MOOSGeodesy.
+MOOSGeodesy_DIR:PATH=/home/lhscaldas/moos-ivp/build/MOOS/MOOSGeodesy
 
 //Base directory of the MOOS-IvP source tree
 MOOSIVP_SOURCE_TREE_BASE:PATH=/home/lhscaldas/moos-ivp
@@ -260,6 +269,9 @@ MOOSIVP_SOURCE_TREE_BASE:PATH=/home/lhscaldas/moos-ivp
 MOOS_DIR:PATH=/home/lhscaldas/moos-ivp/build/MOOS/MOOSCore
 
 RUNTIME_OUTPUT_DIRECTORY:PATH=/home/lhscaldas/moos-ivp-lhscaldas/bin
+
+//Use UTM coordinates vs Local coordinates.
+USE_UTM:BOOL=ON
 
 //tell me about all compiler warnings (-Wall) 
 WALL_ON:BOOL=OFF
@@ -381,7 +393,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=13
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -428,6 +440,10 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Test COMPILER_SUPPORTS_CXX0X
+COMPILER_SUPPORTS_CXX0X:INTERNAL=1
+//Test COMPILER_SUPPORTS_CXX11
+COMPILER_SUPPORTS_CXX11:INTERNAL=1
 //Details about finding MOOS
 FIND_PACKAGE_MESSAGE_DETAILS_MOOS:INTERNAL=[/home/lhscaldas/moos-ivp/build/MOOS/MOOSCore/MOOSTargets.cmake][v()]
 //Details about finding Threads

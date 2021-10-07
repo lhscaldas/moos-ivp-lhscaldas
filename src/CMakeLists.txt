@@ -22,7 +22,7 @@ ADD_SUBDIRECTORY(pSimIMU)
 ADD_SUBDIRECTORY(pSimGPS)
 ADD_SUBDIRECTORY(pSimDVL)
 ADD_SUBDIRECTORY(pSimGyro)
-ADD_SUBDIRECTORY(uSimRadar)
+#ADD_SUBDIRECTORY(uSimRadar)
 ADD_SUBDIRECTORY(pTrajectPID)
 ADD_SUBDIRECTORY(pSensor)
 ADD_SUBDIRECTORY(iRemoteMod)
@@ -30,4 +30,3 @@ ADD_SUBDIRECTORY(iRemoteMod)
 ##############################################################################
 #                           END of CMakeLists.txt
 ##############################################################################
-
