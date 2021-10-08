@@ -79,7 +79,7 @@ ProcessConfig = uFldNodeBroker
   bridge = src=APPCAST
   bridge = src=NODE_REPORT_LOCAL,  alias=NODE_REPORT
   bridge = src=NODE_MESSAGE_LOCAL, alias=NODE_MESSAGE
-  bridge =  src=CRS_RANGE_REQUEST
+  bridge =  src=USL_RANGE_REQUEST
   bridge =  src=USR_RANGE_REQUEST
 }
 
@@ -90,9 +90,7 @@ ProcessConfig = uXMS
 {
   AppTick   = 4
   CommsTick = 4
-  //var    =   CONTACT_INFO, USR_RANGE_REPORT
-  display_source = true
-  source = pContactMgrV20, uSimRadar
+  var    =   USR_RANGE_REQUEST, USR_RANGE_REPORT, USL_RANGE_REQUEST, USL_RANGE_REPORT
   //display_all = true
 
 }
@@ -262,6 +260,7 @@ ProcessConfig = uTimerScript_PING
   CONDITION  = (NAV_SPEED > 0)
 
   EVENT = var=USR_RANGE_REQUEST, val="name=alfa", time=27:37
+  EVENT = var=USL_RANGE_REQUEST, val="name=alfa", time=27:37
 }
 
 //--------------------------------------------------------

@@ -99,6 +99,7 @@ src/all: src/pSimGPS/all
 src/all: src/pSimDVL/all
 src/all: src/pSimGyro/all
 src/all: src/uSimRadar/all
+src/all: src/uSimLidar/all
 src/all: src/pTrajectPID/all
 src/all: src/pSensor/all
 src/all: src/iRemoteMod/all
@@ -115,6 +116,7 @@ src/preinstall: src/pSimGPS/preinstall
 src/preinstall: src/pSimDVL/preinstall
 src/preinstall: src/pSimGyro/preinstall
 src/preinstall: src/uSimRadar/preinstall
+src/preinstall: src/uSimLidar/preinstall
 src/preinstall: src/pTrajectPID/preinstall
 src/preinstall: src/pSensor/preinstall
 src/preinstall: src/iRemoteMod/preinstall
@@ -131,6 +133,7 @@ src/clean: src/pSimGPS/clean
 src/clean: src/pSimDVL/clean
 src/clean: src/pSimGyro/clean
 src/clean: src/uSimRadar/clean
+src/clean: src/uSimLidar/clean
 src/clean: src/pTrajectPID/clean
 src/clean: src/pSensor/clean
 src/clean: src/iRemoteMod/clean
@@ -336,6 +339,24 @@ src/pXRelayTest/preinstall:
 src/pXRelayTest/clean: src/pXRelayTest/CMakeFiles/pXRelayTest.dir/clean
 
 .PHONY : src/pXRelayTest/clean
+
+#=============================================================================
+# Directory level rules for directory src/uSimLidar
+
+# Recursive "all" directory target.
+src/uSimLidar/all: src/uSimLidar/CMakeFiles/uSimLidar.dir/all
+
+.PHONY : src/uSimLidar/all
+
+# Recursive "preinstall" directory target.
+src/uSimLidar/preinstall:
+
+.PHONY : src/uSimLidar/preinstall
+
+# Recursive "clean" directory target.
+src/uSimLidar/clean: src/uSimLidar/CMakeFiles/uSimLidar.dir/clean
+
+.PHONY : src/uSimLidar/clean
 
 #=============================================================================
 # Directory level rules for directory src/uSimRadar
@@ -605,7 +626,7 @@ src/pSimGyro/CMakeFiles/pSimGyro.dir/clean:
 src/uSimRadar/CMakeFiles/uSimRadar.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
 	$(MAKE) $(MAKESILENT) -f src/uSimRadar/CMakeFiles/uSimRadar.dir/build.make src/uSimRadar/CMakeFiles/uSimRadar.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/uSimRadar/CMakeFiles/uSimRadar.dir/build.make src/uSimRadar/CMakeFiles/uSimRadar.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=60,61,62,63 "Built target uSimRadar"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=64,65,66,67 "Built target uSimRadar"
 .PHONY : src/uSimRadar/CMakeFiles/uSimRadar.dir/all
 
 # Build rule for subdir invocation for target.
@@ -624,6 +645,33 @@ uSimRadar: src/uSimRadar/CMakeFiles/uSimRadar.dir/rule
 src/uSimRadar/CMakeFiles/uSimRadar.dir/clean:
 	$(MAKE) $(MAKESILENT) -f src/uSimRadar/CMakeFiles/uSimRadar.dir/build.make src/uSimRadar/CMakeFiles/uSimRadar.dir/clean
 .PHONY : src/uSimRadar/CMakeFiles/uSimRadar.dir/clean
+
+#=============================================================================
+# Target rules for target src/uSimLidar/CMakeFiles/uSimLidar.dir
+
+# All Build rule for target.
+src/uSimLidar/CMakeFiles/uSimLidar.dir/all: src/lib_mbutil/CMakeFiles/mbutil.dir/all
+	$(MAKE) $(MAKESILENT) -f src/uSimLidar/CMakeFiles/uSimLidar.dir/build.make src/uSimLidar/CMakeFiles/uSimLidar.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/uSimLidar/CMakeFiles/uSimLidar.dir/build.make src/uSimLidar/CMakeFiles/uSimLidar.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=60,61,62,63 "Built target uSimLidar"
+.PHONY : src/uSimLidar/CMakeFiles/uSimLidar.dir/all
+
+# Build rule for subdir invocation for target.
+src/uSimLidar/CMakeFiles/uSimLidar.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/uSimLidar/CMakeFiles/uSimLidar.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles 0
+.PHONY : src/uSimLidar/CMakeFiles/uSimLidar.dir/rule
+
+# Convenience name for target.
+uSimLidar: src/uSimLidar/CMakeFiles/uSimLidar.dir/rule
+
+.PHONY : uSimLidar
+
+# clean rule for target.
+src/uSimLidar/CMakeFiles/uSimLidar.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/uSimLidar/CMakeFiles/uSimLidar.dir/build.make src/uSimLidar/CMakeFiles/uSimLidar.dir/clean
+.PHONY : src/uSimLidar/CMakeFiles/uSimLidar.dir/clean
 
 #=============================================================================
 # Target rules for target src/pTrajectPID/CMakeFiles/pTrajectPID.dir

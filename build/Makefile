@@ -306,6 +306,19 @@ uSimRadar/fast:
 .PHONY : uSimRadar/fast
 
 #=============================================================================
+# Target rules for targets named uSimLidar
+
+# Build rule for target.
+uSimLidar: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uSimLidar
+.PHONY : uSimLidar
+
+# fast build rule for target.
+uSimLidar/fast:
+	$(MAKE) $(MAKESILENT) -f src/uSimLidar/CMakeFiles/uSimLidar.dir/build.make src/uSimLidar/CMakeFiles/uSimLidar.dir/build
+.PHONY : uSimLidar/fast
+
+#=============================================================================
 # Target rules for targets named pTrajectPID
 
 # Build rule for target.
@@ -368,6 +381,7 @@ help:
 	@echo "... pSimIMU"
 	@echo "... pTrajectPID"
 	@echo "... pXRelayTest"
+	@echo "... uSimLidar"
 	@echo "... uSimRadar"
 .PHONY : help
 
