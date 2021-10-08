@@ -43,26 +43,6 @@ ProcessConfig = ANTLER
 }
 
 //---------------------------------------------------------
-// uSimRadar Config Block
-ProcessConfig = uSimRadar
-{
-  AppTick   = 4
-  CommsTick = 4
-
-  push_distance = bravo = 50
-  push_distance = alfa = 50
-  push_distance = mother = 200
-  ping_wait     = alfa = 32  
-  ping_color    = white
-  echo_color    = chartreuse
-
-  report_vars   = short
-
-  //rn_uniform_pct = 0.04
-  rn_gaussian_sigma = 50
-}
-
-//---------------------------------------------------------
 // pShare Config Block
 
 ProcessConfig = pShare
