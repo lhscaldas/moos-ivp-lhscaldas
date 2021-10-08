@@ -309,7 +309,10 @@ bool USR_App::handleRangeRequest(const string& request)
       if(ping_dist && ping_bearing) {
 	m_map_node_echos_recd[vname]++;
 	m_map_node_echos_sent[contact_name]++;
-	postNodeRangeReport(vname, contact_name, actual_range_now);
+  if (vname == m_host_community) {
+    postNodeRangeReport(vname, contact_name, actual_range_now);
+  }
+	//postNodeRangeReport(vname, contact_name, actual_range_now);
 	string label = contact_name + "_echo";
 	postRangePulse(contact_name, m_echo_color, label, 15, 40);
       }
@@ -355,7 +358,7 @@ void USR_App::postRangePulse(const string& node, const string& color,
 void USR_App::postNodeRangeReport(const string& rec_name,
 				    const string& tar_name, 
 				    double actual_range)
-{
+{  
   if((m_map_node_records.count(rec_name) == 0) ||
      (m_map_node_records.count(tar_name) == 0))
     return;

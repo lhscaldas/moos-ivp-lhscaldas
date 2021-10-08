@@ -24,7 +24,7 @@ ProcessConfig = ANTLER
   Run = pShare        @ NewConsole = false
   Run = pHostInfo       @ NewConsole = false
   Run = uFldShoreBroker @ NewConsole = false
-  Run = uSimRadar @ NewConsole = false
+  //Run = uSimRadar @ NewConsole = false
   Run = uXMS            @ NewConsole = false
   Run = uFldNodeComms      @ NewConsole = false
   Run = pContactMgrV20     @ NewConsole = false
@@ -173,7 +173,8 @@ ProcessConfig = pMarineViewer
   infocast_viewable=true
 }
 
-//-------------------------------------------- uSimRadar
+//---------------------------------------------------------
+// uSimRadar Config Block
 ProcessConfig = uSimRadar
 {
   AppTick   = 4
@@ -189,8 +190,7 @@ ProcessConfig = uSimRadar
   report_vars   = both
 
   //rn_uniform_pct = 0.04
-  rn_gaussian_sigma = 50
-}
+  rn_
 
 //--------------------------------------------------
 // uFldNodeComms Configuration Block
