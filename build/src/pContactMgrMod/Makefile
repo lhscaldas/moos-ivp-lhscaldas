@@ -271,6 +271,33 @@ ContactMgrV20_Info.cpp.s:
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/build.make src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.s
 .PHONY : ContactMgrV20_Info.cpp.s
 
+MOOSGeodesy.o: MOOSGeodesy.cpp.o
+
+.PHONY : MOOSGeodesy.o
+
+# target to build an object file
+MOOSGeodesy.cpp.o:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/build.make src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o
+.PHONY : MOOSGeodesy.cpp.o
+
+MOOSGeodesy.i: MOOSGeodesy.cpp.i
+
+.PHONY : MOOSGeodesy.i
+
+# target to preprocess a source file
+MOOSGeodesy.cpp.i:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/build.make src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.i
+.PHONY : MOOSGeodesy.cpp.i
+
+MOOSGeodesy.s: MOOSGeodesy.cpp.s
+
+.PHONY : MOOSGeodesy.s
+
+# target to generate assembly for a file
+MOOSGeodesy.cpp.s:
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build && $(MAKE) $(MAKESILENT) -f src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/build.make src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.s
+.PHONY : MOOSGeodesy.cpp.s
+
 PlatformAlertRecord.o: PlatformAlertRecord.cpp.o
 
 .PHONY : PlatformAlertRecord.o
@@ -374,6 +401,9 @@ help:
 	@echo "... ContactMgrV20_Info.o"
 	@echo "... ContactMgrV20_Info.i"
 	@echo "... ContactMgrV20_Info.s"
+	@echo "... MOOSGeodesy.o"
+	@echo "... MOOSGeodesy.i"
+	@echo "... MOOSGeodesy.s"
 	@echo "... PlatformAlertRecord.o"
 	@echo "... PlatformAlertRecord.i"
 	@echo "... PlatformAlertRecord.s"

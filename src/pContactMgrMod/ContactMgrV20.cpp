@@ -106,7 +106,7 @@ bool ContactMgrV20::OnNewMail(MOOSMSG_LIST &NewMail)
       m_osh = dval;
     else if(key == "NAV_SPEED") 
       m_osv = dval;
-    else if(key == "NODE_REPORT") 
+    else if(key == "USR_RANGE_REPORT") 
       handleMailNodeReport(sval);
     else if(key == "BCM_REPORT_REQUEST") 
       handleMailReportRequest(sval);
@@ -289,7 +289,7 @@ void ContactMgrV20::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
 
-  Register("NODE_REPORT", 0);
+  //Register("NODE_REPORT", 0);
   Register("BCM_DISPLAY_RADII", 0);
   Register("BCM_ALERT_REQUEST", 0);
   Register("BCM_REPORT_REQUEST", 0);
@@ -297,6 +297,7 @@ void ContactMgrV20::registerVariables()
   Register("NAV_Y", 0);
   Register("NAV_SPEED", 0);
   Register("NAV_HEADING", 0);
+  Register("USR_RANGE_REPORT", 0);
 }
 
 //---------------------------------------------------------

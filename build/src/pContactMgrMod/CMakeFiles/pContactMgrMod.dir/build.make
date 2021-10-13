@@ -115,9 +115,22 @@ src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.s: cmake
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.s"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ContactMgrV20_Info.cpp -o CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.s
 
+src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/flags.make
+src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o: ../src/pContactMgrMod/MOOSGeodesy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o"
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o -c /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/MOOSGeodesy.cpp
+
+src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.i"
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/MOOSGeodesy.cpp > CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.i
+
+src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.s"
+	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/MOOSGeodesy.cpp -o CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.s
+
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/flags.make
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o: ../src/pContactMgrMod/PlatformAlertRecord.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o -c /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/PlatformAlertRecord.cpp
 
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.i: cmake_force
@@ -130,7 +143,7 @@ src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.s: cmak
 
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.o: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/flags.make
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.o: ../src/pContactMgrMod/RangeMark.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.o"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.o -c /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/RangeMark.cpp
 
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.i: cmake_force
@@ -143,7 +156,7 @@ src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.s: cmake_force
 
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/main.cpp.o: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/flags.make
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/main.cpp.o: ../src/pContactMgrMod/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/main.cpp.o"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pContactMgrMod.dir/main.cpp.o -c /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/main.cpp
 
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/main.cpp.i: cmake_force
@@ -159,6 +172,7 @@ pContactMgrMod_OBJECTS = \
 "CMakeFiles/pContactMgrMod.dir/CMAlert.cpp.o" \
 "CMakeFiles/pContactMgrMod.dir/ContactMgrV20.cpp.o" \
 "CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.o" \
+"CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o" \
 "CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o" \
 "CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.o" \
 "CMakeFiles/pContactMgrMod.dir/main.cpp.o"
@@ -169,6 +183,7 @@ pContactMgrMod_EXTERNAL_OBJECTS =
 ../bin/pContactMgrMod: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/CMAlert.cpp.o
 ../bin/pContactMgrMod: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/ContactMgrV20.cpp.o
 ../bin/pContactMgrMod: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.o
+../bin/pContactMgrMod: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o
 ../bin/pContactMgrMod: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o
 ../bin/pContactMgrMod: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.o
 ../bin/pContactMgrMod: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/main.cpp.o
@@ -177,7 +192,7 @@ pContactMgrMod_EXTERNAL_OBJECTS =
 ../bin/pContactMgrMod: /lib/libmbutil.a
 ../bin/pContactMgrMod: /lib/libmbutil.a
 ../bin/pContactMgrMod: src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ../../../bin/pContactMgrMod"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lhscaldas/moos-ivp-lhscaldas/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable ../../../bin/pContactMgrMod"
 	cd /home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pContactMgrMod.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

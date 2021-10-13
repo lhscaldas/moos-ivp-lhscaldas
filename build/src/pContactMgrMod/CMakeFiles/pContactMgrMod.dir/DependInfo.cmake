@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/CMAlert.cpp" "/home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/CMAlert.cpp.o"
   "/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ContactMgrV20.cpp" "/home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/ContactMgrV20.cpp.o"
   "/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ContactMgrV20_Info.cpp" "/home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.o"
+  "/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/MOOSGeodesy.cpp" "/home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o"
   "/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/PlatformAlertRecord.cpp" "/home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o"
   "/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/RangeMark.cpp" "/home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.o"
   "/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/main.cpp" "/home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/main.cpp.o"

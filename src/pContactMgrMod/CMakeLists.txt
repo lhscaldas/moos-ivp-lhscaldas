@@ -11,6 +11,7 @@ FILE(GLOB SRC
      RangeMark.cpp
      PlatformAlertRecord.cpp
      main.cpp
+     MOOSGeodesy.cpp
 )
 
 ADD_EXECUTABLE(pContactMgrMod ${SRC})

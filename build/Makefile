@@ -306,19 +306,6 @@ uSimRadar/fast:
 .PHONY : uSimRadar/fast
 
 #=============================================================================
-# Target rules for targets named uSimRadarV2
-
-# Build rule for target.
-uSimRadarV2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uSimRadarV2
-.PHONY : uSimRadarV2
-
-# fast build rule for target.
-uSimRadarV2/fast:
-	$(MAKE) $(MAKESILENT) -f src/uSimRadarV2/CMakeFiles/uSimRadarV2.dir/build.make src/uSimRadarV2/CMakeFiles/uSimRadarV2.dir/build
-.PHONY : uSimRadarV2/fast
-
-#=============================================================================
 # Target rules for targets named pContactMgrMod
 
 # Build rule for target.
@@ -410,7 +397,6 @@ help:
 	@echo "... pXRelayTest"
 	@echo "... uSimLidar"
 	@echo "... uSimRadar"
-	@echo "... uSimRadarV2"
 .PHONY : help
 
 

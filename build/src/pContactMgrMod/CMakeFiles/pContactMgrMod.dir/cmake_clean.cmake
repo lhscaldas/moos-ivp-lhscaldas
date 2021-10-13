@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pContactMgrMod.dir/CMAlert.cpp.o"
   "CMakeFiles/pContactMgrMod.dir/ContactMgrV20.cpp.o"
   "CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.o"
+  "CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o"
   "CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o"
   "CMakeFiles/pContactMgrMod.dir/RangeMark.cpp.o"
   "CMakeFiles/pContactMgrMod.dir/main.cpp.o"

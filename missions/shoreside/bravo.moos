@@ -37,7 +37,51 @@ ProcessConfig = ANTLER
   Run = pHostInfo       @ NewConsole = false
   Run = uFldNodeBroker  @ NewConsole = false
   Run = uTimerScript       @ NewConsole = false ~ uTimerScript_PING
-  Run = pContactMgrV20     @ NewConsole = false
+  Run = pContactMgrV20    @ NewConsole = false
+  Run = uSimRadar        @ NewConsole = false
+  Run = uSimLidar        @ NewConsole = false
+
+}
+
+//---------------------------------------------------------
+// uSimRadar Config Block
+ProcessConfig = uSimRadar
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  push_distance = bravo = 50
+  push_distance = alfa = 50
+  push_distance = mother = 200
+  ping_wait     = alfa = 32  
+  ping_color    = white
+  echo_color    = chartreuse
+
+  report_vars   = short
+
+  // Configuring Artificial Noise                               
+  rn_algorithm   = uniform,pct=0.04
+
+}
+
+//---------------------------------------------------------
+// uSimRadar Config Block
+ProcessConfig = uSimLidar
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  push_distance = bravo = 50
+  push_distance = alfa = 50
+  push_distance = mother = 200
+  ping_wait     = alfa = 32  
+  ping_color    = white
+  echo_color    = chartreuse
+
+  report_vars   = short
+
+  // Configuring Artificial Noise                               
+  rn_algorithm   = uniform,pct=0.04
 
 }
 
@@ -80,8 +124,8 @@ ProcessConfig = uFldNodeBroker
   bridge = src=APPCAST
   bridge = src=NODE_REPORT_LOCAL,  alias=NODE_REPORT
   bridge = src=NODE_MESSAGE_LOCAL, alias=NODE_MESSAGE
-  bridge =  src=USL_RANGE_REQUEST
-  bridge =  src=USR_RANGE_REQUEST
+  //bridge =  src=USL_RANGE_REQUEST
+  //bridge =  src=USR_RANGE_REQUEST
 }
 
 //------------------------------------------
@@ -91,8 +135,9 @@ ProcessConfig = uXMS
 {
   AppTick   = 4
   CommsTick = 4
-  var    =   USR_RANGE_REQUEST, USR_RANGE_REPORT, USL_RANGE_REQUEST, USL_RANGE_REPORT
+  //var    =   USR_RANGE_REQUEST, USR_RANGE_REPORT, USL_RANGE_REQUEST, USL_RANGE_REPORT
   //display_all = true
+  source = uSimRadar, pContactMgrV20 
 
 }
 

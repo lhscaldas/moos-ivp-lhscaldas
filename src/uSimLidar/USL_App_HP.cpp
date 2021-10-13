@@ -309,7 +309,9 @@ bool USL_App::handleRangeRequest(const string& request)
       if(ping_dist && ping_bearing) {
 	m_map_node_echos_recd[vname]++;
 	m_map_node_echos_sent[contact_name]++;
-  postNodeRangeReport(vname, contact_name, actual_range_now);
+    if (vname == m_host_community) {
+    postNodeRangeReport(vname, contact_name, actual_range_now);
+  }
   
 	//postNodeRangeReport(vname, contact_name, actual_range_now);
 	string label = contact_name + "_echo";

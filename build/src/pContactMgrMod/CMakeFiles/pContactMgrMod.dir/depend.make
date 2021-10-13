@@ -100,6 +100,9 @@ src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.o: ../sr
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.o: /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/ContactMgrV20_Info.cpp.o: /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
 
+src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o: ../src/pContactMgrMod/MOOSGeodesy.cpp
+src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/MOOSGeodesy.cpp.o: ../src/pContactMgrMod/MOOSGeodesy.h
+
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o: ../src/pContactMgrMod/PlatformAlertRecord.cpp
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o: ../src/pContactMgrMod/PlatformAlertRecord.h
 src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/PlatformAlertRecord.cpp.o: /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/MBUtils.h
