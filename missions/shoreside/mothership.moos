@@ -34,8 +34,8 @@ ProcessConfig = ANTLER
 
   one = --size=800x600
 
-  Run = uSimRadar         @ NewConsole = false
-  Run = uSimLidar         @ NewConsole = false
+  //Run = uSimRadar        @ NewConsole = false
+  //Run = uSimLidar         @ NewConsole = false
 }
 
 //------------------------------------------------------

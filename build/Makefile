@@ -306,6 +306,32 @@ uSimRadar/fast:
 .PHONY : uSimRadar/fast
 
 #=============================================================================
+# Target rules for targets named uSimRadarV2
+
+# Build rule for target.
+uSimRadarV2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uSimRadarV2
+.PHONY : uSimRadarV2
+
+# fast build rule for target.
+uSimRadarV2/fast:
+	$(MAKE) $(MAKESILENT) -f src/uSimRadarV2/CMakeFiles/uSimRadarV2.dir/build.make src/uSimRadarV2/CMakeFiles/uSimRadarV2.dir/build
+.PHONY : uSimRadarV2/fast
+
+#=============================================================================
+# Target rules for targets named pContactMgrMod
+
+# Build rule for target.
+pContactMgrMod: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pContactMgrMod
+.PHONY : pContactMgrMod
+
+# fast build rule for target.
+pContactMgrMod/fast:
+	$(MAKE) $(MAKESILENT) -f src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/build.make src/pContactMgrMod/CMakeFiles/pContactMgrMod.dir/build
+.PHONY : pContactMgrMod/fast
+
+#=============================================================================
 # Target rules for targets named uSimLidar
 
 # Build rule for target.
@@ -373,6 +399,7 @@ help:
 	@echo "... BHV_SimpleWaypoint"
 	@echo "... iRemoteMod"
 	@echo "... mbutil"
+	@echo "... pContactMgrMod"
 	@echo "... pExampleApp"
 	@echo "... pSensor"
 	@echo "... pSimDVL"
@@ -383,6 +410,7 @@ help:
 	@echo "... pXRelayTest"
 	@echo "... uSimLidar"
 	@echo "... uSimRadar"
+	@echo "... uSimRadarV2"
 .PHONY : help
 
 

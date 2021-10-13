@@ -38,6 +38,29 @@ ProcessConfig = ANTLER
   Run = uFldNodeBroker  @ NewConsole = false
   Run = uTimerScript       @ NewConsole = false ~ uTimerScript_PING
   Run = pContactMgrV20     @ NewConsole = false
+  Run = uSimRadarV2        @ NewConsole = false
+
+}
+
+//---------------------------------------------------------
+// uSimRadar Config Block
+ProcessConfig = uSimRadarV2
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  push_distance = bravo = 50
+  push_distance = alfa = 50
+  push_distance = mother = 200
+  ping_wait     = alfa = 32  
+  ping_color    = white
+  echo_color    = chartreuse
+
+  report_vars   = both
+
+  // Configuring Artificial Noise                               
+  rn_algorithm   = uniform,pct=0.04
+
 }
 
 //---------------------------------------------------------
@@ -79,8 +102,8 @@ ProcessConfig = uFldNodeBroker
   bridge = src=APPCAST
   bridge = src=NODE_REPORT_LOCAL,  alias=NODE_REPORT
   bridge = src=NODE_MESSAGE_LOCAL, alias=NODE_MESSAGE
-  bridge =  src=USL_RANGE_REQUEST
-  bridge =  src=USR_RANGE_REQUEST
+  //bridge =  src=USL_RANGE_REQUEST
+  //bridge =  src=USR_RANGE_REQUEST
 }
 
 //------------------------------------------

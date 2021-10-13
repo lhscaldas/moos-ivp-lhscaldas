@@ -34,7 +34,9 @@
 						11,
 						12,
 						13,
-						14
+						14,
+						15,
+						16
 					],
 					"hasInstallRule" : true,
 					"minimumCMakeVersion" : 
@@ -85,7 +87,7 @@
 					"source" : "src/pExampleApp",
 					"targetIndexes" : 
 					[
-						4
+						5
 					]
 				},
 				{
@@ -99,7 +101,7 @@
 					"source" : "src/pXRelayTest",
 					"targetIndexes" : 
 					[
-						11
+						12
 					]
 				},
 				{
@@ -113,7 +115,7 @@
 					"source" : "src/pSimIMU",
 					"targetIndexes" : 
 					[
-						9
+						10
 					]
 				},
 				{
@@ -127,7 +129,7 @@
 					"source" : "src/pSimGPS",
 					"targetIndexes" : 
 					[
-						7
+						8
 					]
 				},
 				{
@@ -141,7 +143,7 @@
 					"source" : "src/pSimDVL",
 					"targetIndexes" : 
 					[
-						6
+						7
 					]
 				},
 				{
@@ -155,7 +157,7 @@
 					"source" : "src/pSimGyro",
 					"targetIndexes" : 
 					[
-						8
+						9
 					]
 				},
 				{
@@ -169,7 +171,35 @@
 					"source" : "src/uSimRadar",
 					"targetIndexes" : 
 					[
-						13
+						14
+					]
+				},
+				{
+					"build" : "src/uSimRadarV2",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/uSimRadarV2",
+					"targetIndexes" : 
+					[
+						15
+					]
+				},
+				{
+					"build" : "src/pContactMgrMod",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pContactMgrMod",
+					"targetIndexes" : 
+					[
+						4
 					]
 				},
 				{
@@ -183,7 +213,7 @@
 					"source" : "src/uSimLidar",
 					"targetIndexes" : 
 					[
-						12
+						13
 					]
 				},
 				{
@@ -197,7 +227,7 @@
 					"source" : "src/pTrajectPID",
 					"targetIndexes" : 
 					[
-						10
+						11
 					]
 				},
 				{
@@ -211,7 +241,7 @@
 					"source" : "src/pSensor",
 					"targetIndexes" : 
 					[
-						5
+						6
 					]
 				},
 				{
@@ -250,7 +280,9 @@
 						11,
 						12,
 						13,
-						14
+						14,
+						15,
+						16
 					],
 					"name" : "IVP_EXTEND",
 					"targetIndexes" : 
@@ -268,7 +300,9 @@
 						10,
 						11,
 						12,
-						13
+						13,
+						14,
+						15
 					]
 				}
 			],
@@ -289,7 +323,7 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 14,
+					"directoryIndex" : 16,
 					"id" : "iRemoteMod::@bdb99e091a6082ee383d",
 					"jsonFile" : "target-iRemoteMod-None-578c85895c32843190bd.json",
 					"name" : "iRemoteMod",
@@ -303,6 +337,13 @@
 					"projectIndex" : 0
 				},
 				{
+					"directoryIndex" : 12,
+					"id" : "pContactMgrMod::@33313ec1b8dc08f6dfee",
+					"jsonFile" : "target-pContactMgrMod-None-b1aea949ebb36c55ba2a.json",
+					"name" : "pContactMgrMod",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 4,
 					"id" : "pExampleApp::@e5cf5f4f18b468902831",
 					"jsonFile" : "target-pExampleApp-None-9e48f64bbdd9432bb9d8.json",
@@ -310,7 +351,7 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 13,
+					"directoryIndex" : 15,
 					"id" : "pSensor::@26df0b8f05989a98d751",
 					"jsonFile" : "target-pSensor-None-5a5310c42a4024432a9b.json",
 					"name" : "pSensor",
@@ -345,7 +386,7 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 12,
+					"directoryIndex" : 14,
 					"id" : "pTrajectPID::@ff1f245faa2754763242",
 					"jsonFile" : "target-pTrajectPID-None-26f45afb60bfef2ae08d.json",
 					"name" : "pTrajectPID",
@@ -359,7 +400,7 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 11,
+					"directoryIndex" : 13,
 					"id" : "uSimLidar::@94c06e78a503cb17326b",
 					"jsonFile" : "target-uSimLidar-None-b7b486ec7efe087b4c01.json",
 					"name" : "uSimLidar",
@@ -370,6 +411,13 @@
 					"id" : "uSimRadar::@dc2d15a0b3bac61d5e48",
 					"jsonFile" : "target-uSimRadar-None-b4fc2c5ed6e45d724dab.json",
 					"name" : "uSimRadar",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "uSimRadarV2::@37a4dad6e0db38cdfb9b",
+					"jsonFile" : "target-uSimRadarV2-None-0e36c20f44f61d481632.json",
+					"name" : "uSimRadarV2",
 					"projectIndex" : 0
 				}
 			]
