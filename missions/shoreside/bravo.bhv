@@ -53,7 +53,8 @@ Behavior = BHV_Waypoint
 	efficiency_measure = all
 
 
-polygon = 1100,-950: 2100,-1250: 2100,-1300: 1100,-1000: 1100,-1050: 2100,-1350
+//polygon = 1100,-950: 2100,-1250: 2100,-1300: 1100,-1000: 1100,-1050: 2100,-1350
+polygon = 1100,-950 : 1600,-1100: 1600,-1150: 1100,-1000: 1100,-1050: 1600,-1200
              repeat = 100
 
 
@@ -143,42 +144,14 @@ station_pt = 900.0, -1000.0
          visual_hints = vertex_color = blue 
  }
 
-//----------------------------------------------
-Behavior = BHV_AvoidCollision
-{
-  name         = ac_
-  pwt          = 250
-  condition    = AVOID = true 
-  updates      = CONTACT_INFO
-  idleflag     = AVOIDING = idle
-  activeflag   = AVOIDING = active
-  inactiveflag = AVOIDING = inactive
-  runflag      = AVOIDING = running
-  endflag      = AVOIDING = end
-  endflag      = CONTACT_RESOLVED = $[CONTACT],avd
-  templating   = spawn
-
-             contact = to-be-set
-    on_no_contact_ok = true
-         extrapolate = true
-               decay = 30,60
-
-        pwt_outer_dist = 125
-        pwt_inner_dist = 50
-        completed_dist = 200
-     min_util_cpa_dist = 30
-     max_util_cpa_dist = 90
-             pwt_grade = linear
-   bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
-}
 
 //----------------------------------------------
 Behavior = BHV_AvdColregsV19
 {
   name         = avdcol_
-  pwt          = 250
+  pwt          = 200
   condition    = AVOID = true 
-  updates      = CONTACT_INFO
+  updates      = CONTACT_INFO// USR_RANGE_REPORT
   idleflag     = AVOIDING = idle
   activeflag   = AVOIDING = active
   inactiveflag = AVOIDING = inactive
@@ -192,14 +165,43 @@ Behavior = BHV_AvdColregsV19
          extrapolate = true
                decay = 30,60
 
-         giveway_bow_dist = 50
+         giveway_bow_dist = 30
         use_refinery = true
 
-      pwt_outer_dist = 175
-      pwt_inner_dist = 50
-      completed_dist = 225
-   min_util_cpa_dist = 50
-   max_util_cpa_dist = 90
+      pwt_outer_dist = 105
+      pwt_inner_dist = 30
+      completed_dist = 200
+   min_util_cpa_dist = 30
+   max_util_cpa_dist = 105
            pwt_grade = linear
  bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
+}
+
+//----------------------------------------------
+Behavior = BHV_AvoidCollision
+{
+  name         = ac_
+  pwt          = 400
+  condition    = AVOID = true 
+  updates      = CONTACT_INFO// USR_RANGE_REPORT
+  idleflag     = AVOIDING = idle
+  activeflag   = AVOIDING = active
+  inactiveflag = AVOIDING = inactive
+  runflag      = AVOIDING = running
+  endflag      = AVOIDING = end
+  endflag      = CONTACT_RESOLVED = $[CONTACT],avd
+  templating   = spawn
+
+             contact = to-be-set
+    on_no_contact_ok = true
+         extrapolate = true
+               decay = 30,60
+
+        pwt_outer_dist = 75
+        pwt_inner_dist = 15
+        completed_dist = 200
+     min_util_cpa_dist = 15
+     max_util_cpa_dist = 75
+             pwt_grade = linear
+   bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
 }

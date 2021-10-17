@@ -54,7 +54,8 @@ Behavior = BHV_Waypoint
 
 
 
-polygon = 1100,-800 : 2100,-1100: 2100,-1150: 1100,-850: 1100,-900: 2100,-1200
+//polygon = 1100,-800 : 2100,-1100: 2100,-1150: 1100,-850: 1100,-900: 2100,-1200
+polygon = 1100,-800 : 1600,-950: 1600,-1000: 1100,-850: 1100,-900: 1600,-1050
              repeat = 100
 
 
@@ -145,10 +146,10 @@ station_pt = 900.0, -900.0
  }
 
 //----------------------------------------------
-Behavior = BHV_AvoidCollision
+Behavior = BHV_AvdColregsV19
 {
-  name         = ac_
-  pwt          = 250
+  name         = avdcol_
+  pwt          = 200
   condition    = AVOID = true 
   updates      = CONTACT_INFO// USR_RANGE_REPORT
   idleflag     = AVOIDING = idle
@@ -164,11 +165,43 @@ Behavior = BHV_AvoidCollision
          extrapolate = true
                decay = 30,60
 
-        pwt_outer_dist = 125
-        pwt_inner_dist = 50
+         giveway_bow_dist = 30
+        use_refinery = true
+
+      pwt_outer_dist = 105
+      pwt_inner_dist = 30
+      completed_dist = 200
+   min_util_cpa_dist = 30
+   max_util_cpa_dist = 105
+           pwt_grade = linear
+ bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
+}
+
+//----------------------------------------------
+Behavior = BHV_AvoidCollision
+{
+  name         = ac_
+  pwt          = 400
+  condition    = AVOID = true 
+  updates      = CONTACT_INFO// USR_RANGE_REPORT
+  idleflag     = AVOIDING = idle
+  activeflag   = AVOIDING = active
+  inactiveflag = AVOIDING = inactive
+  runflag      = AVOIDING = running
+  endflag      = AVOIDING = end
+  endflag      = CONTACT_RESOLVED = $[CONTACT],avd
+  templating   = spawn
+
+             contact = to-be-set
+    on_no_contact_ok = true
+         extrapolate = true
+               decay = 30,60
+
+        pwt_outer_dist = 75
+        pwt_inner_dist = 15
         completed_dist = 200
-     min_util_cpa_dist = 30
-     max_util_cpa_dist = 90
+     min_util_cpa_dist = 15
+     max_util_cpa_dist = 75
              pwt_grade = linear
    bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
 }

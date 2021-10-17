@@ -23,7 +23,7 @@ ProcessConfig = ANTLER
 
   Run = MOOSDB          @ NewConsole = false
   Run = uXMS            @ NewConsole = false
-  // Run = pLogger      @ NewConsole = false
+  //Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
   Run = ./iPydyna.py    @ NewConsole = false
@@ -41,6 +41,7 @@ ProcessConfig = ANTLER
   Run = uTimerScript       @ NewConsole = false ~ uTimerScript_PING
   Run = pContactMgrV20    @ NewConsole = false
   Run = uSimRadar        @ NewConsole = false
+  Run = uSimLidar        @ NewConsole = false
 
 }
 
@@ -53,7 +54,7 @@ ProcessConfig = uXMS
   CommsTick = 4
   //var    =   USR_RANGE_REQUEST, USR_RANGE_REPORT, USL_RANGE_REQUEST, USL_RANGE_REPORT
   //display_all = true
-  source = uSimRadar, pContactMgrV20 
+  source = uSimRadar, pContactMgrV20, uSimLidar
 
 }
 
@@ -64,19 +65,39 @@ ProcessConfig = uSimRadar
   AppTick   = 4
   CommsTick = 4
 
-  push_distance = bravo = 50
-  push_distance = alfa = 50
-  push_distance = mother = 200
-  ping_wait     = alfa = 32  
-  ping_color    = white
-  echo_color    = chartreuse
+  push_distance = alfa = 100
+  ping_wait     = alfa = 24  
+  //ping_color    = white
+  //echo_color    = chartreuse
 
   report_vars   = short
+  ground_truth = true
 
   // Configuring Artificial Noise                               
-  rn_algorithm   = uniform,pct=0.04
+  rn_gaussian_sigma   = 20
 
 }
+
+//---------------------------------------------------------
+// uSimRadar Config Block
+ProcessConfig = uSimLidar
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  push_distance = alfa = 100
+  ping_wait     = alfa = 24  
+  //ping_color    = white
+  //echo_color    = chartreuse
+
+  report_vars   = short
+  ground_truth = true
+
+  // Configuring Artificial Noise                               
+  rn_gaussian_sigma   = 20
+
+}
+
 
 //---------------------------------------------------------
 // pShare Config Block

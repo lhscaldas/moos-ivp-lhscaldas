@@ -148,7 +148,7 @@ station_pt = 900.0, -900.0
 Behavior = BHV_AvoidCollision
 {
   name         = ac_
-  pwt          = 250
+  pwt          = 150
   condition    = AVOID = true 
   updates      = CONTACT_INFO// USR_RANGE_REPORT
   idleflag     = AVOIDING = idle
@@ -164,11 +164,11 @@ Behavior = BHV_AvoidCollision
          extrapolate = true
                decay = 30,60
 
-        pwt_outer_dist = 125
-        pwt_inner_dist = 50
-        completed_dist = 200
-     min_util_cpa_dist = 30
-     max_util_cpa_dist = 90
+        pwt_outer_dist = 150
+        pwt_inner_dist = 75
+        completed_dist = 225
+     min_util_cpa_dist = 60
+     max_util_cpa_dist = 120
              pwt_grade = linear
    bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
 }
@@ -177,7 +177,7 @@ Behavior = BHV_AvoidCollision
 Behavior = BHV_AvdColregsV19
 {
   name         = avdcol_
-  pwt          = 250
+  pwt          = 150
   condition    = AVOID = true 
   updates      = CONTACT_INFO// USR_RANGE_REPORT
   idleflag     = AVOIDING = idle
@@ -193,14 +193,14 @@ Behavior = BHV_AvdColregsV19
          extrapolate = true
                decay = 30,60
 
-         giveway_bow_dist = 50
+         giveway_bow_dist = 150
         use_refinery = true
 
-      pwt_outer_dist = 175
-      pwt_inner_dist = 50
-      completed_dist = 225
-   min_util_cpa_dist = 50
-   max_util_cpa_dist = 90
+      pwt_outer_dist = 200
+      pwt_inner_dist = 75
+      completed_dist = 250
+   min_util_cpa_dist = 75
+   max_util_cpa_dist = 150
            pwt_grade = linear
  bearing_line_config = white:0, green:0.65, yellow:0.8, red:1.0
 }
