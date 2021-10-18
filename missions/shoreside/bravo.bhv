@@ -149,7 +149,7 @@ station_pt = 900.0, -1000.0
 Behavior = BHV_AvdColregsV19
 {
   name         = avdcol_
-  pwt          = 200
+  pwt          = 150
   condition    = AVOID = true 
   updates      = CONTACT_INFO// USR_RANGE_REPORT
   idleflag     = AVOIDING = idle
@@ -165,7 +165,7 @@ Behavior = BHV_AvdColregsV19
          extrapolate = true
                decay = 30,60
 
-         giveway_bow_dist = 30
+        giveway_bow_dist = 15
         use_refinery = true
 
       pwt_outer_dist = 105
@@ -181,7 +181,7 @@ Behavior = BHV_AvdColregsV19
 Behavior = BHV_AvoidCollision
 {
   name         = ac_
-  pwt          = 400
+  pwt          = 300
   condition    = AVOID = true 
   updates      = CONTACT_INFO// USR_RANGE_REPORT
   idleflag     = AVOIDING = idle
