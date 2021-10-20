@@ -582,8 +582,20 @@ bool USR_App::setRandomNoiseAlgorithm(string str)
 	m_rn_uniform_pct = vclip(atof(value.c_str()), 0, 1);
     }
   }
-  else
-    return(false);
+  else if(algorithm == "gaussian"){
+    vector<string> svector = parseString(parameters, ',');
+    unsigned int i, vsize = svector.size();
+    for(i=0; i<vsize; i++) {
+      string param = biteStringX(svector[i], '=');
+      string value = svector[i];
+      if(param == "sigma") 
+	m_rn_gaussian_sigma = vclip(atof(value.c_str()), 0, 1);
+    }
+  }
+  else{
+      return(false);
+  }
+    
   
   m_rn_algorithm = algorithm;
   return(true);

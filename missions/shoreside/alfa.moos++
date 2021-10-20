@@ -70,11 +70,12 @@ ProcessConfig = uSimRadar
   //ping_color    = white
   //echo_color    = chartreuse
 
-  report_vars   = short
+  report_vars   =  short
   ground_truth = true
 
-  // Configuring Artificial Noise                               
-  rn_gaussian_sigma   = 20
+  // Configuring Artificial Noise 
+  rn_algorithm = gaussian                        
+  rn_gaussian_sigma   = 10
 
 }
 
@@ -90,11 +91,12 @@ ProcessConfig = uSimLidar
   //ping_color    = white
   //echo_color    = chartreuse
 
-  report_vars   = short
+  report_vars   =  short
   ground_truth = true
 
-  // Configuring Artificial Noise                               
-  rn_gaussian_sigma   = 20
+  // Configuring Artificial Noise   
+  rn_algorithm = gaussian                        
+  rn_gaussian_sigma   = 10
 
 }
 

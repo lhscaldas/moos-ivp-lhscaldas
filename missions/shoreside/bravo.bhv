@@ -165,7 +165,7 @@ Behavior = BHV_AvdColregsV19
          extrapolate = true
                decay = 30,60
 
-        giveway_bow_dist = 15
+        giveway_bow_dist = 30
         use_refinery = true
 
       pwt_outer_dist = 105
