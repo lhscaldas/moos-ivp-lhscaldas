@@ -23,7 +23,7 @@ ProcessConfig = ANTLER
 
   Run = MOOSDB          @ NewConsole = false
   Run = uXMS            @ NewConsole = false
-  //Run = pLogger      @ NewConsole = false
+  Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
   Run = ./iPydyna.py    @ NewConsole = false
@@ -65,8 +65,9 @@ ProcessConfig = uSimRadar
   AppTick   = 4
   CommsTick = 4
 
-  push_distance = alfa = 100
-  ping_wait     = alfa = 24  
+  push_distance = alfa = 40000
+  pull_distance = alfa = 40000
+  ping_wait     = alfa = 0 
   //ping_color    = white
   //echo_color    = chartreuse
 
@@ -75,7 +76,7 @@ ProcessConfig = uSimRadar
 
   // Configuring Artificial Noise 
   rn_algorithm = gaussian                        
-  rn_gaussian_sigma   = 10
+  rn_gaussian_sigma   = 0.03
 
 }
 
@@ -86,8 +87,9 @@ ProcessConfig = uSimLidar
   AppTick   = 4
   CommsTick = 4
 
-  push_distance = alfa = 100
-  ping_wait     = alfa = 24  
+  push_distance = alfa = 1000
+  pull_distance = alfa = 1000
+  ping_wait     = alfa = 0 
   //ping_color    = white
   //echo_color    = chartreuse
 
@@ -96,7 +98,7 @@ ProcessConfig = uSimLidar
 
   // Configuring Artificial Noise   
   rn_algorithm = gaussian                        
-  rn_gaussian_sigma   = 10
+  rn_gaussian_sigma   = 0.05
 
 }
 
@@ -249,16 +251,23 @@ ProcessConfig = pLogger
   // For variables that are published in a bundle on their first post,
   // explicitly declare their logging request
   
-  Log = DESIRED_HEADING @ 0 NOSYNC
-  Log = REAL_HEADING @ 0 NOSYNC
-  Log = IMU_HEADING @ 0 NOSYNC
-  Log = GYRO_HEADING @ 0 NOSYNC
+  Log = USR_RANGE_REPORT @ 0 NOSYNC
+  Log = USR_RANGE_REPORT_GT @ 0 NOSYNC
+  Log = USL_RANGE_REPORT @ 0 NOSYNC
+
+  File = Log
+  FileTimeStamp = false
+
+  //Log = DESIRED_HEADING @ 0 NOSYNC
+  //Log = REAL_HEADING @ 0 NOSYNC
+  //Log = IMU_HEADING @ 0 NOSYNC
+  //Log = GYRO_HEADING @ 0 NOSYNC
   
-  Log = DESIRED_SPEED @ 0 NOSYNC
-  Log = IMU_SPEED @ 0 NOSYNC
-  Log = GPS_SPEED @ 0 NOSYNC
-  Log = REAL_SPEED @ 0 NOSYNC
-  Log = DVL_SPEED @ 0 NOSYNC
+  //Log = DESIRED_SPEED @ 0 NOSYNC
+  //Log = IMU_SPEED @ 0 NOSYNC
+  //Log = GPS_SPEED @ 0 NOSYNC
+  //Log = REAL_SPEED @ 0 NOSYNC
+  //Log = DVL_SPEED @ 0 NOSYNC
 
 
 }

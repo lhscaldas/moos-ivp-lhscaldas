@@ -1,3 +1,8 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LOG FILE:       ./Log/Log._moos
+%% FILE OPENED ON  Wed Dec 31 21:00:00 1969
+%% LOGSTART               16348296676.8
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
 // FILE: main.moos
@@ -7,6 +12,8 @@ ServerHost = localhost
 ServerPort = 9001
 Community  = alfa
 
+//----  Next Line was commented and replaced with a command line overload ---- //
+//MOOSTimeWarp = 10    (default)
 MOOSTimeWarp = 10
 
 // Sepetiba
@@ -339,4 +346,6 @@ ProcessConfig = pContactMgrV20
 
 
 }
+
+
 
