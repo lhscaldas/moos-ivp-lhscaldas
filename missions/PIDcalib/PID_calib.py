@@ -72,7 +72,7 @@ class PIDcalib:
         self.t  = np.linspace(0, self.steps*self.dt, self.steps)
 
         # PID
-        self.speedPID = myPID(0, 0, 0, 0.1, 17.5)
+        self.speedPID = myPID(31.326655882217, 0.849957626760817, 0, 0.1, 17.5)
         self.coursePID = myPID(0, 0, 0, 0.1, 35)
         
     def clean(self):
@@ -124,14 +124,13 @@ class PIDcalib:
         # PI
         self.speedPID.Kp = 0.9*T/K/theta * kapa
         self.speedPID.Ki = 0.3/theta*self.speedPID.Kp
-
-        print("speedPID = ",[self.speedPID.Kp,self.speedPID.Ki,self.speedPID.Kd])
         
         # PID
         # self.speedPID.Kp = 1.2*T/K/theta
         # self.speedPID.Ki = 1/(2*theta)*self.speedPID.Kp
         # self.speedPID.Ki = 0.5*theta*self.speedPID.Kp
-
+        
+        print("speedPID = ",[self.speedPID.Kp,self.speedPID.Ki,self.speedPID.Kd])
         if plot:
             self.plot_speed()
 
@@ -169,7 +168,7 @@ class PIDcalib:
         self.rotFT_str=str(round(K,3))+"/("+str(round(T,3))+"s+1)"
         
     def plot_rot(self):
-        dt = 0.1
+        dt = self.dt
         t  = np.linspace(0, 200*dt, 200)
         yout, t = co.step(10*self.rotFT, t)
         plt.figure()
@@ -228,16 +227,23 @@ class PIDcalib:
         self.steps = 4000
         self.t  = np.linspace(0, self.steps*self.dt, self.steps)
 
+        self.ship._set_linear_velocity([dem_speed, 0, 0])
         self.speedPID.setpoint = dem_speed
+        self.propeller.dem_rotation = self.speedPID.output(self.ship.linear_velocity[0])    
+        
         self.coursePID.setpoint = 0
         self.coursePID.Kp = PID[0]
         self.coursePID.Ki = PID[1]
         self.coursePID.Kd = PID[2]
         for i in range(0, self.steps):
-                self.propeller.dem_rotation = self.speedPID.output(self.ship.linear_velocity[0])
+                if i>1000:
+                    self.coursePID.setpoint = dem_course[0]
+                if i>2000:
+                    self.coursePID.setpoint = dem_course[1]
+                if i>3000:
+                    self.coursePID.setpoint = dem_course[2]
                 self.rudder.dem_angle = -np.deg2rad(self.coursePID.output(np.rad2deg(self.ship.angular_position[2])))
-                if i > 2000:
-                    self.coursePID.setpoint = dem_course
+                self.propeller.dem_rotation = self.speedPID.output(self.ship.linear_velocity[0])
                 self.sim.step()
                 self.speed.append(self.ship.linear_velocity[0])
                 self.rotation.append(self.propeller.dem_rotation)
@@ -259,6 +265,7 @@ class PIDcalib:
         plt.xlabel("t [s]")
         plt.ylabel("velocidade [m/s]")
         plt.title("Resposta do PID de velocidade")
+        plt.axis([0,400,0,7])
 
         plt.subplot(223)
         plt.plot(self.t, np.rad2deg(self.rudder_angle))
@@ -274,12 +281,28 @@ class PIDcalib:
 
         plt.show()
 
+    def ZN_PID(self, Kpu, Pu):
+        Kp = 0.6*Kpu
+        Ti = Pu/2
+        Td = Pu/8
+        return [Kp, Kp/Ti, Kp*Td]
+
+    def ZN_PID_no(self, Kpu, Pu):
+        Kp = 0.2*Kpu
+        Ti = Pu/2
+        Td = Pu/3
+        return [Kp, Kp/Ti, Kp*Td]
+
+
 
 if __name__ == "__main__":
     p3d = "Navio_L15B4_Conv.p3d"
     calib = PIDcalib(p3d)
-    calib.fit_speed(plot = False, kapa = 5)
-    # calib.test_coursePID(dem_course = 10, PID = [3.97,0.269,3.95])
-    calib.test_coursePID(dem_course = 10, PID = [15,0,0])
+    calib.fit_speed(plot = False, kapa = 6)
+    # calib.test_speedPID(dem_speed = 4)
+    # calib.test_coursePID(dem_course = 10, dem_speed = 4, PID = [15,0,0])
+    PID = calib.ZN_PID(Kpu = 15, Pu = 49-35)
+    calib.test_coursePID(dem_course = [15,45,30], dem_speed = 4, PID = PID)
+
 
 
