@@ -10,8 +10,8 @@ Community  = NACMM2021
 MOOSTimeWarp = 10
 
 // Sepetiba
-LatOrigin = -22.9269 
-LongOrigin = -43.867 
+LatOrigin  = -22.933333
+LongOrigin = -43.833333
 
 //------------------------------------------
 // Antler configuration  block
@@ -60,9 +60,9 @@ ProcessConfig = iPydyna
 {
    AppTick   = 4
    CommsTick = 4
-START_X = 3735.0 
-START_Y = -1770.0 
-START_HEADING = 90.0 
+   START_X = 200
+   START_Y = -1900
+   START_HEADING = 85
 }
 
 //------------------------------------------------

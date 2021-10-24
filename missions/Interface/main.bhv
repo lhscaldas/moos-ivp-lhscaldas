@@ -1,0 +1,73 @@
+//--------    FILE: main.bhv   -------------
+
+initialize   DEPLOY = false
+initialize   RETURN = false
+
+//----------------------------------------------
+Behavior = BHV_Waypoint
+{ 
+  name      = waypt_survey
+  pwt       = 100
+  condition = RETURN = false
+  condition = DEPLOY = true
+  endflag   = RETURN = true
+
+  updates    = WPT_UPDATE
+  perpetual  = true
+//  templating = clone
+
+                lead = 30 
+         lead_damper = 15
+       lead_to_start = true
+               speed = 5  // meters per second
+        capture_line = true
+      capture_radius = 35 
+         slip_radius = 30.0
+	efficiency_measure = all
+
+
+
+polygon = 3900.0,-1920.0 : 4950.0,-2235.0 : 4935.0,-2265.0 : 3885.0,-1950.0 : 3870.0,-1980.0 : 4920.0,-2295.0 : 4905.0,-2325.0 : 3855.0,-2010.0 
+             repeat = 0
+
+
+//	ipf_type = roc
+
+    visual_hints = nextpt_color=dodger_blue
+    visual_hints = nextpt_vertex_size=8
+    visual_hints = nextpt_lcolor=invisible
+    visual_hints = vertex_color=gray40, edge_color=black
+    visual_hints = vertex_size=5, edge_size=1
+    visual_hints = label_color=invisible
+}
+
+//----------------------------------------------
+ Behavior = BHV_StationKeep
+ {
+   // General Behavior Parameters
+   // ---------------------------
+   name         = station-keep          // example
+   pwt          = 100                   // default
+   condition  = RETURN = true
+   condition  = DEPLOY = true
+   inactiveflag = STATIONING = false    // example
+   activeflag   = STATIONING = true     // example
+
+
+   // Parameters specific to this behavior
+   // ------------------------------------
+      center_activate = false   // default
+   hibernation_radius = -1     // default
+         inner_radius = 15       
+         outer_radius = 30      
+         outer_speed  = 1    
+       transit_speed  = 3    
+station_pt = 3720.0, -1980.0 
+           swing_time = 0       // default
+
+         visual_hints = vertex_size  = 1           // default
+         visual_hints = edge_color   = light_blue  // default
+         visual_hints = edge_size    = 1           // default
+         visual_hints = label_color  = black      
+         visual_hints = vertex_color = blue 
+ }
