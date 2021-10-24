@@ -24,22 +24,22 @@ TrajectPID::TrajectPID()
   m_nav_heading=0;
   m_desired_rudder=0;
   m_desired_rotation=0;
-  m_speed_kp=4.944*2;
-  m_speed_ki=0.1629*5;
+  m_speed_kp=3.044;
+  m_speed_ki=0.1030;
   m_speed_kd=0;
-  m_course_kp=3.97;
-  m_course_ki=0.269;
-  m_course_kd=3.95;
-  m_dt=0.1/3;
+  m_course_kp=3.6;
+  m_course_ki=0.9;
+  m_course_kd=3.6;
+  m_dt=0.1;
   m_speed_int_err=0;
   m_speed_prev_err=0;
   m_speed_setpoint=0;
-  m_speed_maxout=17.5;
+  m_speed_maxout=25.6;
   m_speed_saturated=0;
   m_course_int_err=0;
   m_course_prev_err=0;
   m_course_setpoint=0;
-  m_course_maxout=35;
+  m_course_maxout=30;
   m_course_saturated=0;
 }
 

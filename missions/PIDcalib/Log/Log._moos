@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LOG FILE:       ./Log/Log._moos
 %% FILE OPENED ON  Wed Dec 31 21:00:00 1969
-%% LOGSTART               16350350586.1
+%% LOGSTART               16351128868.4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
@@ -140,7 +140,7 @@ ProcessConfig = pTrajectPID
    yaw_kd = 3.6
    max_rudder = 30
    spd_kp = 3.044
-   spd_ki = 0.1030
+   spd_ki = 0.103
    spd_kd = 0
    max_rotation = 25.6
 }
@@ -223,8 +223,11 @@ ProcessConfig = pLogger
   
   Log = DESIRED_SPEED @ 0 NOSYNC
   Log = REAL_SPEED @ 0 NOSYNC
+  Log = DESIRED_ROTATION @ 0 NOSYNC
   Log = DESIRED_HEADING @ 0 NOSYNC
   Log = REAL_HEADING  @ 0 NOSYNC
+  Log = DESIRED_RUDDER @ 0 NOSYNC
+
 
   File = Log
   FileTimeStamp = false

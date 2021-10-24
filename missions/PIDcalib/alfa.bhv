@@ -91,7 +91,7 @@ polygon = 1100,-900: 1600,-1050: 1600,-1100: 1100,-950: 1100,-1000: 1600,-1150
          outer_radius = 30      
          outer_speed  = 1    
        transit_speed  = 2    
-station_pt = 1800, -1100.0 
+station_pt = 2000, -1300.0 
            swing_time = 0       // default
 
          visual_hints = vertex_size  = 1           // default
@@ -134,7 +134,7 @@ Behavior = BHV_StationKeep
       center_activate = false   // default
    hibernation_radius = -1     // default
          inner_radius = 15       
-         outer_radius = 100      
+         outer_radius = 60      
          outer_speed  = 1    
        transit_speed  = 6    
 station_pt = 900.0, -900.0 
