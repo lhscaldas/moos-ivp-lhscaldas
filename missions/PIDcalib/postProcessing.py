@@ -34,13 +34,13 @@ def RangeLogReader(log_file,var,vname):
 
 def hdg_log(file,var):
     t, x=LogReader(file,var)
-    plt.plot(t[1:],x[1:],label=var)
+    plt.plot(t,x,label=var)
     plt.xlabel("tempo [s]")
     plt.ylabel("[o]")
 
 def spd_log(file,var):
     t, x=LogReader(file,var)
-    plt.plot(t[1:],x[1:],label=var)
+    plt.plot(t,x,label=var)
     plt.xlabel("tempo [s]")
     plt.ylabel("[m/s]")
 
@@ -59,18 +59,41 @@ def range_log(file,target):
     plt.legend()
     plt.show()
 
+def rtt_log(file,var):
+    t, x=LogReader(file,var)
+    plt.plot(t, x,label=var)
+    plt.xlabel("t [s]")
+    plt.ylabel("rotação [rps]")
+    plt.title("Esforço de Controle (rotação)")
+
+def rdr_log(file,var):
+    t, x=LogReader(file,var)
+    plt.plot(t, x,label=var)
+    plt.xlabel("t [s]")
+    plt.ylabel("ângulo de leme [o]")
+    plt.title("Esforço de Controle (leme)")
+
+
 
 if __name__ == "__main__":
     file='Log/Log.alog'
 
-    plt.subplot(211)
+    plt.subplot(221)
+    rtt_log(file, "DESIRED_ROTATION")
+    # plt.axis([0, 1000, -1, 7])
+
+    plt.subplot(222)
     spd_log(file, "DESIRED_SPEED")
     spd_log(file, "REAL_SPEED")
     plt.legend()
     plt.title("PID de velocidade")
     # plt.axis([0, 1000, -1, 7])
 
-    plt.subplot(212)
+    plt.subplot(223)
+    rdr_log(file, "DESIRED_RUDDER")
+    # plt.axis([0, 1000, -1, 7])
+
+    plt.subplot(224)
     hdg_log(file, "DESIRED_HEADING")
     hdg_log(file, "REAL_HEADING")
     plt.legend()
