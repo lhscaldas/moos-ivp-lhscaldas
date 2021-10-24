@@ -30,10 +30,12 @@ class Ship(pymoos.comms):
         self.real_heading = params['START_HEADING']
         self.real_speed = 0
         
-        self.sim = pydyna.create_simulation("Navio_L15B4_Conv.p3d")
-        self.ship = self.sim.vessels['207']
-        self.rudder = self.ship.rudders['0']
-        self.propeller = self.ship.thrusters['0']
+        self.sim = pydyna.create_simulation("NACMM_2021.p3d")
+        self.ship = self.sim.vessels['292']
+        self.rudder0 = self.ship.rudders['0']
+        self.rudder1 = self.ship.rudders['1']
+        self.propeller0 = self.ship.thrusters['0']
+        self.propeller1 = self.ship.thrusters['1']
 
         self.ship._set_linear_position([self.real_x, self.real_y, 0])
         if self.real_heading > 270:
@@ -45,8 +47,10 @@ class Ship(pymoos.comms):
         theta = self.ship.angular_position[2]
         self.ship._set_linear_velocity([self.real_speed * np.cos(theta), self.real_speed * np.sin(theta), 0])
 
-        self.rudder.dem_angle = - self.desired_rudder
-        self.propeller.dem_rotation = self.desired_rotation
+        self.rudder0.dem_angle = - self.desired_rudder
+        self.propeller0.dem_rotation = self.desired_rotation
+        self.rudder1.dem_angle = - self.desired_rudder
+        self.propeller1.dem_rotation = self.desired_rotation
 
         self.run(self.server, self.port, self.name)
         pymoos.set_moos_timewarp(params['MOOSTimeWarp'])
@@ -115,8 +119,10 @@ class Ship(pymoos.comms):
             time.sleep(dt_fast_time)
 
             # Atualiza leme e thrust
-            self.propeller.dem_rotation = self.desired_rotation
-            self.rudder.dem_angle = np.deg2rad(self.desired_rudder)
+            self.propeller0.dem_rotation = self.desired_rotation
+            self.rudder0.dem_angle = np.deg2rad(self.desired_rudder)
+            self.propeller1.dem_rotation = self.desired_rotation
+            self.rudder1.dem_angle = np.deg2rad(self.desired_rudder)
 
             # Calcula a iteração
             self.sim.step()

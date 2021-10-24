@@ -38,11 +38,11 @@ class myPID:
 
 class pTrajectPID(pymoos.comms):
 
-    def __init__(self, moos_community, moos_port):
+    def __init__(self, params):
         """Initiates MOOSComms, sets the callbacks and runs the loop"""
         super(pTrajectPID, self).__init__()
-        self.server = moos_community
-        self.port = moos_port
+        self.server = 'localhost'
+        self.port = int(params['ServerPort'])
         self.name = 'pTrajectPID'
 
         self.set_on_connect_callback(self.__on_connect)
@@ -72,9 +72,6 @@ class pTrajectPID(pymoos.comms):
 
         self.desired_rudder = 0
         self.desired_rotation = 0
-
-        file = sys.argv[1]
-        params=MoosReader(file,"pTrajectPID")
 
         self.run(self.server, self.port, self.name)
         pymoos.set_moos_timewarp(params['MOOSTimeWarp'])
@@ -171,10 +168,8 @@ class pTrajectPID(pymoos.comms):
             # self.debug(dt)
 
 
-def main():
-    PIDcontrol = pTrajectPID('localhost', 9000)
-    PIDcontrol.iterate()
-
-
 if __name__ == "__main__":
-    main()
+    file = sys.argv[1] 
+    params=MoosReader(file,"pTrajectPID")
+    PIDcontrol = pTrajectPID(params)
+    PIDcontrol.iterate()

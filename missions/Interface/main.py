@@ -49,6 +49,8 @@ class NACMMsetup(ttk.Frame):
         self.posf=[]
         self.posf_id = -1
         self.heading = tk.StringVar(value=str(0))
+        self.navios = list()
+        self.vname = tk.StringVar(value="alfa")
 
         # selecionar origem
         self.latstring=tk.StringVar(value=str(self.originlatlong[0]))
@@ -120,13 +122,17 @@ class NACMMsetup(ttk.Frame):
         button_optimize.grid(column=0, row=14, columnspan=2)
         button_clear = tk.Button(self.side_panel, text="Limpar", width=30, command=lambda : self.clear())
         button_clear.grid(column=0, row=15, columnspan=2)
+        ship_label=tk.Label(self.side_panel, text = "Nome do navio")
+        ship_label.grid(column=0, row=16)   
+        ship=tk.Entry(self.side_panel, textvariable=self.vname)
+        ship.grid(column=1, row=16)
         button_file = tk.Button(self.side_panel, text="Gerar arquivos", width=30, command=lambda : self.gen_files())
-        button_file.grid(column=0, row=16, columnspan=2)
+        button_file.grid(column=0, row=17, columnspan=2)
         button_run = tk.Button(self.side_panel, text="Simular", width=30, command=lambda : moos.run())
-        button_run.grid(column=0, row=17, columnspan=2)
+        button_run.grid(column=0, row=18, columnspan=2)
 
         # button_debug = tk.Button(self.side_panel, text="Degub", width=30, command=lambda : self.debug())
-        # button_debug.grid(column=0, row=15, columnspan=2)
+        # button_debug.grid(column=0, row=19, columnspan=2)
 
     def debug(self):
         # path=f"path_n = {self.path_n} \n"
@@ -140,8 +146,13 @@ class NACMMsetup(ttk.Frame):
 
     def gen_files(self):
         hdg = float(self.heading.get())
-        moos.write_bhv(self.path_xy,self.posf)
-        moos.write_moos(self.pos0,self.originlatlong, hdg)
+        vname = self.vname.get()
+        if vname not in self.navios:
+            self.navios.append(vname)
+            moos.write_sh(self.navios)
+        moos.write_bhv(self.path_xy,self.posf,vname)
+        moos.write_moos(self.pos0,self.originlatlong, hdg, vname, self.navios)
+        moos.write_ms(self.originlatlong)
     
     def clear(self):
         if len(self.pressed_cells)>0:

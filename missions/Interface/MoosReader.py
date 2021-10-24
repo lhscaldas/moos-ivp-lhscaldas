@@ -10,6 +10,8 @@ def MoosReader(moos_file,app):
         for line in text:
             if line.startswith('MOOSTimeWarp'):
                 block.append(line)
+            if line.startswith('ServerPort'):
+                block.append(line)
             if line=="ProcessConfig = " +app+ "\n":
                 block_found=True
             if (line=='{\n' and block_found == True):
