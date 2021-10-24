@@ -182,6 +182,24 @@ class PIDcalib:
                 self.rudder1.dem_angle = math.radians(-10)
         self.rot=np.rad2deg(np.array(self.rot[1000:1200]))
 
+    def fit_rot_3(self, plot=True, kapa=1):
+        self.clean()
+        self.sim_rot()
+        res = co.stepinfo(self.rot, T=self.t[1000:1200]-100)
+        ts = res['SettlingTime']
+        Mp = res['Overshoot']/100
+        sigma = 4/ts
+        zeta = abs(np.log(Mp))/np.sqrt(np.pi**2 + (np.log(Mp))**2)
+        wn = 2*sigma/zeta
+        K = -self.rot[-1]/np.rad2deg(self.rudder0.dem_angle)
+        #T = 0.2
+        self.rotFT = co.tf([K*wn**2],[1, 2*zeta*wn, wn**2]) #*co.tf([1],[T,1])
+        print(self.rotFT)
+        # self.rotFT_str = str(round(K*wn**2,2))+"/(s²+"+str(round(2*wn*zeta,2))+"s+"+str(round(wn**2,2))+")"
+        self.rotFT_str = str(self.rotFT)
+        if plot:
+            self.plot_rot()
+
     def fit_rot_2(self, plot=True, kapa=1):
         self.clean()
         self.sim_rot()
@@ -382,11 +400,11 @@ class PIDcalib:
 if __name__ == "__main__":
     p3d = "NACMM_2021.p3d"
     calib = PIDcalib(p3d)
-    calib.fit_speed(plot = True, kapa = 1)
+    # calib.fit_speed(plot = True, kapa = 1)
     # calib.test_speedPID(dem_speed = 4)
-    # calib.fit_rot_2()
+    calib.fit_rot_3()
     # calib.test_coursePID(dem_course = [10, 10, 10], dem_speed = 4, PID = [6,0,0], analisys = False)
-    PID = calib.ZN_PID(Kpu = 6, Pu = 254-246) # PID e
+    # PID = calib.ZN_PID(Kpu = 6, Pu = 254-246) # PID e
     # calib.test_coursePID(dem_course = [15,45,30], dem_speed = 4, PID = PID)
 
 
