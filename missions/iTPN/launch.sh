@@ -37,6 +37,8 @@ echo "Launching All MOOS Communities with WARP:" $TIME_WARP
  source ~/anaconda3/etc/profile.d/conda.sh
  conda activate tcc
 
+ gnome-terminal -- ./TPNserver.py
+
  pAntler alfa.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
 
  uMAC -t alfa.moos

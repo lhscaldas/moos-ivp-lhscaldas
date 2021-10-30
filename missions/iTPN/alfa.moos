@@ -24,7 +24,8 @@ ProcessConfig = ANTLER
   //Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
-  Run = ./iPydyna2.py    @ NewConsole = false
+  //Run = ./iPydyna2.py    @ NewConsole = false
+  Run = ./iTPN.py    @ NewConsole = false
   Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
@@ -34,10 +35,33 @@ ProcessConfig = ANTLER
   Run = pSensor    @ NewConsole = false
   //Run = iRemoteMod    @ NewConsole = true
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
+  //Run = uProcessWatch  @ NewConsole = false
 
    one = --size=800x600
 
 }
+
+
+//------------------------------------------
+// uProcessWatch config block
+
+ProcessConfig = uProcessWatch                                   
+{                                                               
+   AppTick   = 4                                                 
+   CommsTick = 4                                                 
+                                                               
+   watch_all = true   // The default is true.                    
+                                                                
+  nowatch = uXMS*,                                                
+                                                               
+  allow_retractions = true   // Always allow run-warnings to be 
+                       // retracted if proc re-appears    
+                                                                
+  // A negative value means summary only when status changes.   
+  summary_wait = 10 // Seconds. Default is -1.                  
+                                                             
+  post_mapping = PROC_WATCH_FULL_SUMMARY, UPW_FULL_SUMMARY      
+} 
 
 //------------------------------------------
 // uXMS config block
@@ -46,9 +70,10 @@ ProcessConfig = uXMS
 {
   AppTick   = 4
   CommsTick = 4
-  //var    =   USR_RANGE_REQUEST, USR_RANGE_REPORT, USL_RANGE_REQUEST, USL_RANGE_REPORT
+  var    =   REAL_HEADING, REAL_SPEED, REAL_X, REAL_Y
+  display_source = true
   //display_all = true
-  source = uSimRadar, pContactMgrV20, uSimLidar
+  //source = iTPN
 
 }
 
