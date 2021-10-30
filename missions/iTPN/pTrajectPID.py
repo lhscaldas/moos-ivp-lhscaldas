@@ -147,7 +147,7 @@ class pTrajectPID(pymoos.comms):
         dt = self.dt
         dt_fast_time = dt/pymoos.get_moos_timewarp()
         while True:
-            time.sleep(dt_fast_time)
+            time.sleep(10*dt_fast_time)
            
             # Atualiza setpoint
             if self.manual!="ManualOverride" and self.dp!="on":

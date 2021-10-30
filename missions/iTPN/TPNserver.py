@@ -11,9 +11,12 @@ class TPNserver:
         # Server Data
         self.data_payload = 2048 #The maximum amount of data to be received at once
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.sock.setblocking(False)
-        server_address = ('localhost', 8082)
-        print ("Starting up echo server  on %s port %s" % server_address)
+        # self.sock.setblocking(False)
+        self.client_address = ('localhost', 8081)
+        self.server_address = ('localhost', 8082)
+        self.sock.bind(self.server_address)
+        self.test = "não"
+        self.counter = 0
 
         # Ship Data
         self.desired_rotation = 0
@@ -44,34 +47,37 @@ class TPNserver:
 
 
     def receive(self):
+        self.test = "entrou no receive"
         while True:
             msg, address = self.sock.recvfrom(self.data_payload)
             if msg:
+                self.test = "recebeu uma msg"
                 msg_decoded = msg.decode("utf-8")
                 data = msg_decoded.split(' ')
                 key = data[0]
                 value = float(data[2])
+                self.counter += 1
+                self.test = f"recebeu {data} " + str(self.counter)
                 self.read_msg(key, value)
             
     def read_msg(self, key, value):
         if key == 'DESIRED_ROTATION':
-                self.propeller0.dem_rotation = value
-                self.propeller1.dem_rotation = value
+            self.propeller0.dem_rotation = value
+            self.propeller1.dem_rotation = value
         elif key == 'DESIRED_RUDDER':
-                self.rudder0.dem_angle = np.deg2rad(value)
-                self.rudder1.dem_angle = np.deg2rad(value)
+            self.rudder0.dem_angle = np.deg2rad(value)
+            self.rudder1.dem_angle = np.deg2rad(value)
 
     def sendMOOS(self, key, value):
         message = key + ' = ' + str(value)
-        self.sock.sendto(message.encode('utf-8'), self.server_address)
+        self.sock.sendto(message.encode('utf-8'), self.client_address)
 
     def updateMOOS(self):
         while True:
             self.sendMOOS("REAL_X", self.real_x)
             self.sendMOOS("REAL_Y", self.real_y)
             self.sendMOOS("REAL_SPEED", self.real_speed)
-            self.sendMOOS("REAL_HEADING", self.real_heading)
-        
+            self.sendMOOS("REAL_HEADING", self.real_heading)        
 
     def calculate_heading(self):
         real_heading = 0
@@ -104,6 +110,7 @@ class TPNserver:
         print(f"REAL SPEED = {self.real_speed}")
         print(f"DESIRED ROTATION = {self.desired_rotation}")
         print(f"DESIRED RUDDER = {self.desired_rudder}")
+        print(f"Recebendo = {self.test}")
 
 
     def main(self):

@@ -5,6 +5,7 @@ import time
 import sys
 import numpy as np
 import socket
+import threading
 from MoosReader import MoosReader
 
 class Ship(pymoos.comms):
@@ -35,10 +36,12 @@ class Ship(pymoos.comms):
         pymoos.set_moos_timewarp(params['MOOSTimeWarp'])
 
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.sock.setblocking(False)
+        # self.sock.setblocking(False)
+        self.client_address = ('localhost', 8081)
         self.server_address = ('localhost', 8082)
+        self.sock.bind(self.client_address)
         self.data_payload = 2048 #The maximum amount of data to be received at once 
-
+        self.test = "Não"
 
 
     def __on_connect(self):
@@ -67,8 +70,10 @@ class Ship(pymoos.comms):
         self.notify(key, value, -1)
 
     def sendTPN(self, key, value):
+        self.test = "entrou no send"
         message = key + ' = ' + str(value)
         self.sock.sendto(message.encode('utf-8'), self.server_address)
+        self.test = "enviou " + message
 
     def updateMOOS(self):
         # to MOOS
@@ -79,6 +84,7 @@ class Ship(pymoos.comms):
 
     def updateTPN(self):    
         # to server
+        self.test = "entrou no update"
         self.sendTPN('DESIRED_ROTATION',self.desired_rotation)
         self.sendTPN('DESIRED_RUDDER',self.desired_rudder)
 
@@ -87,6 +93,9 @@ class Ship(pymoos.comms):
         print(f"REAL Y = {self.real_y}")
         print(f"REAL HEADING = {self.real_heading}")
         print(f"REAL SPEED = {self.real_speed}")
+        print(f"DESIRED ROTATION = {self.desired_rotation}")
+        print(f"DESIRED RUDDER = {self.desired_rudder}")
+        print(f"Enviando = {self.test}")
 
     def receiveTPN(self):
         try:
@@ -101,7 +110,6 @@ class Ship(pymoos.comms):
             pass
             
     def read_msg(self, key, value):
-        print("hi there")
         if key == 'REAL_X':
                 self.real_x = value
         elif key == 'REAL_Y':
@@ -114,13 +122,13 @@ class Ship(pymoos.comms):
             pass
 
     def iterate(self):
-        dt_fast_time = 0.1/pymoos.get_moos_timewarp()
+        dt_fast_time = 0.001/pymoos.get_moos_timewarp()
         while True:
             time.sleep(dt_fast_time)
             self.updateTPN()
             self.receiveTPN()
             self.updateMOOS()
-            # self.debug()
+            self.debug()
 
         
 if __name__ == "__main__":
