@@ -24,9 +24,9 @@ ProcessConfig = ANTLER
   //Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
-  //Run = ./iPydyna2.py    @ NewConsole = false
-  Run = ./iTPN.py    @ NewConsole = true
-  Run = ./TPNserver.py    @ NewConsole = true
+  Run = ./iPydyna2.py    @ NewConsole = false
+  //Run = ./iTPN.py    @ NewConsole = false
+  //Run = ./TPNserver.py    @ NewConsole = true
   Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false

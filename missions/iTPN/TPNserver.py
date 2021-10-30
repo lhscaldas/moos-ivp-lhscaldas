@@ -15,8 +15,6 @@ class TPNserver:
         self.client_address = ('localhost', 8081)
         self.server_address = ('localhost', 8082)
         self.sock.bind(self.server_address)
-        self.test = "não"
-        self.counter = 0
 
         # Ship Data
         self.desired_rotation = 0
@@ -47,17 +45,13 @@ class TPNserver:
 
 
     def receive(self):
-        self.test = "entrou no receive"
         while True:
             msg, address = self.sock.recvfrom(self.data_payload)
             if msg:
-                self.test = "recebeu uma msg"
                 msg_decoded = msg.decode("utf-8")
                 data = msg_decoded.split(' ')
                 key = data[0]
                 value = float(data[2])
-                self.counter += 1
-                self.test = f"recebeu {data} " + str(self.counter)
                 self.read_msg(key, value)
             
     def read_msg(self, key, value):
@@ -110,7 +104,6 @@ class TPNserver:
         print(f"REAL SPEED = {self.real_speed}")
         print(f"DESIRED ROTATION = {self.desired_rotation}")
         print(f"DESIRED RUDDER = {self.desired_rudder}")
-        print(f"Recebendo = {self.test}")
 
 
     def main(self):

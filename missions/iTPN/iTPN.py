@@ -41,7 +41,6 @@ class Ship(pymoos.comms):
         self.server_address = ('localhost', 8082)
         self.sock.bind(self.client_address)
         self.data_payload = 2048 #The maximum amount of data to be received at once 
-        self.test = "Não"
 
 
     def __on_connect(self):
@@ -70,10 +69,8 @@ class Ship(pymoos.comms):
         self.notify(key, value, -1)
 
     def sendTPN(self, key, value):
-        self.test = "entrou no send"
         message = key + ' = ' + str(value)
         self.sock.sendto(message.encode('utf-8'), self.server_address)
-        self.test = "enviou " + message
 
     def updateMOOS(self):
         # to MOOS
@@ -84,7 +81,6 @@ class Ship(pymoos.comms):
 
     def updateTPN(self):    
         # to server
-        self.test = "entrou no update"
         self.sendTPN('DESIRED_ROTATION',self.desired_rotation)
         self.sendTPN('DESIRED_RUDDER',self.desired_rudder)
 
@@ -95,7 +91,6 @@ class Ship(pymoos.comms):
         print(f"REAL SPEED = {self.real_speed}")
         print(f"DESIRED ROTATION = {self.desired_rotation}")
         print(f"DESIRED RUDDER = {self.desired_rudder}")
-        print(f"Enviando = {self.test}")
 
     def receiveTPN(self):
         try:
