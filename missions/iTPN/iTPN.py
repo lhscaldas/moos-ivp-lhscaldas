@@ -117,9 +117,7 @@ class Ship(pymoos.comms):
             pass
 
     def iterate(self):
-        dt_fast_time = 0.001/pymoos.get_moos_timewarp()
         while True:
-            time.sleep(dt_fast_time)
             self.updateTPN()
             self.receiveTPN()
             self.updateMOOS()

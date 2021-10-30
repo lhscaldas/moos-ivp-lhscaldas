@@ -136,7 +136,7 @@ Behavior = BHV_StationKeep
          inner_radius = 15       
          outer_radius = 60      
          outer_speed  = 1    
-       transit_speed  = 6    
+       transit_speed  = 7    
 station_pt = 900.0, -900.0 
            swing_time = 0       // default
 
