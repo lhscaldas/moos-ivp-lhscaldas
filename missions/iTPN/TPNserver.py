@@ -12,8 +12,8 @@ class TPNserver:
         self.data_payload = 2048 #The maximum amount of data to be received at once
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         # self.sock.setblocking(False)
-        self.client_address = ('localhost', 8081)
-        self.server_address = ('localhost', 8082)
+        self.client_address = ('192.168.0.16', 8081)
+        self.server_address = ('192.168.0.23', 8082)
         self.sock.bind(self.server_address)
 
         # Ship Data

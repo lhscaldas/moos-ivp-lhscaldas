@@ -37,8 +37,8 @@ class Ship(pymoos.comms):
 
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         # self.sock.setblocking(False)
-        self.client_address = ('localhost', 8081)
-        self.server_address = ('localhost', 8082)
+        self.client_address = ('169.254.123.105', 8081)
+        self.server_address = ('169.254.78.61', 8082)
         self.sock.bind(self.client_address)
         self.data_payload = 2048 #The maximum amount of data to be received at once 
 
