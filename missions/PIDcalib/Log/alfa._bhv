@@ -46,8 +46,8 @@ Behavior = BHV_Waypoint
   perpetual  = true
 //  templating = clone
 
-                lead = 30 
-         lead_damper = 15
+                lead = 30
+         lead_damper = 60
        lead_to_start = true
                speed = 4  // meters per second
         capture_line = true
@@ -90,7 +90,7 @@ polygon = 1100,-900: 1600,-1050: 1600,-1100: 1100,-950: 1100,-1000: 1600,-1150
          inner_radius = 15       
          outer_radius = 30      
          outer_speed  = 1    
-       transit_speed  = 2    
+       transit_speed  = 2   
 station_pt = 2000, -1300.0 
            swing_time = 0       // default
 
@@ -112,7 +112,7 @@ Behavior = BHV_StationKeep
       inner_radius = 15       
          outer_radius = 30      
          outer_speed  = 1    
-         transit_speed  = 3  
+         transit_speed  = 2  
         swing_time = 7
       visual_hints = vertex_size=0, edge_color=gray50
 }
@@ -136,7 +136,7 @@ Behavior = BHV_StationKeep
          inner_radius = 15       
          outer_radius = 60      
          outer_speed  = 1    
-       transit_speed  = 6    
+       transit_speed  = 6   
 station_pt = 900.0, -900.0 
            swing_time = 0       // default
 

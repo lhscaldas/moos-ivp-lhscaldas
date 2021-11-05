@@ -35,9 +35,9 @@ set MODE = SEARCHING {
 }
 
 //----------------------------------------------
-Behavior = BHV_Waypoint
+Behavior = BHV_Loiter
 { 
-  name      = waypt_survey
+  name      = loiter
   pwt       = 100
   condition = MODE==SEARCHING
   endflag   = END = true
@@ -46,19 +46,16 @@ Behavior = BHV_Waypoint
   perpetual  = true
 //  templating = clone
 
-                lead = 30
-         lead_damper = 60
-       lead_to_start = true
-               speed = 4  // meters per second
-        capture_line = true
-      capture_radius = 35 
-         slip_radius = 30.0
-	efficiency_measure = all
+                post_suffix = A
+         speed = 4
+     clockwise = true
+        radius = 30.0
+     nm_radius = 35.0
+       polygon = radial::x=1000,y=-1275, radius=300, pts=6, snap=1, label=charlie_LOITER
 
-
-
-polygon = 1100,-900: 1600,-1050: 1600,-1100: 1100,-950: 1100,-1000: 1600,-1150
-             repeat = 0
+  visual_hints = nextpt_color=white, nextpt_lcolor=khaki
+  visual_hints = edge_color=orange, vertex_color=white
+  visual_hints = edge_size=1, vertex_size=2
 
 
 //	ipf_type = roc
@@ -90,7 +87,7 @@ polygon = 1100,-900: 1600,-1050: 1600,-1100: 1100,-950: 1100,-1000: 1600,-1150
          inner_radius = 15       
          outer_radius = 30      
          outer_speed  = 1    
-       transit_speed  = 2   
+       transit_speed  = 2    
 station_pt = 2000, -1300.0 
            swing_time = 0       // default
 
@@ -112,7 +109,7 @@ Behavior = BHV_StationKeep
       inner_radius = 15       
          outer_radius = 30      
          outer_speed  = 1    
-         transit_speed  = 2  
+         transit_speed  = 3  
         swing_time = 7
       visual_hints = vertex_size=0, edge_color=gray50
 }
@@ -136,7 +133,7 @@ Behavior = BHV_StationKeep
          inner_radius = 15       
          outer_radius = 60      
          outer_speed  = 1    
-       transit_speed  = 6   
+       transit_speed  = 6    
 station_pt = 900.0, -900.0 
            swing_time = 0       // default
 

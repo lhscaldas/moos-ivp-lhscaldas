@@ -404,8 +404,8 @@ if __name__ == "__main__":
     # calib.test_speedPID(dem_speed = 4)
     calib.fit_rot_3()
     # calib.test_coursePID(dem_course = [10, 10, 10], dem_speed = 4, PID = [6,0,0], analisys = False)
-    # PID = calib.ZN_PID(Kpu = 6, Pu = 254-246) # PID e
-    # calib.test_coursePID(dem_course = [15,45,30], dem_speed = 4, PID = PID)
+    PID = calib.ZN_PID(Kpu = 6, Pu = 254-246) # PID e
+    calib.test_coursePID(dem_course = [15,45,30], dem_speed = 4, PID = PID)
 
 
 

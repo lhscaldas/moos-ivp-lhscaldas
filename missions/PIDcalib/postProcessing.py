@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from os import name
 import matplotlib.pyplot as plt
 
@@ -73,11 +74,7 @@ def rdr_log(file,var):
     plt.ylabel("ângulo de leme [o]")
     plt.title("Esforço de Controle (leme)")
 
-
-
-if __name__ == "__main__":
-    file='Log/Log.alog'
-
+def complete_PID(file):
     plt.subplot(221)
     rtt_log(file, "DESIRED_ROTATION")
     # plt.axis([0, 1000, -1, 7])
@@ -101,6 +98,15 @@ if __name__ == "__main__":
     # plt.axis([0, 1000, 0, 400])
 
     plt.show()
+
+
+
+if __name__ == "__main__":
+    file='Log/Log.alog'
+    complete_PID(file)
+
+
+    
     
 
 

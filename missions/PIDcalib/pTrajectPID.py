@@ -16,24 +16,28 @@ class myPID:
 
         self.setpoint = 0
         self.int_err = 0
-        self.prev_err = 0
-        # self.prev_y = 0
+        self.prev_y = 0
         self.saturated = 0
+
+        self.P = 0
+        self.I = 0
+        self.D = 0
 
     def output(self, y):
         error = self.setpoint - y
-        diff_error = (error - self.prev_err) / self.dt
-        # diff_error = (y - self.prev_y) / self.dt
+        diff_error = -(y - self.prev_y) / self.dt
         self.int_err += error * self.dt
-        output = self.Kp * error + (1-self.saturated) * self.Ki * self.int_err + self.Kd * diff_error
+        self.P = self.Kp * error 
+        self.I = (1-self.saturated) * self.Ki * self.int_err
+        self.D = self.Kd * diff_error
+        output = self.P + self.I + self.D
         if abs(output) > self.max_output:
             output = output/abs(output)*self.max_output
             self.saturated = 1
             self.int_err = 0
         else:
             self.saturated = 0
-        self.prev_err = error
-        # self.prev_y = y
+        self.prev_y = y
         return output
 
 class pTrajectPID(pymoos.comms):
@@ -77,11 +81,9 @@ class pTrajectPID(pymoos.comms):
         pymoos.set_moos_timewarp(params['MOOSTimeWarp'])
         self.dt=0.1
 
-        dt=self.dt/3
-        # self.speedPID = myPID(Kp=4.944*2, Ki=0.1629*5, Kd=0, dt=dt, max_output=17.5)
-        # self.coursePID = myPID(Kp=3.97, Ki=0.269, Kd=3.95, dt=dt, max_output=35)
-        self.coursePID = myPID(Kp=params['yaw_kp'], Ki=params['yaw_ki'], Kd=params['yaw_kd'], dt=dt, max_output=params['max_rudder'])
-        self.speedPID = myPID(Kp=params['spd_kp']*2, Ki=params['spd_ki']*5, Kd=params['spd_kd'], dt=dt, max_output=params['max_rotation'])
+        dt=self.dt
+        self.coursePID = myPID(Kp=params['yaw_kp']/5, Ki=params['yaw_ki']/5, Kd=params['yaw_kd']/5, dt=dt, max_output=params['max_rudder'])
+        self.speedPID = myPID(Kp=params['spd_kp'], Ki=params['spd_ki'], Kd=params['spd_kd'], dt=dt, max_output=params['max_rotation'])
 
     def __on_connect(self):
         """OnConnect callback"""
@@ -140,7 +142,10 @@ class pTrajectPID(pymoos.comms):
         print(" ")
         print(" ")
         print("pTrajectPID Debug")
-        print(f"Manual= {self.manual}")
+        print(f"P = {self.coursePID.P}")
+        print(f"I = {self.coursePID.I}")
+        print(f"D = {self.coursePID.D}")
+        print(f"rudder = {self.coursePID.P+self.coursePID.I+self.coursePID.D}")
 
 
     def iterate(self):
