@@ -7,7 +7,7 @@ initialize   RETURN = false
 Behavior = BHV_SimpleWaypoint
 { 
   name      = waypt_to_point
-  pwt       = 100
+  pwt       = 200
   condition = RETURN = false
   condition = DEPLOY = true
   endflag   = RETURN = true
