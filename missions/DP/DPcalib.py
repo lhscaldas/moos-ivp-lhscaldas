@@ -6,30 +6,31 @@ import matplotlib.pyplot as plt
 import matplotlib.path as mpath
 import matplotlib.patches as mpatches
 import pandas as pd
-ydyna.create_simulation("PSV4500.p3d")
-my_dyna.reset()
-my_vessel = my_dyna.vessels['207']
-my_thrusters = list(my_vessel.thrusters)
-my_vessel.linear_position = [0.0, 0.0, -6.6]
-my_vessel.angular_position = [0.0, 0.0, 0.0]
-print(my_vessel.linear_position)
-print(my_vessel.angular_position)
-print(my_thrusters)
-my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/PSV4500.p3d", 207)
 
-
-# my_dyna = pydyna.create_simulation("NACMM_2021.p3d")
+# pydyna.create_simulation("PSV4500.p3d")
 # my_dyna.reset()
-# my_vessel = my_dyna.vessels['292']
+# my_vessel = my_dyna.vessels['207']
 # my_thrusters = list(my_vessel.thrusters)
-# my_vessel._set_linear_position([0.0, 0.0, -1.0])
-# my_vessel._set_angular_position([0.0, 0.0, 0.0])
-# my_vessel._set_linear_velocity([0.0, 0.0, 0.0])
-# my_vessel._set_angular_velocity([0.0, 0.0, 0.0])
+# my_vessel.linear_position = [0.0, 0.0, -6.6]
+# my_vessel.angular_position = [0.0, 0.0, 0.0]
 # print(my_vessel.linear_position)
 # print(my_vessel.angular_position)
 # print(my_thrusters)
-# my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/NACMM_2021.p3d", 292)
+# my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/PSV4500.p3d", 207)
+
+
+my_dyna = pydyna.create_simulation("p3d-03.11.p3d")
+my_dyna.reset()
+my_vessel = my_dyna.vessels['292']
+my_thrusters = list(my_vessel.thrusters)
+my_vessel._set_linear_position([0.0, 0.0, -1.0])
+my_vessel._set_angular_position([0.0, 0.0, 0.0])
+my_vessel._set_linear_velocity([0.0, 0.0, 0.0])
+my_vessel._set_angular_velocity([0.0, 0.0, 0.0])
+print(my_vessel.linear_position)
+print(my_vessel.angular_position)
+print(my_thrusters)
+my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/p3d-03.11..p3d", 292)
 
 
 # %%
@@ -41,7 +42,7 @@ serie_yaw_2 = []
 
 serie_thrust1 = []
 serie_thrust2 = []
-# serie_thrust3 = []
+serie_thrust3 = []
 
 serie_speed = []
 # my_dp.setgains(inhousedp.Dof.SURGE.value, 1e8, 1e8, 1e8)
@@ -59,7 +60,7 @@ for cycle in range(6000):
 
     serie_thrust1.append(my_vessel.thrusters[my_thrusters[0]].dem_rotation)
     serie_thrust2.append(my_vessel.thrusters[my_thrusters[1]].dem_rotation)
-    # serie_thrust3.append(my_vessel.thrusters[my_thrusters[2]].dem_rotation)
+    serie_thrust3.append(my_vessel.thrusters[my_thrusters[2]].dem_rotation)
     
     
     
@@ -85,7 +86,7 @@ print
 plt.figure()
 plt.plot(serie_t_2,serie_thrust1,label="thrust 0")
 plt.plot(serie_t_2,serie_thrust2,label="thrust 1")
-# plt.plot(serie_t_2,serie_thrust3,"thrust 3")
+plt.plot(serie_t_2,serie_thrust3,label="thrust 3")
 plt.legend()
 plt.xlabel("tempo [s]")
 plt.ylabel("rotação [rps]")

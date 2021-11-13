@@ -104,7 +104,7 @@ def complete_PID(file):
 
 
 if __name__ == "__main__":
-    file='missions/PIDcalib/Log/Log.alog'
+    file='Log/Log.alog'
     complete_PID(file)
 
 

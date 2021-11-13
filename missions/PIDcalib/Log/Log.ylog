@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LOG FILE:       ./Log/Log.ylog
 %% FILE OPENED ON  Wed Dec 31 21:00:00 1969
-%% LOGSTART               16361197230.8
+%% LOGSTART               16367773326.2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-2.942879   MOOS_DEBUG           pHelmIvP             pHelmIvP AllStop: ManualOverride 
-34.88404   MOOS_DEBUG           pHelmIvP             pHelmIvP AllStop: clear 
-749.6872   MOOS_DEBUG           pHelmIvP             pHelmIvP AllStop: NothingToDo 
-749.945    MOOS_DEBUG           pHelmIvP             pHelmIvP AllStop: clear 
+3.046623   MOOS_DEBUG           pHelmIvP             pHelmIvP AllStop: ManualOverride 
+41.50506   MOOS_DEBUG           pHelmIvP             pHelmIvP AllStop: clear 
+870.9306   MOOS_DEBUG           pHelmIvP             pHelmIvP AllStop: NothingToDo 
+871.1827   MOOS_DEBUG           pHelmIvP             pHelmIvP AllStop: clear 
