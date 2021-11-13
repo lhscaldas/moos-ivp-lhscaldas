@@ -32,10 +32,6 @@ class NACMMsetup(ttk.Frame):
         # Pressionar células
         self.pressed_cells = list()
         self.rectangles = list()
-
-        # Restrições
-        self.rest_cell = np.zeros((73,116))
-        self.rest_point_list = [] 
         
         # caminho
         self.path_n = []
@@ -131,8 +127,8 @@ class NACMMsetup(ttk.Frame):
         button_run = tk.Button(self.side_panel, text="Simular", width=30, command=lambda : moos.run())
         button_run.grid(column=0, row=18, columnspan=2)
 
-        # button_debug = tk.Button(self.side_panel, text="Degub", width=30, command=lambda : self.debug())
-        # button_debug.grid(column=0, row=19, columnspan=2)
+        button_debug = tk.Button(self.side_panel, text="Degub", width=30, command=lambda : self.debug())
+        button_debug.grid(column=0, row=19, columnspan=2)
 
     def debug(self):
         # path=f"path_n = {self.path_n} \n"
@@ -140,8 +136,8 @@ class NACMMsetup(ttk.Frame):
         # path_xy=f"path_xy = {self.path_xy} \n"
         # debugtext = path+path_id+path_xy
         # messagebox.showinfo("Debug", debugtext)
+        print(self.pressed_cells)
         print(self.path_xy)
-        print(self.pos0)
         print(self.originlatlong)
 
     def gen_files(self):

@@ -167,21 +167,40 @@ def checkCollision(path_n, restrictions_n):
             n_col += 1
     return n_col
 
+def genPoint(p1,p2):
+    path_n = [p1,p2]
+    path_x = [n%116*30+15 for n in path_n]
+    path_y = [(n//116*30)-15 for n in path_n]
+    d = 300
+    if path_x[1]>path_x[0]:
+        new_x=randint(path_x[0], path_x[0]+d)
+    else:
+        new_x=randint(path_x[0]-d, path_x[0])
+    if path_y[1]>path_y[0]:
+        new_y=randint(path_y[0], path_y[0]+d)
+    else:
+        new_y=randint(path_y[0]-d, path_y[0])
+    new_point=((new_y+30)//30)*116+((new_x+30)//30)
+    return new_point
+
 def genPaths(begin, end, n_points, n_paths, restrictions_n):
     paths = list()
-    for i in range(n_paths):
-        ncol = 10
-        while(ncol > 0):
-            path = list()
-            path.append(begin)
-            for j in range(n_points-2):
-                if end>begin:
-                    path.append(randint(begin+1, end))
-                else:
-                    path.append(randint(end+1, begin))
-            path.append(end)
-            ncol = checkCollision(path, restrictions_n)
-        paths.append(path)
+    while len(paths) < n_paths:
+        i=0
+        path = list()
+        path.append(begin)
+        while len(path)<n_points-1:
+            new_point = genPoint(path[-1],end)
+            safe_pass = checkCollision([path[-1],new_point],restrictions_n) == 0
+            closer_to_end = length([new_point,end]) < 1*length([path[-1],end])
+            i+=1
+            if (safe_pass and closer_to_end) or i>10:
+                path.append(new_point)
+        path.append(end)
+        safe_pass = checkCollision(path,restrictions_n) == 0
+        if safe_pass:
+            paths.append(path)
+            print(f"{len(paths)} caminhos gerados")
     return paths
 
 def encode(path):
@@ -233,7 +252,9 @@ def length(path_n):
 
 def objective(path_s, restrictions_n):
     path_n = decode(path_s)
-    F = np.exp(1e-6*length(path_n)**2) + 1e10*checkCollision(path_n, restrictions_n)
+    F = length(path_n)
+    if checkCollision(path_n, restrictions_n)>0:
+        F+=np.sqrt(3500**2+2200**2)
     return F
 
 # tournament selection
@@ -254,7 +275,7 @@ def crossover(p1, p2, r_cross):
     # check for recombination
     if rand() < r_cross:
         # select crossover point that is not on the end of the string
-        pt =  randint(1, len(p1)-2) #13*randint(1, length-1)
+        pt = 13*randint(1, length-1)  # randint(1, len(p1)-2)
         # perform crossover
         c1 = p1[:pt] + p2[pt:]
         c2 = p2[:pt] + p1[pt:]
@@ -275,7 +296,7 @@ def mutation(bitstring, r_mut, beginend):
 def genetic_algorithm(objective, restrictions_n, beginend, n_nodes, n_iter, n_pop, r_cross, r_mut):
     # initial population of random bitstring
     paths = genPaths(beginend[0], beginend[1], n_nodes, n_pop, restrictions_n)
-    print("initial pop created")
+    print("População inicial criada")
     pop = multi_encode(paths)
     # keep track of best solution
     best, best_eval, best_gen = pop[0], objective(pop[0],restrictions_n), 0
@@ -306,18 +327,27 @@ def genetic_algorithm(objective, restrictions_n, beginend, n_nodes, n_iter, n_po
     return [best, best_eval, best_gen]
 
 # if __name__ == '__main__':
-#     pressed_cells = [(37.0, 62.0), (38.0, 62.0), (39.0, 62.0), (39.0, 61.0), (40.0, 61.0), (41.0, 61.0), (41.0, 60.0), (42.0, 60.0), 
-#     (43.0, 60.0), (44.0, 60.0), (45.0, 60.0), (45.0, 61.0), (46.0, 61.0), (47.0, 61.0), (47.0, 62.0), (48.0, 62.0), (49.0, 62.0)]
-#     restrictions=xy2n(pressed_cells)
-#     beginend=[5388, 5172]
-#     n_nodes=round(length(beginend)/500)+3
-#     n_pop=50
-#     n_iter=100
-#     r_cross=0.75
-#     r_mut=20/(n_pop*sqrt(13*n_nodes)) # Tu e Yang 2003
-#     t1=time()
-#     best, best_eval, best_gen = genetic_algorithm(objective, restrictions, beginend, n_nodes, n_iter, n_pop, r_cross, r_mut)
-#     print(f"best eval = {best_eval}")
-#     best_path = decode(best)
-#     best_length = length(best_path)
-#     plot_result(best_path, restrictions, best_length, best_gen+1, time()-t1)
+#     pressed_cells = [(25.0, 26.0), (25.0, 27.0), (25.0, 28.0), (24.0, 28.0), (23.0, 28.0), (22.0, 28.0), (21.0, 29.0), (21.0, 28.0), (20.0, 29.0), (19.0, 29.0), (18.0, 29.0), (17.0, 29.0), (17.0, 30.0), (16.0, 30.0), (15.0, 30.0), (14.0, 30.0), (13.0, 30.0), (12.0, 30.0), (12.0, 31.0), (11.0, 31.0), (10.0, 31.0), (9.0, 31.0), (8.0, 31.0), (7.0, 31.0), (7.0, 32.0), (6.0, 32.0), (4.0, 32.0), (5.0, 32.0), (3.0, 32.0), (2.0, 32.0), (2.0, 33.0), (0.0, 33.0), (1.0, 33.0), (1.0, 32.0), (0.0, 32.0), (2.0, 31.0), (3.0, 31.0), (4.0, 31.0), (5.0, 31.0), (6.0, 31.0), (7.0, 30.0), (8.0, 30.0), (9.0, 30.0), (10.0, 30.0), (11.0, 30.0), (12.0, 29.0), (11.0, 29.0), (13.0, 29.0), (14.0, 29.0), (15.0, 29.0), (15.0, 28.0), (16.0, 28.0), (16.0, 29.0), (17.0, 28.0), (19.0, 28.0), (18.0, 28.0), (20.0, 28.0), (20.0, 27.0), (19.0, 27.0), (21.0, 27.0), (23.0, 27.0), (24.0, 27.0), (22.0, 27.0), (24.0, 26.0), (23.0, 26.0), (19.0, 41.0), (20.0, 42.0), (19.0, 42.0), (20.0, 41.0), (18.0, 41.0), (18.0, 42.0), (17.0, 42.0), (17.0, 41.0), (17.0, 40.0), (18.0, 40.0), (17.0, 39.0), (16.0, 40.0), (16.0, 39.0), (15.0, 39.0), (15.0, 38.0), (16.0, 38.0), (14.0, 38.0), (14.0, 39.0), (13.0, 39.0), (13.0, 38.0), (12.0, 39.0), (12.0, 38.0), (11.0, 39.0), (11.0, 38.0), (10.0, 38.0), (10.0, 39.0), (11.0, 40.0), (10.0, 40.0), (8.0, 40.0), (9.0, 40.0), (9.0, 39.0), (9.0, 38.0), (8.0, 39.0), (8.0, 38.0), (7.0, 39.0), (7.0, 40.0), (6.0, 40.0), (6.0, 39.0), (5.0, 39.0), (5.0, 40.0), (4.0, 40.0), (3.0, 40.0), (4.0, 39.0), (2.0, 39.0), (3.0, 39.0), (2.0, 40.0), (1.0, 40.0), (0.0, 40.0), (3.0, 41.0), (4.0, 41.0), (4.0, 42.0), (4.0, 43.0), (4.0, 44.0), (4.0, 46.0), (4.0, 45.0), (4.0, 47.0), (5.0, 47.0), (5.0, 48.0), (5.0, 49.0), (5.0, 50.0), (4.0, 50.0), (4.0, 51.0), (4.0, 52.0), (3.0, 52.0), (3.0, 53.0), (2.0, 53.0), (2.0, 54.0), (2.0, 55.0), (1.0, 55.0), (1.0, 56.0), (0.0, 56.0), (0.0, 57.0), (0.0, 58.0), (0.0, 59.0), (0.0, 60.0), (1.0, 61.0), (0.0, 61.0), (2.0, 61.0), (2.0, 62.0), (3.0, 62.0), (4.0, 63.0), (4.0, 62.0), (5.0, 63.0), (6.0, 63.0), (7.0, 63.0), (7.0, 62.0), (7.0, 61.0), (6.0, 62.0), (7.0, 60.0), (8.0, 60.0), (8.0, 59.0), (9.0, 59.0), (9.0, 58.0), (9.0, 57.0), (10.0, 56.0), (10.0, 57.0), (11.0, 56.0), (11.0, 57.0), (12.0, 57.0), (12.0, 58.0), (13.0, 58.0), (14.0, 58.0), (14.0, 57.0), (14.0, 56.0), (15.0, 56.0), (15.0, 55.0), (17.0, 55.0), (16.0, 56.0), (16.0, 55.0), (17.0, 56.0), (15.0, 57.0), (15.0, 58.0), (15.0, 59.0), (16.0, 57.0), (16.0, 59.0), (16.0, 58.0), (16.0, 60.0), (17.0, 60.0), (18.0, 59.0), (17.0, 59.0), (18.0, 58.0), (18.0, 57.0), (19.0, 57.0), (19.0, 56.0), (18.0, 56.0), (17.0, 57.0), (17.0, 58.0), (19.0, 55.0), (19.0, 54.0), (20.0, 54.0), (21.0, 55.0), (20.0, 56.0), (20.0, 57.0), (20.0, 55.0), (21.0, 53.0), (21.0, 54.0), (21.0, 52.0), (22.0, 51.0), (21.0, 51.0), (22.0, 53.0), (22.0, 52.0), (22.0, 50.0), (23.0, 51.0), (23.0, 50.0), (23.0, 48.0), (23.0, 49.0), (24.0, 50.0), (24.0, 49.0), (24.0, 48.0), (23.0, 47.0), (24.0, 47.0), (24.0, 46.0), (24.0, 45.0), (25.0, 46.0), (25.0, 45.0), (24.0, 44.0), (25.0, 44.0), (26.0, 43.0), (24.0, 43.0), (25.0, 43.0), (25.0, 42.0), (25.0, 41.0), (25.0, 40.0), (25.0, 39.0), (26.0, 39.0), (26.0, 40.0), (26.0, 41.0), (26.0, 42.0), (27.0, 40.0), (27.0, 39.0), (27.0, 41.0)]
+#     restrictions = xy2n(pressed_cells)
+#     beginend = [3496, 1212]
+#     # beginend = [1212, 3496+30]
+#     # beginend = [3496, 3496+50]
+#     n_nodes = int(length(beginend)/500)+3
+
+    # n_paths = 40
+    # t1=time()
+    # paths = genPaths(beginend[0], beginend[1], n_nodes, n_paths, restrictions)
+    # print(f"nova demorou {time()-t1} segundos")
+    # multiplot(paths, restrictions)
+
+    # n_pop=40
+    # n_iter=200
+    # r_cross=0.9
+    # r_mut=1/(n_pop*sqrt(13*n_nodes)) # Tu e Yang 2003
+
+    # ti = time()
+    # best, best_eval, best_gen = genetic_algorithm(objective, restrictions, beginend, n_nodes, n_iter, n_pop, r_cross, r_mut)
+    # dt = time()-ti
+    # best_path = decode(best)
+    # best_length = length(best_path)
+    # plot_result(best_path, restrictions, best_length, best_gen+1, dt) # para debug

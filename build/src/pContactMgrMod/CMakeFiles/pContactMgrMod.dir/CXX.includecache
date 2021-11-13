@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/CMAlert.cpp
-iostream
--
-XYFormatUtilsPoly.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/XYFormatUtilsPoly.h
-CMAlert.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/CMAlert.h
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/CMAlert.h
 string
 -
@@ -66,43 +58,7 @@ CMAlert.h
 ExFilterSet.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ExFilterSet.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ContactMgrV20_Info.cpp
-cstdlib
--
-iostream
--
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ReleaseInfo.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ColorParse.h
-ContactMgrV20_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ContactMgrV20_Info.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ContactMgrV20_Info.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/MOOSGeodesy.cpp
-MOOSGeodesy.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/MOOSGeodesy.h
-math.h
--
-stdio.h
--
-stdlib.h
--
-cstring
--
-float.h
--
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/MOOSGeodesy.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/PlatformAlertRecord.cpp
-iostream
--
-PlatformAlertRecord.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/PlatformAlertRecord.h
-MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/MBUtils.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/PlatformAlertRecord.h
 map
@@ -116,25 +72,9 @@ vector
 VarDataPair.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/VarDataPair.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/RangeMark.cpp
-RangeMark.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/RangeMark.h
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/RangeMark.h
 string
 -
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/main.cpp
-iostream
--
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ColorParse.h
-MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/MBUtils.h
-ContactMgrV20.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ContactMgrV20.h
-ContactMgrV20_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pContactMgrMod/ContactMgrV20_Info.h
 
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/ClientDefines.h
 
@@ -630,12 +570,6 @@ XYObject.h
 XYPoint.h
 /home/lhscaldas/moos-ivp/ivp/src/lib_geometry/XYPoint.h
 
-/home/lhscaldas/moos-ivp/ivp/src/lib_geometry/XYFormatUtilsPoly.h
-string
--
-XYPolygon.h
-/home/lhscaldas/moos-ivp/ivp/src/lib_geometry/XYPolygon.h
-
 /home/lhscaldas/moos-ivp/ivp/src/lib_geometry/XYObject.h
 string
 -
@@ -706,10 +640,6 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 
 /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/VarDataPair.h

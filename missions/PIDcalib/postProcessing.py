@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from os import name
 import matplotlib.pyplot as plt
+# import matplotlib
+# matplotlib.use('TkAgg')
 
 def LogReader(log_file,var):
     t = []
@@ -102,7 +104,7 @@ def complete_PID(file):
 
 
 if __name__ == "__main__":
-    file='Log/Log.alog'
+    file='missions/PIDcalib/Log/Log.alog'
     complete_PID(file)
 
 
