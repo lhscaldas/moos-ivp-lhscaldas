@@ -42,6 +42,32 @@ XYRangePulse.h
 XYArc.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/XYArc.h
 
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/USL_Info_HP.cpp
+cstdlib
+-
+iostream
+-
+ColorParse.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/ColorParse.h
+USL_Info_HP.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/USL_Info_HP.h
+ReleaseInfo.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/ReleaseInfo.h
+
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/USL_Info_HP.h
+
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/main.cpp
+iostream
+-
+MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/MBUtils.h
+ColorParse.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/ColorParse.h
+USL_App_HP.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/USL_App_HP.h
+USL_Info_HP.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/uSimLidar/USL_Info_HP.h
+
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/ClientDefines.h
 
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/MOOSApp.h
@@ -602,6 +628,10 @@ set
 list
 -
 time.h
+-
+
+/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
+string
 -
 
 /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/VarDataPair.h
