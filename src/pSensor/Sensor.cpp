@@ -115,10 +115,10 @@ bool Sensor::Iterate()
   m_sensor_x=(m_w_gps_pos*m_gps_x+m_w_imu_pos*m_imu_x)/w_pos;
   m_sensor_y=(m_w_gps_pos*m_gps_y+m_w_imu_pos*m_imu_y)/w_pos;
   m_sensor_heading=(m_w_gyro_hdg*m_gyro_heading+m_w_imu_hdg*m_imu_heading)/w_hdg;
-  m_Comms.Notify("NAV_SPEED", m_sensor_speed);
-  m_Comms.Notify("NAV_X", m_sensor_x);
-  m_Comms.Notify("NAV_Y", m_sensor_y);
-  m_Comms.Notify("NAV_HEADING", m_sensor_heading);
+  m_Comms.Notify("SENSOR_SPEED", m_sensor_speed);
+  m_Comms.Notify("SENSOR_X", m_sensor_x);
+  m_Comms.Notify("SENSOR_Y", m_sensor_y);
+  m_Comms.Notify("SENSOR_HEADING", m_sensor_heading);
   AppCastingMOOSApp::PostReport();
   return(true);
 }
@@ -211,12 +211,12 @@ bool Sensor::buildReport()
   m_msgs << "============================================" << endl;
 
   ACTable actab(6);
-  actab << " | GPS | DVL | Gyro | IMU | NAV";
+  actab << " | GPS | DVL | Gyro | IMU | SENSOR";
   actab.addHeaderLines();
   actab << "x" << m_gps_x << " " << " " << m_imu_x << m_sensor_x;
   actab << "y" << m_gps_y << " " << " " << m_imu_y << m_sensor_y;
   actab << "speed" << m_gps_speed << m_dvl_speed << " " << m_imu_speed << m_sensor_speed;
-  actab << "hdg" << " " << m_gyro_heading << " " << m_imu_heading << m_sensor_heading;
+  actab << "hdg" << " " << "" << m_gyro_heading << m_imu_heading << m_sensor_heading;
   m_msgs << actab.getFormattedString();
 
   return(true);

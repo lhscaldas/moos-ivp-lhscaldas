@@ -17,8 +17,10 @@ using namespace std;
 
 SimGyro::SimGyro()
 {
-  double m_real_heading=0;
-  double m_gyro_heading=0;
+  m_real_heading=0;
+  m_gyro_heading=0;
+
+  m_hdg_error=0;
 }
 
 //---------------------------------------------------------
@@ -72,7 +74,8 @@ bool SimGyro::OnConnectToServer()
 bool SimGyro::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  m_gyro_heading=m_real_heading;
+  double noise = MOOSWhiteNoise(m_hdg_error);
+  m_gyro_heading=m_real_heading+noise;
   m_Comms.Notify("GYRO_HEADING", m_gyro_heading);
   AppCastingMOOSApp::PostReport();
   return(true);
@@ -95,14 +98,13 @@ bool SimGyro::OnStartUp()
   for(p=sParams.begin(); p!=sParams.end(); p++) {
     string orig  = *p;
     string line  = *p;
-    string param = tolower(biteStringX(line, '='));
-    string value = line;
+    string param = toupper(biteStringX(line, '='));
+    string value = tolower(line);
+    double dval  = atof(value.c_str());
 
     bool handled = false;
-    if(param == "foo") {
-      handled = true;
-    }
-    else if(param == "bar") {
+    if(param == "HDG_ERROR") {
+      m_hdg_error = dval;
       handled = true;
     }
 

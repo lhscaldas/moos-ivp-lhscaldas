@@ -38,6 +38,9 @@ class SimGPS : public AppCastingMOOSApp
    double m_real_speed;
    double m_gps_speed;
 
+   double m_pos_error;
+   double m_speed_error;
+
 
  private: // Configuration variables
 

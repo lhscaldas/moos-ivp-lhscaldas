@@ -30,11 +30,10 @@ my_vessel._set_angular_velocity([0.0, 0.0, 0.0])
 print(my_vessel.linear_position)
 print(my_vessel.angular_position)
 print(my_thrusters)
-my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/p3d-03.11..p3d", 292)
+my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/p3d-03.11.p3d", 292)
 
 
 # %%
-my_dyna.reset()
 serie_t_2 = []
 serie_x_2 = []
 serie_y_2 = []
@@ -46,11 +45,11 @@ serie_thrust3 = []
 
 serie_speed = []
 # my_dp.setgains(inhousedp.Dof.SURGE.value, 1e8, 1e8, 1e8)
-my_dp.setreference([10.0, 10.0, np.deg2rad(45)])
+my_dp.setreference([10.0, 1.0, 0])
 
 
 # %%
-for cycle in range(6000):
+for cycle in range(10000):
     serie_t_2.append(my_dyna.get_time_step() * my_dyna.get_dt())
     serie_x_2.append(my_vessel.linear_position[0])
     serie_y_2.append(my_vessel.linear_position[1])
@@ -63,9 +62,6 @@ for cycle in range(6000):
     serie_thrust3.append(my_vessel.thrusters[my_thrusters[2]].dem_rotation)
     
     
-    
-
-
     my_var = my_dp.dostep([
         my_vessel.linear_position[0],
         my_vessel.linear_position[1],
@@ -80,8 +76,6 @@ for cycle in range(6000):
 
 
 # %%
-
-print
 
 plt.figure()
 plt.plot(serie_t_2,serie_thrust1,label="thrust 0")
@@ -109,13 +103,13 @@ plt.show()
 # plt.ylabel("velocidade [m/s]")
 # plt.show()
 
-# plt.figure()
-# plt.plot(serie_t_2,serie_x_2,label="x")
-# plt.plot(serie_t_2,serie_y_2,label="y")
-# plt.legend()
-# plt.xlabel("tempo [s]")
-# plt.ylabel("distância [m]")
-# plt.show()
+plt.figure()
+plt.plot(serie_t_2,serie_x_2,label="x")
+plt.plot(serie_t_2,serie_y_2,label="y")
+plt.legend()
+plt.xlabel("tempo [s]")
+plt.ylabel("distância [m]")
+plt.show()
 
 
 plt.rcParams["figure.figsize"] = (16,8)

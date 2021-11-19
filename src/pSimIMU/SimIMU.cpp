@@ -27,6 +27,10 @@ SimIMU::SimIMU()
    m_imu_heading=0;
    m_imu_x=0;
    m_imu_y=0;
+
+   m_pos_error=0;
+   m_speed_error=0;
+   m_hdg_error=0;
 }
 
 //---------------------------------------------------------
@@ -86,11 +90,14 @@ bool SimIMU::OnConnectToServer()
 bool SimIMU::Iterate()
 {
   AppCastingMOOSApp::Iterate();
+  double pos_noise = MOOSWhiteNoise(m_pos_error);
+  double speed_noise = MOOSWhiteNoise(m_speed_error);
+  double hdg_noise = MOOSWhiteNoise(m_hdg_error);
 
-  m_imu_heading = m_real_heading;
-  m_imu_speed = m_real_speed;
-  m_imu_x = m_real_x;
-  m_imu_y = m_real_y;
+  m_imu_heading = m_real_heading + hdg_noise;
+  m_imu_speed = m_real_speed + speed_noise;
+  m_imu_x = m_real_x + pos_noise;
+  m_imu_y = m_real_y + pos_noise;
   
   m_Comms.Notify("IMU_HEADING", m_imu_heading);
   m_Comms.Notify("IMU_SPEED", m_imu_speed);
@@ -111,12 +118,36 @@ bool SimIMU::OnStartUp()
 
   STRING_LIST sParams;
   m_MissionReader.EnableVerbatimQuoting(false);
-  if(!m_MissionReader.GetConfiguration("pSimIMU", sParams))
-    reportConfigWarning("No config block found for pSimIMU");
-  
+  if(!m_MissionReader.GetConfiguration(GetAppName(), sParams))
+    reportConfigWarning("No config block found for " + GetAppName());
+
+  STRING_LIST::iterator p;
+  for(p=sParams.begin(); p!=sParams.end(); p++) {
+    string orig  = *p;
+    string line  = *p;
+    string param = toupper(biteStringX(line, '='));
+    string value = tolower(line);
+    double dval  = atof(value.c_str());
+
+    bool handled = false;
+    if(param == "SPEED_ERROR") {
+      m_speed_error = dval;
+      handled = true;
+    }
+    else if(param == "POS_ERROR") {
+      m_pos_error = dval;
+      handled = true;
+    }
+    else if(param == "HDG_ERROR") {
+      m_hdg_error = dval;
+      handled = true;
+    }
+
+    if(!handled)
+      reportUnhandledConfigWarning(orig);
+  }
   
   registerVariables();
- 
   return(true);
 }
 

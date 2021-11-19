@@ -39,6 +39,10 @@ class SimIMU : public AppCastingMOOSApp
    double m_real_x;
    double m_real_y;
 
+   double m_pos_error;
+   double m_speed_error;
+   double m_hdg_error;
+
  private: // Configuration variables
 
  private: // State variables

@@ -17,6 +17,9 @@ using namespace std;
 
 SimDVL::SimDVL()
 {
+   m_real_speed=0;
+   m_dvl_speed=0;
+   m_speed_error=0;
 }
 
 //---------------------------------------------------------
@@ -24,8 +27,6 @@ SimDVL::SimDVL()
 
 SimDVL::~SimDVL()
 {
-  double m_real_speed=0;
-  double m_dvl_speed=0;
 }
 
 //---------------------------------------------------------
@@ -72,7 +73,8 @@ bool SimDVL::OnConnectToServer()
 bool SimDVL::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  m_dvl_speed=m_real_speed;
+  double noise = MOOSWhiteNoise(m_speed_error);
+  m_dvl_speed=m_real_speed+noise;
   m_Comms.Notify("DVL_SPEED", m_dvl_speed);
   AppCastingMOOSApp::PostReport();
   return(true);
@@ -95,14 +97,13 @@ bool SimDVL::OnStartUp()
   for(p=sParams.begin(); p!=sParams.end(); p++) {
     string orig  = *p;
     string line  = *p;
-    string param = tolower(biteStringX(line, '='));
-    string value = line;
+    string param = toupper(biteStringX(line, '='));
+    string value = tolower(line);
+    double dval  = atof(value.c_str());
 
     bool handled = false;
-    if(param == "foo") {
-      handled = true;
-    }
-    else if(param == "bar") {
+    if(param == "SPEED_ERROR") {
+      m_speed_error = dval;
       handled = true;
     }
 

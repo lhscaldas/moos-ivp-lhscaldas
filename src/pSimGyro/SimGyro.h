@@ -32,6 +32,8 @@ class SimGyro : public AppCastingMOOSApp
    double m_real_heading;
    double m_gyro_heading;
 
+   double m_hdg_error;
+
  private: // Configuration variables
 
  private: // State variables

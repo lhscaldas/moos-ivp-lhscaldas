@@ -27,6 +27,9 @@ SimGPS::SimGPS()
 
    m_real_speed=0;
    m_gps_speed=0;
+
+   m_pos_error=0;
+   m_speed_error=0;
 }
 
 //---------------------------------------------------------
@@ -85,8 +88,9 @@ bool SimGPS::OnConnectToServer()
 bool SimGPS::Iterate()
 {
   AppCastingMOOSApp::Iterate();
-  m_gps_x=m_real_x;
-  m_gps_y=m_real_y;
+  double pos_noise = MOOSWhiteNoise(m_pos_error);
+  m_gps_x=m_real_x + pos_noise;
+  m_gps_y=m_real_y + pos_noise;
   m_Comms.Notify("GPS_X", m_gps_x);
   m_Comms.Notify("GPS_Y", m_gps_y);
 
@@ -96,7 +100,8 @@ bool SimGPS::Iterate()
   m_Comms.Notify("REAL_LAT", m_gps_lat);
   m_Comms.Notify("REAL_LONG", m_gps_lon);
   
-  m_gps_speed=m_real_speed;
+  double spd_noise = MOOSWhiteNoise(m_speed_error);
+  m_gps_speed=m_real_speed + spd_noise;
   m_Comms.Notify("GPS_SPEED", m_gps_speed);
 
   AppCastingMOOSApp::PostReport();
@@ -120,14 +125,17 @@ bool SimGPS::OnStartUp()
   for(p=sParams.begin(); p!=sParams.end(); p++) {
     string orig  = *p;
     string line  = *p;
-    string param = tolower(biteStringX(line, '='));
-    string value = line;
+    string param = toupper(biteStringX(line, '='));
+    string value = tolower(line);
+    double dval  = atof(value.c_str());
 
     bool handled = false;
-    if(param == "foo") {
+    if(param == "SPEED_ERROR") {
+      m_speed_error = dval;
       handled = true;
     }
-    else if(param == "bar") {
+    else if(param == "POS_ERROR") {
+      m_pos_error = dval;
       handled = true;
     }
 
