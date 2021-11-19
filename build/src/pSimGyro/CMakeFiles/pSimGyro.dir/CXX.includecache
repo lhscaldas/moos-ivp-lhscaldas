@@ -20,18 +20,6 @@ SimGyro.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro_Info.cpp
-cstdlib
--
-iostream
--
-SimGyro_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro_Info.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/ColorParse.h
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/ReleaseInfo.h
-
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/SimGyro_Info.h
 
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimGyro/main.cpp
@@ -500,9 +488,5 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 

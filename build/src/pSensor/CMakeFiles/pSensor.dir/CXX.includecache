@@ -20,32 +20,6 @@ Sensor.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor_Info.cpp
-cstdlib
--
-iostream
--
-Sensor_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor_Info.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/ColorParse.h
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/ReleaseInfo.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor_Info.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/main.cpp
-string
--
-MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/MBUtils.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/ColorParse.h
-Sensor.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor.h
-Sensor_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSensor/Sensor_Info.h
-
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/ClientDefines.h
 
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/MOOSApp.h
@@ -484,12 +458,6 @@ vector
 list
 -
 
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
-vector
--
-string
--
-
 /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/MBUtils.h
 vector
 -
@@ -500,9 +468,5 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 

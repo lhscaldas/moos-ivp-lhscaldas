@@ -26,7 +26,7 @@ ProcessConfig = ANTLER
   Run = pNodeReporter   @ NewConsole = false
   Run = ./iPydyna2.py    @ NewConsole = false
   Run = ./pTrajectPID.py @ NewConsole = false
-  Run = ./pEKF.py @ NewConsole = true
+  // Run = ./pEKF.py @ NewConsole = true
   // Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
   Run = pSimGPS    @ NewConsole = false

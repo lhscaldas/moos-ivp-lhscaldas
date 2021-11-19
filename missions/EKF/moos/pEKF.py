@@ -13,11 +13,11 @@ D1=0.475
 D2=0.475
 D3=0.185
 # posição dos propulsores
-x1=5.52
+x1=5.52-0.7
 y1=0.67
-x2=5.52
+x2=5.52-0.7
 y2=0.67
-x3=5.78
+x3=5.78+0.7
 # medidas do navio
 h = 1.65 # altura
 B = 3.379 # boca
@@ -29,13 +29,9 @@ C1_180 = 0.10900
 m11=18.79+1.01115
 m22=18.79+10.48726
 m33=240.19+90.95633
-d11=rho*B*T*C1_180/2
+d11=rho*L*T*C1_180/2
 d22=rho*L*T*C2_90/2
 d33=rho*L**4*T*C2_90/32
-
-def F(eta,tau,dt):
-    
-
 
 class pEKF(pymoos.comms):
 
@@ -90,6 +86,8 @@ class pEKF(pymoos.comms):
         self.n3 = 0
         self.beta1 = 0
         self.beta2 = 0
+
+        self.eta_bar = [self.ekf_speed, 0, 0, self.ekf_x, self.ekf_y, np.deg2rad(90-self.ekf_heading)]
         
 
         
@@ -177,9 +175,9 @@ class pEKF(pymoos.comms):
         # self.send('DESIRED_RUDDER', self.desired_rudder)
         # self.send('DESIRED_ROTATION', self.desired_rotation)
 
-    def estimate_inputs(self):
+    def estimate_inputs(self,eta):
         # calculo do thrust
-        u = self.ekf_speed
+        u = eta[0]
         n1 = self.n1
         n2 = self.n2
         n3 = self.n3
@@ -213,31 +211,79 @@ class pEKF(pymoos.comms):
         # return [Tao_u,Tao_v,Tao_r,T1,T2,T3,alfa1,alfa2]
         return [Tao_u,Tao_v,Tao_r]
 
+    def F(self,eta,tau,dt):
+        [u, v, r, x, y, psi] = eta
+        [Tau_u,Tau_v,Tau_r] = tau
+        ukp1 = u + (-d11*u*abs(u) + m22*r*v + Tau_u)/m11*dt
+        vkp1 = v + (-d22*v*abs(v) - m11*r*u + Tau_v)/m22*dt
+        rkp1 = r + (-d33*r*abs(r) - (m11-m22)*u*v  + Tau_r)/m33*dt
+        xkp1 = x + (u*cos(psi)-v*sin(psi))*dt
+        ykp1 = y + (u*sin(psi)+v*cos(psi))*dt
+        pkp1 = psi + r*dt
+        if pkp1>2*np.pi:
+            pkp1 = 0
+        elif pkp1<0:
+            pkp1 = 2*np.pi
+        return [ukp1, vkp1, rkp1, xkp1, ykp1, pkp1]
+    
+    def calculate_heading(self,yaw):
+        i = 0
+        j = 0
+        real_heading = 90 - np.rad2deg(yaw)
+        if real_heading < 0:
+            i = abs(real_heading) // 360 + 1
+            real_heading += 360*i
+        if real_heading > 360:
+            j = abs(real_heading) // 360
+            real_heading -= 360*j
+        return real_heading
+
+    def set_ekf_var(self):
+        self.ekf_speed = self.eta_bar[0]
+        self.ekf_x = self.eta_bar[3]
+        self.ekf_y = self.eta_bar[4]
+        self.ekf_heading = self.calculate_heading(self.eta_bar[5])
+
+    def model_debug(self):
+        tau = self.estimate_inputs(self.eta_bar)
+        print("")
+        print(f"Tau_u = {tau[0]}")
+        print(f"Tau_v = {tau[1]}")
+        print(f"Tau_r = {tau[2]}")
+        
+        print("")
+        print(f"u = {self.eta_bar[0]}")
+        print(f"v = {self.eta_bar[1]}")
+        print(f"r = {self.eta_bar[2]}")
+        print(f"x = {self.eta_bar[3]}")
+        print(f"y = {self.eta_bar[4]}")
+        print(f"psi = {np.rad2deg(self.eta_bar[5])}")
+
 
     def debug(self):
         print(" ")
         print(" ")
         print(" ")
         print("pEKF Debug")
-        # print(f"EKF_SPEED = {self.ekf_speed}")
-        # print(f"EKF_X = {self.ekf_x}")
-        # print(f"EKF_Y = {self.ekf_y}")
-        # print(f"EKF_HEADING = {self.ekf_heading}")
-        tau = self.estimate_inputs()
+
+        self.model_debug()
+
+
+        # self.set_ekf_var(self.eta_bar)
+        
+        
+    
         
 
 
     def iterate(self):
-        dt = self.dt*10
+        dt = self.dt
         dt_fast_time = dt/pymoos.get_moos_timewarp()
         while True:
             time.sleep(dt_fast_time)
-            # self.ekf_speed = (self.gps_speed+self.dvl_speed+self.imu_speed)/3
-            # self.ekf_x = (self.gps_x+self.imu_x)/2
-            # self.ekf_y = (self.gps_y+self.imu_y)/2
-            # self.ekf_heading = (self.gyro_heading+self.imu_heading)/2
-
-            
+            tau = self.estimate_inputs(self.eta_bar)
+            self.eta_bar = self.F(self.eta_bar, tau, 1.5*self.dt)
+                       
 
             # self.update()
             self.debug()

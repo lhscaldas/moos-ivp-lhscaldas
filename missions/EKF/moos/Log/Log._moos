@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LOG FILE:       ./Log/Log._moos
 %% FILE OPENED ON  Wed Dec 31 21:00:00 1969
-%% LOGSTART               49115965379.6
+%% LOGSTART               49118771967.5
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
@@ -33,7 +33,7 @@ ProcessConfig = ANTLER
   Run = pNodeReporter   @ NewConsole = false
   Run = ./iPydyna2.py    @ NewConsole = false
   Run = ./pTrajectPID.py @ NewConsole = false
-  Run = ./pEKF.py @ NewConsole = true
+  // Run = ./pEKF.py @ NewConsole = true
   // Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
   Run = pSimGPS    @ NewConsole = false

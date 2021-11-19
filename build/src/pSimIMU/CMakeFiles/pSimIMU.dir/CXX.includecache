@@ -22,32 +22,6 @@ math.h
 MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 /home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/MOOS/libMOOS/Thirdparty/AppCasting/AppCastingMOOSApp.h
 
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU_Info.cpp
-cstdlib
--
-iostream
--
-SimIMU_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU_Info.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/ColorParse.h
-ReleaseInfo.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/ReleaseInfo.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU_Info.h
-
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/main.cpp
-string
--
-MBUtils.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/MBUtils.h
-ColorParse.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/ColorParse.h
-SimIMU.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU.h
-SimIMU_Info.h
-/home/lhscaldas/moos-ivp-lhscaldas/src/pSimIMU/SimIMU_Info.h
-
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/ClientDefines.h
 
 /home/lhscaldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include/MOOS/libMOOS/App/MOOSApp.h
@@ -486,12 +460,6 @@ vector
 list
 -
 
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ColorParse.h
-vector
--
-string
--
-
 /home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/MBUtils.h
 vector
 -
@@ -502,9 +470,5 @@ set
 list
 -
 time.h
--
-
-/home/lhscaldas/moos-ivp/ivp/src/lib_mbutil/ReleaseInfo.h
-string
 -
 
