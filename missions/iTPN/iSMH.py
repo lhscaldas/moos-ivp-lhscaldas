@@ -4,8 +4,11 @@ import time
 import sys
 import numpy as np
 import socket
-import 
+import pybuzz
 from MoosReader import MoosReader
+from threading import Event
+
+
 
 class Ship(pymoos.comms):
 
@@ -14,7 +17,7 @@ class Ship(pymoos.comms):
         super(Ship, self).__init__()
         self.server = 'localhost'
         self.port = int(params['ServerPort'])
-        self.name = 'iTPN'
+        self.name = 'iSMH'
 
         self.set_on_connect_callback(self.__on_connect)
         self.set_on_mail_callback(self.__on_new_mail)
@@ -33,15 +36,21 @@ class Ship(pymoos.comms):
         
         self.run(self.server, self.port, self.name)
         pymoos.set_moos_timewarp(params['MOOSTimeWarp'])
+        
 
-        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        # self.sock.setblocking(False)
-        # self.client_address = ('169.254.123.105', 8081)
-        # self.server_address = ('169.254.78.61', 8082)
-        self.client_address = ('localhost', 8081)
-        self.server_address = ('localhost', 8082)
-        self.sock.bind(self.client_address)
-        self.data_payload = 2048 #The maximum amount of data to be received at once 
+        self.pid = 'moos'
+        self.server_addr = '172.16.11.38'
+        self.db_conn_str = 'mongodb://172.16.11.10:27017'
+        self.db_name = 'smh'
+        self.ds = pybuzz.create_bson_data_source(self.db_conn_str, self.db_name)
+        self.session = pybuzz.join_simco_session(self.pid, pybuzz.create_bson_serializer(self.ds))
+        self.session.initialize()
+        # self.session.is_publisher(pybuzz.rudder_tag(), pybuzz.rudder_tag.SMH_DEMANDED_ANGLE)
+        # self.session.is_publisher(pybuzz.thruster_tag(), pybuzz.thruster_tag.SMH_DEMANDED_ROTATION)
+        # self.ready = Event()
+        self.session.connect(self.server_addr)
+        # self.ready.wait()
+        # self.vessel = self.session.vessels['']
 
 
     def __on_connect(self):
@@ -84,30 +93,23 @@ class Ship(pymoos.comms):
         self.sendMOSS('NAV_X', self.real_x)
         self.sendMOSS('NAV_Y', self.real_y)
 
-    def updateTPN(self):    
-        # to server
-        self.sendTPN('DESIRED_ROTATION',self.desired_rotation)
-        self.sendTPN('DESIRED_RUDDER',self.desired_rudder)
+    # def updateTPN(self):    
+    #     # to server
+    #     self.sendTPN('DESIRED_ROTATION',self.desired_rotation)
+    #     self.sendTPN('DESIRED_RUDDER',self.desired_rudder)
 
-    def debug(self):
-        print(f"REAL X = {self.real_x}")
-        print(f"REAL Y = {self.real_y}")
-        print(f"REAL HEADING = {self.real_heading}")
-        print(f"REAL SPEED = {self.real_speed}")
-        print(f"DESIRED ROTATION = {self.desired_rotation}")
-        print(f"DESIRED RUDDER = {self.desired_rudder}")
-
-    def receiveTPN(self):
-        try:
-            msg, address = self.sock.recvfrom(self.data_payload)
-            if msg:
-                msg_decoded = msg.decode("utf-8")
-                data = msg_decoded.split(' ')
-                key = data[0]
-                value = float(data[2])
-                self.read_msg(key, value)
-        except:
-            pass
+    def receiveSHM(self):
+        pass
+        # try:
+        #     msg, address = self.sock.recvfrom(self.data_payload)
+        #     if msg:
+        #         msg_decoded = msg.decode("utf-8")
+        #         data = msg_decoded.split(' ')
+        #         key = data[0]
+        #         value = float(data[2])
+        #         self.read_msg(key, value)
+        # except:
+        #     pass
             
     def read_msg(self, key, value):
         if key == 'REAL_X':
@@ -121,16 +123,41 @@ class Ship(pymoos.comms):
         else:
             pass
 
+    def debug(self):
+        # print(f"REAL X = {self.real_x}")
+        # print(f"REAL Y = {self.real_y}")
+        # print(f"REAL HEADING = {self.real_heading}")
+        # print(f"REAL SPEED = {self.real_speed}")
+        # print(f"DESIRED ROTATION = {self.desired_rotation}")
+        # print(f"DESIRED RUDDER = {self.desired_rudder}")
+        if len(self.session.vessels)>0:
+            self.session.sync(self.session.vessels[0])
+            print(self.session.vessels[0].linear_velocity[0])
+            self.session.vessels[0].thrusters[0].dem_rotation = 15
+            self.session.vessels[0].thrusters[1].dem_rotation = 15
+            self.session.sync(self.session.vessels[0])
+            
+
     def iterate(self):
         while True:
-            self.updateTPN()
-            self.receiveTPN()
-            self.updateMOOS()
+            # self.updateTPN()
+            # self.receiveSHM()
+            # self.updateMOOS()
             self.debug()
+
+    # def on_state_changed(self, state):
+    #     # write code to run when the simulation starts
+    #     if state == pybuzz.RUNNING:
+    #         print('Simulation is running!')
+    #         self.ready.set()
 
         
 if __name__ == "__main__":
+    # try:
     file = sys.argv[1] 
     params = MoosReader(file,"iPydyna")
     ship = Ship(params)
     ship.iterate()
+    # except:
+    #     for e in sys.exc_info():
+    #         print(e)

@@ -20,22 +20,23 @@ ProcessConfig = ANTLER
   MSBetweenLaunches = 200
 
   Run = MOOSDB          @ NewConsole = false
-  Run = uXMS            @ NewConsole = false
-  //Run = pLogger      @ NewConsole = false
-  Run = pHelmIvP        @ NewConsole = false
-  //Run = ./iPydyna2.py    @ NewConsole = false
-  Run = ./iTPN.py    @ NewConsole = false
-  Run = ./pTrajectPID.py @ NewConsole = false
+  //Run = uXMS            @ NewConsole = false
+  // Run = pLogger      @ NewConsole = false
+  // Run = pHelmIvP        @ NewConsole = false
+  // Run = ./iPydyna2.py    @ NewConsole = false
+  // Run = ./iTPN.py    @ NewConsole = false
+  // Run = ./iSMH.py    @ NewConsole = false
+  // Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
-  Run = pSimIMU   @ NewConsole = false
-  Run = pSimGPS    @ NewConsole = false
-  Run = pSimDVL    @ NewConsole = false
-  Run = pSimGyro    @ NewConsole = false
-  Run = pSensor    @ NewConsole = false
+  // Run = pSimIMU   @ NewConsole = false
+  // Run = pSimGPS    @ NewConsole = false
+  // Run = pSimDVL    @ NewConsole = false
+  // Run = pSimGyro    @ NewConsole = false
+  // Run = pSensor    @ NewConsole = false
   //Run = iRemoteMod    @ NewConsole = true
-  Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
+  //Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
   //Run = uProcessWatch  @ NewConsole = false
-  Run = pNodeReporter   @ NewConsole = false
+  //Run = pNodeReporter   @ NewConsole = false
 
    one = --size=800x600
 
