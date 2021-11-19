@@ -2,7 +2,7 @@
 A instalação deverá ser feita em SO Linux, preferencialmente Ubuntu. 
 Também poderá ser realizada em WSL, mas requer o uso de um X Server para a visualização da simulação.
 ## MOOS-IvP
-Executar os comandos no terminal do Linux
+Executar os comandos no terminal do Linu
 
   $`svn co https://oceanai.mit.edu/svn/moos-ivp-aro/trunk/ moos-ivp`
   
