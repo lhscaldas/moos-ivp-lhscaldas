@@ -1,4 +1,4 @@
-# Install script for directory: /home/luiz_caldas/moos-ivp-lhscaldas/src
+# Install script for directory: /home/lhscaldas/moos-ivp-lhscaldas/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,22 +37,27 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/lib_behaviors-test/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/lib_mbutil/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/pExampleApp/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/pXRelayTest/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/pSimIMU/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/pSimGPS/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/pSimDVL/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/pSimGyro/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/uSimRadar/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/pContactMgrMod/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/uSimLidar/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/pTrajectPID/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/pSensor/cmake_install.cmake")
-  include("/home/luiz_caldas/moos-ivp-lhscaldas/build/src/iRemoteMod/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/lib_behaviors-test/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/lib_mbutil/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pExampleApp/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pXRelayTest/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimIMU/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGPS/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimDVL/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSimGyro/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/uSimRadar/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pContactMgrMod/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/uSimLidar/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pTrajectPID/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/pSensor/cmake_install.cmake")
+  include("/home/lhscaldas/moos-ivp-lhscaldas/build/src/iRemoteMod/cmake_install.cmake")
 
 endif()
 

@@ -6,73 +6,73 @@
 
 #IncludeRegexTransform: 
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorPack.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorPack.cpp
 ColorPack.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorPack.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorPack.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorPack.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorPack.h
 vector
 -
 string
 -
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 ColorParse.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.cpp
 iostream
 -
 cstdlib
 -
 ColorParse.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.h
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.h
 vector
 -
 string
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/FColorMap.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/FColorMap.cpp
 iostream
 -
 cmath
 -
 FColorMap.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/FColorMap.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/FColorMap.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/FColorMap.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/FColorMap.h
 vector
 -
 string
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/Figlog.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/Figlog.cpp
 iostream
 -
 Figlog.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/Figlog.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/Figlog.h
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 ColorParse.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ColorParse.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/Figlog.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/Figlog.h
 string
 -
 vector
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/FileBuffer.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/FileBuffer.cpp
 FileBuffer.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/FileBuffer.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/FileBuffer.h
 cstdio
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/FileBuffer.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/FileBuffer.h
 list
 -
 vector
@@ -80,33 +80,33 @@ vector
 string
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/LatLonFormatUtils.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/LatLonFormatUtils.cpp
 iostream
 -
 LatLonFormatUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/LatLonFormatUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/LatLonFormatUtils.h
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/LatLonFormatUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/LatLonFormatUtils.h
 string
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBTimer.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBTimer.cpp
 iostream
 -
 MBTimer.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBTimer.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBTimer.h
 sys/timeb.h
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBTimer.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBTimer.h
 sys/times.h
 -
 time.h
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.cpp
 cmath
 -
 cstring
@@ -120,17 +120,17 @@ ctype.h
 iostream
 -
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 windows.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/windows.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/windows.h
 winbase.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/winbase.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/winbase.h
 winnt.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/winnt.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/winnt.h
 conio.h
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 vector
 -
 string
@@ -142,31 +142,31 @@ list
 time.h
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.cpp
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 MacroUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.h
 string
 -
 vector
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MailFlagSet.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MailFlagSet.cpp
 iostream
 -
 cstdlib
 -
 MailFlagSet.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MailFlagSet.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MailFlagSet.h
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 MacroUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MailFlagSet.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MailFlagSet.h
 string
 -
 vector
@@ -174,75 +174,75 @@ vector
 map
 -
 VarDataPair.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/Odometer.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/Odometer.cpp
 cmath
 -
 Odometer.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/Odometer.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/Odometer.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/Odometer.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/Odometer.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ReleaseInfo.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ReleaseInfo.cpp
 iostream
 -
 cstdlib
 -
 ReleaseInfo.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ReleaseInfo.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ReleaseInfo.h
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/ReleaseInfo.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/ReleaseInfo.h
 string
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/StringNode.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/StringNode.cpp
 algorithm
 -
 iostream
 -
 StringNode.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/StringNode.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/StringNode.h
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/StringNode.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/StringNode.h
 vector
 -
 string
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/StringTree.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/StringTree.cpp
 iostream
 -
 StringTree.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/StringTree.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/StringTree.h
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/StringTree.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/StringTree.h
 vector
 -
 string
 -
 StringNode.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/StringNode.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/StringNode.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/TStamp.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/TStamp.cpp
 cstdlib
 -
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 TStamp.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/TStamp.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/TStamp.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/TStamp.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/TStamp.h
 string
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/TermUtils.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/TermUtils.cpp
 string
 -
 termios.h
@@ -250,33 +250,33 @@ termios.h
 cstdio
 -
 TermUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/TermUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/TermUtils.h
 windows.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/windows.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/windows.h
 winbase.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/winbase.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/winbase.h
 winnt.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/winnt.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/winnt.h
 conio.h
 -
 cstring
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/TermUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/TermUtils.h
 unistd.h
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.cpp
 cstdlib
 -
 VarDataPair.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.h
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 MacroUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MacroUtils.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.h
 string
 -
 vector
@@ -284,17 +284,17 @@ vector
 set
 -
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPairUtils.cpp
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPairUtils.cpp
 VarDataPairUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPairUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPairUtils.h
 MBUtils.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/MBUtils.h
 
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPairUtils.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPairUtils.h
 string
 -
 vector
 -
 VarDataPair.h
-/home/luiz_caldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.h
+/home/lhscaldas/moos-ivp-lhscaldas/src/lib_mbutil/VarDataPair.h
 
