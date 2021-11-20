@@ -12,8 +12,10 @@ class TPNserver:
         self.data_payload = 2048 #The maximum amount of data to be received at once
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         # self.sock.setblocking(False)
-        self.client_address = ('192.168.0.16', 8081)
-        self.server_address = ('192.168.0.23', 8082)
+        # self.client_address = ('192.168.0.16', 8081)
+        # self.server_address = ('192.168.0.23', 8082)
+        self.client_address = ('localhost', 8081)
+        self.server_address = ('localhost', 8082)
         self.sock.bind(self.server_address)
 
         # Ship Data
@@ -100,10 +102,11 @@ class TPNserver:
     def debug(self):
         print(f"REAL X = {self.real_x}")
         print(f"REAL Y = {self.real_y}")
-        print(f"REAL HEADING = {self.real_heading}")
         print(f"REAL SPEED = {self.real_speed}")
-        print(f"DESIRED ROTATION = {self.desired_rotation}")
-        print(f"DESIRED RUDDER = {self.desired_rudder}")
+        print(f"DESIRED ROTATION 0 = {self.propeller0.dem_rotation}")
+        print(f"DESIRED ROTATION 1 = {self.propeller1.dem_rotation}")
+        print(f"DESIRED RUDDER 0 = {np.rad2deg(self.rudder0.dem_angle)}")
+        print(f"DESIRED RUDDER 1 = {np.rad2deg(self.rudder1.dem_angle)}")
 
 
     def main(self):

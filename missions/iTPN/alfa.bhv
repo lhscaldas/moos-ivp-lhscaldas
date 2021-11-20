@@ -58,7 +58,7 @@ Behavior = BHV_Waypoint
 
 
 polygon = 1100,-900: 1600,-1050: 1600,-1100: 1100,-950: 1100,-1000: 1600,-1150
-             repeat = 0
+             repeat = 10000
 
 
 //	ipf_type = roc

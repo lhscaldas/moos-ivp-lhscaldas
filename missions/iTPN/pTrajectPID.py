@@ -16,24 +16,28 @@ class myPID:
 
         self.setpoint = 0
         self.int_err = 0
-        self.prev_err = 0
-        # self.prev_y = 0
+        self.prev_y = 0
         self.saturated = 0
+
+        self.P = 0
+        self.I = 0
+        self.D = 0
 
     def output(self, y):
         error = self.setpoint - y
-        diff_error = (error - self.prev_err) / self.dt
-        # diff_error = (y - self.prev_y) / self.dt
+        diff_error = -(y - self.prev_y) / self.dt
         self.int_err += error * self.dt
-        output = self.Kp * error + (1-self.saturated) * self.Ki * self.int_err + self.Kd * diff_error
+        self.P = self.Kp * error 
+        self.I = (1-self.saturated) * self.Ki * self.int_err
+        self.D = self.Kd * diff_error
+        output = self.P + self.I + self.D
         if abs(output) > self.max_output:
             output = output/abs(output)*self.max_output
             self.saturated = 1
             self.int_err = 0
         else:
             self.saturated = 0
-        self.prev_err = error
-        # self.prev_y = y
+        self.prev_y = y
         return output
 
 class pTrajectPID(pymoos.comms):
@@ -52,9 +56,9 @@ class pTrajectPID(pymoos.comms):
         self.add_message_route_to_active_queue('desired_queue', 'DESIRED_SPEED')
         self.add_message_route_to_active_queue('desired_queue', 'DESIRED_HEADING')
 
-        self.add_active_queue('nav_queue', self.on_nav_message)
-        self.add_message_route_to_active_queue('nav_queue', 'NAV_SPEED')
-        self.add_message_route_to_active_queue('nav_queue', 'NAV_HEADING')
+        self.add_active_queue('sensor_queue', self.on_sensor_message)
+        self.add_message_route_to_active_queue('sensor_queue', 'SENSOR_SPEED')
+        self.add_message_route_to_active_queue('sensor_queue', 'SENSOR_HEADING')
 
         self.add_active_queue('ivphelm_queue', self.on_ivphelm_message)
         self.add_message_route_to_active_queue('ivphelm_queue', 'IVPHELM_ALLSTOP')
@@ -77,9 +81,9 @@ class pTrajectPID(pymoos.comms):
         pymoos.set_moos_timewarp(params['MOOSTimeWarp'])
         self.dt=0.1
 
-        dt=self.dt/3
-        self.coursePID = myPID(Kp=params['yaw_kp'], Ki=params['yaw_ki'], Kd=params['yaw_kd'], dt=dt, max_output=params['max_rudder'])
-        self.speedPID = myPID(Kp=params['spd_kp']*2, Ki=params['spd_ki']*5, Kd=params['spd_kd'], dt=dt, max_output=params['max_rotation'])
+        dt=self.dt
+        self.coursePID = myPID(Kp=params['yaw_kp']/5, Ki=params['yaw_ki']/5, Kd=params['yaw_kd']/5, dt=dt, max_output=params['max_rudder'])
+        self.speedPID = myPID(Kp=params['spd_kp'], Ki=params['spd_ki'], Kd=params['spd_kd'], dt=dt, max_output=params['max_rotation'])
 
     def __on_connect(self):
         """OnConnect callback"""
@@ -87,8 +91,8 @@ class pTrajectPID(pymoos.comms):
               "under the name ", self.name)
         return (self.register('DESIRED_SPEED', 0) and
                 self.register('DESIRED_HEADING', 0) and
-                self.register('NAV_SPEED', 0) and
-                self.register('NAV_HEADING', 0) and
+                self.register('SENSOR_SPEED', 0) and
+                self.register('SENSOR_HEADING', 0) and
                 self.register('IVPHELM_ALLSTOP', 0))
 
     def __on_new_mail(self):
@@ -105,11 +109,11 @@ class pTrajectPID(pymoos.comms):
             self.desired_heading = msg.double() # graus
         return True
 
-    def on_nav_message(self, msg):
+    def on_sensor_message(self, msg):
         """Special callback for Sensor"""
-        if msg.key() == 'NAV_SPEED':
+        if msg.key() == 'SENSOR_SPEED':
             self.sensor_speed = msg.double() # m/s
-        elif msg.key() == 'NAV_HEADING':
+        elif msg.key() == 'SENSOR_HEADING':
             self.sensor_heading = msg.double() # graus
         return True
 
@@ -138,7 +142,10 @@ class pTrajectPID(pymoos.comms):
         print(" ")
         print(" ")
         print("pTrajectPID Debug")
-        print(f"Manual= {self.manual}")
+        print(f"P = {self.coursePID.P}")
+        print(f"I = {self.coursePID.I}")
+        print(f"D = {self.coursePID.D}")
+        print(f"rudder = {self.coursePID.P+self.coursePID.I+self.coursePID.D}")
 
 
     def iterate(self):

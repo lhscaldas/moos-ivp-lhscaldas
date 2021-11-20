@@ -1,5 +1,8 @@
+#!/usr/bin/env python3
 from os import name
 import matplotlib.pyplot as plt
+# import matplotlib
+# matplotlib.use('TkAgg')
 
 def LogReader(log_file,var):
     t = []
@@ -73,11 +76,7 @@ def rdr_log(file,var):
     plt.ylabel("ângulo de leme [o]")
     plt.title("Esforço de Controle (leme)")
 
-
-
-if __name__ == "__main__":
-    file='Log/Log.alog'
-
+def complete_PID(file):
     plt.subplot(221)
     rtt_log(file, "DESIRED_ROTATION")
     # plt.axis([0, 1000, -1, 7])
@@ -101,6 +100,24 @@ if __name__ == "__main__":
     # plt.axis([0, 1000, 0, 400])
 
     plt.show()
+
+def speed_sensor_log(file):
+    spd_log(file,"IMU_SPEED")
+    spd_log(file,"GPS_SPEED")
+    spd_log(file,"DVL_SPEED")
+    spd_log(file,"SENSOR_SPEED")
+    spd_log(file,"REAL_SPEED")
+
+
+if __name__ == "__main__":
+    file='missions/EKF/moos/Log/Log.alog'
+    plt.figure()
+    speed_sensor_log(file)
+    plt.legend()
+    plt.show()
+
+
+    
     
 
 

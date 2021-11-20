@@ -23,10 +23,8 @@ ProcessConfig = ANTLER
   Run = uXMS            @ NewConsole = false
   //Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
-  Run = pNodeReporter   @ NewConsole = false
   //Run = ./iPydyna2.py    @ NewConsole = false
   Run = ./iTPN.py    @ NewConsole = false
-  //Run = ./TPNserver.py    @ NewConsole = true
   Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
@@ -37,6 +35,7 @@ ProcessConfig = ANTLER
   //Run = iRemoteMod    @ NewConsole = true
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
   //Run = uProcessWatch  @ NewConsole = false
+  Run = pNodeReporter   @ NewConsole = false
 
    one = --size=800x600
 

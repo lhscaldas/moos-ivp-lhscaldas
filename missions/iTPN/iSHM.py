@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 import pymoos
-import pydyna
 import time
 import sys
 import numpy as np
 import socket
-import threading
+import 
 from MoosReader import MoosReader
 
 class Ship(pymoos.comms):
