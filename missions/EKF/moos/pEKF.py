@@ -7,6 +7,8 @@ from MoosReader import MoosReader
 
 sin = np.sin
 cos = np.cos
+inv = np.linalg.inv
+solve = np.linalg.solve
 rho=1025e-3
 # diâmetros dos propulsores
 D1=0.475
@@ -24,7 +26,7 @@ B = 3.379 # boca
 T = 0.956 # calado
 L = 13.095 # LOA
 # massas e amortecimento
-C2_90  = 3.27607
+C2_90  = 3.27607-3
 C1_180 = 0.10900
 m11=18.79+1.01115
 m22=18.79+10.48726
@@ -88,8 +90,17 @@ class pEKF(pymoos.comms):
         self.beta2 = 0
 
         self.eta_hat = [self.ekf_speed, 0, 0, self.ekf_x, self.ekf_y, np.deg2rad(90-self.ekf_heading)]
-        self.P = np.eye(6)
-        self.Q = 0*np.eye(6)
+        self.P = 1e8*np.ones(6)
+        self.Q = 1e8*np.eye(6)
+        e_IMU_spd = 0.12 ** 2
+        e_IMU_pos = 1.2 ** 2
+        e_IMU_hdg = 0.08 ** 2
+        e_GPS_pos = 1.2 ** 2
+        e_GPS_spd = 0.03 ** 2
+        e_gyro_hdg = 0.25 ** 2
+        e_DVL_spd = 0.002 ** 2
+        self.R = np.diagflat([e_GPS_spd,e_DVL_spd,e_IMU_spd,e_GPS_pos,e_IMU_pos,e_GPS_pos,e_IMU_pos,e_gyro_hdg,e_IMU_hdg])
+        
         
 
         
@@ -142,7 +153,7 @@ class pEKF(pymoos.comms):
     def on_gyro_message(self, msg):
         """Special callback for Desired"""
         if msg.key() == 'GYRO_HEADING':
-            self.gyro_heading = msg.double()
+            self.gyro_heading = np.deg2rad(90 - msg.double())
         return True
 
     def on_imu_message(self, msg):
@@ -154,7 +165,7 @@ class pEKF(pymoos.comms):
         elif msg.key() == 'IMU_Y':
             self.imu_y = msg.double()
         elif msg.key() == 'IMU_HEADING':
-            self.imu_heading = msg.double()
+            self.imu_heading = np.deg2rad(90 - msg.double())
         return True
 
     def on_desired_message(self, msg):
@@ -242,7 +253,20 @@ class pEKF(pymoos.comms):
         return A
 
     def calc_G(self, eta):
-        G=
+        [u, v, r, x, y, psi] = eta
+        return np.array([u,u,u,x,x,y,y,psi,psi])
+
+    def calc_C(self, eta):
+        C = np.zeros((9,6))
+        C[0:3,0]=1
+        C[3:5,3]=1
+        C[5:7,4]=1
+        C[7: ,5]=1
+        return C
+
+    def sensorZ(self):    
+        zk = [self.gps_speed, self.dvl_speed, self.imu_speed, self.gps_x, self.imu_x, self.gps_y, self.imu_y, self.gyro_heading, self.imu_heading]
+        return np.array(zk)
 
     def ekf_predict(self, eta_hat, tau):
         dt = self.dt
@@ -253,11 +277,18 @@ class pEKF(pymoos.comms):
         P_bar = A@P@A.T + Q
         return eta_bar, P_bar
 
-
-
-
+    def ekf_update(self, eta_bar, P_bar):
+        R = self.R
+        G = self.calc_G(eta_bar)
+        C = self.calc_C(eta_bar)
+        z = self.sensorZ()
+        print(P_bar)
+        K = P_bar@C.T@inv(C@P_bar@C.T+R) 
+        eta_hat = eta_bar + K@(z-G)
+        P = (np.eye(6)-K@C)@P_bar
+        return eta_hat, P
     
-    def calculate_heading(self,yaw):
+    def yaw2hdg(self,yaw):
         i = 0
         j = 0
         real_heading = 90 - np.rad2deg(yaw)
@@ -270,10 +301,10 @@ class pEKF(pymoos.comms):
         return real_heading
 
     def set_ekf_var(self):
-        self.ekf_speed = self.eta_bar[0]
-        self.ekf_x = self.eta_bar[3]
-        self.ekf_y = self.eta_bar[4]
-        self.ekf_heading = self.calculate_heading(self.eta_bar[5])
+        self.ekf_speed = self.eta_hat[0]
+        self.ekf_x = self.eta_hat[3]
+        self.ekf_y = self.eta_hat[4]
+        self.ekf_heading = self.yaw2hdg(self.eta_hat[5])
 
     # def model_debug(self):
     #     tau = self.estimate_inputs(self.eta_hat)
@@ -296,7 +327,10 @@ class pEKF(pymoos.comms):
         print(" ")
         print(" ")
         print("pEKF Debug")
-        print(args)
+        print(f"spd = {self.ekf_speed}")
+        print(f"x = {self.ekf_x}")
+        print(f"y = {self.ekf_y}")
+        print(f"hdg = {self.ekf_heading}")
 
     def iterate(self):
         dt = self.dt
@@ -304,19 +338,18 @@ class pEKF(pymoos.comms):
         while True:
             time.sleep(dt_fast_time)
 
-            # Get variables
+            # Get last state and input
             eta_hat = self.eta_hat
             tau = self.estimate_inputs(eta_hat)
             
             # EKF steps
             eta_bar, P_bar = self.ekf_predict(eta_hat, tau)
+            self.eta_hat, self.P = self.ekf_update(eta_bar, P_bar)
             
-            self.eta_hat = eta_bar
-            self.P = P_bar
-            
-            # update and debug
+            # Update and debug
+            self.set_ekf_var()
             # self.update()
-            self.debug(P_bar)
+            self.debug()
 
 
 if __name__ == "__main__":
