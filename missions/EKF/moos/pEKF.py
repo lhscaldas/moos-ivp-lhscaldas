@@ -87,7 +87,9 @@ class pEKF(pymoos.comms):
         self.beta1 = 0
         self.beta2 = 0
 
-        self.eta_bar = [self.ekf_speed, 0, 0, self.ekf_x, self.ekf_y, np.deg2rad(90-self.ekf_heading)]
+        self.eta_hat = [self.ekf_speed, 0, 0, self.ekf_x, self.ekf_y, np.deg2rad(90-self.ekf_heading)]
+        self.P = np.eye(6)
+        self.Q = 1e6*np.eye(6)
         
 
         
@@ -211,7 +213,7 @@ class pEKF(pymoos.comms):
         # return [Tao_u,Tao_v,Tao_r,T1,T2,T3,alfa1,alfa2]
         return [Tao_u,Tao_v,Tao_r]
 
-    def F(self,eta,tau,dt):
+    def calc_F(self,eta,tau,dt):
         [u, v, r, x, y, psi] = eta
         [Tau_u,Tau_v,Tau_r] = tau
         ukp1 = u + (-d11*u*abs(u) + m22*r*v + Tau_u)/m11*dt
@@ -225,6 +227,20 @@ class pEKF(pymoos.comms):
         elif pkp1<0:
             pkp1 = 2*np.pi
         return [ukp1, vkp1, rkp1, xkp1, ykp1, pkp1]
+
+    def calc_A(self,eta,dt):
+        [u, v, r, x, y, psi] = eta
+        A = list()
+        A.append(np.array([-2*d11*u, m22*r, m22*v, 0, 0, 0])*dt/m11)
+        A.append(np.array([-m11*r,-2*d22*v, -m11*u, 0, 0, 0])*dt/m22)
+        A.append(np.array([(m11-m22)*v, (m11-m22)*u, -2*d33*r, 0, 0, 0])*dt/m33)
+        A.append(np.array([cos(psi), -sin(psi), 0, 0, 0, -u*sin(psi)-v*cos(psi)])*dt)
+        A.append(np.array([sin(psi), cos(psi), 0, 0, 0, u*cos(psi)-v*sin(psi)])*dt)
+        A.append(np.array([0, 0, 1, 0, 0, 0])*dt)
+        A=np.array(A)
+        A+=np.eye(6)
+        return A
+
     
     def calculate_heading(self,yaw):
         i = 0
@@ -245,48 +261,57 @@ class pEKF(pymoos.comms):
         self.ekf_heading = self.calculate_heading(self.eta_bar[5])
 
     def model_debug(self):
-        tau = self.estimate_inputs(self.eta_bar)
+        tau = self.estimate_inputs(self.eta_hat)
         print("")
         print(f"Tau_u = {tau[0]}")
         print(f"Tau_v = {tau[1]}")
         print(f"Tau_r = {tau[2]}")
         
         print("")
-        print(f"u = {self.eta_bar[0]}")
-        print(f"v = {self.eta_bar[1]}")
-        print(f"r = {self.eta_bar[2]}")
-        print(f"x = {self.eta_bar[3]}")
-        print(f"y = {self.eta_bar[4]}")
-        print(f"psi = {np.rad2deg(self.eta_bar[5])}")
+        print(f"u = {self.eta_hat[0]}")
+        print(f"v = {self.eta_hat[1]}")
+        print(f"r = {self.eta_hat[2]}")
+        print(f"x = {self.eta_hat[3]}")
+        print(f"y = {self.eta_hat[4]}")
+        print(f"psi = {np.rad2deg(self.eta_hat[5])}")
 
 
-    def debug(self):
+    def debug(self, args=list()):
         print(" ")
         print(" ")
         print(" ")
         print("pEKF Debug")
 
-        self.model_debug()
+        print(args)
 
 
-        # self.set_ekf_var(self.eta_bar)
+
+
         
         
     
-        
-
 
     def iterate(self):
         dt = self.dt
         dt_fast_time = dt/pymoos.get_moos_timewarp()
         while True:
             time.sleep(dt_fast_time)
-            tau = self.estimate_inputs(self.eta_bar)
-            self.eta_bar = self.F(self.eta_bar, tau, 1.5*self.dt)
-                       
 
+            # Get variables
+            eta_hat = self.eta_hat
+            P = self.P
+            Q = self.Q
+            dt = self.dt
+            tau = self.estimate_inputs(self.eta_hat)
+            
+            # EKF steps
+            eta_bar = self.calc_F(eta_hat, tau, dt)
+            A = self.calc_A(eta_hat, dt)
+            P_bar = A@P@A.T + Q
+            
+            # update and debug
             # self.update()
-            self.debug()
+            self.debug(P_bar)
 
 
 if __name__ == "__main__":
