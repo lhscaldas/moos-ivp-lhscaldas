@@ -21,7 +21,7 @@ ProcessConfig = ANTLER
 
   Run = MOOSDB          @ NewConsole = false
   Run = uXMS            @ NewConsole = false
-  Run = pLogger      @ NewConsole = false
+  //Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
   Run = ./iPydyna2.py    @ NewConsole = false
