@@ -1,0 +1,444 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/bin/pSensor"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"ADD_EXECUTABLE",
+			"LINK_DIRECTORIES",
+			"TARGET_LINK_LIBRARIES",
+			"INCLUDE_DIRECTORIES"
+		],
+		"files" : 
+		[
+			"src/pSensor/CMakeLists.txt",
+			"CMakeLists.txt",
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 60,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 57,
+				"parent" : 2
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 59,
+				"parent" : 6
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 32,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -fPIC -g -Wdeprecated-declarations  "
+				},
+				{
+					"backtrace" : 4,
+					"fragment" : "-pthread"
+				},
+				{
+					"fragment" : "-std=gnu++11"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_apputil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_behaviors"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_behaviors-colregs"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_behaviors-marine"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_bhvutil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_contacts"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_encounters"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_evalutil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_genutil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_geometry"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_helmivp"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_ipfview"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_ivpbuild"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_ivpcore"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_ivpsolve"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_logic"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_logutils"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_manifest"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_marineview"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_mbutil"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_obstacles"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_realm"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_ucommand"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_ufield"
+				},
+				{
+					"backtrace" : 5,
+					"path" : "/home/luiz_caldas/moos-ivp/ivp/src/lib_zaicview"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_apputil"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_behaviors"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_behaviors-colregs"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_behaviors-marine"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_behaviors-test"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_bhvutil"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_contacts"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_encounters"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_evalutil"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_genutil"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_geometry"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_helmivp"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_ipfview"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_ivpbuild"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_ivpcore"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_ivpsolve"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_logic"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_logutils"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_manifest"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_marineview"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_mbutil"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_obstacles"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_realm"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_ucommand"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_ufield"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/luiz_caldas/moos-ivp-lhscaldas/src/./lib_zaicview"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/luiz_caldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/luiz_caldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/App/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/luiz_caldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Comms/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/luiz_caldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/DB/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/luiz_caldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Utils/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/luiz_caldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/PocoBits/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/luiz_caldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/getpot/include"
+				},
+				{
+					"backtrace" : 8,
+					"isSystem" : true,
+					"path" : "/home/luiz_caldas/moos-ivp/MOOS/MOOSCore/Core/libMOOS/Thirdparty/AppCasting/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "mbutil::@083f9b0ccc73bdd19e23"
+		}
+	],
+	"id" : "pSensor::@26df0b8f05989a98d751",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-fPIC -g -Wdeprecated-declarations",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-rdynamic",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-L/home/luiz_caldas/moos-ivp/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/luiz_caldas/moos-ivp/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "/home/luiz_caldas/moos-ivp/build/MOOS/MOOSCore/lib/libMOOS.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lapputil",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "/lib/libmbutil.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-pthread",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "pSensor",
+	"nameOnDisk" : "pSensor",
+	"paths" : 
+	{
+		"build" : "src/pSensor",
+		"source" : "src/pSensor"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/pSensor/Sensor.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/pSensor/Sensor_Info.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/pSensor/main.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

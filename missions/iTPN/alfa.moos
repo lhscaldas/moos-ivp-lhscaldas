@@ -10,8 +10,8 @@ Community  = alfa
 MOOSTimeWarp = 10
 
 // Sepetiba
-LatOrigin  = -22.93705
-LongOrigin = -43.83953
+LatOrigin  = -23.125
+LongOrigin = -44.016667
 
 //------------------------------------------
 // Antler configuration  block
@@ -34,9 +34,9 @@ ProcessConfig = ANTLER
   // Run = pSimGyro    @ NewConsole = false
   // Run = pSensor    @ NewConsole = false
   //Run = iRemoteMod    @ NewConsole = true
-  //Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
+  Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
   //Run = uProcessWatch  @ NewConsole = false
-  //Run = pNodeReporter   @ NewConsole = false
+  Run = pNodeReporter   @ NewConsole = false
 
    one = --size=800x600
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import tkinter as tk
 from tkinter import Label, ttk, messagebox
 from tkinter.constants import DOTBOX

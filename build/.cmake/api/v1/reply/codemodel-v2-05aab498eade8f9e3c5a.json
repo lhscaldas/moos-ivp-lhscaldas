@@ -1,0 +1,413 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src"
+				},
+				{
+					"build" : "src/lib_behaviors-test",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/lib_behaviors-test",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "src/lib_mbutil",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/lib_mbutil",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "src/pExampleApp",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pExampleApp",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "src/pXRelayTest",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pXRelayTest",
+					"targetIndexes" : 
+					[
+						12
+					]
+				},
+				{
+					"build" : "src/pSimIMU",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSimIMU",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "src/pSimGPS",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSimGPS",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "src/pSimDVL",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSimDVL",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "src/pSimGyro",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSimGyro",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "src/uSimRadar",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/uSimRadar",
+					"targetIndexes" : 
+					[
+						14
+					]
+				},
+				{
+					"build" : "src/pContactMgrMod",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pContactMgrMod",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "src/uSimLidar",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/uSimLidar",
+					"targetIndexes" : 
+					[
+						13
+					]
+				},
+				{
+					"build" : "src/pTrajectPID",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pTrajectPID",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"build" : "src/pSensor",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/pSensor",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "src/iRemoteMod",
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/iRemoteMod",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "None",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					],
+					"name" : "IVP_EXTEND",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "BHV_DP::@6f5503641cd187e14364",
+					"jsonFile" : "target-BHV_DP-None-121a8bb6c0094e63bb70.json",
+					"name" : "BHV_DP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "BHV_SimpleWaypoint::@6f5503641cd187e14364",
+					"jsonFile" : "target-BHV_SimpleWaypoint-None-f0661c705d8d5ab628f5.json",
+					"name" : "BHV_SimpleWaypoint",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 15,
+					"id" : "iRemoteMod::@bdb99e091a6082ee383d",
+					"jsonFile" : "target-iRemoteMod-None-56646d8155b38ca24307.json",
+					"name" : "iRemoteMod",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "mbutil::@083f9b0ccc73bdd19e23",
+					"jsonFile" : "target-mbutil-None-5fc9d16a40ba11cc8a02.json",
+					"name" : "mbutil",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "pContactMgrMod::@33313ec1b8dc08f6dfee",
+					"jsonFile" : "target-pContactMgrMod-None-14e9d5411a2bfd91b2e4.json",
+					"name" : "pContactMgrMod",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "pExampleApp::@e5cf5f4f18b468902831",
+					"jsonFile" : "target-pExampleApp-None-c1be4b820e48cbca950f.json",
+					"name" : "pExampleApp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 14,
+					"id" : "pSensor::@26df0b8f05989a98d751",
+					"jsonFile" : "target-pSensor-None-8868c3002a41383265c1.json",
+					"name" : "pSensor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "pSimDVL::@c6848fa7486ee529ee00",
+					"jsonFile" : "target-pSimDVL-None-eb439718afd52cdfb88c.json",
+					"name" : "pSimDVL",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "pSimGPS::@c01ec32dfb5f1423f3c0",
+					"jsonFile" : "target-pSimGPS-None-8922dd53944498384d8f.json",
+					"name" : "pSimGPS",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "pSimGyro::@5c2f56628101ece25e78",
+					"jsonFile" : "target-pSimGyro-None-db3c6163a8e5d6895a70.json",
+					"name" : "pSimGyro",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "pSimIMU::@d3f01005184cca5b455a",
+					"jsonFile" : "target-pSimIMU-None-615424d4f6cdeab430de.json",
+					"name" : "pSimIMU",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 13,
+					"id" : "pTrajectPID::@ff1f245faa2754763242",
+					"jsonFile" : "target-pTrajectPID-None-de50581b1cfc657c6c2f.json",
+					"name" : "pTrajectPID",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "pXRelayTest::@c02dfabc4b8e3b7b1d91",
+					"jsonFile" : "target-pXRelayTest-None-2d892687461d7265d086.json",
+					"name" : "pXRelayTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 12,
+					"id" : "uSimLidar::@94c06e78a503cb17326b",
+					"jsonFile" : "target-uSimLidar-None-81b3fe889508159eb506.json",
+					"name" : "uSimLidar",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "uSimRadar::@dc2d15a0b3bac61d5e48",
+					"jsonFile" : "target-uSimRadar-None-eb885e2aafa19ae45112.json",
+					"name" : "uSimRadar",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/luiz_caldas/moos-ivp-lhscaldas/build",
+		"source" : "/home/luiz_caldas/moos-ivp-lhscaldas"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}
