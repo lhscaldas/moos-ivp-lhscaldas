@@ -57,7 +57,7 @@ Behavior = BHV_Waypoint
 
 
 
-polygon = 1219
+polygon = 12850,17329: 13150,17429: 13650,17929: 14436,19243
              repeat = 10000
 
 

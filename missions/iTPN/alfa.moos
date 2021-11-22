@@ -7,7 +7,7 @@ ServerHost = localhost
 ServerPort = 9001
 Community  = alfa
 
-MOOSTimeWarp = 10
+MOOSTimeWarp = 30
 
 // Sepetiba
 LatOrigin  = -23.125
@@ -22,20 +22,20 @@ ProcessConfig = ANTLER
   Run = MOOSDB          @ NewConsole = false
   //Run = uXMS            @ NewConsole = false
   // Run = pLogger      @ NewConsole = false
-  // Run = pHelmIvP        @ NewConsole = false
+  Run = pHelmIvP        @ NewConsole = false
   // Run = ./iPydyna2.py    @ NewConsole = false
   // Run = ./iTPN.py    @ NewConsole = false
-  // Run = ./iSMH.py    @ NewConsole = false
-  // Run = ./pTrajectPID.py @ NewConsole = false
+  Run = ./iSMH.py    @ NewConsole = true
+  Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
-  // Run = pSimIMU   @ NewConsole = false
-  // Run = pSimGPS    @ NewConsole = false
-  // Run = pSimDVL    @ NewConsole = false
-  // Run = pSimGyro    @ NewConsole = false
-  // Run = pSensor    @ NewConsole = false
+  Run = pSimIMU   @ NewConsole = false
+  Run = pSimGPS    @ NewConsole = false
+  Run = pSimDVL    @ NewConsole = false
+  Run = pSimGyro    @ NewConsole = false
+  Run = pSensor    @ NewConsole = false
   //Run = iRemoteMod    @ NewConsole = true
   Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
-  //Run = uProcessWatch  @ NewConsole = false
+  // Run = uProcessWatch  @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
 
    one = --size=800x600
@@ -142,8 +142,8 @@ ProcessConfig = iPydyna
 {
    AppTick   = 4
    CommsTick = 4
-START_X = 900.0 
-START_Y = -900.0 
+START_X = 12626.8
+START_Y = 17331.1
 START_HEADING = 090.0 
 }
 
