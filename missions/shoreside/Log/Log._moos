@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% LOG FILE:       ./Log/Log._moos
 %% FILE OPENED ON  Wed Dec 31 21:00:00 1969
-%% LOGSTART               16361393073.8
+%% LOGSTART               16377713264.6
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
@@ -45,8 +45,8 @@ ProcessConfig = ANTLER
   Run = uFldNodeBroker  @ NewConsole = false
   Run = uTimerScript       @ NewConsole = false ~ uTimerScript_PING
   Run = pContactMgrV20    @ NewConsole = false
-  Run = uSimRadar        @ NewConsole = false
-  Run = uSimLidar        @ NewConsole = false
+  //Run = uSimRadar        @ NewConsole = false
+  //Run = uSimLidar        @ NewConsole = false
 
 }
 

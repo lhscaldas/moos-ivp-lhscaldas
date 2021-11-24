@@ -40,8 +40,8 @@ ProcessConfig = ANTLER
   Run = uFldNodeBroker  @ NewConsole = false
   Run = uTimerScript       @ NewConsole = false ~ uTimerScript_PING
   Run = pContactMgrV20    @ NewConsole = false
-  Run = uSimRadar        @ NewConsole = false
-  Run = uSimLidar        @ NewConsole = false
+  //Run = uSimRadar        @ NewConsole = false
+  //Run = uSimLidar        @ NewConsole = false
 
 }
 

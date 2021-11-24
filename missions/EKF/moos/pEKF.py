@@ -7,6 +7,8 @@ from MoosReader import MoosReader
 
 sin = np.sin
 cos = np.cos
+inv = np.linalg.inv
+solve = np.linalg.solve
 rho=1025e-3
 # diâmetros dos propulsores
 D1=0.475
@@ -24,7 +26,7 @@ B = 3.379 # boca
 T = 0.956 # calado
 L = 13.095 # LOA
 # massas e amortecimento
-C2_90  = 3.27607
+C2_90  = 3.27607-3
 C1_180 = 0.10900
 m11=18.79+1.01115
 m22=18.79+10.48726
@@ -87,7 +89,18 @@ class pEKF(pymoos.comms):
         self.beta1 = 0
         self.beta2 = 0
 
-        self.eta_bar = [self.ekf_speed, 0, 0, self.ekf_x, self.ekf_y, np.deg2rad(90-self.ekf_heading)]
+        self.eta_hat = [self.ekf_speed, 0, 0, self.ekf_x, self.ekf_y, np.deg2rad(90-self.ekf_heading)]
+        self.P = 1e8*np.ones(6)
+        self.Q = 1e8*np.eye(6)
+        e_IMU_spd = 0.12 ** 2
+        e_IMU_pos = 1.2 ** 2
+        e_IMU_hdg = 0.08 ** 2
+        e_GPS_pos = 1.2 ** 2
+        e_GPS_spd = 0.03 ** 2
+        e_gyro_hdg = 0.25 ** 2
+        e_DVL_spd = 0.002 ** 2
+        self.R = np.diagflat([e_GPS_spd,e_DVL_spd,e_IMU_spd,e_GPS_pos,e_IMU_pos,e_GPS_pos,e_IMU_pos,e_gyro_hdg,e_IMU_hdg])
+        
         
 
         
@@ -140,7 +153,7 @@ class pEKF(pymoos.comms):
     def on_gyro_message(self, msg):
         """Special callback for Desired"""
         if msg.key() == 'GYRO_HEADING':
-            self.gyro_heading = msg.double()
+            self.gyro_heading = np.deg2rad(90 - msg.double())
         return True
 
     def on_imu_message(self, msg):
@@ -152,7 +165,7 @@ class pEKF(pymoos.comms):
         elif msg.key() == 'IMU_Y':
             self.imu_y = msg.double()
         elif msg.key() == 'IMU_HEADING':
-            self.imu_heading = msg.double()
+            self.imu_heading = np.deg2rad(90 - msg.double())
         return True
 
     def on_desired_message(self, msg):
@@ -207,11 +220,11 @@ class pEKF(pymoos.comms):
         # calculo das entradas
         Tao_u = T1*cos(alfa1)+T2*cos(alfa2)
         Tao_v = T1*sin(alfa1)+T2*sin(alfa2)+T3
-        Tao_r = -T1*cos(alfa1)*y1-T1*sin(alfa1)*x1+T2*cos(alfa2)*y2-T2*sin(alfa2)*x2-T3*x3
+        Tao_r = T1*cos(alfa1)*y1+T1*sin(alfa1)*x1-T2*cos(alfa2)*y2+T2*sin(alfa2)*x2-T3*x3
         # return [Tao_u,Tao_v,Tao_r,T1,T2,T3,alfa1,alfa2]
         return [Tao_u,Tao_v,Tao_r]
 
-    def F(self,eta,tau,dt):
+    def calc_F(self,eta,tau,dt):
         [u, v, r, x, y, psi] = eta
         [Tau_u,Tau_v,Tau_r] = tau
         ukp1 = u + (-d11*u*abs(u) + m22*r*v + Tau_u)/m11*dt
@@ -225,8 +238,57 @@ class pEKF(pymoos.comms):
         elif pkp1<0:
             pkp1 = 2*np.pi
         return [ukp1, vkp1, rkp1, xkp1, ykp1, pkp1]
+
+    def calc_A(self,eta,dt):
+        [u, v, r, x, y, psi] = eta
+        A = list()
+        A.append(np.array([-2*d11*u, m22*r, m22*v, 0, 0, 0])*dt/m11)
+        A.append(np.array([-m11*r,-2*d22*v, -m11*u, 0, 0, 0])*dt/m22)
+        A.append(np.array([(m11-m22)*v, (m11-m22)*u, -2*d33*r, 0, 0, 0])*dt/m33)
+        A.append(np.array([cos(psi), -sin(psi), 0, 0, 0, -u*sin(psi)-v*cos(psi)])*dt)
+        A.append(np.array([sin(psi), cos(psi), 0, 0, 0, u*cos(psi)-v*sin(psi)])*dt)
+        A.append(np.array([0, 0, 1, 0, 0, 0])*dt)
+        A=np.array(A)
+        A+=np.eye(6)
+        return A
+
+    def calc_G(self, eta):
+        [u, v, r, x, y, psi] = eta
+        return np.array([u,u,u,x,x,y,y,psi,psi])
+
+    def calc_C(self, eta):
+        C = np.zeros((9,6))
+        C[0:3,0]=1
+        C[3:5,3]=1
+        C[5:7,4]=1
+        C[7: ,5]=1
+        return C
+
+    def sensorZ(self):    
+        zk = [self.gps_speed, self.dvl_speed, self.imu_speed, self.gps_x, self.imu_x, self.gps_y, self.imu_y, self.gyro_heading, self.imu_heading]
+        return np.array(zk)
+
+    def ekf_predict(self, eta_hat, tau):
+        dt = self.dt
+        P = self.P
+        Q = self.Q
+        eta_bar = self.calc_F(eta_hat, tau, dt)
+        A = self.calc_A(eta_hat, dt)
+        P_bar = A@P@A.T + Q
+        return eta_bar, P_bar
+
+    def ekf_update(self, eta_bar, P_bar):
+        R = self.R
+        G = self.calc_G(eta_bar)
+        C = self.calc_C(eta_bar)
+        z = self.sensorZ()
+        print(P_bar)
+        K = P_bar@C.T@inv(C@P_bar@C.T+R) 
+        eta_hat = eta_bar + K@(z-G)
+        P = (np.eye(6)-K@C)@P_bar
+        return eta_hat, P
     
-    def calculate_heading(self,yaw):
+    def yaw2hdg(self,yaw):
         i = 0
         j = 0
         real_heading = 90 - np.rad2deg(yaw)
@@ -239,54 +301,59 @@ class pEKF(pymoos.comms):
         return real_heading
 
     def set_ekf_var(self):
-        self.ekf_speed = self.eta_bar[0]
-        self.ekf_x = self.eta_bar[3]
-        self.ekf_y = self.eta_bar[4]
-        self.ekf_heading = self.calculate_heading(self.eta_bar[5])
+        self.ekf_speed = self.eta_hat[0]
+        self.ekf_x = self.eta_hat[3]
+        self.ekf_y = self.eta_hat[4]
+        self.ekf_heading = self.yaw2hdg(self.eta_hat[5])
 
     def model_debug(self):
-        tau = self.estimate_inputs(self.eta_bar)
+        tau = self.estimate_inputs(self.eta_hat)
+        self.eta_hat = self.calc_F(self.eta_hat, tau, self.dt)
         print("")
         print(f"Tau_u = {tau[0]}")
         print(f"Tau_v = {tau[1]}")
         print(f"Tau_r = {tau[2]}")
         
         print("")
-        print(f"u = {self.eta_bar[0]}")
-        print(f"v = {self.eta_bar[1]}")
-        print(f"r = {self.eta_bar[2]}")
-        print(f"x = {self.eta_bar[3]}")
-        print(f"y = {self.eta_bar[4]}")
-        print(f"psi = {np.rad2deg(self.eta_bar[5])}")
+        print(f"u = {self.eta_hat[0]}")
+        print(f"v = {self.eta_hat[1]}")
+        print(f"r = {self.eta_hat[2]}")
+        print(f"x = {self.eta_hat[3]}")
+        print(f"y = {self.eta_hat[4]}")
+        print(f"psi = {self.yaw2hdg(self.eta_hat[5])}")
 
 
-    def debug(self):
+    def debug(self, args=list()):
         print(" ")
         print(" ")
         print(" ")
         print("pEKF Debug")
-
-        self.model_debug()
-
-
-        # self.set_ekf_var(self.eta_bar)
-        
-        
-    
-        
-
+        print(f"spd = {self.ekf_speed}")
+        print(f"x = {self.ekf_x}")
+        print(f"y = {self.ekf_y}")
+        print(f"hdg = {self.ekf_heading}")
 
     def iterate(self):
         dt = self.dt
         dt_fast_time = dt/pymoos.get_moos_timewarp()
         while True:
             time.sleep(dt_fast_time)
-            tau = self.estimate_inputs(self.eta_bar)
-            self.eta_bar = self.F(self.eta_bar, tau, 1.5*self.dt)
-                       
 
-            # self.update()
-            self.debug()
+            # # Get last state and input
+            # eta_hat = self.eta_hat
+            # tau = self.estimate_inputs(eta_hat)
+            
+            # # EKF steps
+            # eta_bar, P_bar = self.ekf_predict(eta_hat, tau)
+            # self.eta_hat, self.P = self.ekf_update(eta_bar, P_bar)
+            
+            # # Update and debug
+            # self.set_ekf_var()
+            # # self.update()
+            # self.debug()
+            self.model_debug()
+            # self.debug()
+
 
 
 if __name__ == "__main__":

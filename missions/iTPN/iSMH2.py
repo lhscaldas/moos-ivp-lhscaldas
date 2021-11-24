@@ -91,8 +91,8 @@ class Ship(pymoos.comms):
 
     def receiveSHM(self):
         self.session.sync(self.navio)
-        self.real_x = self.navio.linear_position[0] - 70
-        self.real_y = self.navio.linear_position[1] + 183
+        self.real_x = self.navio.linear_position[0] - 100
+        self.real_y = self.navio.linear_position[1] + 200
         self.real_heading = self.navio.angular_position[2]
         yaw=-deg2rad(self.real_heading)
         self.real_speed = self.navio.linear_velocity[0]*cos(yaw)-self.navio.linear_velocity[0]*sin(yaw)
@@ -101,19 +101,19 @@ class Ship(pymoos.comms):
         # to SMH
         # print(self.desired_rudder)
         self.session.vessels[1].thrusters[0].dem_rotation = self.desired_rotation*60 # self.session.vessels[0].thrusters[0].max_rotation
-        self.session.sync(self.session.vessels[0].thrusters[0])
+        self.session.sync(self.session.vessels[1].thrusters[0])
         self.session.vessels[1].thrusters[1].dem_rotation = self.desired_rotation*60 # self.session.vessels[0].thrusters[1].max_rotation
-        self.session.sync(self.session.vessels[0].thrusters[1])
+        self.session.sync(self.session.vessels[1].thrusters[1])
         self.session.vessels[1].rudders[0].dem_angle = -self.desired_rudder
-        self.session.sync(self.session.vessels[0].rudders[0])
+        self.session.sync(self.session.vessels[1].rudders[0])
         self.session.vessels[1].rudders[1].dem_angle = -self.desired_rudder
         self.session.sync(self.session.vessels[1].rudders[1])
 
     def debug(self):
-        if len(self.session.vessels)>0:
+        if len(self.session.vessels)>1:
             self.session.sync(self.session.vessels[1])
             # print(self.session.vessels[0].linear_velocity[0])
-            print(self.session.vessels[0].linear_velocity[0])
+            # print(self.session.vessels[1].linear_velocity[0])
         #     self.session.vessels[0].thrusters[0].dem_rotation = self.session.vessels[0].thrusters[0].max_rotation
         #     self.session.sync(self.session.vessels[0].thrusters[0])
         #     self.session.vessels[0].thrusters[1].dem_rotation = self.session.vessels[0].thrusters[1].max_rotation
@@ -125,13 +125,13 @@ class Ship(pymoos.comms):
         dt_fast_time = dt/pymoos.get_moos_timewarp()
         while True:
             time.sleep(dt_fast_time)
-            if len(self.session.vessels)>0:
-                self.navio = self.session.vessels[0]
+            if len(self.session.vessels)>1:
+                self.navio = self.session.vessels[1]
             if self.navio:
                 try:
                     self.receiveSHM()
                     self.updateMOOS()
-                    self.updateSMH()
+                    # self.updateSMH()
                 except pybuzz.exception as e:
                     print (e)
                 except:
@@ -142,9 +142,15 @@ class Ship(pymoos.comms):
     # def on_state_changed(self, state):
     #     # write code to run when the simulation starts
     #     if state == pybuzz.RUNNING:
-    #         print('Simulation is running!')
-    #         self.ready.set()
-
+    #         print('Simulation is running!') print(self.desired_rudder)
+        self.session.vessels[1].thrusters[0].dem_rotation = self.desired_rotation*60 # self.session.vessels[0].thrusters[0].max_rotation
+        self.session.sync(self.session.vessels[1].thrusters[0])
+        self.session.vessels[1].thrusters[1].dem_rotation = self.desired_rotation*60 # self.session.vessels[0].thrusters[1].max_rotation
+        self.session.sync(self.session.vessels[1].thrusters[1])
+        self.session.vessels[1].rudders[0].dem_angle = -self.desired_rudder
+        self.session.sync(self.session.vessels[1].rudders[0])
+        self.session.vessels[1].rudders[1].dem_angle = -self.desired_rudder
+        self.session.sync(self.session.vessels[1].rudders[1])
         
 if __name__ == "__main__":
     # try:

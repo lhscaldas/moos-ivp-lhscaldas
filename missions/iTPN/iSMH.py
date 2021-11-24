@@ -106,8 +106,8 @@ class Ship(pymoos.comms):
 
     def receiveSHM(self):
         self.session.sync(self.navio)
-        self.real_x = self.navio.linear_position[0] - 70
-        self.real_y = self.navio.linear_position[1] + 183
+        self.real_x = self.navio.linear_position[0] - 100
+        self.real_y = self.navio.linear_position[1] + 200
         self.real_heading = self.navio.angular_position[2]
         yaw=-deg2rad(self.real_heading)
         self.real_speed = self.navio.linear_velocity[0]*cos(yaw)-self.navio.linear_velocity[0]*sin(yaw)
@@ -160,8 +160,12 @@ class Ship(pymoos.comms):
                         print(e)
             # self.debug()
 
-    # def on_state_changed(self, state):
-    #     # write code to run when the simulation starts
+2
+2
+2
+2
+2
+2
     #     if state == pybuzz.RUNNING:
     #         print('Simulation is running!')
     #         self.ready.set()

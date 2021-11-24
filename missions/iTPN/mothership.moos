@@ -25,37 +25,9 @@ ProcessConfig = ANTLER
   Run = pHostInfo       @ NewConsole = false
   Run = uFldShoreBroker @ NewConsole = false
   Run = uXMS            @ NewConsole = false
-  Run = pContactMgrV20     @ NewConsole = false
+  Run = uFldNodeComms      @ NewConsole = false
 
   one = --size=800x600
-}
-
-//------------------------------------------------------
-// uSimMarine Configuration Block  (Created from plugin)
-
-ProcessConfig = uSimMarine
-{
-  AppTick   = 4
-  CommsTick = 4
-
-  START_POS = 700,-950, 0, 0
-  PREFIX    = NAV
-}
-
-//------------------------------------------
-// pNodeReporter config block
-
-ProcessConfig = pNodeReporter
-{
-  AppTick    = 2
-  CommsTick	 = 2
-
-  platform_type   = KAYAK
-  platform_color  = gray
-  platform_length = 150
-  //alt_nav_prefix=REAL_
-  //alt_nav_name   = _REAL
-  //cross_fill_policy=fill-empty
 }
 
 //------------------------------------------
@@ -168,47 +140,6 @@ ProcessConfig = pMarineViewer
   infocast_viewable=true
 }
 
-//---------------------------------------------------------
-// uSimRadar Config Block
-ProcessConfig = uSimRadar
-{
-  AppTick   = 4
-  CommsTick = 4
-
-  push_distance = bravo = 50
-  push_distance = alfa = 50
-  push_distance = mother = 200
-  ping_wait     = alfa = 32  
-  ping_color    = white
-  echo_color    = chartreuse
-
-  report_vars   = both
-
-  // Configuring Artificial Noise                               
-  rn_algorithm   = uniform,pct=0.04
-
-}
-
-//---------------------------------------------------------
-// uSimRadar Config Block
-ProcessConfig = uSimLidar
-{
-  AppTick   = 4
-  CommsTick = 4
-
-  push_distance = bravo = 50
-  push_distance = alfa = 50
-  push_distance = mother = 200
-  ping_wait     = alfa = 32  
-  ping_color    = white
-  echo_color    = chartreuse
-
-  report_vars   = both
-
-  // Configuring Artificial Noise                               
-  rn_algorithm   = uniform,pct=0.04
-
-}
 
 //--------------------------------------------------
 // uFldNodeComms Configuration Block
@@ -224,16 +155,4 @@ ProcessConfig = uFldNodeComms
         max_msg_length = 1000
                 groups = true
   view_node_rpt_pulses = false
-}
-
-//--------------------------------------------------------
-// pContactMgrV20 Configuration Block (Created from Plugin)
-
-ProcessConfig = pContactMgrV20
-{
-  AppTick   = 2
-  CommsTick = 2
-
-  contact_max_age = 600
-  display_radii   = false
 }
