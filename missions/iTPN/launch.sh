@@ -7,7 +7,7 @@
 #  Part 1: Set Exit actions and declare global var defaults
 #----------------------------------------------------------
 trap "kill -- -$$" EXIT SIGTERM SIGHUP SIGINT SIGKILL
-TIME_WARP=1
+TIME_WARP=30
 COMMUNITY="alpha"
 GUI="yes"
 
@@ -38,6 +38,8 @@ echo "Launching All MOOS Communities with WARP:" $TIME_WARP
  conda activate tcc
  
  # gnome-terminal -- ./TPNserver.py
+
+ pAntler mothership.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
 
  pAntler alfa.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
 

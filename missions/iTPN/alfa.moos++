@@ -1,6 +1,6 @@
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
-// FILE: main.moos
+// FILE: alfa.moos
 //-------------------------------------------------
 
 ServerHost = localhost
@@ -8,8 +8,8 @@ ServerPort = 9001
 Community  = alfa
 
 //----  Next Line was commented and replaced with a command line overload ---- //
-//MOOSTimeWarp = 30    (default)
-MOOSTimeWarp = 1
+//MOOSTimeWarp = 10    (default)
+MOOSTimeWarp = 30
 
 // Sepetiba
 LatOrigin  = -23.125
@@ -25,9 +25,8 @@ ProcessConfig = ANTLER
   //Run = uXMS            @ NewConsole = false
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
-  // Run = ./iPydyna2.py    @ NewConsole = false
-  // Run = ./iTPN.py    @ NewConsole = false
-  Run = ./iSMH.py    @ NewConsole = true
+  Run = ./iPydyna2.py    @ NewConsole = false
+  // Run = ./iSMH.py    @ NewConsole = true
   Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
@@ -36,9 +35,13 @@ ProcessConfig = ANTLER
   Run = pSimGyro    @ NewConsole = false
   Run = pSensor    @ NewConsole = false
   //Run = iRemoteMod    @ NewConsole = true
-  Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
+  //Run = pMarineViewer   @ NewConsole = false, ExtraProcessParams=one
   // Run = uProcessWatch  @ NewConsole = false
   Run = pNodeReporter   @ NewConsole = false
+
+  Run = pShare @ NewConsole = false
+  Run = pHostInfo       @ NewConsole = false
+  Run = uFldNodeBroker  @ NewConsole = false
 
    one = --size=800x600
 
@@ -335,6 +338,50 @@ ProcessConfig = pContactMgrV20
   cpa_range_color   = gray30
 
 
+}
+
+//--------------------------------------------------
+// pHostInfo configuration block
+
+ProcessConfig = pHostInfo
+{
+  AppTick 	= 1
+  CommsTick 	= 1
+
+   default_hostip_force = localhost
+
+}
+
+//--------------------------------------------------
+// uFldNodeBroker configuration block from plugin
+
+ProcessConfig = uFldNodeBroker
+{
+  AppTick   = 1
+  CommsTick = 1
+
+  try_shore_host = pshare_route=localhost:9200
+
+  bridge = src=VIEW_POLYGON
+  bridge = src=VIEW_POINT
+  bridge = src=VIEW_SEGLIST
+  bridge = src=APPCAST
+  bridge = src=NODE_REPORT_LOCAL,  alias=NODE_REPORT
+  bridge = src=NODE_MESSAGE_LOCAL, alias=NODE_MESSAGE
+  //bridge =  src=USL_RANGE_REQUEST
+  //bridge =  src=USR_RANGE_REQUEST
+}
+
+
+//---------------------------------------------------------
+// pShare Config Block
+
+ProcessConfig = pShare
+{
+  AppTick    = 2
+  CommsTick  = 2
+
+  input = route =  localhost:9201
 }
 
 
