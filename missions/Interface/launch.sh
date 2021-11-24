@@ -39,8 +39,6 @@ echo "Launching All MOOS Communities with WARP:" $TIME_WARP
 
  pAntler mothership.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
  pAntler alfa.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null & 
- pAntler bravo.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null & 
- pAntler charlie.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null & 
 
 
  uMAC -t mothership.moos

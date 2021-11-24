@@ -10,8 +10,8 @@ Community  = mothership
 MOOSTimeWarp = 10
 
 // Sepetiba
-LatOrigin = -22.9269 
-LongOrigin = -43.867 
+LatOrigin = -23.125 
+LongOrigin = -44.016667 
 
 //------------------------------------------
 // Antler configuration  block

@@ -4,8 +4,8 @@
 //-------------------------------------------------
 
 ServerHost = localhost
-ServerPort = 9001
-Community  = alfa
+ServerPort = 9002
+Community  = bravo
 
 MOOSTimeWarp = 10
 
@@ -24,7 +24,7 @@ ProcessConfig = ANTLER
   // Run = pLogger      @ NewConsole = false
   Run = pHelmIvP        @ NewConsole = false
   Run = ./iPydyna2.py    @ NewConsole = false
-  //Run = ./iSMH.py    @ NewConsole = true
+  //Run = ./iSMH2.py    @ NewConsole = true
   Run = ./pTrajectPID.py @ NewConsole = false
   // Run = ./plotter.py    @ NewConsole = false
   Run = pSimIMU   @ NewConsole = false
@@ -251,7 +251,7 @@ ProcessConfig = pLogger
   Log = DESIRED_RUDDER @ 0 NOSYNC
 
 
-  File = Log
+  File = LogB
   FileTimeStamp = false
 
   //Log = DESIRED_HEADING @ 0 NOSYNC
@@ -379,6 +379,6 @@ ProcessConfig = pShare
   AppTick    = 2
   CommsTick  = 2
 
-  input = route =  localhost:9201
+  input = route =  localhost:9202
 }
 

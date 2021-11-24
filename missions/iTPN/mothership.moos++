@@ -9,7 +9,7 @@ Community  = mothership
 
 //----  Next Line was commented and replaced with a command line overload ---- //
 //MOOSTimeWarp = 10    (default)
-MOOSTimeWarp = 30
+MOOSTimeWarp = 10
 
 // Sepetiba
 LatOrigin  = -23.125

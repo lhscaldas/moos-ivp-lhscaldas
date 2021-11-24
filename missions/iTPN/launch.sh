@@ -7,7 +7,7 @@
 #  Part 1: Set Exit actions and declare global var defaults
 #----------------------------------------------------------
 trap "kill -- -$$" EXIT SIGTERM SIGHUP SIGINT SIGKILL
-TIME_WARP=30
+TIME_WARP=10
 COMMUNITY="alpha"
 GUI="yes"
 
@@ -43,4 +43,6 @@ echo "Launching All MOOS Communities with WARP:" $TIME_WARP
 
  pAntler alfa.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
 
- uMAC -t alfa.moos
+ pAntler bravo.moos --MOOSTimeWarp=$TIME_WARP >& /dev/null &
+
+ uMAC -t mothership.moos

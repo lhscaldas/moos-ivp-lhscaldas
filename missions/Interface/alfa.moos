@@ -1,6 +1,6 @@
 //-------------------------------------------------
 // NAME: L. H. S. Caldas, USP
-// FILE: main.moo
+// FILE: main.moos
 //-------------------------------------------------
 
 ServerHost = localhost
@@ -10,8 +10,8 @@ Community  = alfa
 MOOSTimeWarp = 10
 
 // Sepetiba
-LatOrigin = -22.9269 
-LongOrigin = -43.867 
+LatOrigin = -23.125 
+LongOrigin = -44.016667 
 
 //------------------------------------------
 // Antler configuration  block
@@ -151,8 +151,8 @@ ProcessConfig = iPydyna
 {
    AppTick   = 4
    CommsTick = 4
-START_X = 1725.0 
-START_Y = -1485.0 
+START_X = 12405.0 
+START_Y = 17160.0 
 START_HEADING = 0.0 
 }
 

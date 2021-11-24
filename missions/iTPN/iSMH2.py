@@ -49,10 +49,8 @@ class Ship(pymoos.comms):
         self.session.initialize()
         self.session.is_publisher(pybuzz.rudder_tag(), pybuzz.rudder_tag.SMH_DEMANDED_ANGLE)
         self.session.is_publisher(pybuzz.thruster_tag(), pybuzz.thruster_tag.SMH_DEMANDED_ROTATION)
-        # self.ready = Event()
         self.session.connect(self.server_addr)
         self.navio = []
-        # self.ready.wait()
 
 
     def __on_connect(self):
@@ -91,19 +89,6 @@ class Ship(pymoos.comms):
         self.sendMOSS('NAV_X', self.real_x)
         self.sendMOSS('NAV_Y', self.real_y)
 
-    # def calculate_heading(self,yaw):
-    #     real_heading = 0
-    #     i = 0
-    #     j = 0
-    #     real_heading = 90 - np.rad2deg(yaw)
-    #     if real_heading < 0:
-    #         i = abs(real_heading) // 360 + 1
-    #         real_heading += 360*i
-    #     if real_heading > 360:
-    #         j = abs(real_heading) // 360
-    #         real_heading -= 360*j
-    #     return real_heading
-
     def receiveSHM(self):
         self.session.sync(self.navio)
         self.real_x = self.navio.linear_position[0] - 70
@@ -115,24 +100,18 @@ class Ship(pymoos.comms):
     def updateSMH(self):    
         # to SMH
         # print(self.desired_rudder)
-        self.session.vessels[0].thrusters[0].dem_rotation = self.desired_rotation*60 # self.session.vessels[0].thrusters[0].max_rotation
+        self.session.vessels[1].thrusters[0].dem_rotation = self.desired_rotation*60 # self.session.vessels[0].thrusters[0].max_rotation
         self.session.sync(self.session.vessels[0].thrusters[0])
-        self.session.vessels[0].thrusters[1].dem_rotation = self.desired_rotation*60 # self.session.vessels[0].thrusters[1].max_rotation
+        self.session.vessels[1].thrusters[1].dem_rotation = self.desired_rotation*60 # self.session.vessels[0].thrusters[1].max_rotation
         self.session.sync(self.session.vessels[0].thrusters[1])
-        self.session.vessels[0].rudders[0].dem_angle = -self.desired_rudder
+        self.session.vessels[1].rudders[0].dem_angle = -self.desired_rudder
         self.session.sync(self.session.vessels[0].rudders[0])
-        self.session.vessels[0].rudders[1].dem_angle = -self.desired_rudder
-        self.session.sync(self.session.vessels[0].rudders[1])
+        self.session.vessels[1].rudders[1].dem_angle = -self.desired_rudder
+        self.session.sync(self.session.vessels[1].rudders[1])
 
     def debug(self):
-        # print(f"REAL X = {self.real_x}")
-        # print(f"REAL Y = {self.real_y}")
-        # print(f"REAL HEADING = {self.real_heading}")
-        # print(f"REAL SPEED = {self.real_speed}")
-        # print(f"DESIRED ROTATION = {self.desired_rotation}")
-        # print(f"DESIRED RUDDER = {self.desired_rudder}")
         if len(self.session.vessels)>0:
-            self.session.sync(self.session.vessels[0])
+            self.session.sync(self.session.vessels[1])
             # print(self.session.vessels[0].linear_velocity[0])
             print(self.session.vessels[0].linear_velocity[0])
         #     self.session.vessels[0].thrusters[0].dem_rotation = self.session.vessels[0].thrusters[0].max_rotation
