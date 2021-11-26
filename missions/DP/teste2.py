@@ -13,30 +13,30 @@ import pandas as pd
 
 # %%
 # %%
-my_dyna = pydyna.create_simulation("PSV4500.p3d")
-my_dyna.reset()
-my_vessel = my_dyna.vessels['207']
-my_thrusters = list(my_vessel.thrusters)
-my_vessel.linear_position = [0.0, 0.0, -6.6]
-my_vessel.angular_position = [0.0, 0.0, 0.0]
-print(my_vessel.linear_position)
-print(my_vessel.angular_position)
-print(my_thrusters)
-my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/PSV4500.p3d", 207)
-
-
-# my_dyna = pydyna.create_simulation("NACMM_2021.p3d")
+# my_dyna = pydyna.create_simulation("PSV4500.p3d")
 # my_dyna.reset()
-# my_vessel = my_dyna.vessels['292']
+# my_vessel = my_dyna.vessels['207']
 # my_thrusters = list(my_vessel.thrusters)
-# my_vessel._set_linear_position([0.0, 0.0, -1.0])
-# my_vessel._set_angular_position([0.0, 0.0, 0.0])
-# my_vessel._set_linear_velocity([0.0, 0.0, 0.0])
-# my_vessel._set_angular_velocity([0.0, 0.0, 0.0])
+# my_vessel.linear_position = [0.0, 0.0, -6.6]
+# my_vessel.angular_position = [0.0, 0.0, 0.0]
 # print(my_vessel.linear_position)
 # print(my_vessel.angular_position)
 # print(my_thrusters)
-# my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/NACMM_2021.p3d", 292)
+# my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/PSV4500.p3d", 207)
+
+
+my_dyna = pydyna.create_simulation("NACMM_2021.p3d")
+my_dyna.reset()
+my_vessel = my_dyna.vessels['292']
+my_thrusters = list(my_vessel.thrusters)
+my_vessel._set_linear_position([0.0, 0.0, -1.0])
+my_vessel._set_angular_position([0.0, 0.0, 0.0])
+my_vessel._set_linear_velocity([0.0, 0.0, 0.0])
+my_vessel._set_angular_velocity([0.0, 0.0, 0.0])
+print(my_vessel.linear_position)
+print(my_vessel.angular_position)
+print(my_thrusters)
+my_dp = inhousedp.InhouseDP("/home/lhscaldas/moos-ivp-lhscaldas/missions/DP/NACMM_2021.p3d", 292)
 
 
 # %%
